@@ -1,7 +1,5 @@
 # **Introduction à Python**
 
-*Pour les étudiants de 2ᵉ année en technique informatique (Cégep)*
-
 Python est un langage de programmation polyvalent, apprécié pour sa simplicité et sa lisibilité. Contrairement à Java ou
 C, qui sont des langages compilés, Python est **interprété**, ce qui signifie que le code est exécuté ligne par ligne.
 Cela le rend idéal pour le prototypage rapide, les scripts et l'enseignement.
@@ -64,8 +62,8 @@ L'interpréteur Python peut servir de calculatrice avancée :
 
 Contrairement à certains langages, Python gère les grands entiers sans perte de précision :
 
-```python
->> > 123456789012345678901234567890
+```text
+>>> 123456789012345678901234567890
 123456789012345678901234567890
 ```
 

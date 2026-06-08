@@ -46,8 +46,9 @@ En Python, `self` est le **premier paramètre des méthodes d'instance** :
 
 ### **b) Comparaison avec `this` en Java**
 
-En Java, `this` est implicite, il ne faut pas le déclarer explicitement dans els signatures de méthodes, tandis que
-`self` est obligatoire en Python. Techniquement, on pourrait utiliser n'importe quel identificateur valide pour désigner
+En Java, `this` est implicite, il ne faut pas le déclarer explicitement dans les signatures de méthodes, tandis que
+`self` est obligatoire dans les signatures de méthodes d'instance en Python. Techniquement, on pourrait utiliser
+n'importe quel identificateur valide pour désigner
 l'objet courant, mais `self` est la convention la plus courante. Si vous utilisez autre chose que `self`, comme `abcd`
 par exemple, le code fonctionnera correctement, mais il est plus facile de lire le code si vous utilisez `self`, car
 c'est la convention la plus courante. Si vous utilisez autre chose que `self`, votre code aura de grandes chances d'être
@@ -60,7 +61,7 @@ rejeté par les développeurs Python.
 - En Python, `self` est obligatoire pour référer aux attributs de l'objet courant.
 
 !!! not "📌 **Astuce**"
-Pensez à `self` comme un "pointeur vers l'objet courant", similaire à `this` en Java !
+    Pensez à `self` comme un "pointeur vers l'objet courant", similaire à `this` en Java !
 
 ---
 
@@ -167,7 +168,7 @@ print(compte._CompteBancaire__mot_de_passe)  # "1234" → Name mangling
     Nous verrons plus tard comment mieux encapsuler les données sensibles en utilisant des propriétés et des méthodes
     spéciales. Les propriétés permettent de contrôler l'accès aux attributs privés et de personnaliser leur comportement
     lors de l'accès ou de la modification.
-    
+
     Les propriétés sont des méthodes spéciales qui permettent de personnaliser l'accès aux attributs d'un objet. Elles sont
     définies en utilisant des décorateurs (`@property`, `@nom.setter`, `@nom.deleter`) et permettent de contrôler la
     lecture, l'écriture et la suppression des attributs.

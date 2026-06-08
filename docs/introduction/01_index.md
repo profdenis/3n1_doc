@@ -1,9 +1,4 @@
-Voici une proposition de notes de cours structurées pour ton introduction. Elles sont conçues pour être projetées ou
-distribuées, avec un ton qui invite à la réflexion plutôt qu'à la simple mémorisation.
-
----
-
-# Introduction à la Programmation Orientée Objet (POO 2)
+# Introduction au cours de Programmation Orientée Objet 2
 
 ## De la Taxonomie à l'Ingénierie des Systèmes
 
@@ -34,13 +29,13 @@ deux courants de pensée majeurs.
 
 !!! note "Note importante"
     Le courant de la "Hiérarchie" a dominé l'industrie pendant des décennies. C'est ce que la
-    plupart des gens appellent "faire de l'OO". Mais cette vision a ses limites face à la complexité moderne.
+    plupart des gens appellent _"faire de l'OO"_. Mais cette vision a ses limites face à la complexité moderne.
 
 ---
 
 ### 3. Le Mythe : OO $\neq$ Héritage
 
-Une erreur commune est de croire que l'Orienté-Objet se résume à créer des arbres d'héritage complexes.
+Une erreur commune est de croire que l'_Orienté-Objet_ se résume à créer des arbres d'héritage complexes.
 
 * **L'Héritage (*Is-a*) :** "Un Chien **est un** Animal". C'est une relation de parenté rigide.
 * **La Composition (*Has-a*) :** "Une Voiture **a un** Moteur". C'est une relation d'assemblage.
@@ -95,9 +90,8 @@ Le monde logiciel actuel ne se limite plus à l'OO pur. Nous allons naviguer ent
 ---
 
 !!! note "Sagesse populaire"
-    *« La complexité est inévitable, mais le chaos est optionnel. »*
-    
+    **_« La complexité est inévitable, mais le chaos est optionnel. »_**
 
-Le monde du logiciel est complexe. Vous ne pourrez jamais construire quelque chose de simple. Mais vous avez le choix :
-soit vous laissez cette complexité devenir un chaos qui rendra votre vie impossible, soit vous utilisez les outils (
-SOLID, Composition, Tests) pour dompter ce chaos et transformer la complexité en un système organisé.
+    Le monde du logiciel est complexe. Vous ne pourrez jamais construire quelque chose de simple. Mais vous avez le choix :
+    soit vous laissez cette complexité devenir un chaos qui rendra votre vie impossible, soit vous utilisez les outils (
+    SOLID, Composition, Tests) pour dompter ce chaos et transformer la complexité en un système organisé.
