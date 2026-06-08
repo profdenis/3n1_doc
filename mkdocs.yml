@@ -1,78 +1,45 @@
-site_name: Cours de programmation en sciences
-site_url: https://profdenis.github.io/sn1_doc
-repo_name: profdenis/sn1_doc
-repo_url: https://github.com/profdenis/sn1_doc
+site_name: Cours de programmation orientée objet 2
+site_url: https://profdenis.github.io/3n1_doc
+repo_name: profdenis/3n1_doc
+repo_url: https://github.com/profdenis/3n1_doc
 nav:
   - Accueil: index.md
-  - Introduction:
-    - introduction/index.md
-    - 2. Histoire de la programmation: introduction/histoire.md
-    - introduction/algorithmes.md
-    - introduction/exécution.md
-  - Section 1:
-    - section1/01_affichage.md
-    - section1/02_entrées.md
-    - section1/03_modules.md
-    - section1/04_fonctions.md
-    - Exercices:
-      - section1/exercices/01_exercices.md
-      - section1/exercices/02_exercices.md
-      - section1/exercices/03_exercices.md
-      - section1/exercices/04_exercices.md
-    - Corrigés:
-      - section1/corrigés/01_corrigés.md
-      - section1/corrigés/02_corrigés.md
-      - section1/corrigés/03_corrigés.md
-      - section1/corrigés/04_corrigés.md
-  - Section 2:
-    - section2/01_bool.md
-    - section2/02_conditionnelles.md
+  - Intro:
+    - introduction/01_index.md
+    - introduction/02_transition.md
+  - 1. Python (bases):
+    - section1/01_survol_python.md
+    - section1/02_exercices1.md
+    - section1/03_exercices2.md
+    - section1/04_comprehensions.md
+    - section1/05_exercices3.md
+    - section1/06_chaines.md
+    - section1/07_exercices4.md
+    - section1/08_fonctions.md
+    - section1/09_exercices5.md
+  - 2. Python (bases OO):
+    - section2/01_bases.md
+    - section2/02_heritage.md
     - section2/03_match.md
-    - section2/04_while.md
-    - section2/05_for.md
-    - section2/06_structures-imbriquées.md
-    - Exercices:
-      - section2/exercices/01_exercices.md
-      - section2/exercices/02_exercices.md
-      - section2/exercices/03_exercices.md
-      - section2/exercices/04_exercices.md
-      - section2/exercices/05_exercices.md
-      - section2/exercices/06_exercices.md
-    - Corrigés:
-      - section2/corrigés/01_corrigés.md
-      - section2/corrigés/02_corrigés.md
-      - section2/corrigés/03_corrigés.md
-      - section2/corrigés/04_corrigés.md
-      - section2/corrigés/05_corrigés.md
-      - section2/corrigés/06_corrigés.md
-  - Section 3:
-    - section3/01_exceptions.md
-    - section3/02_listes.md
-    - section3/03_chaines.md
-    - section3/04_fichiers.md
-    - section3/05_dictionnaires.md
-    - Exercices:
-      - section3/exercices/01_exercices.md
-      - section3/exercices/02_exercices.md
-      - section3/exercices/03_exercices.md
-      - section3/exercices/04_exercices.md
-      - section3/exercices/05_exercices.md
-    - Corrigés:
-      - section3/corrigés/01_corrigés.md
-      - section3/corrigés/02_corrigés.md
-      - section3/corrigés/03_corrigés.md
-      - section3/corrigés/04_corrigés.md
-      - section3/corrigés/05_corrigés.md
-  - Section 4:
-    - section4/01_numpy.md
-    - section4/02_pyplot.md
-    - Exercices:
-      - section4/exercices/01_exercices.md
-      - section4/exercices/02_exercices.md
-    - Corrigés:
-      - section4/corrigés/01_corrigés.md
-      - section4/corrigés/02_corrigés.md
-
+    - section2/04_polymorphisme.md
+    - section2/05_exercices.md
+  - 3. Encapsulation et intégrité :
+    - section3/01_static.md
+    - section3/02_proprietes.md
+    - section3/03_types.md
+    - section3/04_exceptions.md
+    - section3/05_dbc.md
+    - section3/06_pytest.md
+    - section3/07_dbc_pytest.md
+    - section3/08_encapsulation.md
+  - 4. Python (OO avancé):
+    - section4/01_bases.md
+  - 5. Qt et PySide6:
+    - section5/01_bases.md
+  - 6. Patrons de conception:
+    - section6/01_bases.md
+  - 7. Pygame:
+    - section7/01_bases.md
 
 theme:
   name: material
@@ -151,7 +118,6 @@ markdown_extensions:
 
 extra_javascript:
   - javascripts/config.js
-  - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
   - javascripts/mathjax.js
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
