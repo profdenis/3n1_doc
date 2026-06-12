@@ -5,41 +5,65 @@ repo_url: https://github.com/profdenis/3n1_doc
 nav:
   - Accueil: index.md
   - Intro:
-    - introduction/01_index.md
-    - introduction/02_transition.md
+      - introduction/01_index.md
+      - introduction/02_transition.md
   - 1. Python (bases):
-    - section1/01_survol_python.md
-    - section1/02_exercices1.md
-    - section1/03_exercices2.md
-    - section1/04_comprehensions.md
-    - section1/05_exercices3.md
-    - section1/06_chaines.md
-    - section1/07_exercices4.md
-    - section1/08_fonctions.md
-    - section1/09_exercices5.md
+      - section1/01_survol_python.md
+      - section1/02_exercices1.md
+      - section1/03_exercices2.md
+      - section1/04_comprehensions.md
+      - section1/05_exercices3.md
+      - section1/06_chaines.md
+      - section1/07_exercices4.md
+      - section1/08_fonctions.md
+      - section1/09_exercices5.md
   - 2. Python (bases OO):
-    - section2/01_bases.md
-    - section2/02_heritage.md
-    - section2/03_match.md
-    - section2/04_polymorphisme.md
-    - section2/05_exercices.md
-  - 3. Encapsulation et intégrité :
-    - section3/01_static.md
-    - section3/02_proprietes.md
-    - section3/03_types.md
-    - section3/04_exceptions.md
-    - section3/05_dbc.md
-    - section3/06_pytest.md
-    - section3/07_dbc_pytest.md
-    - section3/08_encapsulation.md
-  - 4. Python (OO avancé):
-    - section4/01_bases.md
-  - 5. Qt et PySide6:
-    - section5/01_bases.md
+      - section2/01_bases.md
+      - section2/02_heritage.md
+      - section2/03_match.md
+      - section2/04_polymorphisme.md
+      - section2/05_exercices.md
+  - 3. Qt et PySide6:
+      - A. Introduction:
+        - section3/A_intro/01_hello_world.md
+        - section3/A_intro//02_signal_slot.md
+        - section3/A_intro//03_agencements.md
+        - section3/A_intro//04_widgets.md
+        - section3/A_intro//05_exemples_box_layouts.md
+        - section3/A_intro//06_exemples_grid_layout.md
+        - section3/A_intro//07_exemple_formulaire.md
+      - B. Signaux et Slots:
+        - section3/B_signaux/01_bouton.md
+        - section3/B_signaux/02_synchro.md
+        - section3/B_signaux/03_signal_perso.md
+        - section3/B_signaux/04_form.md
+      - C. Menus et Dialogues:
+        - section3/C_menus/01_intro.md
+        - section3/C_menus/02_editeur1.md
+        - section3/C_menus/03_editeur2.md
+        - section3/C_menus/04_editeur3.md
+        - section3/C_menus/05_editeur4.md
+        - section3/C_menus/06_editeur5.md
+      - D. Événements:
+        - section3/D_evenements/01_intro.md
+        - section3/D_evenements/02_propagation.md
+  - 4. Encapsulation et intégrité:
+      - section4/01_static.md
+      - section4/02_proprietes.md
+      - section4/03_types.md
+      - section4/04_exceptions.md
+      - section4/05_dbc.md
+      - section4/06_pytest.md
+      - section4/07_dbc_pytest.md
+      - section4/08_encapsulation.md
+  - 5. Python (OO avancé):
+      - section5/01_abc.md
+      - section5/02_generiques.md
+      - section5/03_protocoles.md
   - 6. Patrons de conception:
-    - section6/01_bases.md
+      - section6/01_bases.md
   - 7. Pygame:
-    - section7/01_bases.md
+      - section7/01_bases.md
 
 theme:
   name: material
@@ -90,31 +114,31 @@ extra_css:
   - style.css
 
 markdown_extensions:
-    smarty: { }
-    toc:
-      permalink: true
-    sane_lists: { }
-    admonition: { }
-    attr_list: {}
-    pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
-    pymdownx.highlight:
-      anchor_linenums: true
-      line_spans: __span
-      pygments_lang_class: true
-    pymdownx.inlinehilite: { }
-    pymdownx.snippets: {}
-    pymdownx.superfences: { }
-    pymdownx.fancylists: { }
-    pymdownx.saneheaders: { }
-    pymdownx.mark: { }
-    pymdownx.tabbed: { }
-    pymdownx.tasklist: { }
-    pymdownx.tilde: { }
-    pymdownx.details: { }
-    pymdownx.arithmatex:
-      generic: true
+  smarty: { }
+  toc:
+    permalink: true
+  sane_lists: { }
+  admonition: { }
+  attr_list: { }
+  pymdownx.emoji:
+    emoji_index: !!python/name:material.extensions.emoji.twemoji
+    emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  pymdownx.highlight:
+    anchor_linenums: true
+    line_spans: __span
+    pygments_lang_class: true
+  pymdownx.inlinehilite: { }
+  pymdownx.snippets: { }
+  pymdownx.superfences: { }
+  pymdownx.fancylists: { }
+  pymdownx.saneheaders: { }
+  pymdownx.mark: { }
+  pymdownx.tabbed: { }
+  pymdownx.tasklist: { }
+  pymdownx.tilde: { }
+  pymdownx.details: { }
+  pymdownx.arithmatex:
+    generic: true
 
 extra_javascript:
   - javascripts/config.js
@@ -123,8 +147,8 @@ extra_javascript:
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
 
 plugins:
-    - plantuml:
-        puml_url: https://www.plantuml.com/plantuml/
-        theme:
-          enabled: false
-    - search: {}
+  - plantuml:
+      puml_url: https://www.plantuml.com/plantuml/
+      theme:
+        enabled: false
+  - search: { }

@@ -2,4 +2,6 @@
 name = "3n1-doc"
 version = "0.1.0"
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "pyside6>=6.11.1",
+]
