@@ -3,5 +3,6 @@ name = "3n1-doc"
 version = "0.1.0"
 requires-python = ">=3.14"
 dependencies = [
+    "psycopg2-binary>=2.9.12",
     "pyside6>=6.11.1",
 ]

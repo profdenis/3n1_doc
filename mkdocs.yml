@@ -17,6 +17,12 @@ nav:
       - section1/07_exercices4.md
       - section1/08_fonctions.md
       - section1/09_exercices5.md
+      - Fichiers:
+        - section1/fichiers/01_intro.md
+        - section1/fichiers/02-special-cases.md
+        - section1/fichiers/03-csv.md
+        - section1/fichiers/04-json.md
+        - section1/fichiers/05-toml.md
   - 2. Python (bases OO):
       - section2/01_bases.md
       - section2/02_heritage.md
@@ -47,6 +53,8 @@ nav:
       - D. Événements:
         - section3/D_evenements/01_intro.md
         - section3/D_evenements/02_propagation.md
+      - E. Exercices:
+          - section3/E_exercices/01_compteur.md
   - 4. Encapsulation et intégrité:
       - section4/01_static.md
       - section4/02_proprietes.md
@@ -60,8 +68,14 @@ nav:
       - section5/01_abc.md
       - section5/02_generiques.md
       - section5/03_protocoles.md
+      - section5/04_heritage_multiple.md
   - 6. Patrons de conception:
-      - section6/01_bases.md
+      - section6/01_principes_OO.md
+      - section6/02_Patrons_de_conception.md
+      - section6/03_creation1_fabrique.md
+      - section6/04_creation2.md
+      - section6/05_structuraux.md
+      - section6/06_comportementaux.md
   - 7. Pygame:
       - section7/01_bases.md
 

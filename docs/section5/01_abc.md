@@ -1,4 +1,4 @@
-# **Classes Abstraites (ABC) en Python**
+# **Classes Abstraites (ABC)**
 
 ## **1. Introduction aux ABC (Abstract Base Classes)**
 

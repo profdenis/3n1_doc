@@ -30,5 +30,14 @@
      - [bouton.py](section3/D_evenements/custom_button.py)
      - [propagation1.py](section3/D_evenements/propagation1.py)
      - [propagation2.py](section3/D_evenements/propagation2.py)
+   - Exercices
+     - Compteur
+       - [compteur1.py](section3/E_exercices/01_compteur/compteur1.py)
+       - [compteur2.py](section3/E_exercices/01_compteur/compteur2.py)
+       - [compteur3.py](section3/E_exercices/01_compteur/compteur3.py)
+       - [compteur4.py](section3/E_exercices/01_compteur/compteur4.py)
+       - [compteur5.py](section3/E_exercices/01_compteur/compteur5.py)
+       - [compteur6.py](section3/E_exercices/01_compteur/compteur6.py)
+
 4. Section 4
 5. Section 5

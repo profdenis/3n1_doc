@@ -1,0 +1,4283 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://profdenis.github.io/3n1_doc/section6/01_principes_OO/">
+      
+      
+        <link rel="prev" href="../../section5/04_heritage_multiple/">
+      
+      
+        <link rel="next" href="../02_Patrons_de_conception/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Principes OO - Cours de programmation orientée objet 2</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../style.css">
+    
+      <link rel="stylesheet" href="../../assets/mkdocs_puml/puml.css">
+    
+      <link rel="stylesheet" href="../../assets/mkdocs_puml/interaction.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#principes-oo" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../.." title="Cours de programmation orientée objet 2" class="md-header__button md-logo" aria-label="Cours de programmation orientée objet 2" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.14 7.5A2.86 2.86 0 0 1 22 10.36v3.78A2.86 2.86 0 0 1 19.14 17H12c0 .39.32.96.71.96H17v1.68a2.86 2.86 0 0 1-2.86 2.86H9.86A2.86 2.86 0 0 1 7 19.64v-3.75a2.85 2.85 0 0 1 2.86-2.85h5.25a2.85 2.85 0 0 0 2.85-2.86V7.5zm-4.28 11.79c-.4 0-.72.3-.72.89s.32.71.72.71a.71.71 0 0 0 .71-.71c0-.59-.32-.89-.71-.89m-10-1.79A2.86 2.86 0 0 1 2 14.64v-3.78A2.86 2.86 0 0 1 4.86 8H12c0-.39-.32-.96-.71-.96H7V5.36A2.86 2.86 0 0 1 9.86 2.5h4.28A2.86 2.86 0 0 1 17 5.36v3.75a2.85 2.85 0 0 1-2.86 2.85H8.89a2.85 2.85 0 0 0-2.85 2.86v2.68zM9.14 5.71c.4 0 .72-.3.72-.89s-.32-.71-.72-.71c-.39 0-.71.12-.71.71s.32.89.71.89"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cours de programmation orientée objet 2
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Principes OO
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/profdenis/3n1_doc" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    profdenis/3n1_doc
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Accueil
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../introduction/01_index/" class="md-tabs__link">
+          
+  
+  
+  Intro
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../section1/01_survol_python/" class="md-tabs__link">
+          
+  
+  
+  1. Python (bases)
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../section2/01_bases/" class="md-tabs__link">
+          
+  
+  
+  2. Python (bases OO)
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../section3/A_intro/01_hello_world/" class="md-tabs__link">
+          
+  
+  
+  3. Qt et PySide6
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../section4/01_static/" class="md-tabs__link">
+          
+  
+  
+  4. Encapsulation et intégrité
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../section5/01_abc/" class="md-tabs__link">
+          
+  
+  
+  5. Python (OO avancé)
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  6. Patrons de conception
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../section7/01_bases.md" class="md-tabs__link">
+          
+  
+  
+  7. Pygame
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Cours de programmation orientée objet 2" class="md-nav__button md-logo" aria-label="Cours de programmation orientée objet 2" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.14 7.5A2.86 2.86 0 0 1 22 10.36v3.78A2.86 2.86 0 0 1 19.14 17H12c0 .39.32.96.71.96H17v1.68a2.86 2.86 0 0 1-2.86 2.86H9.86A2.86 2.86 0 0 1 7 19.64v-3.75a2.85 2.85 0 0 1 2.86-2.85h5.25a2.85 2.85 0 0 0 2.85-2.86V7.5zm-4.28 11.79c-.4 0-.72.3-.72.89s.32.71.72.71a.71.71 0 0 0 .71-.71c0-.59-.32-.89-.71-.89m-10-1.79A2.86 2.86 0 0 1 2 14.64v-3.78A2.86 2.86 0 0 1 4.86 8H12c0-.39-.32-.96-.71-.96H7V5.36A2.86 2.86 0 0 1 9.86 2.5h4.28A2.86 2.86 0 0 1 17 5.36v3.75a2.85 2.85 0 0 1-2.86 2.85H8.89a2.85 2.85 0 0 0-2.85 2.86v2.68zM9.14 5.71c.4 0 .72-.3.72-.89s-.32-.71-.72-.71c-.39 0-.71.12-.71.71s.32.89.71.89"/></svg>
+
+    </a>
+    Cours de programmation orientée objet 2
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/profdenis/3n1_doc" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    profdenis/3n1_doc
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intro
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Intro
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction/01_index/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction au cours de Programmation Orientée Objet 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction/02_transition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction à Python : Guide de Transition
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Python (bases)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1. Python (bases)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section1/01_survol_python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction à Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section1/02_exercices1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercices 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section1/03_exercices2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercices 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section1/04_comprehensions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compréhensions de Liste et Dictionnaire
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section1/05_exercices3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercices 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section1/06_chaines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manipulation des Chaînes de Caractères
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section1/07_exercices4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercices 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section1/08_fonctions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Les Fonctions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section1/09_exercices5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercices 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_10" id="__nav_3_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fichiers
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fichiers
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section1/fichiers/01_intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lecture et écriture de fichiers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section1/fichiers/02-special-cases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestion des problèmes de fichiers sous Windows : encodage et fins de ligne
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section1/fichiers/03-csv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lecture et écriture de fichiers CSV
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section1/fichiers/04-json/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lecture et écriture de fichiers JSON
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section1/fichiers/05-toml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Travail avec les fichiers de configuration TOML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Python (bases OO)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    2. Python (bases OO)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section2/01_bases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OO Python : Concepts de Base
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section2/02_heritage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Héritage et Polymorphisme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section2/03_match/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    match avec Héritage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section2/04_polymorphisme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Polymorphisme : Comparaison Java vs Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section2/05_exercices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Qt et PySide6
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    3. Qt et PySide6
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A. Introduction
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    A. Introduction
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/A_intro/01_hello_world/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interfaces Graphiques avec PySide6 et Qt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/A_intro/02_signal_slot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Signaux et Slots
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/A_intro/03_agencements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Les agencements (Layouts)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/A_intro/04_widgets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Widgets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/A_intro/05_exemples_box_layouts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documentation : Exemples de Box Layouts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/A_intro/06_exemples_grid_layout/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exemples de QGridLayout
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/A_intro/07_exemple_formulaire/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exemple de formulaire
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B. Signaux et Slots
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    B. Signaux et Slots
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/B_signaux/01_bouton/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Introduction à la gestion des événements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/B_signaux/02_synchro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Exemple avec un curseur et un cadran
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/B_signaux/03_signal_perso/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Définition et utilisation de signaux personnalisés
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/B_signaux/04_form/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Soumission des données de formulaire
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C. Menus et Dialogues
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    C. Menus et Dialogues
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/C_menus/01_intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Menus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/C_menus/02_editeur1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Éditeur de texte simple
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/C_menus/03_editeur2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Éditeur de texte : menu des paramètres
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/C_menus/04_editeur3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Éditeur de texte : Barre d&rsquo;outils et événements de la molette
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/C_menus/05_editeur4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Éditeur de texte : Gestion de l&rsquo;état du document
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/C_menus/06_editeur5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Éditeur de texte : Intégration des raccourcis clavier
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D. Événements
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    D. Événements
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/D_evenements/01_intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Vue d&rsquo;ensemble des événements système
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/D_evenements/02_propagation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Exemple : Propagation et bulle des événements dans PySide6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    E. Exercices
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    E. Exercices
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/E_exercices/01_compteur/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercice 1 : Construction d&rsquo;une application compteur
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Encapsulation et intégrité
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    4. Encapsulation et intégrité
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section4/01_static/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Attributs et méthodes de classe et méthodes statiques
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section4/02_proprietes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Définir des propriétés avec @property
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section4/03_types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Les indices de type (Type Hints)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section4/04_exceptions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestion des erreurs : Exceptions et Assertions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section4/05_dbc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Le Design par Contrat (DbC)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section4/06_pytest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tests unitaires avec pytest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section4/07_dbc_pytest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide : Combinaison de pytest et Design by Contract (DbC) avec deal
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section4/08_encapsulation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Encapsulation et Intégrité
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Python (OO avancé)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    5. Python (OO avancé)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section5/01_abc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Classes Abstraites (ABC)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section5/02_generiques/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Les Types Génériques
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section5/03_protocoles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Les Protocoles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section5/04_heritage_multiple/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Multiple Inheritance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Patrons de conception
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    6. Patrons de conception
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Principes OO
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Principes OO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#clean-code-a-handbook-of-agile-software-craftsmanship" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Clean Code : A Handbook of Agile Software Craftsmanship
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SOLID
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SOLID">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#responsabilite-unique-single-responsibility-principle-srp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Responsabilité unique (Single responsibility principle SRP)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ouvertferme-openclosed-principle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ouvert/fermé (Open/closed principle)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#substitution-de-liskov-liskov-substitution-principle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Substitution de Liskov (Liskov substitution principle)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#segregation-des-interfaces-interface-segregation-principle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ségrégation des interfaces (Interface segregation principle)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inversion-des-dependances-dependency-inversion-principle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inversion des dépendances (Dependency inversion principle)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autres-principes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autres Principes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Autres Principes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dry-wet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DRY / WET
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DRY / WET">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dry-dont-repeat-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DRY (Don&rsquo;t Repeat Yourself)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oppose-de-dry-wet-write-everything-twice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opposé de DRY: WET (Write Everything Twice)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kiss" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KISS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="KISS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#keep-it-simple-stupid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keep it simple, stupid
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loi-de-demeter-lod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Loi de Demeter (LoD)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Loi de Demeter (LoD)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#principe-de-connaissance-minimale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Principe de connaissance minimale
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tell-dont-ask" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tell Don&rsquo;t ask
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#orthogonalite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Orthogonalité
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eviter-loptimisation-prematuree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Éviter l&rsquo;optimisation prématurée
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regle-des-5-lignes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Règle des 5 lignes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-commentaires-de-code-doivent-expliquer-pourquoi-pas-quoi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les commentaires de code doivent expliquer pourquoi, pas quoi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refactorisation-de-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Refactorisation de code
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-smells" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code smells
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_Patrons_de_conception/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Patrons de conception
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_creation1_fabrique/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design Patterns : Création (Première Partie)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_creation2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design Patterns : Création (Deuxième Partie)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_structuraux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design Patterns : Structuraux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_comportementaux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design Patterns : Comportementaux (Behavioral)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Pygame
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    7. Pygame
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section7/01_bases.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#clean-code-a-handbook-of-agile-software-craftsmanship" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Clean Code : A Handbook of Agile Software Craftsmanship
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SOLID
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SOLID">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#responsabilite-unique-single-responsibility-principle-srp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Responsabilité unique (Single responsibility principle SRP)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ouvertferme-openclosed-principle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ouvert/fermé (Open/closed principle)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#substitution-de-liskov-liskov-substitution-principle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Substitution de Liskov (Liskov substitution principle)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#segregation-des-interfaces-interface-segregation-principle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ségrégation des interfaces (Interface segregation principle)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inversion-des-dependances-dependency-inversion-principle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inversion des dépendances (Dependency inversion principle)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autres-principes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autres Principes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Autres Principes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dry-wet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DRY / WET
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DRY / WET">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dry-dont-repeat-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DRY (Don&rsquo;t Repeat Yourself)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oppose-de-dry-wet-write-everything-twice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opposé de DRY: WET (Write Everything Twice)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kiss" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KISS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="KISS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#keep-it-simple-stupid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keep it simple, stupid
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loi-de-demeter-lod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Loi de Demeter (LoD)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Loi de Demeter (LoD)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#principe-de-connaissance-minimale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Principe de connaissance minimale
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tell-dont-ask" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tell Don&rsquo;t ask
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#orthogonalite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Orthogonalité
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eviter-loptimisation-prematuree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Éviter l&rsquo;optimisation prématurée
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regle-des-5-lignes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Règle des 5 lignes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-commentaires-de-code-doivent-expliquer-pourquoi-pas-quoi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les commentaires de code doivent expliquer pourquoi, pas quoi
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refactorisation-de-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Refactorisation de code
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-smells" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code smells
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Accueil
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="./" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    6. Patrons de conception
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="principes-oo">Principes OO<a class="headerlink" href="#principes-oo" title="Permanent link">&para;</a></h1>
+<h2 id="clean-code-a-handbook-of-agile-software-craftsmanship">Clean Code : A Handbook of Agile Software Craftsmanship<a class="headerlink" href="#clean-code-a-handbook-of-agile-software-craftsmanship" title="Permanent link">&para;</a></h2>
+<p>Ce livre influent, écrit par Robert C. Martin, qui est également connu sous le nom de &ldquo;Uncle Bob&rdquo;. L&rsquo;objectif de ce
+livre est d&rsquo;enseigner aux développeurs de logiciels les principes de l&rsquo;écriture de logiciels de haute qualité. Voici un
+bref résumé de certains des concepts clés présentés dans le livre :</p>
+<ol type="1">
+<li>
+<p><strong>Code propre</strong> : L&rsquo;auteur définit le &ldquo;code propre&rdquo; comme un code qui a été écrit par quelqu&rsquo;un qui se soucie
+   réellement de son travail. Pour lui, un bon code peut être lu et amélioré par d&rsquo;autres développeurs, et a une
+   structure claire.</p>
+</li>
+<li>
+<p><strong>Noms significatifs</strong> : Les noms pour les fonctions, les variables et les classes doivent être clairs et précis. Ils
+   devraient révéler leur intention et ne laisser aucune place à l&rsquo;ambiguïté.</p>
+</li>
+<li>
+<p><strong>Fonctions</strong> : Les fonctions doivent être petites et ne faire qu&rsquo;une seule chose. Elles devraient seulement avoir un
+   niveau d&rsquo;abstraction et les commentaires doivent être évités autant que possible. L&rsquo;auteur explique en détail comment
+   créer des fonctions efficaces.</p>
+</li>
+<li>
+<p><strong>Commentaires</strong> : En règle générale, les commentaires devraient être évités. Un bon code est auto-documenté. Si vous
+   devez écrire des commentaires pour expliquer votre code, il serait préférable de le réécrire.</p>
+</li>
+<li>
+<p><strong>Formattage</strong> : Il est essentiel d&rsquo;avoir un bon format pour votre code. Un bon format facilite la lisibilité et la
+   compréhension du code.</p>
+</li>
+<li>
+<p><strong>Gestion des erreurs</strong> : L&rsquo;auteur suggère que les erreurs doivent être gérées correctement en utilisant des
+   exceptions plutôt que des codes d&rsquo;erreur retournés.</p>
+</li>
+<li>
+<p><strong>Répétition de code</strong> : La répétition de code est une mauvaise habitude qui peut rendre votre code ennuyeux et
+   difficile à maintenir. Utiliser des abstractions et des méthodes pour éviter la duplication du code.</p>
+</li>
+<li>
+<p><strong>Principes SOLID</strong> : Il explique également certains principes de la conception orientée objet, tels que les
+   principes SOLID : <em>Single Responsibility</em>, <em>Open/Closed</em>, <em>Liskov Substitution</em>, <em>Interface Segregation</em> et
+   <em>Dependency Inversion</em>.</p>
+</li>
+<li>
+<p><strong>Code smells et refactorisation</strong> : Le livre présente également différentes &ldquo;odeurs de code&rdquo; (<em>code smells</em>) qui
+   indiquent d&rsquo;éventuels problèmes de conception du code et montre comment ces problèmes peuvent être résolus par le
+   refactorisation.</p>
+</li>
+</ol>
+<p>En résumé, &ldquo;Clean Code&rdquo; est une ressource précieuse pour tout développeur de logiciels cherchant à améliorer ses
+compétences en codage et à écrire des logiciels de meilleure qualité.</p>
+<h2 id="solid">SOLID<a class="headerlink" href="#solid" title="Permanent link">&para;</a></h2>
+<p><a href="https://en.wikipedia.org/wiki/SOLID">https://en.wikipedia.org/wiki/SOLID</a></p>
+<p><a href="https://fr.wikipedia.org/wiki/SOLID_(informatique)">https://fr.wikipedia.org/wiki/SOLID_(informatique)</a></p>
+<p><strong>SOLID</strong> est un acronyme pour un ensemble de cinq principes de conception de logiciels orientés objet qui aident à
+rendre les systèmes de logiciels plus compréhensibles, flexibles et maintenables. Voici ce que chaque lettre de
+l&rsquo;acronyme SOLID signifie :</p>
+<ol type="1">
+<li>
+<p><strong>S - Principe de Responsabilité Unique (Single Responsibility Principle)</strong> : Ce principe stipule qu&rsquo;une classe ou un
+   module devrait avoir une, et seulement une, raison de changer. En d&rsquo;autres termes, une classe ou un module devrait
+   avoir une seule responsabilité ou tâche.</p>
+</li>
+<li>
+<p><strong>O - Principe ouvert/fermé (Open/Closed Principle)</strong> : Ce principe stipule que les entités logicielles (classes,
+   modules, fonctions, etc.) devraient être ouvertes à l&rsquo;extension, mais fermées à la modification. Cela signifie que
+   vous devriez être capable d&rsquo;ajouter de nouvelles fonctionnalités à une entité sans modifier son code source.</p>
+</li>
+<li>
+<p><strong>L - Principe de substitution de Liskov (Liskov Substitution Principle)</strong> : Ce principe stipule que dans un
+   programme, les objets d&rsquo;une superclasse devraient pouvoir être remplacés par des objets d&rsquo;une sous-classe
+   sans affecter l&rsquo;exactitude de ce programme.</p>
+</li>
+<li>
+<p><strong>I - Principe de ségregation d&rsquo;interface (Interface Segregation Principle)</strong> : Ce principe stipule que les clients
+   ne devraient pas être forcés de dépendre des interfaces qu&rsquo;ils n&rsquo;utilisent pas.</p>
+</li>
+<li>
+<p><strong>D - Principe d&rsquo;inversion de dépendance (Dependency Inversion Principle)</strong> : Ce principe stipule que les modules de
+   haut niveau ne devraient pas dépendre des modules de bas niveau. Les deux devraient dépendre des abstractions.</p>
+</li>
+</ol>
+<p>Suivre ces principes peut aider à éviter les mauvaises pratiques de conception, à réduire le couplage dans le code, à
+rendre le code plus facile à maintenir et à améliorer la lisibilité et la reproductibilité du code.</p>
+<h3 id="responsabilite-unique-single-responsibility-principle-srp">Responsabilité unique (Single responsibility principle SRP)<a class="headerlink" href="#responsabilite-unique-single-responsibility-principle-srp" title="Permanent link">&para;</a></h3>
+<p><em>Une classe, une fonction ou une méthode doit avoir une et une seule responsabilité.</em></p>
+<p>Selon le principe de responsabilité unique, une classe, un module ou une fonction ne devrait avoir qu&rsquo;une seule raison
+de changer. Autrement dit, chaque entité logicielle doit être responsable d&rsquo;un seul aspect particulier de la
+fonctionnalité du logiciel.</p>
+<p>Pour donner un exemple, supposons que vous ayez un objet dans votre application qui gère la logique de manipulation des
+utilisateurs (c&rsquo;est-à-dire, l&rsquo;ajout, la suppression et la mise à jour des utilisateurs). Si ce même objet est aussi
+responsable de l&rsquo;affichage des utilisateurs à l&rsquo;écran, alors il a deux raisons de changer : une raison technique (
+modification du code pour manipuler les utilisateurs différemment) et une raison esthétique (modification du code pour
+changer l&rsquo;affichage des utilisateurs à l&rsquo;écran). C&rsquo;est une violation du principe SRP.</p>
+<p>Ce principe encourage à séparer les préoccupations pour améliorer la lisibilité et la maintenabilité</p>
+<h3 id="ouvertferme-openclosed-principle">Ouvert/fermé (Open/closed principle)<a class="headerlink" href="#ouvertferme-openclosed-principle" title="Permanent link">&para;</a></h3>
+<p><em>Une entité applicative (classe, fonction, module &hellip;) doit être fermée à la modification directe, mais ouverte à
+l&rsquo;extension.</em></p>
+<p>Le principe Ouvert/fermé, souvent abrégé en OCP (Open/Closed Principle), est un concept important en programmation
+orientée objet, et est l&rsquo;un des cinq principes fondamentaux du SOLID, un acronyme pour un ensemble de principes de
+conception orientée objet conçus pour rendre le code plus compréhensible, flexible et maintenable.</p>
+<p>Selon le principe Ouvert/fermé, souvent abrégé en OCP (Open/Closed Principle), les entités logicielles (classes,
+modules, fonctions, etc.) doivent être ouvertes à l&rsquo;extension, mais fermées à la modification. Cela signifie que vous
+devriez pouvoir ajouter de nouvelles fonctionnalités ou comportements à une entité sans avoir à modifier son code
+source.</p>
+<p>L&rsquo;intention est de réduire le risque de nouvelles erreurs et réduire les dépendances dans le système. De cette façon,
+lorsque nous ajoutons de nouvelles fonctionnalités ou changeons le comportement du système, nous ajoutons du nouveau
+code (extension), nous n&rsquo;avons pas besoin de modifier le code existant (fermé pour modification).</p>
+<p>Un exemple de la manière d&rsquo;appliquer l&rsquo;OCP est l&rsquo;utilisation de <strong>polymorphisme</strong> où la classe de base reste la même et
+de nouvelles fonctionnalités sont ajoutées en créant de nouvelles classes qui héritent de la classe de base.</p>
+<h3 id="substitution-de-liskov-liskov-substitution-principle">Substitution de Liskov (Liskov substitution principle)<a class="headerlink" href="#substitution-de-liskov-liskov-substitution-principle" title="Permanent link">&para;</a></h3>
+<p><em>Une instance de type <code>T</code> doit pouvoir être remplacée par une instance de type <code>G</code>, tel que <code>G</code> sous-type de <code>T</code>, sans
+que cela modifie la cohérence du programme</em>.</p>
+<p>Ce principe a été introduit par Barbara Liskov en 1987 lors d&rsquo;une conférence. Le principe stipule que si une classe <code>B</code>
+hérite d&rsquo;une classe <code>A</code>, alors nous devrions être capables de remplacer <code>A</code> par <code>B</code> sans affecter le comportement de
+notre programme. C&rsquo;est-à-dire, un objet de type superclasse peut être remplacé par un objet de type sous-classe sans
+perturber l&rsquo;exactitude ou le comportement du programme.</p>
+<p>Par exemple, considérons une classe <code>Oiseau</code> qui a une méthode <code>voler</code>. Maintenant, considérons une
+sous-classe <code>Pingouin</code>, qui est un type d&rsquo;oiseau, mais qui ne peut pas voler. Selon le principe de substitution de
+Liskov, nous devrions pouvoir utiliser un objet <code>Pingouin</code> là où nous utilisons un objet <code>Oiseau</code> dans notre programme.
+Cependant, si notre programme attend que les oiseaux puissent voler, alors cette substitution causerait un problème, car
+les pingouins ne peuvent pas voler. C&rsquo;est une violation du principe de substitution de Liskov.</p>
+<p>En substance, le principe de substitution de Liskov encourage à assurer que les sous-classes soient absolument
+substituables par leurs superclasses sans altérer la logique du programme. Solliciter ce principe lors de la conception
+de logiciels aide à garantir la polymorphie et augmente la réutilisabilité des modules logiciels.</p>
+<h3 id="segregation-des-interfaces-interface-segregation-principle">Ségrégation des interfaces (Interface segregation principle)<a class="headerlink" href="#segregation-des-interfaces-interface-segregation-principle" title="Permanent link">&para;</a></h3>
+<p><em>Préférer plusieurs interfaces spécifiques pour chaque client plutôt qu&rsquo;une seule interface générale</em>.</p>
+<p>L&rsquo;ISP stipule que &ldquo;<em>les clients ne devraient pas être forcés de dépendre des interfaces qu&rsquo;ils n&rsquo;utilisent pas</em>&rdquo;. En
+termes simples, cela signifie que les grandes interfaces monolithiques doivent être évitées en faveur de plus petites,
+plus spécifiques qui sont plus facilement gérables et utilisables par les classes.</p>
+<p>Pour donner un exemple, supposons que vous ayez une interface <code>Imprimante</code> avec les méthodes <code>imprimer</code>, <code>scanner</code>
+et <code>faxer</code>. C&rsquo;est bien pour une imprimante multifonction qui peut faire tout cela, mais qu&rsquo;en est-il d&rsquo;une imprimante de
+base qui ne peut qu&rsquo;imprimer ? Selon l&rsquo;ISP, il serait préférable d&rsquo;avoir des interfaces séparées pour chaque
+fonctionnalité, de sorte que l&rsquo;imprimante de base n&rsquo;ait pas besoin de dépendre (ou d&rsquo;implémenter de manière
+artificielle) des méthodes <code>scanner</code> et <code>faxer</code> qu&rsquo;elle ne peut pas utiliser.</p>
+<p>L&rsquo;avantage de l&rsquo;ISP est qu&rsquo;il réduit le couplage entre les composants et améliore leur modularité, facilitant ainsi la
+maintenance, la réutilisation et l&rsquo;évolution du code.</p>
+<h3 id="inversion-des-dependances-dependency-inversion-principle">Inversion des dépendances (Dependency inversion principle)<a class="headerlink" href="#inversion-des-dependances-dependency-inversion-principle" title="Permanent link">&para;</a></h3>
+<p><em>Il faut dépendre des abstractions, pas des implémentations</em></p>
+<p>Le DIP stipule que :</p>
+<ol type="1">
+<li>
+<p>Les modules de haut niveau ne doivent pas dépendre des modules de bas niveau. Les deux doivent dépendre des
+   abstractions.</p>
+</li>
+<li>
+<p>Les abstractions ne doivent pas dépendre des détails. Les détails doivent dépendre des abstractions.</p>
+</li>
+</ol>
+<p>Par &ldquo;module de haut niveau&rdquo;, on entend une classe (ou un ensemble de classes) qui est à un niveau d&rsquo;abstraction élevé,
+c&rsquo;est-à-dire plus orientée vers les objectifs métier. Et par &ldquo;module de bas niveau&rdquo;, on entend une classe (ou un
+ensemble de classes) qui est à un niveau d&rsquo;abstraction bas, c&rsquo;est-à-dire plus orientée vers les détails techniques ou
+l&rsquo;infrastructure.</p>
+<p>En d&rsquo;autres termes, plutôt que de laisser les classes de haut niveau (plus proches des opérations métier) dépendre
+directement des classes de bas niveau (plus proches des opérations techniques), les deux devraient dépendre d&rsquo;interfaces
+abstraites. Ainsi, si les détails de la mise en œuvre d&rsquo;une classe de bas niveau doivent changer, cela n&rsquo;a aucun impact
+sur les classes de haut niveau.</p>
+<p>L&rsquo;avantage de ce principe est qu&rsquo;il contribue à définir un système fortement cohérent mais faiblement couplé, ce qui
+rend le code plus flexible, plus facile à tester, à maintenir et à faire évoluer.</p>
+<h2 id="autres-principes">Autres Principes<a class="headerlink" href="#autres-principes" title="Permanent link">&para;</a></h2>
+<h3 id="dry-wet">DRY / WET<a class="headerlink" href="#dry-wet" title="Permanent link">&para;</a></h3>
+<h4 id="dry-dont-repeat-yourself">DRY (Don&rsquo;t Repeat Yourself)<a class="headerlink" href="#dry-dont-repeat-yourself" title="Permanent link">&para;</a></h4>
+<h4 id="oppose-de-dry-wet-write-everything-twice">Opposé de DRY: WET (Write Everything Twice)<a class="headerlink" href="#oppose-de-dry-wet-write-everything-twice" title="Permanent link">&para;</a></h4>
+<p><a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself">https://en.wikipedia.org/wiki/Don%27t_repeat_yourself</a></p>
+<p><a href="https://fr.wikipedia.org/wiki/Ne_vous_répétez_pas">https://fr.wikipedia.org/wiki/Ne_vous_répétez_pas</a></p>
+<p><strong>DRY</strong> signifie <strong>Don&rsquo;t Repeat Yourself</strong> (<em>Ne vous répétez pas</em> en français). C&rsquo;est un principe de développement
+logiciel qui vise à réduire la répétition de code. L&rsquo;idée est que chaque morceau de logique doit avoir un emplacement
+unique et définitif dans le système. Si vous découvrez que vous écrivez le même code à plusieurs reprises, vous devriez
+chercher un moyen de le centraliser et de le réutiliser, plutôt que de le dupliquer. Le respect de ce principe rend le
+code plus lisible, plus efficace et plus facile à maintenir.</p>
+<p>À l&rsquo;opposé, <strong>WET</strong> signifie <strong>Write Everything Twice</strong> (<em>Écrire tout deux fois</em> en français) ou <strong>We Enjoy Typing</strong> (
+<em>Nous aimons taper</em> en français). C&rsquo;est souvent utilisé de manière humoristique pour décrire du code qui viole le
+principe DRY, c&rsquo;est-à-dire du code qui a beaucoup de répétitions inutiles.</p>
+<p>Il est important de noter que le principe DRY n&rsquo;encourage pas à éviter toute duplication à tout prix. Parfois, essayer
+d&rsquo;éliminer toute duplication peut conduire à une conception trop complexe et difficile à comprendre. Il s&rsquo;agit plutôt
+d&rsquo;éviter la duplication de la logique du système. Une duplication apparemment similaire peut être acceptable si les
+motivations et les usages derrière elles sont différents.</p>
+<h3 id="kiss">KISS<a class="headerlink" href="#kiss" title="Permanent link">&para;</a></h3>
+<p><a href="https://en.wikipedia.org/wiki/KISS_principle">https://en.wikipedia.org/wiki/KISS_principle</a></p>
+<p><a href="https://fr.wikipedia.org/wiki/Principe_KISS">https://fr.wikipedia.org/wiki/Principe_KISS</a></p>
+<h4 id="keep-it-simple-stupid">Keep it simple, stupid<a class="headerlink" href="#keep-it-simple-stupid" title="Permanent link">&para;</a></h4>
+<p>En développement logiciel, <strong>KISS</strong> est un acronyme pour <strong>Keep It Simple, Stupid</strong> (<em>Garde ça simple, idiot</em> en
+français). Ce principe de conception encourage la simplicité dans la conception et l&rsquo;écriture du code.</p>
+<p>L&rsquo;idée est d&rsquo;éviter la complexité inutile. Par complexité inutile, on entend généralement des solutions <em>sur-conçues</em>
+(<em>over-engineered</em>, ou trop élaborées), c&rsquo;est-à-dire qui utilisent des conceptions plus complexes qu&rsquo;il n&rsquo;est réellement
+nécessaire pour résoudre le problème à portée de main. Une solution plus complexe peut être plus difficile à comprendre,
+à tester et à maintenir, et est également plus susceptible d&rsquo;introduire des bugs.</p>
+<p>Dans la pratique, suivre le principe KISS pourrait signifier de privilégier une conception plus simple même si elle est
+un peu moins élégante, choisir une solution brute, mais efficace plutôt qu&rsquo;une solution sophistiquée, mais délicate, ou
+préférer des structures de code faciles à comprendre et à parcourir à des structures de code plus &ldquo;intelligentes&rdquo; mais
+potentiellement déroutantes.</p>
+<p>Il est important de noter que KISS ne signifie pas nécessairement choisir la solution la plus simple à court terme, mais
+plutôt la solution qui reste simple sur toute la durée de vie du code, y compris sa maintenance et son évolution
+futures.</p>
+<h3 id="loi-de-demeter-lod">Loi de Demeter (LoD)<a class="headerlink" href="#loi-de-demeter-lod" title="Permanent link">&para;</a></h3>
+<h4 id="principe-de-connaissance-minimale">Principe de connaissance minimale<a class="headerlink" href="#principe-de-connaissance-minimale" title="Permanent link">&para;</a></h4>
+<p><a href="https://en.wikipedia.org/wiki/Law_of_Demeter">https://en.wikipedia.org/wiki/Law_of_Demeter</a></p>
+<p><a href="https://fr.wikipedia.org/wiki/Loi_de_Déméter">https://fr.wikipedia.org/wiki/Loi_de_Déméter</a></p>
+<p>La Loi de Demeter est un principe de conception en programmation orientée objet qui encourage à réduire les dépendances
+entre les objets. Aussi connu sous le nom de principe de <em>moindre connaissance</em>, il stipule qu&rsquo;un objet ne devrait pas
+connaître les détails internes des autres objets.</p>
+<p>Formellement, la Loi de Demeter stipule que la méthode <code>M</code> d&rsquo;un objet <code>O</code> ne devrait invoquer que les méthodes des
+objets suivants :</p>
+<ul>
+<li><code>O</code> lui-même</li>
+<li>un objet passé en paramètre à <code>M</code></li>
+<li>un objet créé par <code>M</code></li>
+<li>un objet composant de <code>O</code></li>
+</ul>
+<p>En d&rsquo;autres termes, si vous avez un objet <code>A</code> qui contient un objet <code>B</code>, qui à son tour contient un objet <code>C</code>, la Loi de
+Demeter suggère qu&rsquo;<code>A</code> ne devrait pas accéder directement à <code>C</code>. Si vous avez une méthode dans <code>A</code> qui a besoin
+d&rsquo;interagir avec <code>C</code>, vous devriez avoir une méthode dans <code>B</code> qui sert d&rsquo;intermédiaire.</p>
+<p>L&rsquo;idée derrière la loi est de minimiser le couplage entre les objets, en évitant qu&rsquo;un objet ne connaisse trop les
+détails internes des autres objets. Cela rend le système dans son ensemble plus modulaire et robuste, car les objets
+peuvent être modifiés sans affecter grandement les autres objets.</p>
+<p>Il est important de noter que la Loi de Demeter est un principe directeur plutôt qu&rsquo;un ensemble de règles strictes à
+suivre. Il y aura des situations où il est approprié de rompre cette loi dans l&rsquo;intérêt d&rsquo;autres aspects de la
+conception.</p>
+<h3 id="tell-dont-ask">Tell Don&rsquo;t ask<a class="headerlink" href="#tell-dont-ask" title="Permanent link">&para;</a></h3>
+<p><a href="https://martinfowler.com/bliki/TellDontAsk.html">https://martinfowler.com/bliki/TellDontAsk.html</a></p>
+<p><em><strong>Tell-Don&rsquo;t-Ask</strong> is a principle that helps people remember that object-orientation is about bundling data with the
+functions that operate on that data. It reminds us that rather than asking an object for data and acting on that data,
+we should instead tell an object what to do.</em></p>
+<p><em><strong>Tell-Don&rsquo;t-Ask</strong> est un principe qui aide les gens à se rappeler que la programmation orientée objet consiste à
+regrouper des données avec les fonctions qui opèrent sur ces données. Il nous rappelle qu&rsquo;au lieu de demander à un objet
+des données et d&rsquo;agir sur ces données, nous devrions plutôt dire à un objet ce qu&rsquo;il doit faire.</em></p>
+<p>Le principe &ldquo;<strong>Tell, Don&rsquo;t Ask</strong>&rdquo; (Dis-le, ne le demande pas) est un principe de conception en programmation orientée
+objet qui encourage à dire à un objet ce qu&rsquo;il doit faire, plutôt que de demander à l&rsquo;objet ses données et de manipuler
+ces dernières.</p>
+<p>Essentiellement, cela signifie que vous devriez essayer d&rsquo;éviter de demander à un objet son état, de prendre cet état et
+de faire quelque chose avec lui. À la place, l&rsquo;objet devrait être responsable de faire quelque chose avec son propre
+état.</p>
+<p>Voici un exemple pour illustrer ce principe :</p>
+<p>Considérons deux classes, <code>Car</code> et <code>Driver</code>. Une approche qui <strong>ne</strong> suit <strong>pas</strong> le principe &ldquo;Tell, Don&rsquo;t Ask&rdquo; pourrait
+ressembler à ceci :</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Driver</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">drive</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">        </span><span class="n">Car</span><span class="w"> </span><span class="n">car</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Car</span><span class="p">();</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">car</span><span class="p">.</span><span class="na">getFuel</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">            </span><span class="n">car</span><span class="p">.</span><span class="na">moveForward</span><span class="p">();</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Le problème ici est que la classe <code>Driver</code> doit demander à la voiture combien de carburant elle a, puis décider quoi
+faire en fonction de cette information.</p>
+<p>Une approche qui suit le principe &ldquo;Tell, Don&rsquo;t Ask&rdquo; pourrait ressembler à ceci :</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Driver</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">drive</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">        </span><span class="n">Car</span><span class="w"> </span><span class="n">car</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Car</span><span class="p">();</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">        </span><span class="n">car</span><span class="p">.</span><span class="na">moveForward</span><span class="p">();</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="p">}</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Car</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">moveForward</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">fuel</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">            </span><span class="c1">// code pour avancer</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>L&rsquo;avantage de cette approche est qu&rsquo;elle décentralise la logique et la responsabilité, rendant le code plus modulaire et
+facile à maintenir et à comprendre.</p>
+<h3 id="orthogonalite">Orthogonalité<a class="headerlink" href="#orthogonalite" title="Permanent link">&para;</a></h3>
+<p>Le principe d&rsquo;orthogonalité est un concept de conception logicielle qui stipule que les composants d&rsquo;un système sont
+orthogonaux s&rsquo;ils peuvent être modifiés indépendamment les uns des autres. Autrement dit, changer quelque chose dans une
+partie du système n&rsquo;affecte pas d&rsquo;autres parties du système.</p>
+<p>L&rsquo;idée vient de l&rsquo;orthogonalité en mathématiques, où deux vecteurs sont orthogonaux s&rsquo;ils sont perpendiculaires l&rsquo;un à
+l&rsquo;autre, signifiant qu&rsquo;ils n&rsquo;ont pas d&rsquo;impact l&rsquo;un sur l&rsquo;autre.</p>
+<p>Quand ce principe est appliqué à la conception logicielle, il a pour but de minimiser les dépendances entre les
+différents modules ou composants. Les avantages de ce principe sont :</p>
+<ul>
+<li><strong>Isolation des erreurs</strong> : une erreur dans un composant ne se propage pas aux autres.</li>
+<li><strong>Facilité de compréhension</strong> : chaque composant peut être compris indépendamment des autres.</li>
+<li><strong>Facilité de modification</strong> : une modification d&rsquo;un composant n&rsquo;affecte pas les autres, rendant le développement et
+  la maintenance du système plus faciles.</li>
+</ul>
+<p>Par exemple, si vous développez une application avec une interface utilisateur, une base de données, et une logique
+métier, ces trois éléments devraient être conçus de manière à ce qu&rsquo;ils puissent être développés et modifiés
+indépendamment les uns des autres. Ils communiqueraient par le biais d&rsquo;interfaces clairement définies, sans avoir besoin
+de connaître les détails de mise en œuvre des autres.</p>
+<h3 id="eviter-loptimisation-prematuree">Éviter l&rsquo;optimisation prématurée<a class="headerlink" href="#eviter-loptimisation-prematuree" title="Permanent link">&para;</a></h3>
+<p>L&rsquo;optimisation prématurée est la pratique de l&rsquo;optimisation micro performante d&rsquo;un code avant de comprendre clairement
+quels sont les véritables goulets d&rsquo;étranglement de performance. <em>&ldquo;Éviter l&rsquo;optimisation prématurée&rdquo;</em> est un principe
+communément cité en programmation, attribué à Donald Knuth, un éminent informaticien. La citation complète de Knuth
+est :</p>
+<p><em>&ldquo;Nous devrions oublier les petites économies, disons environ 97% du temps : l&rsquo;optimisation prématurée est la racine de
+tous les maux. Pourtant, nous ne devrions pas manquer nos chances dans ce 3% critique.&rdquo;</em></p>
+<p>Ce principe suggère que la majorité de l&rsquo;effort en optimisation devrait être consacrée aux zones d&rsquo;un programme où les
+gains de performance auront un impact significatif. Ces zones ne peuvent être efficacement identifiées qu&rsquo;après que les
+problématiques de performances ont été clairement définies, souvent via le <em>monitoring</em> ou le <em>profilage</em> du code en
+question.</p>
+<p>Cela aide à éviter de dépenser du temps sur des optimisations minuscules qui n&rsquo;affectent que très peu les performances
+globales, tout en rendant potentiellement le code plus complexe et difficile à maintenir. Cela ne signifie pas que les
+performances ne sont pas importantes, mais qu&rsquo;elles doivent être abordées de manière systématique et informée.</p>
+<h3 id="regle-des-5-lignes">Règle des 5 lignes<a class="headerlink" href="#regle-des-5-lignes" title="Permanent link">&para;</a></h3>
+<p>La &ldquo;règle des 5 lignes&rdquo; en développement logiciel est une directive heuristique suggérant que les fonctions ou méthodes
+doivent idéalement être courtes, généralement dans les cinq lignes de code. L&rsquo;idée derrière cette règle est de
+promouvoir la lisibilité, la maintenabilité et la simplicité du code.</p>
+<p>La logique derrière la règle des 5 lignes inclut :</p>
+<ol type="1">
+<li>
+<p><strong>Lisibilité</strong> : Des fonctions plus courtes sont plus faciles à comprendre d&rsquo;un coup d&rsquo;œil, ce qui rend plus simple
+   pour les développeurs de comprendre ce que fait la fonction et comment elle atteint son but.</p>
+</li>
+<li>
+<p><strong>Maintenabilité</strong> : Les petites fonctions sont généralement plus faciles à maintenir et à modifier. Lorsque les
+   fonctions sont concises, il est plus facile d&rsquo;isoler et de corriger les bugs, d&rsquo;ajouter de nouvelles fonctionnalités
+   ou de refactoriser le code sans affecter involontairement d&rsquo;autres parties du système.</p>
+</li>
+<li>
+<p><strong>Testabilité</strong> : Les fonctions courtes sont souvent plus faciles à tester, car elles ont tendance à avoir moins de
+   chemins d&rsquo;exécution et de dépendances. Cela rend plus simple d&rsquo;écrire des tests unitaires qui couvrent tous les
+   scénarios possibles.</p>
+</li>
+<li>
+<p><strong>Réduction de la complexité</strong> : Garder les fonctions courtes peut aider à réduire la complexité globale de la base
+   de code. Les fonctions complexes comportant de nombreuses lignes de code sont plus difficiles à comprendre et sont
+   souvent le signe que la fonction fait trop de choses et devrait être décomposée en pièces plus petites et plus
+   gérables.</p>
+</li>
+<li>
+<p><strong>Amélioration de la réutilisabilité</strong> : Les fonctions courtes sont plus susceptibles d&rsquo;être réutilisées dans
+   différentes parties de la base de code car elles ont tendance à être plus ciblées et ont une seule responsabilité.
+   Cela peut conduire à un code plus modulaire et plus facile à maintenir en général.</p>
+</li>
+</ol>
+<p>Il est important de noter que la règle des 5 lignes est une directive plutôt qu&rsquo;une règle stricte. Bien que viser des
+fonctions courtes soit généralement bénéfique, il peut y avoir des cas où des fonctions plus longues sont nécessaires ou
+appropriées. La clé est de prioriser la lisibilité, la maintenabilité et la simplicité dans la conception du code et
+d&rsquo;utiliser son discernement lors de la détermination de la longueur appropriée pour une fonction en fonction du contexte
+spécifique et des exigences du projet logiciel.</p>
+<h3 id="les-commentaires-de-code-doivent-expliquer-pourquoi-pas-quoi">Les commentaires de code doivent expliquer pourquoi, pas quoi<a class="headerlink" href="#les-commentaires-de-code-doivent-expliquer-pourquoi-pas-quoi" title="Permanent link">&para;</a></h3>
+<p>Cette règle suggère que les commentaires dans le code devraient <strong>se concentrer sur l&rsquo;explication du but, de
+l&rsquo;intention, ou de la justification derrière le code</strong> plutôt que de décrire ce que fait le code.</p>
+<p>Un code bien écrit devrait être auto-explicatif, et les commentaires devraient fournir un contexte ou un éclairage
+supplémentaire.</p>
+<h3 id="refactorisation-de-code">Refactorisation de code<a class="headerlink" href="#refactorisation-de-code" title="Permanent link">&para;</a></h3>
+<p>La <strong>refactorisation</strong> (<em>refactoring</em>) de code est le processus de restructuration du code existant sans en changer le
+comportement externe afin d&rsquo;améliorer sa lisibilité, sa maintenabilité et/ou ses performances. Voici quelques règles et
+directives communes pour la refactorisation de code :</p>
+<ol type="1">
+<li>
+<p><strong>Règle de trois</strong> : cette règle suggère que si vous vous trouvez en train d&rsquo;écrire un code similaire pour la
+   troisième fois, il est temps de le refactoriser en une fonction, une méthode ou une classe réutilisable. Elle aide à
+   prévenir la duplication de code et favorise la réutilisabilité.</p>
+</li>
+<li>
+<p><strong>Refactoriser tôt, refactoriser souvent</strong> : ce principe préconise de traiter les &ldquo;odeurs de code&rdquo; et d&rsquo;améliorer la
+   qualité du code en continu tout au long du processus de développement, plutôt que de laisser la dette technique
+   s&rsquo;accumuler. Refactoriser régulièrement de petits morceaux de code peut aider à garder la base de code propre et
+   maintenable.</p>
+</li>
+<li>
+<p><strong>Extraire jusqu&rsquo;à épuisement</strong> : lors de la refactorisation, cette règle conseille aux développeurs de continuer à
+   extraire de plus petites fonctions ou méthodes à partir de plus grandes jusqu&rsquo;à ce qu&rsquo;elles ne puissent plus
+   raisonnablement être décomposées davantage. Elle favorise la création de petites unités de code ciblées et
+   réutilisables.</p>
+</li>
+<li>
+<p><strong>Principes SOLID</strong> : ces principes (Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation
+   et Dependency Inversion) fournissent des directives pour écrire un code orienté objet propre, maintenable et
+   extensible. Le respect de ces principes nécessite souvent de refactoriser le code existant pour s&rsquo;y conformer.</p>
+</li>
+<li>
+<p><strong>Refactoriser agressivement après avoir ajouté des fonctionnalités</strong> : chaque fois qu&rsquo;une nouvelle fonctionnalité
+   est ajoutée à la base de code, il est recommandé de passer en revue le code existant et de le refactoriser si
+   nécessaire pour maintenir la qualité et la cohérence du code. Cela aide à prévenir l&rsquo;accumulation de la dette
+   technique et à s&rsquo;assurer que la base de code reste propre et maintenable.</p>
+</li>
+<li>
+<p><strong>Utiliser des outils de refactorisation automatisés</strong> : l&rsquo;utilisation d&rsquo;outils de refactorisation automatisés
+   fournis par des environnements de développement intégrés (IDE) ou des plugins tiers peut rendre le processus de
+   refactorisation plus efficace et moins sujet aux erreurs. Ces outils peuvent aider à renommer les variables, à
+   extraire des méthodes et à effectuer d&rsquo;autres tâches de refactorisation courantes avec un minimum d&rsquo;effort manuel.</p>
+</li>
+<li>
+<p><strong>Préserver le comportement avec les tests</strong> : lors de la refactorisation du code, il est crucial de s&rsquo;assurer que le
+   comportement du code reste inchangé. L&rsquo;écriture et la maintenance de tests unitaires exhaustifs peuvent aider à
+   valider que le code refactorisé se comporte comme prévu et à détecter d&rsquo;éventuels effets secondaires involontaires.</p>
+</li>
+</ol>
+<h3 id="code-smells">Code smells<a class="headerlink" href="#code-smells" title="Permanent link">&para;</a></h3>
+<p>En développement logiciel, les <strong>&ldquo;odeurs de code&rdquo;</strong> désignent certains modèles ou caractéristiques du code qui peuvent
+signaler des problèmes plus profonds ou des zones potentiellement améliorables. Ce ne sont pas des bugs en soi, mais
+plutôt des indicateurs de problèmes de conception ou de violations des bonnes pratiques de codage. Les odeurs de code
+peuvent rendre le code plus difficile à comprendre, à maintenir et à étendre. Identifier et traiter les odeurs de code
+par la refactorisation peut aider à améliorer la qualité et la maintenabilité du code. Certaines odeurs de code
+courantes incluent :</p>
+<ol type="1">
+<li>
+<p><strong>Longue Méthode</strong> : Les méthodes ou fonctions qui sont excessivement longues et accomplissent plusieurs tâches. Les
+   longues méthodes sont plus difficiles à comprendre, à tester, et à maintenir.</p>
+</li>
+<li>
+<p><strong>Grande Classe</strong> : Les classes qui sont trop complexes, avec trop d&rsquo;attributs et de méthodes. Les grandes classes
+   violent le principe de la responsabilité unique et peuvent être difficiles à gérer.</p>
+</li>
+<li>
+<p><strong>Code Dupliqué</strong> : Des fragments de code identiques ou très similaires apparaissant à plusieurs endroits. Le code
+   dupliqué viole le principe Ne vous répétez pas (DRY) et rend la maintenance plus difficile.</p>
+</li>
+<li>
+<p><strong>Envie de fonctionnalité</strong> : Lorsqu&rsquo;une méthode dans une classe accède aux données ou au comportement d&rsquo;une autre
+   classe plus qu&rsquo;à sa propre donnée ou son comportement. Cela suggère que la méthode pourrait appartenir à l&rsquo;autre
+   classe et indique un éventuel problème de conception.</p>
+</li>
+<li>
+<p><strong>Obsession Primitive</strong> : Utilisation excessive de types de données primitifs au lieu de créer des classes ou des
+   énumérations personnalisées. L&rsquo;obsession primitive peut conduire à la duplication de code, à une lisibilité réduite,
+   et à une maintenabilité diminuée.</p>
+</li>
+<li>
+<p><strong>Objet Dieu</strong> : Une classe qui sait ou fait trop de choses, devenant souvent un point central de dépendances dans la
+   base de code. Les objets dieux sont difficiles à comprendre, à tester, et à maintenir et peuvent conduire à un code
+   étroitement couplé.</p>
+</li>
+<li>
+<p><strong>Commentaires</strong> : Des commentaires excessifs ou trompeurs dans le code, qui peuvent indiquer que le code n&rsquo;est pas
+   auto-explicatif. Bien que les commentaires puissent être utiles, ils ne doivent pas être utilisés comme substitut à
+   l&rsquo;écriture de code propre et expressif.</p>
+</li>
+<li>
+<p><strong>Regroupements de données</strong> : Lorsque des groupes de champs de données apparaissent ensemble à plusieurs endroits
+   dans la base de code, suggérant qu&rsquo;ils pourraient être encapsulés dans une classe séparée.</p>
+</li>
+<li>
+<p><strong>Déclarations Switch</strong> : Utilisation excessive de déclarations <code>switch</code> ou <code>case</code>, surtout lorsqu&rsquo;elles apparaissent
+   à plusieurs endroits dans la base de code. Les déclarations <code>switch</code> peuvent rendre le code plus difficile à étendre
+   et à maintenir, violant ainsi le principe ouvert/fermé.</p>
+</li>
+<li>
+<p><strong>Intimité Inappropriée</strong> : Classes qui dépendent excessivement les unes des autres en détails internes ou qui ont
+    trop de dépendances. L&rsquo;intimité inappropriée peut conduire à un code étroitement couplé qui est difficile à
+    refactoriser ou à étendre.</p>
+</li>
+</ol>
+<p>L&rsquo;identification et le traitement des odeurs de code est une partie essentielle du processus de refactorisation, aidant
+à améliorer la qualité globale, la lisibilité, et la maintenabilité de la base de code.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
+        
+          
+          <a href="../../section5/04_heritage_multiple/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: 5. Multiple Inheritance">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Précédent
+              </span>
+              <div class="md-ellipsis">
+                5. Multiple Inheritance
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../02_Patrons_de_conception/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Patrons de conception">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Suivant
+              </span>
+              <div class="md-ellipsis">
+                Patrons de conception
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.code.select", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.top", "navigation.footer", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/config.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../assets/mkdocs_puml/puml.js"></script>
+      
+        <script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
+      
+        <script src="../../assets/mkdocs_puml/interaction.js"></script>
+      
+    
+  </body>
+</html>
