@@ -3,6 +3,9 @@ name = "3n1-doc"
 version = "0.1.0"
 requires-python = ">=3.14"
 dependencies = [
+    "mkdocs==1.6.1",
+    "mkdocs-material==9.7.6",
+    "mkdocs-puml==2.3.0",
     "psycopg2-binary>=2.9.12",
     "pyside6>=6.11.1",
 ]

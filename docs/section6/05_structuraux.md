@@ -67,7 +67,7 @@ Deux types d'éléments : dossiers et fichiers. On pourrait aussi avoir plusieur
 types de fichiers, qui seraient représentés par des sous-classes de `File` dans
 le diagramme de classes.
 
-````plantuml
+```puml
 @startuml
 skinparam classAttributeIconSize 0
 
@@ -84,7 +84,7 @@ class File {
 Element <|-- File
 
 @enduml
-````
+```
 
 -------------------------------------------------------------------------------
 
@@ -139,7 +139,7 @@ moins de méthodes ou classes inutiles à filtrer par les programmeurs.
 
 ### Détails {id="d-tails_5"}
 
-````plantuml
+```puml
 @startuml
 
 class Client {
@@ -174,7 +174,7 @@ class C {
   +{static} f9()
 }
 @enduml
-````
+```
 
 -------------------------------------------------------------------------------
 

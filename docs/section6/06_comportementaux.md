@@ -14,7 +14,7 @@ boucle (`for`, `foreach` ou `while`).
 
 ### Détails {id="d-tails_1"}
 
-````plantuml
+```puml
 @startuml
 skinparam classAttributeIconSize 0
 
@@ -46,7 +46,7 @@ IIterator <|.. Iterator
 
 Collection .> Iterator
 @enduml
-````
+```
 
 Pour parcourir tous les éléments d'une `Collection`, on peut créer un `Iterator`, et faire une boucle sur l'itérateur
 tant que `Done` retourne faux (tant que ce n'est pas fini).
@@ -140,7 +140,7 @@ C#.
 
 ### Détails
 
-````plantuml
+```puml
 @startuml
 skinparam classAttributeIconSize 0
 
@@ -197,7 +197,7 @@ Command <|-- PasteCommand
 Document <-- CopyCommand
 Document <-- PasteCommand
 @enduml
-````
+```
 
 Les `Undo` font l'inverse des `Execute`. Pour supporter les *undo* et *redo*,
 l'application doit conserver un historique des commandes, et créer des
@@ -277,7 +277,7 @@ utilisée pourrait varier si la liste est courte ou si elle est longue.
 **Note** : ce diagramme ne représente pas exactement ce qui est fait en C#, mais
 donne l'idée générale du principe.
 
-````plantuml
+```puml
 @startuml
 skinparam classAttributeIconSize 0
 
@@ -308,7 +308,7 @@ List --> SortStrategy
 SortStrategy <|.. QuickSortStrategy
 SortStrategy <|.. MergeSortStrategy
 @enduml
-````
+```
 
 En C#, il n'est pas possible pour l'application de choisir la stratégie utilisée
 pour trier la liste, mais on pourrait créer une alternative à `List<T>.Sort()`
@@ -329,7 +329,7 @@ méthode `Sort` pour trier les éléments selon l'ordre désiré. Les
 différents `IComparer` peuvent être considérés comme des stratégies différentes
 dans le processus de tri des éléments.
 
-````plantuml
+```puml
 @startuml
 interface IComparer<T> {
     +Compare(T?, T?) : int
@@ -344,4 +344,4 @@ class NameDescComparer<Person> {
 IComparer <|.. NameAscComparer
 IComparer <|.. NameDescComparer
 @enduml
-````
+```

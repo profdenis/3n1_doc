@@ -26,7 +26,7 @@ Créer des labyrinthes étape par étape :
 3. Ajouter des portes
 4. etc.
 
-````plantuml
+```uml
 @startuml
 skinparam classAttributeIconSize 0
 
@@ -41,7 +41,7 @@ class Maze {
 }
 MazeBuilder --> Maze
 @enduml
-````
+```
 
 **Notes** :
 

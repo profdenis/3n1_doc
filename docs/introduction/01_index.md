@@ -26,10 +26,9 @@ deux courants de pensée majeurs.
 | **Philosophie** | L'objet est une boîte noire qui réagit         | L'objet est une branche dans un arbre généalogique |
 | **Force**       | Flexibilité extrême, polymorphisme dynamique   | Organisation rigide, prévisibilité, réutilisation  |
 
-
 !!! note "Note importante"
-    Le courant de la "Hiérarchie" a dominé l'industrie pendant des décennies. C'est ce que la
-    plupart des gens appellent _"faire de l'OO"_. Mais cette vision a ses limites face à la complexité moderne.
+Le courant de la "Hiérarchie" a dominé l'industrie pendant des décennies. C'est ce que la
+plupart des gens appellent _"faire de l'OO"_. Mais cette vision a ses limites face à la complexité moderne.
 
 ---
 
@@ -46,8 +45,8 @@ Une erreur commune est de croire que l'_Orienté-Objet_ se résume à créer des
    problème de la *Fragile Base Class*).
 2. **L'explosion combinatoire :** Si un objet doit appartenir à plusieurs catégories, l'héritage devient un cauchemar (
    le *Problème du Diamant*).
-3. **La rigidité :** L'héritage définit la nature d'un objet au moment de la compilation. On ne peut pas changer sa "
-   nature" durant l'exécution.
+3. **La rigidité :** L'héritage définit la nature d'un objet au moment de la compilation. On ne peut pas changer sa
+   "nature" durant l'exécution.
 
 **Le paradigme moderne privilégie la Composition et les Interfaces (ou Protocoles) :** on ne définit plus ce qu'un objet
 *est*, mais ce qu'il est capable de *faire*.
@@ -59,12 +58,21 @@ Une erreur commune est de croire que l'_Orienté-Objet_ se résume à créer des
 Pour éviter que le code ne devienne un chaos ingérable, nous utiliserons les principes **SOLID** comme boussole de
 conception. Nous reviendrons sur chacun d'eux tout au long du semestre.
 
-* **S - Single Responsibility (SRP) :** Une classe/fonction ne doit avoir qu'une seule raison de changer.
-* **O - Open/Closed (OCP) :** Un logiciel doit être ouvert à l'extension, mais fermé à la modification.
-* **L - Liskov Substitution (LSP) :** Une sous-classe doit pouvoir remplacer sa classe de base sans casser le système.
-* **I - Interface Segregation (ISP) :** Il vaut mieux plusieurs petites interfaces spécialisées qu'une seule grosse
-  interface généraliste.
-* **D - Dependency Inversion (DIP) :** Dépendre des abstractions (interfaces), pas des implémentations concrètes.
+- **S $\rightarrow$ Single Responsibility (SRP) :**
+    - _Principe de Responsabilité Unique_
+    - Une classe/fonction ne doit avoir qu'une seule raison de changer.
+  - **O $\rightarrow$ Open/Closed (OCP) :**
+    - _Principe Ouvert/Fermé_
+    - Un logiciel doit être ouvert à l'extension, mais fermé à la modification.
+- **L $\rightarrow$ Liskov Substitution (LSP) :** 
+    - _Principe de Substitution de Liskov_
+    - Une sous-classe doit pouvoir remplacer sa classe de base sans casser le système.
+- **I $\rightarrow$ Interface Segregation (ISP) :** 
+    - _Principe de Ségrégation d'Interface_
+    - Il vaut mieux plusieurs petites interfaces spécialisées qu'une seule grosse interface généraliste.
+- **D $\rightarrow$ Dependency Inversion (DIP) :** 
+    - _Principe d'Inversion de Dépendance_
+    - Dépendre des abstractions (interfaces), pas des implémentations concrètes.
 
 ---
 

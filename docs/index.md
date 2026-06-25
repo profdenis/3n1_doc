@@ -4,7 +4,7 @@
 
 ## Ressources
 
-1. [Code source](src)
+1. [Code source](src/index.md)
 2. [Documentation Python](https://docs.python.org/3/)
 2. [Documentation Qt](https://doc.qt.io/qtforpython-6/)
 3. [Documentation Pygame](https://www.pygame.org/docs/)

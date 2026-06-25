@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://profdenis.github.io/3n1_doc/section3/F.%20QThread/05-graduated-shutdown/">
+        <link rel="canonical" href="https://profdenis.github.io/3n1_doc/section3/F_QThread/05_arret_progressif/">
       
       
       
@@ -21,7 +21,7 @@
     
     
       
-        <title>Graduated Shutdown - Cours de programmation orientée objet 2</title>
+        <title>Fermeture progressive - Cours de programmation orientée objet 2</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#graduated-shutdown" class="md-skip">
+        <a href="#fermeture-progressive" class="md-skip">
           Aller au contenu
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Graduated Shutdown
+              Fermeture progressive
             
           </span>
         </div>
@@ -3059,22 +3059,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#the-three-step-graceful-shutdown-process" class="md-nav__link">
+  <a href="#le-processus-de-fermeture-en-trois-etapes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        The Three-Step Graceful Shutdown Process:
+        Le processus de fermeture en trois étapes :
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="The Three-Step Graceful Shutdown Process:">
+    <nav class="md-nav" aria-label="Le processus de fermeture en trois étapes :">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#step-1-cooperative-cancellation-3-seconds" class="md-nav__link">
+  <a href="#etape-1-annulation-cooperative-3-secondes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 1: Cooperative Cancellation (3 seconds)
+        Étape 1 : Annulation coopérative (3 secondes)
       
     </span>
   </a>
@@ -3082,10 +3082,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-2-quit-signal-2-seconds" class="md-nav__link">
+  <a href="#etape-2-signal-de-sortie-2-secondes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 2: Quit Signal (2 seconds)
+        Étape 2 : Signal de sortie (2 secondes)
       
     </span>
   </a>
@@ -3093,10 +3093,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-3-user-choice-force-termination" class="md-nav__link">
+  <a href="#etape-3-choix-utilisateur-terminaison-forcee" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 3: User Choice + Force Termination
+        Étape 3 : Choix utilisateur + Terminaison forcée
       
     </span>
   </a>
@@ -3109,22 +3109,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#key-points" class="md-nav__link">
+  <a href="#points-cles" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Key Points:
+        Points clés :
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Key Points:">
+    <nav class="md-nav" aria-label="Points clés :">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-graduated-response-times" class="md-nav__link">
+  <a href="#1-temps-de-reponse-progressifs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Graduated Response Times
+        1. Temps de réponse progressifs
       
     </span>
   </a>
@@ -3132,10 +3132,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-user-involvement" class="md-nav__link">
+  <a href="#2-implication-de-lutilisateur" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. User Involvement
+        2. Implication de l&rsquo;utilisateur
       
     </span>
   </a>
@@ -3143,10 +3143,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-proper-event-handling" class="md-nav__link">
+  <a href="#3-gestion-correcte-des-evenements" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Proper Event Handling
+        3. Gestion correcte des événements
       
     </span>
   </a>
@@ -3154,10 +3154,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-state-management" class="md-nav__link">
+  <a href="#4-gestion-de-letat" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. State Management
+        4. Gestion de l&rsquo;état
       
     </span>
   </a>
@@ -3170,10 +3170,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#why-this-approach-is-superior" class="md-nav__link">
+  <a href="#pourquoi-cette-approche-est-superieure" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Why This Approach is Superior:
+        Pourquoi cette approche est supérieure :
       
     </span>
   </a>
@@ -3181,10 +3181,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#real-world-applications" class="md-nav__link">
+  <a href="#applications-du-monde-reel" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Real-World Applications:
+        Applications du monde réel :
       
     </span>
   </a>
@@ -3192,10 +3192,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#full-code" class="md-nav__link">
+  <a href="#code-complet" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Full Code
+        Code complet
       
     </span>
   </a>
@@ -3230,93 +3230,93 @@
   
 
 
-<h1 id="graduated-shutdown">Graduated Shutdown<a class="headerlink" href="#graduated-shutdown" title="Permanent link">&para;</a></h1>
-<p>The graduated shutdown approach in <code>closeEvent</code> is the professional way to handle application shutdown. Here&rsquo;s what 
-the example demonstrates:</p>
-<h2 id="the-three-step-graceful-shutdown-process">The Three-Step Graceful Shutdown Process:<a class="headerlink" href="#the-three-step-graceful-shutdown-process" title="Permanent link">&para;</a></h2>
-<h3 id="step-1-cooperative-cancellation-3-seconds"><strong>Step 1: Cooperative Cancellation (3 seconds)</strong><a class="headerlink" href="#step-1-cooperative-cancellation-3-seconds" title="Permanent link">&para;</a></h3>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="bp">self</span><span class="o">.</span><span class="n">worker_thread</span><span class="o">.</span><span class="n">cancel</span><span class="p">()</span>  <span class="c1"># Set the cancellation flag</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">worker_thread</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="mi">3000</span><span class="p">):</span>  <span class="c1"># Wait 3 seconds</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># Thread stopped nicely - we&#39;re done!</span>
+<h1 id="fermeture-progressive">Fermeture progressive<a class="headerlink" href="#fermeture-progressive" title="Permanent link">&para;</a></h1>
+<p>L&rsquo;approche de fermeture progressive dans <code>closeEvent</code> est la méthode professionnelle pour gérer la fermeture d&rsquo;une
+application. Voici ce que l&rsquo;exemple démontre :</p>
+<h2 id="le-processus-de-fermeture-en-trois-etapes">Le processus de fermeture en trois étapes :<a class="headerlink" href="#le-processus-de-fermeture-en-trois-etapes" title="Permanent link">&para;</a></h2>
+<h3 id="etape-1-annulation-cooperative-3-secondes"><strong>Étape 1 : Annulation coopérative (3 secondes)</strong><a class="headerlink" href="#etape-1-annulation-cooperative-3-secondes" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="bp">self</span><span class="o">.</span><span class="n">worker_thread</span><span class="o">.</span><span class="n">cancel</span><span class="p">()</span>  <span class="c1"># Définir le drapeau d&#39;annulation</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">worker_thread</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="mi">3000</span><span class="p">):</span>  <span class="c1"># Attendre 3 secondes</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># Le thread s&#39;est arrêté proprement - nous avons terminé !</span>
 </span></code></pre></div>
-<h3 id="step-2-quit-signal-2-seconds"><strong>Step 2: Quit Signal (2 seconds)</strong><a class="headerlink" href="#step-2-quit-signal-2-seconds" title="Permanent link">&para;</a></h3>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="bp">self</span><span class="o">.</span><span class="n">worker_thread</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>  <span class="c1"># Send quit signal to event loop</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">worker_thread</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="mi">2000</span><span class="p">):</span>  <span class="c1"># Wait 2 seconds</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># Thread responded to quit - we&#39;re done!</span>
+<h3 id="etape-2-signal-de-sortie-2-secondes"><strong>Étape 2 : Signal de sortie (2 secondes)</strong><a class="headerlink" href="#etape-2-signal-de-sortie-2-secondes" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="bp">self</span><span class="o">.</span><span class="n">worker_thread</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>  <span class="c1"># Envoyer le signal de sortie à la boucle d&#39;événements</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">worker_thread</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="mi">2000</span><span class="p">):</span>  <span class="c1"># Attendre 2 secondes</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># Le thread a répondu au signal de sortie - nous avons terminé !</span>
 </span></code></pre></div>
-<h3 id="step-3-user-choice-force-termination"><strong>Step 3: User Choice + Force Termination</strong><a class="headerlink" href="#step-3-user-choice-force-termination" title="Permanent link">&para;</a></h3>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Ask user permission first!</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">reply</span> <span class="o">=</span> <span class="n">QMessageBox</span><span class="o">.</span><span class="n">question</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;Force Terminate?&quot;</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+<h3 id="etape-3-choix-utilisateur-terminaison-forcee"><strong>Étape 3 : Choix utilisateur + Terminaison forcée</strong><a class="headerlink" href="#etape-3-choix-utilisateur-terminaison-forcee" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Demander la permission à l&#39;utilisateur en premier !</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">reply</span> <span class="o">=</span> <span class="n">QMessageBox</span><span class="o">.</span><span class="n">question</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;Terminer de force ?&quot;</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="k">if</span> <span class="n">reply</span> <span class="o">==</span> <span class="n">Yes</span><span class="p">:</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">worker_thread</span><span class="o">.</span><span class="n">terminate</span><span class="p">()</span>  <span class="c1"># Force kill</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">worker_thread</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>  <span class="c1"># Wait for cleanup</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">worker_thread</span><span class="o">.</span><span class="n">terminate</span><span class="p">()</span>  <span class="c1"># Tuer de force</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">worker_thread</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>  <span class="c1"># Attendre le nettoyage</span>
 </span></code></pre></div>
-<h2 id="key-points">Key Points:<a class="headerlink" href="#key-points" title="Permanent link">&para;</a></h2>
-<h3 id="1-graduated-response-times"><strong>1. Graduated Response Times</strong><a class="headerlink" href="#1-graduated-response-times" title="Permanent link">&para;</a></h3>
+<h2 id="points-cles">Points clés :<a class="headerlink" href="#points-cles" title="Permanent link">&para;</a></h2>
+<h3 id="1-temps-de-reponse-progressifs"><strong>1. Temps de réponse progressifs</strong><a class="headerlink" href="#1-temps-de-reponse-progressifs" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>3 seconds</strong> for cooperative (longest, most gentle)</li>
-<li><strong>2 seconds</strong> for quit signal (shorter, more urgent)</li>
-<li><strong>1 second</strong> for termination cleanup (just cleanup time)</li>
+<li><strong>3 secondes</strong> pour l&rsquo;annulation coopérative (le plus long, le plus doux)</li>
+<li><strong>2 secondes</strong> pour le signal de sortie (plus court, plus urgent)</li>
+<li><strong>1 seconde</strong> pour le nettoyage après terminaison (juste le temps de nettoyage)</li>
 </ul>
-<h3 id="2-user-involvement"><strong>2. User Involvement</strong><a class="headerlink" href="#2-user-involvement" title="Permanent link">&para;</a></h3>
+<h3 id="2-implication-de-lutilisateur"><strong>2. Implication de l&rsquo;utilisateur</strong><a class="headerlink" href="#2-implication-de-lutilisateur" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Don&rsquo;t force terminate without asking the user</li>
-<li>Users should understand the consequences</li>
-<li>Give them the option to cancel shutdown and wait</li>
+<li>Ne terminez pas de force sans demander à l&rsquo;utilisateur</li>
+<li>Les utilisateurs doivent comprendre les conséquences</li>
+<li>Donnez-leur la possibilité d&rsquo;annuler la fermeture et d&rsquo;attendre</li>
 </ul>
-<h3 id="3-proper-event-handling"><strong>3. Proper Event Handling</strong><a class="headerlink" href="#3-proper-event-handling" title="Permanent link">&para;</a></h3>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">event</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>  <span class="c1"># Allow the close</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">event</span><span class="o">.</span><span class="n">ignore</span><span class="p">()</span>  <span class="c1"># Cancel the close</span>
+<h3 id="3-gestion-correcte-des-evenements"><strong>3. Gestion correcte des événements</strong><a class="headerlink" href="#3-gestion-correcte-des-evenements" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">event</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>  <span class="c1"># Autoriser la fermeture</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">event</span><span class="o">.</span><span class="n">ignore</span><span class="p">()</span>  <span class="c1"># Annuler la fermeture</span>
 </span></code></pre></div>
-<h3 id="4-state-management"><strong>4. State Management</strong><a class="headerlink" href="#4-state-management" title="Permanent link">&para;</a></h3>
+<h3 id="4-gestion-de-letat"><strong>4. Gestion de l&rsquo;état</strong><a class="headerlink" href="#4-gestion-de-letat" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Track <code>shutdown_in_progress</code> to avoid duplicate logs</li>
-<li>Continue logging throughout the process</li>
-<li>Use <code>QApplication.processEvents()</code> to ensure UI updates</li>
+<li>Suivre <code>shutdown_in_progress</code> pour éviter les doublons dans le journal</li>
+<li>Continuer à journaliser tout au long du processus</li>
+<li>Utiliser <code>QApplication.processEvents()</code> pour garantir les mises à jour de l&rsquo;UI</li>
 </ul>
-<h2 id="why-this-approach-is-superior">Why This Approach is Superior:<a class="headerlink" href="#why-this-approach-is-superior" title="Permanent link">&para;</a></h2>
-<p><strong>For Well-Behaved Threads:</strong></p>
+<h2 id="pourquoi-cette-approche-est-superieure">Pourquoi cette approche est supérieure :<a class="headerlink" href="#pourquoi-cette-approche-est-superieure" title="Permanent link">&para;</a></h2>
+<p><strong>Pour les threads bien comportés :</strong></p>
 <ul>
-<li>Step 1 (cooperative) succeeds → fast, clean shutdown</li>
-<li>No force termination needed</li>
+<li>L&rsquo;étape 1 (coopérative) réussit → fermeture rapide et propre</li>
+<li>Aucune terminaison forcée nécessaire</li>
 </ul>
-<p><strong>For Moderately Problematic Threads:</strong></p>
+<p><strong>Pour les threads modérément problématiques :</strong></p>
 <ul>
-<li>Step 1 fails, but Step 2 (quit) succeeds</li>
-<li>Still avoids dangerous force termination</li>
+<li>L&rsquo;étape 1 échoue, mais l&rsquo;étape 2 (signal de sortie) réussit</li>
+<li>Évite toujours la terminaison forcée dangereuse</li>
 </ul>
-<p><strong>For Truly Stuck Threads:</strong></p>
+<p><strong>Pour les threads vraiment bloqués :</strong></p>
 <ul>
-<li>Both steps fail → user gets to decide</li>
-<li>User understands the risk before force termination</li>
-<li>Application doesn&rsquo;t just hang forever</li>
+<li>Les deux étapes échouent → l&rsquo;utilisateur peut décider</li>
+<li>L&rsquo;utilisateur comprend le risque avant la terminaison forcée</li>
+<li>L&rsquo;application ne reste pas bloquée pour toujours</li>
 </ul>
-<h2 id="real-world-applications">Real-World Applications:<a class="headerlink" href="#real-world-applications" title="Permanent link">&para;</a></h2>
-<p>This pattern is essential for:</p>
+<h2 id="applications-du-monde-reel">Applications du monde réel :<a class="headerlink" href="#applications-du-monde-reel" title="Permanent link">&para;</a></h2>
+<p>Ce schéma est essentiel pour :</p>
 <ul>
-<li><strong>File processing applications</strong> (don&rsquo;t corrupt files)</li>
-<li><strong>Network applications</strong> (close connections cleanly)</li>
-<li><strong>Data analysis tools</strong> (save intermediate results)</li>
-<li><strong>Any professional software</strong> (users expect graceful shutdown)</li>
+<li><strong>Applications de traitement de fichiers</strong> (ne pas corrompre les fichiers)</li>
+<li><strong>Applications réseau</strong> (fermer les connexions proprement)</li>
+<li><strong>Outils d&rsquo;analyse de données</strong> (enregistrer les résultats intermédiaires)</li>
+<li><strong>Tout logiciel professionnel</strong> (les utilisateurs s&rsquo;attendent à une fermeture gracieuse)</li>
 </ul>
-<p>The example shows both cooperative and stubborn workers, so we can test both scenarios and see how the graduated
-approach handles each case appropriately.</p>
-<h2 id="full-code">Full Code<a class="headerlink" href="#full-code" title="Permanent link">&para;</a></h2>
+<p>L&rsquo;exemple montre à la fois des workers coopératifs et têtus, donc nous pouvons tester les deux scénarios et voir comment
+l&rsquo;approche progressive gère chaque cas de manière appropriée.</p>
+<h2 id="code-complet">Code complet<a class="headerlink" href="#code-complet" title="Permanent link">&para;</a></h2>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">PyQt6.QtCore</span><span class="w"> </span><span class="kn">import</span> <span class="n">QThread</span><span class="p">,</span> <span class="n">pyqtSignal</span><span class="p">,</span> <span class="n">QTimer</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">PyQt6.QtWidgets</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span><span class="n">QApplication</span><span class="p">,</span> <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QVBoxLayout</span><span class="p">,</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>                             <span class="n">QPushButton</span><span class="p">,</span> <span class="n">QLabel</span><span class="p">,</span> <span class="n">QTextEdit</span><span class="p">,</span> <span class="n">QProgressBar</span><span class="p">,</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>                             <span class="n">QMessageBox</span><span class="p">)</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">PySide6.QtCore</span><span class="w"> </span><span class="kn">import</span> <span class="n">QThread</span><span class="p">,</span> <span class="n">Signal</span><span class="p">,</span> <span class="n">QTimer</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">PySide6.QtWidgets</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span><span class="n">QApplication</span><span class="p">,</span> <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QVBoxLayout</span><span class="p">,</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>                               <span class="n">QPushButton</span><span class="p">,</span> <span class="n">QLabel</span><span class="p">,</span> <span class="n">QTextEdit</span><span class="p">,</span> <span class="n">QProgressBar</span><span class="p">,</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>                               <span class="n">QMessageBox</span><span class="p">)</span>
 </span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
 </span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
 </span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="k">class</span><span class="w"> </span><span class="nc">LongRunningWorker</span><span class="p">(</span><span class="n">QThread</span><span class="p">):</span>
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Worker thread that can be cancelled cooperatively&quot;&quot;&quot;</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Thread worker qui peut être annulé de manière coopérative&quot;&quot;&quot;</span>
 </span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>    <span class="n">progress_update</span> <span class="o">=</span> <span class="n">pyqtSignal</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>    <span class="n">status_update</span> <span class="o">=</span> <span class="n">pyqtSignal</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
-</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>    <span class="n">log_message</span> <span class="o">=</span> <span class="n">pyqtSignal</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>    <span class="n">progress_update</span> <span class="o">=</span> <span class="n">Signal</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>    <span class="n">status_update</span> <span class="o">=</span> <span class="n">Signal</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>    <span class="n">log_message</span> <span class="o">=</span> <span class="n">Signal</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
 </span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>
 </span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task_duration</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
 </span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
@@ -3324,31 +3324,31 @@ approach handles each case appropriately.</p>
 </span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">is_cancelled</span> <span class="o">=</span> <span class="kc">False</span>
 </span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>
 </span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">cancel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Request cooperative cancellation&quot;&quot;&quot;</span>
+</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Demander une annulation coopérative&quot;&quot;&quot;</span>
 </span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">is_cancelled</span> <span class="o">=</span> <span class="kc">True</span>
 </span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>
 </span><span id="__span-4-25"><a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="__span-4-26"><a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Long running task that checks for cancellation&quot;&quot;&quot;</span>
-</span><span id="__span-4-27"><a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">log_message</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s2">&quot;Worker thread started&quot;</span><span class="p">)</span>
+</span><span id="__span-4-26"><a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Tâche longue qui vérifie l&#39;annulation&quot;&quot;&quot;</span>
+</span><span id="__span-4-27"><a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">log_message</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s2">&quot;Thread worker démarré&quot;</span><span class="p">)</span>
 </span><span id="__span-4-28"><a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a>
 </span><span id="__span-4-29"><a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">task_duration</span><span class="p">):</span>
-</span><span id="__span-4-30"><a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a>            <span class="c1"># Check for cancellation request</span>
+</span><span id="__span-4-30"><a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a>            <span class="c1"># Vérifier la demande d&#39;annulation</span>
 </span><span id="__span-4-31"><a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a>            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_cancelled</span><span class="p">:</span>
-</span><span id="__span-4-32"><a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">log_message</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s2">&quot;Worker thread cancelled cooperatively&quot;</span><span class="p">)</span>
-</span><span id="__span-4-33"><a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">status_update</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s2">&quot;Task cancelled&quot;</span><span class="p">)</span>
+</span><span id="__span-4-32"><a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">log_message</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s2">&quot;Thread worker annulé de manière coopérative&quot;</span><span class="p">)</span>
+</span><span id="__span-4-33"><a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">status_update</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s2">&quot;Tâche annulée&quot;</span><span class="p">)</span>
 </span><span id="__span-4-34"><a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a>                <span class="k">return</span>
 </span><span id="__span-4-35"><a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a>
-</span><span id="__span-4-36"><a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a>            <span class="c1"># Simulate work</span>
+</span><span id="__span-4-36"><a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a>            <span class="c1"># Simuler le travail</span>
 </span><span id="__span-4-37"><a id="__codelineno-4-37" name="__codelineno-4-37" href="#__codelineno-4-37"></a>            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </span><span id="__span-4-38"><a id="__codelineno-4-38" name="__codelineno-4-38" href="#__codelineno-4-38"></a>            <span class="n">progress</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(((</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">task_duration</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span>
 </span><span id="__span-4-39"><a id="__codelineno-4-39" name="__codelineno-4-39" href="#__codelineno-4-39"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">progress_update</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="n">progress</span><span class="p">)</span>
-</span><span id="__span-4-40"><a id="__codelineno-4-40" name="__codelineno-4-40" href="#__codelineno-4-40"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">status_update</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Working... </span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">task_duration</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-4-40"><a id="__codelineno-4-40" name="__codelineno-4-40" href="#__codelineno-4-40"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">status_update</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Travail en cours... </span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">task_duration</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </span><span id="__span-4-41"><a id="__codelineno-4-41" name="__codelineno-4-41" href="#__codelineno-4-41"></a>
-</span><span id="__span-4-42"><a id="__codelineno-4-42" name="__codelineno-4-42" href="#__codelineno-4-42"></a>            <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># Log every few steps</span>
-</span><span id="__span-4-43"><a id="__codelineno-4-43" name="__codelineno-4-43" href="#__codelineno-4-43"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">log_message</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Completed step </span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-4-42"><a id="__codelineno-4-42" name="__codelineno-4-42" href="#__codelineno-4-42"></a>            <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># Journaliser tous les quelques étapes</span>
+</span><span id="__span-4-43"><a id="__codelineno-4-43" name="__codelineno-4-43" href="#__codelineno-4-43"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">log_message</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Étape </span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2"> terminée&quot;</span><span class="p">)</span>
 </span><span id="__span-4-44"><a id="__codelineno-4-44" name="__codelineno-4-44" href="#__codelineno-4-44"></a>
-</span><span id="__span-4-45"><a id="__codelineno-4-45" name="__codelineno-4-45" href="#__codelineno-4-45"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">log_message</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s2">&quot;Worker thread completed normally&quot;</span><span class="p">)</span>
-</span><span id="__span-4-46"><a id="__codelineno-4-46" name="__codelineno-4-46" href="#__codelineno-4-46"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">status_update</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s2">&quot;Task completed!&quot;</span><span class="p">)</span>
+</span><span id="__span-4-45"><a id="__codelineno-4-45" name="__codelineno-4-45" href="#__codelineno-4-45"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">log_message</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s2">&quot;Thread worker terminé normalement&quot;</span><span class="p">)</span>
+</span><span id="__span-4-46"><a id="__codelineno-4-46" name="__codelineno-4-46" href="#__codelineno-4-46"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">status_update</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s2">&quot;Tâche terminée !&quot;</span><span class="p">)</span>
 </span><span id="__span-4-47"><a id="__codelineno-4-47" name="__codelineno-4-47" href="#__codelineno-4-47"></a>
 </span><span id="__span-4-48"><a id="__codelineno-4-48" name="__codelineno-4-48" href="#__codelineno-4-48"></a>
 </span><span id="__span-4-49"><a id="__codelineno-4-49" name="__codelineno-4-49" href="#__codelineno-4-49"></a><span class="k">class</span><span class="w"> </span><span class="nc">GracefulShutdownApp</span><span class="p">(</span><span class="n">QMainWindow</span><span class="p">):</span>
@@ -3359,28 +3359,28 @@ approach handles each case appropriately.</p>
 </span><span id="__span-4-54"><a id="__codelineno-4-54" name="__codelineno-4-54" href="#__codelineno-4-54"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">init_ui</span><span class="p">()</span>
 </span><span id="__span-4-55"><a id="__codelineno-4-55" name="__codelineno-4-55" href="#__codelineno-4-55"></a>
 </span><span id="__span-4-56"><a id="__codelineno-4-56" name="__codelineno-4-56" href="#__codelineno-4-56"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">init_ui</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="__span-4-57"><a id="__codelineno-4-57" name="__codelineno-4-57" href="#__codelineno-4-57"></a>        <span class="c1"># Create central widget</span>
+</span><span id="__span-4-57"><a id="__codelineno-4-57" name="__codelineno-4-57" href="#__codelineno-4-57"></a>        <span class="c1"># Créer le widget central</span>
 </span><span id="__span-4-58"><a id="__codelineno-4-58" name="__codelineno-4-58" href="#__codelineno-4-58"></a>        <span class="n">central_widget</span> <span class="o">=</span> <span class="n">QWidget</span><span class="p">()</span>
 </span><span id="__span-4-59"><a id="__codelineno-4-59" name="__codelineno-4-59" href="#__codelineno-4-59"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">setCentralWidget</span><span class="p">(</span><span class="n">central_widget</span><span class="p">)</span>
 </span><span id="__span-4-60"><a id="__codelineno-4-60" name="__codelineno-4-60" href="#__codelineno-4-60"></a>        <span class="n">layout</span> <span class="o">=</span> <span class="n">QVBoxLayout</span><span class="p">(</span><span class="n">central_widget</span><span class="p">)</span>
 </span><span id="__span-4-61"><a id="__codelineno-4-61" name="__codelineno-4-61" href="#__codelineno-4-61"></a>
-</span><span id="__span-4-62"><a id="__codelineno-4-62" name="__codelineno-4-62" href="#__codelineno-4-62"></a>        <span class="c1"># Title</span>
-</span><span id="__span-4-63"><a id="__codelineno-4-63" name="__codelineno-4-63" href="#__codelineno-4-63"></a>        <span class="n">title</span> <span class="o">=</span> <span class="n">QLabel</span><span class="p">(</span><span class="s2">&quot;Graceful Shutdown Demo&quot;</span><span class="p">)</span>
+</span><span id="__span-4-62"><a id="__codelineno-4-62" name="__codelineno-4-62" href="#__codelineno-4-62"></a>        <span class="c1"># Titre</span>
+</span><span id="__span-4-63"><a id="__codelineno-4-63" name="__codelineno-4-63" href="#__codelineno-4-63"></a>        <span class="n">title</span> <span class="o">=</span> <span class="n">QLabel</span><span class="p">(</span><span class="s2">&quot;Démonstration de fermeture gracieuse&quot;</span><span class="p">)</span>
 </span><span id="__span-4-64"><a id="__codelineno-4-64" name="__codelineno-4-64" href="#__codelineno-4-64"></a>        <span class="n">title</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span><span class="s2">&quot;font-size: 16px; font-weight: bold; margin: 10px;&quot;</span><span class="p">)</span>
 </span><span id="__span-4-65"><a id="__codelineno-4-65" name="__codelineno-4-65" href="#__codelineno-4-65"></a>        <span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
 </span><span id="__span-4-66"><a id="__codelineno-4-66" name="__codelineno-4-66" href="#__codelineno-4-66"></a>
-</span><span id="__span-4-67"><a id="__codelineno-4-67" name="__codelineno-4-67" href="#__codelineno-4-67"></a>        <span class="c1"># Status display</span>
-</span><span id="__span-4-68"><a id="__codelineno-4-68" name="__codelineno-4-68" href="#__codelineno-4-68"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">status_label</span> <span class="o">=</span> <span class="n">QLabel</span><span class="p">(</span><span class="s2">&quot;Ready to start task&quot;</span><span class="p">)</span>
+</span><span id="__span-4-67"><a id="__codelineno-4-67" name="__codelineno-4-67" href="#__codelineno-4-67"></a>        <span class="c1"># Affichage du statut</span>
+</span><span id="__span-4-68"><a id="__codelineno-4-68" name="__codelineno-4-68" href="#__codelineno-4-68"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">status_label</span> <span class="o">=</span> <span class="n">QLabel</span><span class="p">(</span><span class="s2">&quot;Prêt à démarrer la tâche&quot;</span><span class="p">)</span>
 </span><span id="__span-4-69"><a id="__codelineno-4-69" name="__codelineno-4-69" href="#__codelineno-4-69"></a>        <span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">status_label</span><span class="p">)</span>
 </span><span id="__span-4-70"><a id="__codelineno-4-70" name="__codelineno-4-70" href="#__codelineno-4-70"></a>
-</span><span id="__span-4-71"><a id="__codelineno-4-71" name="__codelineno-4-71" href="#__codelineno-4-71"></a>        <span class="c1"># Progress bar</span>
+</span><span id="__span-4-71"><a id="__codelineno-4-71" name="__codelineno-4-71" href="#__codelineno-4-71"></a>        <span class="c1"># Barre de progression</span>
 </span><span id="__span-4-72"><a id="__codelineno-4-72" name="__codelineno-4-72" href="#__codelineno-4-72"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">progress_bar</span> <span class="o">=</span> <span class="n">QProgressBar</span><span class="p">()</span>
 </span><span id="__span-4-73"><a id="__codelineno-4-73" name="__codelineno-4-73" href="#__codelineno-4-73"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">progress_bar</span><span class="o">.</span><span class="n">setVisible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 </span><span id="__span-4-74"><a id="__codelineno-4-74" name="__codelineno-4-74" href="#__codelineno-4-74"></a>        <span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">progress_bar</span><span class="p">)</span>
 </span><span id="__span-4-75"><a id="__codelineno-4-75" name="__codelineno-4-75" href="#__codelineno-4-75"></a>
-</span><span id="__span-4-76"><a id="__codelineno-4-76" name="__codelineno-4-76" href="#__codelineno-4-76"></a>        <span class="c1"># Control buttons</span>
-</span><span id="__span-4-77"><a id="__codelineno-4-77" name="__codelineno-4-77" href="#__codelineno-4-77"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">start_button</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s2">&quot;Start Long Task (20 seconds)&quot;</span><span class="p">)</span>
-</span><span id="__span-4-78"><a id="__codelineno-4-78" name="__codelineno-4-78" href="#__codelineno-4-78"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">cancel_button</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s2">&quot;Cancel Task&quot;</span><span class="p">)</span>
+</span><span id="__span-4-76"><a id="__codelineno-4-76" name="__codelineno-4-76" href="#__codelineno-4-76"></a>        <span class="c1"># Boutons de contrôle</span>
+</span><span id="__span-4-77"><a id="__codelineno-4-77" name="__codelineno-4-77" href="#__codelineno-4-77"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">start_button</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s2">&quot;Démarrer une longue tâche (20 secondes)&quot;</span><span class="p">)</span>
+</span><span id="__span-4-78"><a id="__codelineno-4-78" name="__codelineno-4-78" href="#__codelineno-4-78"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">cancel_button</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s2">&quot;Annuler la tâche&quot;</span><span class="p">)</span>
 </span><span id="__span-4-79"><a id="__codelineno-4-79" name="__codelineno-4-79" href="#__codelineno-4-79"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">cancel_button</span><span class="o">.</span><span class="n">setEnabled</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 </span><span id="__span-4-80"><a id="__codelineno-4-80" name="__codelineno-4-80" href="#__codelineno-4-80"></a>
 </span><span id="__span-4-81"><a id="__codelineno-4-81" name="__codelineno-4-81" href="#__codelineno-4-81"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">start_button</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">start_task</span><span class="p">)</span>
@@ -3391,16 +3391,16 @@ approach handles each case appropriately.</p>
 </span><span id="__span-4-86"><a id="__codelineno-4-86" name="__codelineno-4-86" href="#__codelineno-4-86"></a>
 </span><span id="__span-4-87"><a id="__codelineno-4-87" name="__codelineno-4-87" href="#__codelineno-4-87"></a>        <span class="c1"># Instructions</span>
 </span><span id="__span-4-88"><a id="__codelineno-4-88" name="__codelineno-4-88" href="#__codelineno-4-88"></a>        <span class="n">instructions</span> <span class="o">=</span> <span class="n">QLabel</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
-</span><span id="__span-4-89"><a id="__codelineno-4-89" name="__codelineno-4-89" href="#__codelineno-4-89"></a><span class="s2">Instructions:</span>
-</span><span id="__span-4-90"><a id="__codelineno-4-90" name="__codelineno-4-90" href="#__codelineno-4-90"></a><span class="s2">1. Click &#39;Start Long Task&#39; to begin a 20-second background task</span>
-</span><span id="__span-4-91"><a id="__codelineno-4-91" name="__codelineno-4-91" href="#__codelineno-4-91"></a><span class="s2">2. Try closing the window while the task is running</span>
-</span><span id="__span-4-92"><a id="__codelineno-4-92" name="__codelineno-4-92" href="#__codelineno-4-92"></a><span class="s2">3. Observe the graceful shutdown process in the log below</span>
+</span><span id="__span-4-89"><a id="__codelineno-4-89" name="__codelineno-4-89" href="#__codelineno-4-89"></a><span class="s2">Instructions :</span>
+</span><span id="__span-4-90"><a id="__codelineno-4-90" name="__codelineno-4-90" href="#__codelineno-4-90"></a><span class="s2">1. Cliquez sur &#39;Démarrer une longue tâche&#39; pour commencer une tâche d&#39;arrière-plan de 20 secondes</span>
+</span><span id="__span-4-91"><a id="__codelineno-4-91" name="__codelineno-4-91" href="#__codelineno-4-91"></a><span class="s2">2. Essayez de fermer la fenêtre pendant que la tâche s&#39;exécute</span>
+</span><span id="__span-4-92"><a id="__codelineno-4-92" name="__codelineno-4-92" href="#__codelineno-4-92"></a><span class="s2">3. Observez le processus de fermeture gracieuse dans le journal ci-dessous</span>
 </span><span id="__span-4-93"><a id="__codelineno-4-93" name="__codelineno-4-93" href="#__codelineno-4-93"></a><span class="s2">        &quot;&quot;&quot;</span><span class="p">)</span>
 </span><span id="__span-4-94"><a id="__codelineno-4-94" name="__codelineno-4-94" href="#__codelineno-4-94"></a>        <span class="n">instructions</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span><span class="s2">&quot;margin: 10px; padding: 10px;&quot;</span><span class="p">)</span>
 </span><span id="__span-4-95"><a id="__codelineno-4-95" name="__codelineno-4-95" href="#__codelineno-4-95"></a>        <span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">instructions</span><span class="p">)</span>
 </span><span id="__span-4-96"><a id="__codelineno-4-96" name="__codelineno-4-96" href="#__codelineno-4-96"></a>
-</span><span id="__span-4-97"><a id="__codelineno-4-97" name="__codelineno-4-97" href="#__codelineno-4-97"></a>        <span class="c1"># Log display</span>
-</span><span id="__span-4-98"><a id="__codelineno-4-98" name="__codelineno-4-98" href="#__codelineno-4-98"></a>        <span class="n">log_label</span> <span class="o">=</span> <span class="n">QLabel</span><span class="p">(</span><span class="s2">&quot;Shutdown Process Log:&quot;</span><span class="p">)</span>
+</span><span id="__span-4-97"><a id="__codelineno-4-97" name="__codelineno-4-97" href="#__codelineno-4-97"></a>        <span class="c1"># Affichage du journal</span>
+</span><span id="__span-4-98"><a id="__codelineno-4-98" name="__codelineno-4-98" href="#__codelineno-4-98"></a>        <span class="n">log_label</span> <span class="o">=</span> <span class="n">QLabel</span><span class="p">(</span><span class="s2">&quot;Journal du processus de fermeture :&quot;</span><span class="p">)</span>
 </span><span id="__span-4-99"><a id="__codelineno-4-99" name="__codelineno-4-99" href="#__codelineno-4-99"></a>        <span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">log_label</span><span class="p">)</span>
 </span><span id="__span-4-100"><a id="__codelineno-4-100" name="__codelineno-4-100" href="#__codelineno-4-100"></a>
 </span><span id="__span-4-101"><a id="__codelineno-4-101" name="__codelineno-4-101" href="#__codelineno-4-101"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">log_display</span> <span class="o">=</span> <span class="n">QTextEdit</span><span class="p">()</span>
@@ -3408,49 +3408,49 @@ approach handles each case appropriately.</p>
 </span><span id="__span-4-103"><a id="__codelineno-4-103" name="__codelineno-4-103" href="#__codelineno-4-103"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">log_display</span><span class="o">.</span><span class="n">setReadOnly</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 </span><span id="__span-4-104"><a id="__codelineno-4-104" name="__codelineno-4-104" href="#__codelineno-4-104"></a>        <span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">log_display</span><span class="p">)</span>
 </span><span id="__span-4-105"><a id="__codelineno-4-105" name="__codelineno-4-105" href="#__codelineno-4-105"></a>
-</span><span id="__span-4-106"><a id="__codelineno-4-106" name="__codelineno-4-106" href="#__codelineno-4-106"></a>        <span class="c1"># Window settings</span>
-</span><span id="__span-4-107"><a id="__codelineno-4-107" name="__codelineno-4-107" href="#__codelineno-4-107"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s2">&quot;Graceful Shutdown Example&quot;</span><span class="p">)</span>
+</span><span id="__span-4-106"><a id="__codelineno-4-106" name="__codelineno-4-106" href="#__codelineno-4-106"></a>        <span class="c1"># Paramètres de la fenêtre</span>
+</span><span id="__span-4-107"><a id="__codelineno-4-107" name="__codelineno-4-107" href="#__codelineno-4-107"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s2">&quot;Exemple de fermeture gracieuse&quot;</span><span class="p">)</span>
 </span><span id="__span-4-108"><a id="__codelineno-4-108" name="__codelineno-4-108" href="#__codelineno-4-108"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
 </span><span id="__span-4-109"><a id="__codelineno-4-109" name="__codelineno-4-109" href="#__codelineno-4-109"></a>
 </span><span id="__span-4-110"><a id="__codelineno-4-110" name="__codelineno-4-110" href="#__codelineno-4-110"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">start_task</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="__span-4-111"><a id="__codelineno-4-111" name="__codelineno-4-111" href="#__codelineno-4-111"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Start the background task&quot;&quot;&quot;</span>
+</span><span id="__span-4-111"><a id="__codelineno-4-111" name="__codelineno-4-111" href="#__codelineno-4-111"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Démarrer la tâche d&#39;arrière-plan&quot;&quot;&quot;</span>
 </span><span id="__span-4-112"><a id="__codelineno-4-112" name="__codelineno-4-112" href="#__codelineno-4-112"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">log_display</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
-</span><span id="__span-4-113"><a id="__codelineno-4-113" name="__codelineno-4-113" href="#__codelineno-4-113"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">add_log_message</span><span class="p">(</span><span class="s2">&quot;=== Starting new task ===&quot;</span><span class="p">)</span>
+</span><span id="__span-4-113"><a id="__codelineno-4-113" name="__codelineno-4-113" href="#__codelineno-4-113"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">add_log_message</span><span class="p">(</span><span class="s2">&quot;=== Démarrage d&#39;une nouvelle tâche ===&quot;</span><span class="p">)</span>
 </span><span id="__span-4-114"><a id="__codelineno-4-114" name="__codelineno-4-114" href="#__codelineno-4-114"></a>
-</span><span id="__span-4-115"><a id="__codelineno-4-115" name="__codelineno-4-115" href="#__codelineno-4-115"></a>        <span class="c1"># Update UI</span>
+</span><span id="__span-4-115"><a id="__codelineno-4-115" name="__codelineno-4-115" href="#__codelineno-4-115"></a>        <span class="c1"># Mettre à jour l&#39;UI</span>
 </span><span id="__span-4-116"><a id="__codelineno-4-116" name="__codelineno-4-116" href="#__codelineno-4-116"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">start_button</span><span class="o">.</span><span class="n">setEnabled</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 </span><span id="__span-4-117"><a id="__codelineno-4-117" name="__codelineno-4-117" href="#__codelineno-4-117"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">cancel_button</span><span class="o">.</span><span class="n">setEnabled</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 </span><span id="__span-4-118"><a id="__codelineno-4-118" name="__codelineno-4-118" href="#__codelineno-4-118"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">progress_bar</span><span class="o">.</span><span class="n">setVisible</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 </span><span id="__span-4-119"><a id="__codelineno-4-119" name="__codelineno-4-119" href="#__codelineno-4-119"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">progress_bar</span><span class="o">.</span><span class="n">setValue</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </span><span id="__span-4-120"><a id="__codelineno-4-120" name="__codelineno-4-120" href="#__codelineno-4-120"></a>
-</span><span id="__span-4-121"><a id="__codelineno-4-121" name="__codelineno-4-121" href="#__codelineno-4-121"></a>        <span class="c1"># Create and start worker</span>
+</span><span id="__span-4-121"><a id="__codelineno-4-121" name="__codelineno-4-121" href="#__codelineno-4-121"></a>        <span class="c1"># Créer et démarrer le worker</span>
 </span><span id="__span-4-122"><a id="__codelineno-4-122" name="__codelineno-4-122" href="#__codelineno-4-122"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">worker_thread</span> <span class="o">=</span> <span class="n">LongRunningWorker</span><span class="p">()</span>
-</span><span id="__span-4-123"><a id="__codelineno-4-123" name="__codelineno-4-123" href="#__codelineno-4-123"></a>        <span class="c1"># self.worker_thread = StubbornWorker()  # Uncomment to test with stubborn worker that ignores cancellation</span>
+</span><span id="__span-4-123"><a id="__codelineno-4-123" name="__codelineno-4-123" href="#__codelineno-4-123"></a>        <span class="c1"># self.worker_thread = StubbornWorker()  # Décommenter pour tester avec un worker têtu qui ignore l&#39;annulation</span>
 </span><span id="__span-4-124"><a id="__codelineno-4-124" name="__codelineno-4-124" href="#__codelineno-4-124"></a>
-</span><span id="__span-4-125"><a id="__codelineno-4-125" name="__codelineno-4-125" href="#__codelineno-4-125"></a>        <span class="c1"># Connect signals</span>
+</span><span id="__span-4-125"><a id="__codelineno-4-125" name="__codelineno-4-125" href="#__codelineno-4-125"></a>        <span class="c1"># Connecter les signaux</span>
 </span><span id="__span-4-126"><a id="__codelineno-4-126" name="__codelineno-4-126" href="#__codelineno-4-126"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">worker_thread</span><span class="o">.</span><span class="n">progress_update</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">update_progress</span><span class="p">)</span>
 </span><span id="__span-4-127"><a id="__codelineno-4-127" name="__codelineno-4-127" href="#__codelineno-4-127"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">worker_thread</span><span class="o">.</span><span class="n">status_update</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">update_status</span><span class="p">)</span>
 </span><span id="__span-4-128"><a id="__codelineno-4-128" name="__codelineno-4-128" href="#__codelineno-4-128"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">worker_thread</span><span class="o">.</span><span class="n">log_message</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">add_log_message</span><span class="p">)</span>
 </span><span id="__span-4-129"><a id="__codelineno-4-129" name="__codelineno-4-129" href="#__codelineno-4-129"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">worker_thread</span><span class="o">.</span><span class="n">finished</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">task_finished</span><span class="p">)</span>
 </span><span id="__span-4-130"><a id="__codelineno-4-130" name="__codelineno-4-130" href="#__codelineno-4-130"></a>
-</span><span id="__span-4-131"><a id="__codelineno-4-131" name="__codelineno-4-131" href="#__codelineno-4-131"></a>        <span class="c1"># Start thread</span>
+</span><span id="__span-4-131"><a id="__codelineno-4-131" name="__codelineno-4-131" href="#__codelineno-4-131"></a>        <span class="c1"># Démarrer le thread</span>
 </span><span id="__span-4-132"><a id="__codelineno-4-132" name="__codelineno-4-132" href="#__codelineno-4-132"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">worker_thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 </span><span id="__span-4-133"><a id="__codelineno-4-133" name="__codelineno-4-133" href="#__codelineno-4-133"></a>
 </span><span id="__span-4-134"><a id="__codelineno-4-134" name="__codelineno-4-134" href="#__codelineno-4-134"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">cancel_task</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="__span-4-135"><a id="__codelineno-4-135" name="__codelineno-4-135" href="#__codelineno-4-135"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Cancel the running task&quot;&quot;&quot;</span>
+</span><span id="__span-4-135"><a id="__codelineno-4-135" name="__codelineno-4-135" href="#__codelineno-4-135"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Annuler la tâche en cours&quot;&quot;&quot;</span>
 </span><span id="__span-4-136"><a id="__codelineno-4-136" name="__codelineno-4-136" href="#__codelineno-4-136"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">worker_thread</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">worker_thread</span><span class="o">.</span><span class="n">isRunning</span><span class="p">():</span>
-</span><span id="__span-4-137"><a id="__codelineno-4-137" name="__codelineno-4-137" href="#__codelineno-4-137"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">add_log_message</span><span class="p">(</span><span class="s2">&quot;Requesting task cancellation...&quot;</span><span class="p">)</span>
+</span><span id="__span-4-137"><a id="__codelineno-4-137" name="__codelineno-4-137" href="#__codelineno-4-137"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">add_log_message</span><span class="p">(</span><span class="s2">&quot;Demande d&#39;annulation de la tâche...&quot;</span><span class="p">)</span>
 </span><span id="__span-4-138"><a id="__codelineno-4-138" name="__codelineno-4-138" href="#__codelineno-4-138"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">worker_thread</span><span class="o">.</span><span class="n">cancel</span><span class="p">()</span>
 </span><span id="__span-4-139"><a id="__codelineno-4-139" name="__codelineno-4-139" href="#__codelineno-4-139"></a>
 </span><span id="__span-4-140"><a id="__codelineno-4-140" name="__codelineno-4-140" href="#__codelineno-4-140"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">task_finished</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="__span-4-141"><a id="__codelineno-4-141" name="__codelineno-4-141" href="#__codelineno-4-141"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Handle task completion&quot;&quot;&quot;</span>
+</span><span id="__span-4-141"><a id="__codelineno-4-141" name="__codelineno-4-141" href="#__codelineno-4-141"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Gérer la fin de la tâche&quot;&quot;&quot;</span>
 </span><span id="__span-4-142"><a id="__codelineno-4-142" name="__codelineno-4-142" href="#__codelineno-4-142"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">start_button</span><span class="o">.</span><span class="n">setEnabled</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 </span><span id="__span-4-143"><a id="__codelineno-4-143" name="__codelineno-4-143" href="#__codelineno-4-143"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">cancel_button</span><span class="o">.</span><span class="n">setEnabled</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 </span><span id="__span-4-144"><a id="__codelineno-4-144" name="__codelineno-4-144" href="#__codelineno-4-144"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">progress_bar</span><span class="o">.</span><span class="n">setVisible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 </span><span id="__span-4-145"><a id="__codelineno-4-145" name="__codelineno-4-145" href="#__codelineno-4-145"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">worker_thread</span> <span class="o">=</span> <span class="kc">None</span>
 </span><span id="__span-4-146"><a id="__codelineno-4-146" name="__codelineno-4-146" href="#__codelineno-4-146"></a>
 </span><span id="__span-4-147"><a id="__codelineno-4-147" name="__codelineno-4-147" href="#__codelineno-4-147"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">shutdown_in_progress</span><span class="p">:</span>
-</span><span id="__span-4-148"><a id="__codelineno-4-148" name="__codelineno-4-148" href="#__codelineno-4-148"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">add_log_message</span><span class="p">(</span><span class="s2">&quot;=== Task ended ===&quot;</span><span class="p">)</span>
+</span><span id="__span-4-148"><a id="__codelineno-4-148" name="__codelineno-4-148" href="#__codelineno-4-148"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">add_log_message</span><span class="p">(</span><span class="s2">&quot;=== Tâche terminée ===&quot;</span><span class="p">)</span>
 </span><span id="__span-4-149"><a id="__codelineno-4-149" name="__codelineno-4-149" href="#__codelineno-4-149"></a>
 </span><span id="__span-4-150"><a id="__codelineno-4-150" name="__codelineno-4-150" href="#__codelineno-4-150"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">update_progress</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
 </span><span id="__span-4-151"><a id="__codelineno-4-151" name="__codelineno-4-151" href="#__codelineno-4-151"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">progress_bar</span><span class="o">.</span><span class="n">setValue</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
@@ -3463,136 +3463,131 @@ approach handles each case appropriately.</p>
 </span><span id="__span-4-158"><a id="__codelineno-4-158" name="__codelineno-4-158" href="#__codelineno-4-158"></a>        <span class="n">log_entry</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">timestamp</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s2">&quot;</span>
 </span><span id="__span-4-159"><a id="__codelineno-4-159" name="__codelineno-4-159" href="#__codelineno-4-159"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">log_display</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">log_entry</span><span class="p">)</span>
 </span><span id="__span-4-160"><a id="__codelineno-4-160" name="__codelineno-4-160" href="#__codelineno-4-160"></a>
-</span><span id="__span-4-161"><a id="__codelineno-4-161" name="__codelineno-4-161" href="#__codelineno-4-161"></a>        <span class="c1"># Force immediate display update</span>
+</span><span id="__span-4-161"><a id="__codelineno-4-161" name="__codelineno-4-161" href="#__codelineno-4-161"></a>        <span class="c1"># Forcer une mise à jour immédiate de l&#39;affichage</span>
 </span><span id="__span-4-162"><a id="__codelineno-4-162" name="__codelineno-4-162" href="#__codelineno-4-162"></a>        <span class="n">QApplication</span><span class="o">.</span><span class="n">processEvents</span><span class="p">()</span>
 </span><span id="__span-4-163"><a id="__codelineno-4-163" name="__codelineno-4-163" href="#__codelineno-4-163"></a>
 </span><span id="__span-4-164"><a id="__codelineno-4-164" name="__codelineno-4-164" href="#__codelineno-4-164"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">closeEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
 </span><span id="__span-4-165"><a id="__codelineno-4-165" name="__codelineno-4-165" href="#__codelineno-4-165"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="__span-4-166"><a id="__codelineno-4-166" name="__codelineno-4-166" href="#__codelineno-4-166"></a><span class="sd">        Handle application shutdown with graduated thread termination approach</span>
+</span><span id="__span-4-166"><a id="__codelineno-4-166" name="__codelineno-4-166" href="#__codelineno-4-166"></a><span class="sd">        Gérer la fermeture de l&#39;application avec une approche de terminaison progressive des threads</span>
 </span><span id="__span-4-167"><a id="__codelineno-4-167" name="__codelineno-4-167" href="#__codelineno-4-167"></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="__span-4-168"><a id="__codelineno-4-168" name="__codelineno-4-168" href="#__codelineno-4-168"></a>        <span class="c1"># If no thread is running, close immediately</span>
+</span><span id="__span-4-168"><a id="__codelineno-4-168" name="__codelineno-4-168" href="#__codelineno-4-168"></a>        <span class="c1"># Si aucun thread ne s&#39;exécute, fermer immédiatement</span>
 </span><span id="__span-4-169"><a id="__codelineno-4-169" name="__codelineno-4-169" href="#__codelineno-4-169"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">worker_thread</span> <span class="ow">or</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">worker_thread</span><span class="o">.</span><span class="n">isRunning</span><span class="p">():</span>
-</span><span id="__span-4-170"><a id="__codelineno-4-170" name="__codelineno-4-170" href="#__codelineno-4-170"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">add_log_message</span><span class="p">(</span><span class="s2">&quot;No background tasks running - closing immediately&quot;</span><span class="p">)</span>
+</span><span id="__span-4-170"><a id="__codelineno-4-170" name="__codelineno-4-170" href="#__codelineno-4-170"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">add_log_message</span><span class="p">(</span><span class="s2">&quot;Aucune tâche d&#39;arrière-plan en cours - fermeture immédiate&quot;</span><span class="p">)</span>
 </span><span id="__span-4-171"><a id="__codelineno-4-171" name="__codelineno-4-171" href="#__codelineno-4-171"></a>            <span class="n">event</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>
 </span><span id="__span-4-172"><a id="__codelineno-4-172" name="__codelineno-4-172" href="#__codelineno-4-172"></a>            <span class="k">return</span>
 </span><span id="__span-4-173"><a id="__codelineno-4-173" name="__codelineno-4-173" href="#__codelineno-4-173"></a>
 </span><span id="__span-4-174"><a id="__codelineno-4-174" name="__codelineno-4-174" href="#__codelineno-4-174"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">shutdown_in_progress</span> <span class="o">=</span> <span class="kc">True</span>
-</span><span id="__span-4-175"><a id="__codelineno-4-175" name="__codelineno-4-175" href="#__codelineno-4-175"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">add_log_message</span><span class="p">(</span><span class="s2">&quot;=== APPLICATION SHUTDOWN REQUESTED ===&quot;</span><span class="p">)</span>
-</span><span id="__span-4-176"><a id="__codelineno-4-176" name="__codelineno-4-176" href="#__codelineno-4-176"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">add_log_message</span><span class="p">(</span><span class="s2">&quot;Background thread detected - attempting graceful shutdown...&quot;</span><span class="p">)</span>
+</span><span id="__span-4-175"><a id="__codelineno-4-175" name="__codelineno-4-175" href="#__codelineno-4-175"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">add_log_message</span><span class="p">(</span><span class="s2">&quot;=== FERMETURE DE L&#39;APPLICATION DEMANDÉE ===&quot;</span><span class="p">)</span>
+</span><span id="__span-4-176"><a id="__codelineno-4-176" name="__codelineno-4-176" href="#__codelineno-4-176"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">add_log_message</span><span class="p">(</span><span class="s2">&quot;Thread d&#39;arrière-plan détecté - tentative de fermeture gracieuse...&quot;</span><span class="p">)</span>
 </span><span id="__span-4-177"><a id="__codelineno-4-177" name="__codelineno-4-177" href="#__codelineno-4-177"></a>
-</span><span id="__span-4-178"><a id="__codelineno-4-178" name="__codelineno-4-178" href="#__codelineno-4-178"></a>        <span class="c1"># STEP 1: Try cooperative cancellation</span>
-</span><span id="__span-4-179"><a id="__codelineno-4-179" name="__codelineno-4-179" href="#__codelineno-4-179"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">add_log_message</span><span class="p">(</span><span class="s2">&quot;Step 1: Requesting cooperative cancellation...&quot;</span><span class="p">)</span>
+</span><span id="__span-4-178"><a id="__codelineno-4-178" name="__codelineno-4-178" href="#__codelineno-4-178"></a>        <span class="c1"># ÉTAPE 1 : Essayer l&#39;annulation coopérative</span>
+</span><span id="__span-4-179"><a id="__codelineno-4-179" name="__codelineno-4-179" href="#__codelineno-4-179"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">add_log_message</span><span class="p">(</span><span class="s2">&quot;Étape 1 : Demande d&#39;annulation coopérative...&quot;</span><span class="p">)</span>
 </span><span id="__span-4-180"><a id="__codelineno-4-180" name="__codelineno-4-180" href="#__codelineno-4-180"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">worker_thread</span><span class="o">.</span><span class="n">cancel</span><span class="p">()</span>
 </span><span id="__span-4-181"><a id="__codelineno-4-181" name="__codelineno-4-181" href="#__codelineno-4-181"></a>
-</span><span id="__span-4-182"><a id="__codelineno-4-182" name="__codelineno-4-182" href="#__codelineno-4-182"></a>        <span class="c1"># Wait for cooperative shutdown (give it a reasonable time)</span>
-</span><span id="__span-4-183"><a id="__codelineno-4-183" name="__codelineno-4-183" href="#__codelineno-4-183"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">add_log_message</span><span class="p">(</span><span class="s2">&quot;Waiting up to 3 seconds for cooperative shutdown...&quot;</span><span class="p">)</span>
-</span><span id="__span-4-184"><a id="__codelineno-4-184" name="__codelineno-4-184" href="#__codelineno-4-184"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">worker_thread</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="mi">3000</span><span class="p">):</span>  <span class="c1"># 3 seconds</span>
-</span><span id="__span-4-185"><a id="__codelineno-4-185" name="__codelineno-4-185" href="#__codelineno-4-185"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">add_log_message</span><span class="p">(</span><span class="s2">&quot;✓ Thread stopped cooperatively - closing application&quot;</span><span class="p">)</span>
+</span><span id="__span-4-182"><a id="__codelineno-4-182" name="__codelineno-4-182" href="#__codelineno-4-182"></a>        <span class="c1"># Attendre la fermeture coopérative (donner un temps raisonnable)</span>
+</span><span id="__span-4-183"><a id="__codelineno-4-183" name="__codelineno-4-183" href="#__codelineno-4-183"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">add_log_message</span><span class="p">(</span><span class="s2">&quot;Attente jusqu&#39;à 3 secondes pour une fermeture coopérative...&quot;</span><span class="p">)</span>
+</span><span id="__span-4-184"><a id="__codelineno-4-184" name="__codelineno-4-184" href="#__codelineno-4-184"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">worker_thread</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="mi">3000</span><span class="p">):</span>  <span class="c1"># 3 secondes</span>
+</span><span id="__span-4-185"><a id="__codelineno-4-185" name="__codelineno-4-185" href="#__codelineno-4-185"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">add_log_message</span><span class="p">(</span><span class="s2">&quot;✓ Thread arrêté de manière coopérative - fermeture de l&#39;application&quot;</span><span class="p">)</span>
 </span><span id="__span-4-186"><a id="__codelineno-4-186" name="__codelineno-4-186" href="#__codelineno-4-186"></a>            <span class="n">event</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>
 </span><span id="__span-4-187"><a id="__codelineno-4-187" name="__codelineno-4-187" href="#__codelineno-4-187"></a>            <span class="k">return</span>
 </span><span id="__span-4-188"><a id="__codelineno-4-188" name="__codelineno-4-188" href="#__codelineno-4-188"></a>
-</span><span id="__span-4-189"><a id="__codelineno-4-189" name="__codelineno-4-189" href="#__codelineno-4-189"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">add_log_message</span><span class="p">(</span><span class="s2">&quot;✗ Cooperative cancellation failed&quot;</span><span class="p">)</span>
+</span><span id="__span-4-189"><a id="__codelineno-4-189" name="__codelineno-4-189" href="#__codelineno-4-189"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">add_log_message</span><span class="p">(</span><span class="s2">&quot;✗ Annulation coopérative échouée&quot;</span><span class="p">)</span>
 </span><span id="__span-4-190"><a id="__codelineno-4-190" name="__codelineno-4-190" href="#__codelineno-4-190"></a>
-</span><span id="__span-4-191"><a id="__codelineno-4-191" name="__codelineno-4-191" href="#__codelineno-4-191"></a>        <span class="c1"># STEP 2: Try quit() signal</span>
-</span><span id="__span-4-192"><a id="__codelineno-4-192" name="__codelineno-4-192" href="#__codelineno-4-192"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">add_log_message</span><span class="p">(</span><span class="s2">&quot;Step 2: Sending quit signal to thread...&quot;</span><span class="p">)</span>
+</span><span id="__span-4-191"><a id="__codelineno-4-191" name="__codelineno-4-191" href="#__codelineno-4-191"></a>        <span class="c1"># ÉTAPE 2 : Essayer le signal quit()</span>
+</span><span id="__span-4-192"><a id="__codelineno-4-192" name="__codelineno-4-192" href="#__codelineno-4-192"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">add_log_message</span><span class="p">(</span><span class="s2">&quot;Étape 2 : Envoi du signal de sortie au thread...&quot;</span><span class="p">)</span>
 </span><span id="__span-4-193"><a id="__codelineno-4-193" name="__codelineno-4-193" href="#__codelineno-4-193"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">worker_thread</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
 </span><span id="__span-4-194"><a id="__codelineno-4-194" name="__codelineno-4-194" href="#__codelineno-4-194"></a>
-</span><span id="__span-4-195"><a id="__codelineno-4-195" name="__codelineno-4-195" href="#__codelineno-4-195"></a>        <span class="c1"># Wait for quit signal to work</span>
-</span><span id="__span-4-196"><a id="__codelineno-4-196" name="__codelineno-4-196" href="#__codelineno-4-196"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">add_log_message</span><span class="p">(</span><span class="s2">&quot;Waiting up to 2 seconds for quit signal response...&quot;</span><span class="p">)</span>
-</span><span id="__span-4-197"><a id="__codelineno-4-197" name="__codelineno-4-197" href="#__codelineno-4-197"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">worker_thread</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="mi">2000</span><span class="p">):</span>  <span class="c1"># 2 seconds</span>
-</span><span id="__span-4-198"><a id="__codelineno-4-198" name="__codelineno-4-198" href="#__codelineno-4-198"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">add_log_message</span><span class="p">(</span><span class="s2">&quot;✓ Thread stopped after quit signal - closing application&quot;</span><span class="p">)</span>
+</span><span id="__span-4-195"><a id="__codelineno-4-195" name="__codelineno-4-195" href="#__codelineno-4-195"></a>        <span class="c1"># Attendre que le signal de sortie fonctionne</span>
+</span><span id="__span-4-196"><a id="__codelineno-4-196" name="__codelineno-4-196" href="#__codelineno-4-196"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">add_log_message</span><span class="p">(</span><span class="s2">&quot;Attente jusqu&#39;à 2 secondes pour la réponse au signal de sortie...&quot;</span><span class="p">)</span>
+</span><span id="__span-4-197"><a id="__codelineno-4-197" name="__codelineno-4-197" href="#__codelineno-4-197"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">worker_thread</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="mi">2000</span><span class="p">):</span>  <span class="c1"># 2 secondes</span>
+</span><span id="__span-4-198"><a id="__codelineno-4-198" name="__codelineno-4-198" href="#__codelineno-4-198"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">add_log_message</span><span class="p">(</span><span class="s2">&quot;✓ Thread arrêté après le signal de sortie - fermeture de l&#39;application&quot;</span><span class="p">)</span>
 </span><span id="__span-4-199"><a id="__codelineno-4-199" name="__codelineno-4-199" href="#__codelineno-4-199"></a>            <span class="n">event</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>
 </span><span id="__span-4-200"><a id="__codelineno-4-200" name="__codelineno-4-200" href="#__codelineno-4-200"></a>            <span class="k">return</span>
 </span><span id="__span-4-201"><a id="__codelineno-4-201" name="__codelineno-4-201" href="#__codelineno-4-201"></a>
-</span><span id="__span-4-202"><a id="__codelineno-4-202" name="__codelineno-4-202" href="#__codelineno-4-202"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">add_log_message</span><span class="p">(</span><span class="s2">&quot;✗ Quit signal failed&quot;</span><span class="p">)</span>
+</span><span id="__span-4-202"><a id="__codelineno-4-202" name="__codelineno-4-202" href="#__codelineno-4-202"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">add_log_message</span><span class="p">(</span><span class="s2">&quot;✗ Signal de sortie échoué&quot;</span><span class="p">)</span>
 </span><span id="__span-4-203"><a id="__codelineno-4-203" name="__codelineno-4-203" href="#__codelineno-4-203"></a>
-</span><span id="__span-4-204"><a id="__codelineno-4-204" name="__codelineno-4-204" href="#__codelineno-4-204"></a>        <span class="c1"># STEP 3: Ask user if they want to force terminate</span>
-</span><span id="__span-4-205"><a id="__codelineno-4-205" name="__codelineno-4-205" href="#__codelineno-4-205"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">add_log_message</span><span class="p">(</span><span class="s2">&quot;Step 3: Thread is unresponsive - asking user for permission to force terminate&quot;</span><span class="p">)</span>
-</span><span id="__span-4-206"><a id="__codelineno-4-206" name="__codelineno-4-206" href="#__codelineno-4-206"></a>
-</span><span id="__span-4-207"><a id="__codelineno-4-207" name="__codelineno-4-207" href="#__codelineno-4-207"></a>        <span class="n">reply</span> <span class="o">=</span> <span class="n">QMessageBox</span><span class="o">.</span><span class="n">question</span><span class="p">(</span>
-</span><span id="__span-4-208"><a id="__codelineno-4-208" name="__codelineno-4-208" href="#__codelineno-4-208"></a>            <span class="bp">self</span><span class="p">,</span>
-</span><span id="__span-4-209"><a id="__codelineno-4-209" name="__codelineno-4-209" href="#__codelineno-4-209"></a>            <span class="s2">&quot;Force Terminate Thread?&quot;</span><span class="p">,</span>
-</span><span id="__span-4-210"><a id="__codelineno-4-210" name="__codelineno-4-210" href="#__codelineno-4-210"></a>            <span class="s2">&quot;The background task is not responding to shutdown requests.</span><span class="se">\n\n</span><span class="s2">&quot;</span>
-</span><span id="__span-4-211"><a id="__codelineno-4-211" name="__codelineno-4-211" href="#__codelineno-4-211"></a>            <span class="s2">&quot;Force terminate the thread?</span><span class="se">\n</span><span class="s2">&quot;</span>
-</span><span id="__span-4-212"><a id="__codelineno-4-212" name="__codelineno-4-212" href="#__codelineno-4-212"></a>            <span class="s2">&quot;⚠️ Warning: This may cause data loss or corruption.</span><span class="se">\n\n</span><span class="s2">&quot;</span>
-</span><span id="__span-4-213"><a id="__codelineno-4-213" name="__codelineno-4-213" href="#__codelineno-4-213"></a>            <span class="s2">&quot;Choose:</span><span class="se">\n</span><span class="s2">&quot;</span>
-</span><span id="__span-4-214"><a id="__codelineno-4-214" name="__codelineno-4-214" href="#__codelineno-4-214"></a>            <span class="s2">&quot;• Yes: Force terminate and close</span><span class="se">\n</span><span class="s2">&quot;</span>
-</span><span id="__span-4-215"><a id="__codelineno-4-215" name="__codelineno-4-215" href="#__codelineno-4-215"></a>            <span class="s2">&quot;• No: Cancel shutdown and wait&quot;</span><span class="p">,</span>
-</span><span id="__span-4-216"><a id="__codelineno-4-216" name="__codelineno-4-216" href="#__codelineno-4-216"></a>            <span class="n">QMessageBox</span><span class="o">.</span><span class="n">StandardButton</span><span class="o">.</span><span class="n">Yes</span> <span class="o">|</span> <span class="n">QMessageBox</span><span class="o">.</span><span class="n">StandardButton</span><span class="o">.</span><span class="n">No</span><span class="p">,</span>
-</span><span id="__span-4-217"><a id="__codelineno-4-217" name="__codelineno-4-217" href="#__codelineno-4-217"></a>            <span class="n">QMessageBox</span><span class="o">.</span><span class="n">StandardButton</span><span class="o">.</span><span class="n">No</span>
-</span><span id="__span-4-218"><a id="__codelineno-4-218" name="__codelineno-4-218" href="#__codelineno-4-218"></a>        <span class="p">)</span>
-</span><span id="__span-4-219"><a id="__codelineno-4-219" name="__codelineno-4-219" href="#__codelineno-4-219"></a>
-</span><span id="__span-4-220"><a id="__codelineno-4-220" name="__codelineno-4-220" href="#__codelineno-4-220"></a>        <span class="k">if</span> <span class="n">reply</span> <span class="o">==</span> <span class="n">QMessageBox</span><span class="o">.</span><span class="n">StandardButton</span><span class="o">.</span><span class="n">Yes</span><span class="p">:</span>
-</span><span id="__span-4-221"><a id="__codelineno-4-221" name="__codelineno-4-221" href="#__codelineno-4-221"></a>            <span class="c1"># STEP 4: Force termination</span>
-</span><span id="__span-4-222"><a id="__codelineno-4-222" name="__codelineno-4-222" href="#__codelineno-4-222"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">add_log_message</span><span class="p">(</span><span class="s2">&quot;⚠️ FORCE TERMINATING THREAD ⚠️&quot;</span><span class="p">)</span>
-</span><span id="__span-4-223"><a id="__codelineno-4-223" name="__codelineno-4-223" href="#__codelineno-4-223"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">worker_thread</span><span class="o">.</span><span class="n">terminate</span><span class="p">()</span>
-</span><span id="__span-4-224"><a id="__codelineno-4-224" name="__codelineno-4-224" href="#__codelineno-4-224"></a>
-</span><span id="__span-4-225"><a id="__codelineno-4-225" name="__codelineno-4-225" href="#__codelineno-4-225"></a>            <span class="c1"># Wait for termination to complete</span>
-</span><span id="__span-4-226"><a id="__codelineno-4-226" name="__codelineno-4-226" href="#__codelineno-4-226"></a>            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">worker_thread</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>  <span class="c1"># 1 second</span>
-</span><span id="__span-4-227"><a id="__codelineno-4-227" name="__codelineno-4-227" href="#__codelineno-4-227"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">add_log_message</span><span class="p">(</span><span class="s2">&quot;✓ Thread force terminated - closing application&quot;</span><span class="p">)</span>
-</span><span id="__span-4-228"><a id="__codelineno-4-228" name="__codelineno-4-228" href="#__codelineno-4-228"></a>            <span class="k">else</span><span class="p">:</span>
-</span><span id="__span-4-229"><a id="__codelineno-4-229" name="__codelineno-4-229" href="#__codelineno-4-229"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">add_log_message</span><span class="p">(</span><span class="s2">&quot;⚠️ Thread termination may not have completed cleanly&quot;</span><span class="p">)</span>
-</span><span id="__span-4-230"><a id="__codelineno-4-230" name="__codelineno-4-230" href="#__codelineno-4-230"></a>
-</span><span id="__span-4-231"><a id="__codelineno-4-231" name="__codelineno-4-231" href="#__codelineno-4-231"></a>            <span class="n">event</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>
-</span><span id="__span-4-232"><a id="__codelineno-4-232" name="__codelineno-4-232" href="#__codelineno-4-232"></a>        <span class="k">else</span><span class="p">:</span>
-</span><span id="__span-4-233"><a id="__codelineno-4-233" name="__codelineno-4-233" href="#__codelineno-4-233"></a>            <span class="c1"># User chose to cancel shutdown</span>
-</span><span id="__span-4-234"><a id="__codelineno-4-234" name="__codelineno-4-234" href="#__codelineno-4-234"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">add_log_message</span><span class="p">(</span><span class="s2">&quot;User cancelled shutdown - application will remain open&quot;</span><span class="p">)</span>
-</span><span id="__span-4-235"><a id="__codelineno-4-235" name="__codelineno-4-235" href="#__codelineno-4-235"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">add_log_message</span><span class="p">(</span><span class="s2">&quot;Thread is still running - you may need to wait or try closing again&quot;</span><span class="p">)</span>
-</span><span id="__span-4-236"><a id="__codelineno-4-236" name="__codelineno-4-236" href="#__codelineno-4-236"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">shutdown_in_progress</span> <span class="o">=</span> <span class="kc">False</span>
-</span><span id="__span-4-237"><a id="__codelineno-4-237" name="__codelineno-4-237" href="#__codelineno-4-237"></a>            <span class="n">event</span><span class="o">.</span><span class="n">ignore</span><span class="p">()</span>  <span class="c1"># Don&#39;t close the application</span>
-</span><span id="__span-4-238"><a id="__codelineno-4-238" name="__codelineno-4-238" href="#__codelineno-4-238"></a>
-</span><span id="__span-4-239"><a id="__codelineno-4-239" name="__codelineno-4-239" href="#__codelineno-4-239"></a>
-</span><span id="__span-4-240"><a id="__codelineno-4-240" name="__codelineno-4-240" href="#__codelineno-4-240"></a><span class="k">class</span><span class="w"> </span><span class="nc">StubbornWorker</span><span class="p">(</span><span class="n">QThread</span><span class="p">):</span>
-</span><span id="__span-4-241"><a id="__codelineno-4-241" name="__codelineno-4-241" href="#__codelineno-4-241"></a>    <span class="n">progress_update</span> <span class="o">=</span> <span class="n">pyqtSignal</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-</span><span id="__span-4-242"><a id="__codelineno-4-242" name="__codelineno-4-242" href="#__codelineno-4-242"></a>    <span class="n">status_update</span> <span class="o">=</span> <span class="n">pyqtSignal</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
-</span><span id="__span-4-243"><a id="__codelineno-4-243" name="__codelineno-4-243" href="#__codelineno-4-243"></a>    <span class="n">log_message</span> <span class="o">=</span> <span class="n">pyqtSignal</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
-</span><span id="__span-4-244"><a id="__codelineno-4-244" name="__codelineno-4-244" href="#__codelineno-4-244"></a>
-</span><span id="__span-4-245"><a id="__codelineno-4-245" name="__codelineno-4-245" href="#__codelineno-4-245"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="__span-4-246"><a id="__codelineno-4-246" name="__codelineno-4-246" href="#__codelineno-4-246"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-</span><span id="__span-4-247"><a id="__codelineno-4-247" name="__codelineno-4-247" href="#__codelineno-4-247"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">is_cancelled</span> <span class="o">=</span> <span class="kc">False</span>
-</span><span id="__span-4-248"><a id="__codelineno-4-248" name="__codelineno-4-248" href="#__codelineno-4-248"></a>
-</span><span id="__span-4-249"><a id="__codelineno-4-249" name="__codelineno-4-249" href="#__codelineno-4-249"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">cancel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="__span-4-250"><a id="__codelineno-4-250" name="__codelineno-4-250" href="#__codelineno-4-250"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">is_cancelled</span> <span class="o">=</span> <span class="kc">True</span>
-</span><span id="__span-4-251"><a id="__codelineno-4-251" name="__codelineno-4-251" href="#__codelineno-4-251"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">log_message</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s2">&quot;Cancellation requested (but I&#39;ll ignore it!)&quot;</span><span class="p">)</span>
-</span><span id="__span-4-252"><a id="__codelineno-4-252" name="__codelineno-4-252" href="#__codelineno-4-252"></a>
-</span><span id="__span-4-253"><a id="__codelineno-4-253" name="__codelineno-4-253" href="#__codelineno-4-253"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="__span-4-254"><a id="__codelineno-4-254" name="__codelineno-4-254" href="#__codelineno-4-254"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">log_message</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s2">&quot;Stubborn worker started - I ignore cancellation!&quot;</span><span class="p">)</span>
-</span><span id="__span-4-255"><a id="__codelineno-4-255" name="__codelineno-4-255" href="#__codelineno-4-255"></a>
-</span><span id="__span-4-256"><a id="__codelineno-4-256" name="__codelineno-4-256" href="#__codelineno-4-256"></a>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">30</span><span class="p">):</span>  <span class="c1"># Longer task</span>
-</span><span id="__span-4-257"><a id="__codelineno-4-257" name="__codelineno-4-257" href="#__codelineno-4-257"></a>            <span class="c1"># Deliberately NOT checking self.is_cancelled!</span>
-</span><span id="__span-4-258"><a id="__codelineno-4-258" name="__codelineno-4-258" href="#__codelineno-4-258"></a>            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</span><span id="__span-4-259"><a id="__codelineno-4-259" name="__codelineno-4-259" href="#__codelineno-4-259"></a>            <span class="n">progress</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(((</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">30</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span>
-</span><span id="__span-4-260"><a id="__codelineno-4-260" name="__codelineno-4-260" href="#__codelineno-4-260"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">progress_update</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="n">progress</span><span class="p">)</span>
-</span><span id="__span-4-261"><a id="__codelineno-4-261" name="__codelineno-4-261" href="#__codelineno-4-261"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">status_update</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Stubbornly working... </span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">/30&quot;</span><span class="p">)</span>
-</span><span id="__span-4-262"><a id="__codelineno-4-262" name="__codelineno-4-262" href="#__codelineno-4-262"></a>
-</span><span id="__span-4-263"><a id="__codelineno-4-263" name="__codelineno-4-263" href="#__codelineno-4-263"></a>            <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-</span><span id="__span-4-264"><a id="__codelineno-4-264" name="__codelineno-4-264" href="#__codelineno-4-264"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">log_message</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Still ignoring cancellation at step </span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span><span id="__span-4-265"><a id="__codelineno-4-265" name="__codelineno-4-265" href="#__codelineno-4-265"></a>
-</span><span id="__span-4-266"><a id="__codelineno-4-266" name="__codelineno-4-266" href="#__codelineno-4-266"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">log_message</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s2">&quot;Stubborn worker completed (was never cancelled)&quot;</span><span class="p">)</span>
+</span><span id="__span-4-204"><a id="__codelineno-4-204" name="__codelineno-4-204" href="#__codelineno-4-204"></a>        <span class="c1"># ÉTAPE 3 : Demander à l&#39;utilisateur s&#39;il veut terminer de force</span>
+</span><span id="__span-4-205"><a id="__codelineno-4-205" name="__codelineno-4-205" href="#__codelineno-4-205"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">add_log_message</span><span class="p">(</span>
+</span><span id="__span-4-206"><a id="__codelineno-4-206" name="__codelineno-4-206" href="#__codelineno-4-206"></a>            <span class="s2">&quot;Étape 3 : Le thread ne répond pas - demande de permission à l&#39;utilisateur pour terminer de force&quot;</span><span class="p">)</span>
+</span><span id="__span-4-207"><a id="__codelineno-4-207" name="__codelineno-4-207" href="#__codelineno-4-207"></a>
+</span><span id="__span-4-208"><a id="__codelineno-4-208" name="__codelineno-4-208" href="#__codelineno-4-208"></a>        <span class="n">reply</span> <span class="o">=</span> <span class="n">QMessageBox</span><span class="o">.</span><span class="n">question</span><span class="p">(</span>
+</span><span id="__span-4-209"><a id="__codelineno-4-209" name="__codelineno-4-209" href="#__codelineno-4-209"></a>            <span class="bp">self</span><span class="p">,</span>
+</span><span id="__span-4-210"><a id="__codelineno-4-210" name="__codelineno-4-210" href="#__codelineno-4-210"></a>            <span class="s2">&quot;Terminer le thread de force ?&quot;</span><span class="p">,</span>
+</span><span id="__span-4-211"><a id="__codelineno-4-211" name="__codelineno-4-211" href="#__codelineno-4-211"></a>            <span class="s2">&quot;La tâche d&#39;arrière-plan ne répond pas aux demandes de fermeture.</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+</span><span id="__span-4-212"><a id="__codelineno-4-212" name="__codelineno-4-212" href="#__codelineno-4-212"></a>            <span class="s2">&quot;Terminer le thread de force ?</span><span class="se">\n</span><span class="s2">&quot;</span>
+</span><span id="__span-4-213"><a id="__codelineno-4-213" name="__codelineno-4-213" href="#__codelineno-4-213"></a>            <span class="s2">&quot;⚠️ Attention : Cela peut entraîner une perte ou une corruption des données.</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+</span><span id="__span-4-214"><a id="__codelineno-4-214" name="__codelineno-4-214" href="#__codelineno-4-214"></a>            <span class="s2">&quot;Choisir :</span><span class="se">\n</span><span class="s2">&quot;</span>
+</span><span id="__span-4-215"><a id="__codelineno-4-215" name="__codelineno-4-215" href="#__codelineno-4-215"></a>            <span class="s2">&quot;• Oui : Terminer de force et fermer</span><span class="se">\n</span><span class="s2">&quot;</span>
+</span><span id="__span-4-216"><a id="__codelineno-4-216" name="__codelineno-4-216" href="#__codelineno-4-216"></a>            <span class="s2">&quot;• Non : Annuler la fermeture et attendre&quot;</span><span class="p">,</span>
+</span><span id="__span-4-217"><a id="__codelineno-4-217" name="__codelineno-4-217" href="#__codelineno-4-217"></a>            <span class="n">QMessageBox</span><span class="o">.</span><span class="n">StandardButton</span><span class="o">.</span><span class="n">Yes</span> <span class="o">|</span> <span class="n">QMessageBox</span><span class="o">.</span><span class="n">StandardButton</span><span class="o">.</span><span class="n">No</span><span class="p">,</span>
+</span><span id="__span-4-218"><a id="__codelineno-4-218" name="__codelineno-4-218" href="#__codelineno-4-218"></a>            <span class="n">QMessageBox</span><span class="o">.</span><span class="n">StandardButton</span><span class="o">.</span><span class="n">No</span>
+</span><span id="__span-4-219"><a id="__codelineno-4-219" name="__codelineno-4-219" href="#__codelineno-4-219"></a>        <span class="p">)</span>
+</span><span id="__span-4-220"><a id="__codelineno-4-220" name="__codelineno-4-220" href="#__codelineno-4-220"></a>
+</span><span id="__span-4-221"><a id="__codelineno-4-221" name="__codelineno-4-221" href="#__codelineno-4-221"></a>        <span class="k">if</span> <span class="n">reply</span> <span class="o">==</span> <span class="n">QMessageBox</span><span class="o">.</span><span class="n">StandardButton</span><span class="o">.</span><span class="n">Yes</span><span class="p">:</span>
+</span><span id="__span-4-222"><a id="__codelineno-4-222" name="__codelineno-4-222" href="#__codelineno-4-222"></a>            <span class="c1"># ÉTAPE 4 : Terminaison forcée</span>
+</span><span id="__span-4-223"><a id="__codelineno-4-223" name="__codelineno-4-223" href="#__codelineno-4-223"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">add_log_message</span><span class="p">(</span><span class="s2">&quot;⚠️ TERMINAISON FORCÉE DU THREAD ⚠️&quot;</span><span class="p">)</span>
+</span><span id="__span-4-224"><a id="__codelineno-4-224" name="__codelineno-4-224" href="#__codelineno-4-224"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">worker_thread</span><span class="o">.</span><span class="n">terminate</span><span class="p">()</span>
+</span><span id="__span-4-225"><a id="__codelineno-4-225" name="__codelineno-4-225" href="#__codelineno-4-225"></a>
+</span><span id="__span-4-226"><a id="__codelineno-4-226" name="__codelineno-4-226" href="#__codelineno-4-226"></a>            <span class="c1"># Attendre que la terminaison se termine</span>
+</span><span id="__span-4-227"><a id="__codelineno-4-227" name="__codelineno-4-227" href="#__codelineno-4-227"></a>            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">worker_thread</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>  <span class="c1"># 1 seconde</span>
+</span><span id="__span-4-228"><a id="__codelineno-4-228" name="__codelineno-4-228" href="#__codelineno-4-228"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">add_log_message</span><span class="p">(</span><span class="s2">&quot;✓ Thread terminé de force - fermeture de l&#39;application&quot;</span><span class="p">)</span>
+</span><span id="__span-4-229"><a id="__codelineno-4-229" name="__codelineno-4-229" href="#__codelineno-4-229"></a>            <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-4-230"><a id="__codelineno-4-230" name="__codelineno-4-230" href="#__codelineno-4-230"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">add_log_message</span><span class="p">(</span><span class="s2">&quot;⚠️ La terminaison du thread peut ne pas s&#39;être terminée proprement&quot;</span><span class="p">)</span>
+</span><span id="__span-4-231"><a id="__codelineno-4-231" name="__codelineno-4-231" href="#__codelineno-4-231"></a>
+</span><span id="__span-4-232"><a id="__codelineno-4-232" name="__codelineno-4-232" href="#__codelineno-4-232"></a>            <span class="n">event</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>
+</span><span id="__span-4-233"><a id="__codelineno-4-233" name="__codelineno-4-233" href="#__codelineno-4-233"></a>        <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-4-234"><a id="__codelineno-4-234" name="__codelineno-4-234" href="#__codelineno-4-234"></a>            <span class="c1"># L&#39;utilisateur a choisi d&#39;annuler la fermeture</span>
+</span><span id="__span-4-235"><a id="__codelineno-4-235" name="__codelineno-4-235" href="#__codelineno-4-235"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">add_log_message</span><span class="p">(</span><span class="s2">&quot;L&#39;utilisateur a annulé la fermeture - l&#39;application restera ouverte&quot;</span><span class="p">)</span>
+</span><span id="__span-4-236"><a id="__codelineno-4-236" name="__codelineno-4-236" href="#__codelineno-4-236"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">add_log_message</span><span class="p">(</span>
+</span><span id="__span-4-237"><a id="__codelineno-4-237" name="__codelineno-4-237" href="#__codelineno-4-237"></a>                <span class="s2">&quot;Le thread est toujours en cours d&#39;exécution - vous devrez peut-être attendre ou essayer de fermer à nouveau&quot;</span><span class="p">)</span>
+</span><span id="__span-4-238"><a id="__codelineno-4-238" name="__codelineno-4-238" href="#__codelineno-4-238"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">shutdown_in_progress</span> <span class="o">=</span> <span class="kc">False</span>
+</span><span id="__span-4-239"><a id="__codelineno-4-239" name="__codelineno-4-239" href="#__codelineno-4-239"></a>            <span class="n">event</span><span class="o">.</span><span class="n">ignore</span><span class="p">()</span>  <span class="c1"># Ne pas fermer l&#39;application</span>
+</span><span id="__span-4-240"><a id="__codelineno-4-240" name="__codelineno-4-240" href="#__codelineno-4-240"></a>
+</span><span id="__span-4-241"><a id="__codelineno-4-241" name="__codelineno-4-241" href="#__codelineno-4-241"></a>
+</span><span id="__span-4-242"><a id="__codelineno-4-242" name="__codelineno-4-242" href="#__codelineno-4-242"></a><span class="k">class</span><span class="w"> </span><span class="nc">StubbornWorker</span><span class="p">(</span><span class="n">QThread</span><span class="p">):</span>
+</span><span id="__span-4-243"><a id="__codelineno-4-243" name="__codelineno-4-243" href="#__codelineno-4-243"></a>    <span class="n">progress_update</span> <span class="o">=</span> <span class="n">Signal</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+</span><span id="__span-4-244"><a id="__codelineno-4-244" name="__codelineno-4-244" href="#__codelineno-4-244"></a>    <span class="n">status_update</span> <span class="o">=</span> <span class="n">Signal</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+</span><span id="__span-4-245"><a id="__codelineno-4-245" name="__codelineno-4-245" href="#__codelineno-4-245"></a>    <span class="n">log_message</span> <span class="o">=</span> <span class="n">Signal</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+</span><span id="__span-4-246"><a id="__codelineno-4-246" name="__codelineno-4-246" href="#__codelineno-4-246"></a>
+</span><span id="__span-4-247"><a id="__codelineno-4-247" name="__codelineno-4-247" href="#__codelineno-4-247"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-4-248"><a id="__codelineno-4-248" name="__codelineno-4-248" href="#__codelineno-4-248"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+</span><span id="__span-4-249"><a id="__codelineno-4-249" name="__codelineno-4-249" href="#__codelineno-4-249"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">is_cancelled</span> <span class="o">=</span> <span class="kc">False</span>
+</span><span id="__span-4-250"><a id="__codelineno-4-250" name="__codelineno-4-250" href="#__codelineno-4-250"></a>
+</span><span id="__span-4-251"><a id="__codelineno-4-251" name="__codelineno-4-251" href="#__codelineno-4-251"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">cancel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-4-252"><a id="__codelineno-4-252" name="__codelineno-4-252" href="#__codelineno-4-252"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">is_cancelled</span> <span class="o">=</span> <span class="kc">True</span>
+</span><span id="__span-4-253"><a id="__codelineno-4-253" name="__codelineno-4-253" href="#__codelineno-4-253"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">log_message</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s2">&quot;Annulation demandée (mais je vais l&#39;ignorer !)&quot;</span><span class="p">)</span>
+</span><span id="__span-4-254"><a id="__codelineno-4-254" name="__codelineno-4-254" href="#__codelineno-4-254"></a>
+</span><span id="__span-4-255"><a id="__codelineno-4-255" name="__codelineno-4-255" href="#__codelineno-4-255"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-4-256"><a id="__codelineno-4-256" name="__codelineno-4-256" href="#__codelineno-4-256"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">log_message</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s2">&quot;Worker têtu démarré - j&#39;ignore l&#39;annulation !&quot;</span><span class="p">)</span>
+</span><span id="__span-4-257"><a id="__codelineno-4-257" name="__codelineno-4-257" href="#__codelineno-4-257"></a>
+</span><span id="__span-4-258"><a id="__codelineno-4-258" name="__codelineno-4-258" href="#__codelineno-4-258"></a>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">30</span><span class="p">):</span>  <span class="c1"># Tâche plus longue</span>
+</span><span id="__span-4-259"><a id="__codelineno-4-259" name="__codelineno-4-259" href="#__codelineno-4-259"></a>            <span class="c1"># Volontairement NE PAS vérifier self.is_cancelled !</span>
+</span><span id="__span-4-260"><a id="__codelineno-4-260" name="__codelineno-4-260" href="#__codelineno-4-260"></a>            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-4-261"><a id="__codelineno-4-261" name="__codelineno-4-261" href="#__codelineno-4-261"></a>            <span class="n">progress</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(((</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">30</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span>
+</span><span id="__span-4-262"><a id="__codelineno-4-262" name="__codelineno-4-262" href="#__codelineno-4-262"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">progress_update</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="n">progress</span><span class="p">)</span>
+</span><span id="__span-4-263"><a id="__codelineno-4-263" name="__codelineno-4-263" href="#__codelineno-4-263"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">status_update</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Travail têtu... </span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">/30&quot;</span><span class="p">)</span>
+</span><span id="__span-4-264"><a id="__codelineno-4-264" name="__codelineno-4-264" href="#__codelineno-4-264"></a>
+</span><span id="__span-4-265"><a id="__codelineno-4-265" name="__codelineno-4-265" href="#__codelineno-4-265"></a>            <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="__span-4-266"><a id="__codelineno-4-266" name="__codelineno-4-266" href="#__codelineno-4-266"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">log_message</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Toujours en train d&#39;ignorer l&#39;annulation à l&#39;étape </span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </span><span id="__span-4-267"><a id="__codelineno-4-267" name="__codelineno-4-267" href="#__codelineno-4-267"></a>
-</span><span id="__span-4-268"><a id="__codelineno-4-268" name="__codelineno-4-268" href="#__codelineno-4-268"></a>
-</span><span id="__span-4-269"><a id="__codelineno-4-269" name="__codelineno-4-269" href="#__codelineno-4-269"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-</span><span id="__span-4-270"><a id="__codelineno-4-270" name="__codelineno-4-270" href="#__codelineno-4-270"></a>    <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
-</span><span id="__span-4-271"><a id="__codelineno-4-271" name="__codelineno-4-271" href="#__codelineno-4-271"></a>
-</span><span id="__span-4-272"><a id="__codelineno-4-272" name="__codelineno-4-272" href="#__codelineno-4-272"></a>    <span class="c1"># Create the main window</span>
-</span><span id="__span-4-273"><a id="__codelineno-4-273" name="__codelineno-4-273" href="#__codelineno-4-273"></a>    <span class="n">window</span> <span class="o">=</span> <span class="n">GracefulShutdownApp</span><span class="p">()</span>
-</span><span id="__span-4-274"><a id="__codelineno-4-274" name="__codelineno-4-274" href="#__codelineno-4-274"></a>
-</span><span id="__span-4-275"><a id="__codelineno-4-275" name="__codelineno-4-275" href="#__codelineno-4-275"></a>    <span class="n">window</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span><span id="__span-4-268"><a id="__codelineno-4-268" name="__codelineno-4-268" href="#__codelineno-4-268"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">log_message</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s2">&quot;Worker têtu terminé (n&#39;a jamais été annulé)&quot;</span><span class="p">)</span>
+</span><span id="__span-4-269"><a id="__codelineno-4-269" name="__codelineno-4-269" href="#__codelineno-4-269"></a>
+</span><span id="__span-4-270"><a id="__codelineno-4-270" name="__codelineno-4-270" href="#__codelineno-4-270"></a>
+</span><span id="__span-4-271"><a id="__codelineno-4-271" name="__codelineno-4-271" href="#__codelineno-4-271"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+</span><span id="__span-4-272"><a id="__codelineno-4-272" name="__codelineno-4-272" href="#__codelineno-4-272"></a>    <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+</span><span id="__span-4-273"><a id="__codelineno-4-273" name="__codelineno-4-273" href="#__codelineno-4-273"></a>
+</span><span id="__span-4-274"><a id="__codelineno-4-274" name="__codelineno-4-274" href="#__codelineno-4-274"></a>    <span class="c1"># Créer la fenêtre principale</span>
+</span><span id="__span-4-275"><a id="__codelineno-4-275" name="__codelineno-4-275" href="#__codelineno-4-275"></a>    <span class="n">window</span> <span class="o">=</span> <span class="n">GracefulShutdownApp</span><span class="p">()</span>
 </span><span id="__span-4-276"><a id="__codelineno-4-276" name="__codelineno-4-276" href="#__codelineno-4-276"></a>
-</span><span id="__span-4-277"><a id="__codelineno-4-277" name="__codelineno-4-277" href="#__codelineno-4-277"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Instructions:&quot;</span><span class="p">)</span>
-</span><span id="__span-4-278"><a id="__codelineno-4-278" name="__codelineno-4-278" href="#__codelineno-4-278"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1. Start a long task&quot;</span><span class="p">)</span>
-</span><span id="__span-4-279"><a id="__codelineno-4-279" name="__codelineno-4-279" href="#__codelineno-4-279"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;2. Try to close the window&quot;</span><span class="p">)</span>
-</span><span id="__span-4-280"><a id="__codelineno-4-280" name="__codelineno-4-280" href="#__codelineno-4-280"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;3. Watch the graceful shutdown process&quot;</span><span class="p">)</span>
-</span><span id="__span-4-281"><a id="__codelineno-4-281" name="__codelineno-4-281" href="#__codelineno-4-281"></a>
-</span><span id="__span-4-282"><a id="__codelineno-4-282" name="__codelineno-4-282" href="#__codelineno-4-282"></a>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec</span><span class="p">())</span>
+</span><span id="__span-4-277"><a id="__codelineno-4-277" name="__codelineno-4-277" href="#__codelineno-4-277"></a>    <span class="n">window</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span><span id="__span-4-278"><a id="__codelineno-4-278" name="__codelineno-4-278" href="#__codelineno-4-278"></a>
+</span><span id="__span-4-279"><a id="__codelineno-4-279" name="__codelineno-4-279" href="#__codelineno-4-279"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Instructions :&quot;</span><span class="p">)</span>
+</span><span id="__span-4-280"><a id="__codelineno-4-280" name="__codelineno-4-280" href="#__codelineno-4-280"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1. Démarrer une longue tâche&quot;</span><span class="p">)</span>
+</span><span id="__span-4-281"><a id="__codelineno-4-281" name="__codelineno-4-281" href="#__codelineno-4-281"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;2. Essayer de fermer la fenêtre&quot;</span><span class="p">)</span>
+</span><span id="__span-4-282"><a id="__codelineno-4-282" name="__codelineno-4-282" href="#__codelineno-4-282"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;3. Observer le processus de fermeture gracieuse&quot;</span><span class="p">)</span>
+</span><span id="__span-4-283"><a id="__codelineno-4-283" name="__codelineno-4-283" href="#__codelineno-4-283"></a>
+</span><span id="__span-4-284"><a id="__codelineno-4-284" name="__codelineno-4-284" href="#__codelineno-4-284"></a>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec</span><span class="p">())</span>
 </span></code></pre></div>
-<hr />
-<details class="info">
-<summary>Use of AI</summary>
-<p>Page written in part with the help of an AI assistant, mainly using Perplexity AI. The AI was used to generate
-explanations, examples and/or structure suggestions. All information has been verified, edited and completed by
-the author.</p>
-</details>
 
 
 

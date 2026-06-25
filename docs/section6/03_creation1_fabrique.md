@@ -36,7 +36,7 @@ _AsciiArt_. On peut dessiner des figures géométriques sur ces images.
     - en utilisant les classe abstraites, cela permet de faire bon usage du
       polymorphisme
 
-````plantuml
+```puml
 @startuml
 skinparam classAttributeIconSize 0
 
@@ -70,7 +70,7 @@ class AsciiApp {
 Application <|-- AsciiApp
 AsciiDoc <. AsciiApp
 @enduml
-````
+```
 
 -------------------------------------------------------------------------------
 
@@ -102,7 +102,7 @@ Continuation de l'exemple précédent. Pour créer les figures géométriques
    - `App.ShapeFactory.createLine()` va retourner une nouvelle ligne, de type `Canvas` ou `Ascii`, selon la sous-classe utilisée au moment de la création
    - ce code sera utilisé, par exemple, dans le `onClick` (ou autre gestionnaire d’évènement) d'un bouton, ou d'un item de menu, ou d'un raccourci clavier, ...
 
-````plantuml
+```puml
 @startuml
 skinparam classAttributeIconSize 0
 
@@ -124,4 +124,4 @@ class AsciiShapeFactory {
 ShapeFactory <|-- AsciiShapeFactory
 
 @enduml
-````
+```
