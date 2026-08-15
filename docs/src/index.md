@@ -2,7 +2,7 @@
 
 1. Section 1
 2. Section 2
-3. QT
+3. Section 3 : QT
     - Intro
         - [hello1.py](section3/A_intro/hello1.py)
         - [hello2.py](section3/A_intro/hello2.py)

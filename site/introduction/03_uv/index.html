@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://profdenis.github.io/3n1_doc/section5/02_generiques/">
+        <link rel="canonical" href="https://profdenis.github.io/3n1_doc/introduction/03_uv/">
       
       
-        <link rel="prev" href="../01_abc/">
+        <link rel="prev" href="../02_transition/">
       
       
-        <link rel="next" href="../03_protocoles/">
+        <link rel="next" href="../../section1/01_survol_python/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Les Types Génériques - Cours de programmation orientée objet 2</title>
+        <title>Guide : Maîtriser le développement Python moderne avec uv - Cours de programmation orientée objet 2</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#les-types-generiques" class="md-skip">
+        <a href="#guide-maitriser-le-developpement-python-moderne-avec-uv" class="md-skip">
           Aller au contenu
         </a>
       
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Les Types Génériques
+              Guide : Maîtriser le développement Python moderne avec uv
             
           </span>
         </div>
@@ -252,11 +252,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../introduction/01_index/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../01_index/" class="md-tabs__link">
           
   
   
@@ -362,13 +364,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../01_abc/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../section5/01_abc/" class="md-tabs__link">
           
   
   
@@ -502,28 +502,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   
@@ -541,7 +544,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -559,7 +562,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../introduction/01_index/" class="md-nav__link">
+      <a href="../01_index/" class="md-nav__link">
         
   
   
@@ -587,7 +590,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../introduction/02_transition/" class="md-nav__link">
+      <a href="../02_transition/" class="md-nav__link">
         
   
   
@@ -612,10 +615,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../introduction/03_uv/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide : Maîtriser le développement Python moderne avec uv
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -631,6 +661,192 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-pourquoi-ce-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction : Pourquoi ce guide ?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-le-concept-fondamental-lenvironnement-virtuel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Le concept fondamental : L&rsquo;Environnement Virtuel
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Le concept fondamental : L’Environnement Virtuel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#le-probleme-linstallation-globale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le problème : L&rsquo;installation globale
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-solution-la-bulle-lenvironnement-virtuel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La solution : La &ldquo;Bulle&rdquo; (L&rsquo;Environnement Virtuel)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-role-de-uv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le rôle de uv
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-installation-de-uv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Installation de uv
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-workflow-de-base-creer-un-projet-de-a-a-z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Workflow de base : Créer un projet de A à Z
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Workflow de base : Créer un projet de A à Z">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etape-1-initialiser-le-projet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 1 : Initialiser le projet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-2-ajouter-des-bibliotheques-dependances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 2 : Ajouter des bibliothèques (Dépendances)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-3-executer-votre-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 3 : Exécuter votre code
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-les-deux-fichiers-indispensables-comprendre-la-theorie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Les deux fichiers indispensables (Comprendre la théorie)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-gerer-les-versions-de-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Gérer les versions de Python
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-aide-memoire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Aide-mémoire
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conseils-pour-reussir-vos-projets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conseils pour réussir vos projets
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2579,31 +2795,28 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
         
           
-          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
             
   
   
@@ -2621,7 +2834,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2639,7 +2852,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01_abc/" class="md-nav__link">
+      <a href="../../section5/01_abc/" class="md-nav__link">
         
   
   
@@ -2664,37 +2877,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Les Types Génériques
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../section5/02_generiques/" class="md-nav__link">
         
   
   
@@ -2710,266 +2896,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-quest-ce-quun-type-generique" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Qu’est-ce qu’un type générique ?
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="1. Qu’est-ce qu’un type générique ?">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#avantages" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Avantages :
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-exemple-en-java" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Exemple en Java
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. Exemple en Java">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#classe-generique-simple-arraylist" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Classe générique simple : ArrayList
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#definition-dune-classe-generique-en-java" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Définition d’une classe générique en Java
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-types-generiques-en-python" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Types Génériques en Python
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. Types Génériques en Python">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#exemple-liste-generique-list" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exemple : Liste générique (List)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#definition-dune-classe-generique-en-python" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Définition d’une classe générique en Python
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-types-generiques-pour-les-fonctions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Types Génériques pour les Fonctions
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. Types Génériques pour les Fonctions">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#exemple-en-java" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exemple en Java
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exemple-en-python" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exemple en Python
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-types-generiques-avec-dict-et-set" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Types Génériques avec dict et set
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. Types Génériques avec dict et set">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#exemple-en-python_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exemple en Python
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-bonnes-pratiques" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. Bonnes Pratiques
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-exercice" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7. Exercice
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="7. Exercice">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#consigne" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Consigne
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8-ressources-supplementaires" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        8. Ressources Supplémentaires
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="8. Ressources Supplémentaires">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#resume-final" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Résumé Final
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2982,7 +2908,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../03_protocoles/" class="md-nav__link">
+      <a href="../../section5/03_protocoles/" class="md-nav__link">
         
   
   
@@ -3010,7 +2936,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04_heritage_multiple/" class="md-nav__link">
+      <a href="../../section5/04_heritage_multiple/" class="md-nav__link">
         
   
   
@@ -3383,22 +3309,55 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-quest-ce-quun-type-generique" class="md-nav__link">
+  <a href="#introduction-pourquoi-ce-guide" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Qu’est-ce qu’un type générique ?
+        Introduction : Pourquoi ce guide ?
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1. Qu’est-ce qu’un type générique ?">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-le-concept-fondamental-lenvironnement-virtuel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Le concept fondamental : L&rsquo;Environnement Virtuel
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Le concept fondamental : L’Environnement Virtuel">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#avantages" class="md-nav__link">
+  <a href="#le-probleme-linstallation-globale" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Avantages :
+        Le problème : L&rsquo;installation globale
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-solution-la-bulle-lenvironnement-virtuel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La solution : La &ldquo;Bulle&rdquo; (L&rsquo;Environnement Virtuel)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-role-de-uv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le rôle de uv
       
     </span>
   </a>
@@ -3411,22 +3370,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-exemple-en-java" class="md-nav__link">
+  <a href="#2-installation-de-uv" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Exemple en Java
+        2. Installation de uv
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. Exemple en Java">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-workflow-de-base-creer-un-projet-de-a-a-z" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Workflow de base : Créer un projet de A à Z
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Workflow de base : Créer un projet de A à Z">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#classe-generique-simple-arraylist" class="md-nav__link">
+  <a href="#etape-1-initialiser-le-projet" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Classe générique simple : ArrayList
+        Étape 1 : Initialiser le projet
       
     </span>
   </a>
@@ -3434,10 +3404,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#definition-dune-classe-generique-en-java" class="md-nav__link">
+  <a href="#etape-2-ajouter-des-bibliotheques-dependances" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Définition d’une classe générique en Java
+        Étape 2 : Ajouter des bibliothèques (Dépendances)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-3-executer-votre-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 3 : Exécuter votre code
       
     </span>
   </a>
@@ -3450,116 +3431,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-types-generiques-en-python" class="md-nav__link">
+  <a href="#4-les-deux-fichiers-indispensables-comprendre-la-theorie" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Types Génériques en Python
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. Types Génériques en Python">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#exemple-liste-generique-list" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exemple : Liste générique (List)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#definition-dune-classe-generique-en-python" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Définition d’une classe générique en Python
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-types-generiques-pour-les-fonctions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Types Génériques pour les Fonctions
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. Types Génériques pour les Fonctions">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#exemple-en-java" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exemple en Java
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#exemple-en-python" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exemple en Python
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-types-generiques-avec-dict-et-set" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Types Génériques avec dict et set
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. Types Génériques avec dict et set">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#exemple-en-python_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Exemple en Python
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-bonnes-pratiques" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. Bonnes Pratiques
+        4. Les deux fichiers indispensables (Comprendre la théorie)
       
     </span>
   </a>
@@ -3567,58 +3442,35 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#7-exercice" class="md-nav__link">
+  <a href="#5-gerer-les-versions-de-python" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7. Exercice
+        5. Gérer les versions de Python
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="7. Exercice">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#consigne" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Consigne
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#8-ressources-supplementaires" class="md-nav__link">
+  <a href="#6-aide-memoire" class="md-nav__link">
     <span class="md-ellipsis">
       
-        8. Ressources Supplémentaires
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="8. Ressources Supplémentaires">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#resume-final" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Résumé Final
+        6. Aide-mémoire
       
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#conseils-pour-reussir-vos-projets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conseils pour réussir vos projets
+      
+    </span>
+  </a>
   
 </li>
       
@@ -3665,10 +3517,10 @@
     
     
       <li class="md-path__item">
-        <a href="../01_abc/" class="md-path__link">
+        <a href="../01_index/" class="md-path__link">
           
   <span class="md-ellipsis">
-    5. Python (OO avancé)
+    Intro
   </span>
 
         </a>
@@ -3690,205 +3542,154 @@
   
 
 
-<h1 id="les-types-generiques"><strong>Les Types Génériques</strong><a class="headerlink" href="#les-types-generiques" title="Permanent link">&para;</a></h1>
-<hr />
-<h2 id="1-quest-ce-quun-type-generique"><strong>1. Qu’est-ce qu’un type générique ?</strong><a class="headerlink" href="#1-quest-ce-quun-type-generique" title="Permanent link">&para;</a></h2>
-<p>Un <strong>type générique</strong> permet de définir une classe, une méthode ou une interface qui peut fonctionner avec différents
-types de données, sans perdre l’information sur ces types.</p>
-<h3 id="avantages"><strong>Avantages :</strong><a class="headerlink" href="#avantages" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Sécurité des types</strong> : Le compilateur/interpréteur vérifie les types.</li>
-<li><strong>Réutilisabilité</strong> : Une seule implémentation pour plusieurs types.</li>
-<li><strong>Lisibilité</strong> : Le code est plus clair (ex: <code>List&lt;String&gt;</code> au lieu de <code>List</code>).</li>
-</ul>
-<hr />
-<h2 id="2-exemple-en-java"><strong>2. Exemple en Java</strong><a class="headerlink" href="#2-exemple-en-java" title="Permanent link">&para;</a></h2>
-<h3 id="classe-generique-simple-arraylist"><strong>Classe générique simple : <code>ArrayList</code></strong><a class="headerlink" href="#classe-generique-simple-arraylist" title="Permanent link">&para;</a></h3>
-<div class="language-java highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.ArrayList</span><span class="p">;</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">        </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">noms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w">  </span><span class="c1">// Liste de chaînes</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">        </span><span class="n">noms</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;Alice&quot;</span><span class="p">);</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">        </span><span class="n">noms</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;Bob&quot;</span><span class="p">);</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">premierNom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">noms</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w">  </span><span class="c1">// Type connu : String</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">premierNom</span><span class="p">);</span><span class="w">  </span><span class="c1">// Affiche &quot;Alice&quot;</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="p">}</span>
-</span></code></pre></div>
-<h3 id="definition-dune-classe-generique-en-java"><strong>Définition d’une classe générique en Java</strong><a class="headerlink" href="#definition-dune-classe-generique-en-java" title="Permanent link">&para;</a></h3>
-<div class="language-java highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Boite</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// T est un paramètre de type</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">contenu</span><span class="p">;</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">mettre</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">item</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">contenu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">item</span><span class="p">;</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="nf">obtenir</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">contenu</span><span class="p">;</span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="p">}</span>
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="c1">// Utilisation :</span>
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="n">Boite</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">boiteDeStrings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Boite</span><span class="o">&lt;&gt;</span><span class="p">();</span>
-</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="n">boiteDeStrings</span><span class="p">.</span><span class="na">mettre</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">);</span>
-</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="n">String</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">boiteDeStrings</span><span class="p">.</span><span class="na">obtenir</span><span class="p">();</span><span class="w">  </span><span class="c1">// Type connu : String</span>
-</span></code></pre></div>
-<hr />
-<h2 id="3-types-generiques-en-python"><strong>3. Types Génériques en Python</strong><a class="headerlink" href="#3-types-generiques-en-python" title="Permanent link">&para;</a></h2>
-<p>Python utilise des <strong>annotations de type</strong> (PEP 484) pour les types génériques, mais elles sont <strong>optionnelles</strong> et ne
-sont pas vérifiées au runtime (sauf avec des outils comme <code>mypy</code>).</p>
-<h3 id="exemple-liste-generique-list"><strong>Exemple : Liste générique (<code>List</code>)</strong><a class="headerlink" href="#exemple-liste-generique-list" title="Permanent link">&para;</a></h3>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">noms</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">]</span>  <span class="c1"># Liste de chaînes</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">premier_nom</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">noms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># Type connu : str</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">premier_nom</span><span class="p">)</span>  <span class="c1"># Affiche &quot;Alice&quot;</span>
-</span></code></pre></div>
-<h3 id="definition-dune-classe-generique-en-python"><strong>Définition d’une classe générique en Python</strong><a class="headerlink" href="#definition-dune-classe-generique-en-python" title="Permanent link">&para;</a></h3>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TypeVar</span><span class="p">,</span> <span class="n">Generic</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">T</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">)</span>  <span class="c1"># Paramètre de type (comme &lt;T&gt; en Java)</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="k">class</span><span class="w"> </span><span class="nc">Boite</span><span class="p">(</span><span class="n">Generic</span><span class="p">[</span><span class="n">T</span><span class="p">]):</span>  <span class="c1"># Classe générique</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">contenu</span><span class="p">:</span> <span class="n">T</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">mettre</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">contenu</span> <span class="o">=</span> <span class="n">item</span>
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">obtenir</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
-</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">contenu</span>
-</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>
-</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>
-</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="c1"># Utilisation :</span>
-</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="n">boite_de_strings</span><span class="p">:</span> <span class="n">Boite</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Boite</span><span class="p">()</span>
-</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="n">boite_de_strings</span><span class="o">.</span><span class="n">mettre</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span>
-</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="n">message</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">boite_de_strings</span><span class="o">.</span><span class="n">obtenir</span><span class="p">()</span>  <span class="c1"># Type connu : str</span>
-</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>  <span class="c1"># Affiche &quot;Hello&quot;</span>
-</span></code></pre></div>
-<hr />
-<h2 id="4-types-generiques-pour-les-fonctions"><strong>4. Types Génériques pour les Fonctions</strong><a class="headerlink" href="#4-types-generiques-pour-les-fonctions" title="Permanent link">&para;</a></h2>
-<h3 id="exemple-en-java"><strong>Exemple en Java</strong><a class="headerlink" href="#exemple-en-java" title="Permanent link">&para;</a></h3>
-<div class="language-java highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">public</span><span class="w"> </span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="nf">premierElement</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">liste</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">liste</span><span class="p">.</span><span class="na">get</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="p">}</span>
-</span></code></pre></div>
-<h3 id="exemple-en-python"><strong>Exemple en Python</strong><a class="headerlink" href="#exemple-en-python" title="Permanent link">&para;</a></h3>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TypeVar</span><span class="p">,</span> <span class="n">List</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">T</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">)</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">premier_element</span><span class="p">(</span><span class="n">liste</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">T</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    <span class="k">return</span> <span class="n">liste</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
-</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
-</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="c1"># Utilisation :</span>
-</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="n">noms</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">]</span>
-</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="n">premier_nom</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">premier_element</span><span class="p">(</span><span class="n">noms</span><span class="p">)</span>  <span class="c1"># Type connu : str</span>
-</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="nb">print</span><span class="p">(</span><span class="n">premier_nom</span><span class="p">)</span>  <span class="c1"># Affiche &quot;Alice&quot;</span>
-</span></code></pre></div>
-<hr />
-<h2 id="5-types-generiques-avec-dict-et-set"><strong>5. Types Génériques avec <code>dict</code> et <code>set</code></strong><a class="headerlink" href="#5-types-generiques-avec-dict-et-set" title="Permanent link">&para;</a></h2>
-<h3 id="exemple-en-python_1"><strong>Exemple en Python</strong><a class="headerlink" href="#exemple-en-python_1" title="Permanent link">&para;</a></h3>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Set</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="c1"># Dictionnaire générique (clé: str, valeur: int)</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">ages</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Alice&quot;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">}</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="c1"># Ensemble générique (éléments: float)</span>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="n">nombres</span><span class="p">:</span> <span class="n">Set</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">}</span>
-</span></code></pre></div>
-<hr />
-<h2 id="6-bonnes-pratiques"><strong>6. Bonnes Pratiques</strong><a class="headerlink" href="#6-bonnes-pratiques" title="Permanent link">&para;</a></h2>
-<ul>
-<li>✅ <strong>Utilise <code>TypeVar</code> pour les paramètres de type.</strong></li>
-<li>✅ <strong>Annote les fonctions et classes avec des types génériques.</strong></li>
-<li>✅ <strong>Vérifie le code avec <code>mypy</code></strong> (pour une vérification statique).</li>
-</ul>
-<hr />
-<h2 id="7-exercice"><strong>7. Exercice</strong><a class="headerlink" href="#7-exercice" title="Permanent link">&para;</a></h2>
-<h3 id="consigne"><strong>Consigne</strong><a class="headerlink" href="#consigne" title="Permanent link">&para;</a></h3>
+<h1 id="guide-maitriser-le-developpement-python-moderne-avec-uv">Guide : Maîtriser le développement Python moderne avec <code>uv</code><a class="headerlink" href="#guide-maitriser-le-developpement-python-moderne-avec-uv" title="Permanent link">&para;</a></h1>
+<h2 id="introduction-pourquoi-ce-guide">Introduction : Pourquoi ce guide ?<a class="headerlink" href="#introduction-pourquoi-ce-guide" title="Permanent link">&para;</a></h2>
+<p>En tant que futur développeur, vous allez rapidement rencontrer deux problèmes majeurs en Python :</p>
 <ol type="1">
-<li>Créez une classe générique <code>Pile&lt;T&gt;</code> en Python qui implémente une pile LIFO.</li>
-<li>Ajoutez des méthodes <code>empiler(T)</code> et <code>depiler() -&gt; T</code>.</li>
-<li>Testez avec des entiers et des chaînes.</li>
+<li><strong>Le Chaos des Dépendances</strong> : Un projet a besoin d&rsquo;une vieille version d&rsquo;une bibliothèque, tandis qu&rsquo;un autre projet
+   a besoin de la version la plus récente.</li>
+<li><strong>&ldquo;Ça marche sur ma machine, mais pas sur la tienne&rdquo;</strong> : Votre code fonctionne chez vous, mais plante chez votre
+   collègue car il lui manque une version précise d&rsquo;un outil.</li>
 </ol>
-<details class="info">
-<summary>Solution</summary>
-<div class="language-text highlight"><pre><span></span><code>```python
-from typing import TypeVar, Generic, List
-
-T = TypeVar(&#39;T&#39;)
-
-
-class Pile(Generic[T]):
-    def __init__(self) -&gt; None:
-        self._elements: List[T] = []
-
-    def empiler(self, item: T) -&gt; None:
-        self._elements.append(item)
-
-    def depiler(self) -&gt; T:
-        return self._elements.pop()
-
-
-# Test :
-pile_de_entiers: Pile[int] = Pile()
-pile_de_entiers.empiler(1)
-pile_de_entiers.empiler(2)
-print(pile_de_entiers.depiler())  # Affiche 2
-
-pile_de_strings: Pile[str] = Pile()
-pile_de_strings.empiler(&quot;A&quot;)
-pile_de_strings.empiler(&quot;B&quot;)
-print(pile_de_strings.depiler())  # Affiche &quot;B&quot;
-```
-</code></pre></div>
-</details>
+<p>Ce guide vous présente <strong><code>uv</code></strong>, l&rsquo;outil ultra-rapide qui résout ces problèmes en gérant tout pour vous.</p>
 <hr />
-<h2 id="8-ressources-supplementaires"><strong>8. Ressources Supplémentaires</strong><a class="headerlink" href="#8-ressources-supplementaires" title="Permanent link">&para;</a></h2>
+<h2 id="1-le-concept-fondamental-lenvironnement-virtuel">1. Le concept fondamental : L&rsquo;Environnement Virtuel<a class="headerlink" href="#1-le-concept-fondamental-lenvironnement-virtuel" title="Permanent link">&para;</a></h2>
+<p>Avant d&rsquo;utiliser des outils, il faut comprendre <strong>pourquoi</strong> nous les utilisons.</p>
+<h3 id="le-probleme-linstallation-globale">Le problème : L&rsquo;installation globale<a class="headerlink" href="#le-probleme-linstallation-globale" title="Permanent link">&para;</a></h3>
+<p>Par défaut, si vous installez une bibliothèque (ex: <code>pip install django</code>), elle est installée &ldquo;globalement&rdquo; sur votre
+ordinateur.</p>
 <ul>
-<li><a href="https://docs.python.org/3/library/typing.html">Documentation Python sur <code>typing</code></a></li>
-<li><a href="https://realpython.com/python-type-checking/">Tutoriel sur les types génériques</a></li>
+<li><strong>Le risque :</strong> Si vous avez deux projets avec des versions différentes de Django, l&rsquo;installation du deuxième écrasera
+  celle du premier. Vous cassez votre projet A pour faire fonctionner votre projet B.</li>
+</ul>
+<h3 id="la-solution-la-bulle-lenvironnement-virtuel">La solution : La &ldquo;Bulle&rdquo; (L&rsquo;Environnement Virtuel)<a class="headerlink" href="#la-solution-la-bulle-lenvironnement-virtuel" title="Permanent link">&para;</a></h3>
+<p>Un environnement virtuel est une <strong>bulle magique</strong> isolée autour de votre projet.</p>
+<ul>
+<li>À l&rsquo;intérieur de la bulle du <strong>Projet A</strong>, vous installez <code>Django 3.0</code>.</li>
+<li>À l&rsquo;intérieur de la bulle du <strong>Projet B</strong>, vous installez <code>Django 5.0</code>.</li>
+<li>Les deux projets sont totalement indépendants. Ce qui se passe dans l&rsquo;un n&rsquo;affecte jamais l&rsquo;autre.</li>
+</ul>
+<h3 id="le-role-de-uv">Le rôle de <code>uv</code><a class="headerlink" href="#le-role-de-uv" title="Permanent link">&para;</a></h3>
+<p>Traditionnellement, gérer ces bulles est pénible : il faut les créer, les &ldquo;activer&rdquo;, s&rsquo;en souvenir&hellip; <strong><code>uv</code> automatise
+tout cela.</strong> Il crée la bulle, la remplit et s&rsquo;assure que vous utilisez toujours la bonne, sans que vous ayez à y
+penser.</p>
+<hr />
+<h2 id="2-installation-de-uv">2. Installation de <code>uv</code><a class="headerlink" href="#2-installation-de-uv" title="Permanent link">&para;</a></h2>
+<p>Ouvrez votre terminal et tapez la commande selon votre système :</p>
+<ul>
+<li><strong>macOS / Linux :</strong>
+  <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl<span class="w"> </span>-LsSf<span class="w"> </span>https://astral.sh/uv/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
+</span></code></pre></div></li>
+<li><strong>Windows (PowerShell) :</strong>
+  <div class="language-powershell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">powershell</span> <span class="n">-c</span> <span class="s2">&quot;irm https://astral.sh/uv/install.ps1 | iex&quot;</span>
+</span></code></pre></div></li>
+</ul>
+<p><em>Une fois installé, redémarrez votre terminal.</em></p>
+<hr />
+<h2 id="3-workflow-de-base-creer-un-projet-de-a-a-z">3. Workflow de base : Créer un projet de A à Z<a class="headerlink" href="#3-workflow-de-base-creer-un-projet-de-a-a-z" title="Permanent link">&para;</a></h2>
+<p>Voici la méthode standard pour démarrer n&rsquo;importe quel projet proprement.</p>
+<h3 id="etape-1-initialiser-le-projet">Étape 1 : Initialiser le projet<a class="headerlink" href="#etape-1-initialiser-le-projet" title="Permanent link">&para;</a></h3>
+<p>Créez un dossier et initialisez l&rsquo;environnement <code>uv</code>.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>mkdir<span class="w"> </span>mon_projet
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">cd</span><span class="w"> </span>mon_projet
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>uv<span class="w"> </span>init
+</span></code></pre></div>
+<p><em><code>uv</code> crée automatiquement un fichier <code>pyproject.toml</code> (votre configuration) et un fichier <code>hello.py</code>.</em></p>
+<h3 id="etape-2-ajouter-des-bibliotheques-dependances">Étape 2 : Ajouter des bibliothèques (Dépendances)<a class="headerlink" href="#etape-2-ajouter-des-bibliotheques-dependances" title="Permanent link">&para;</a></h3>
+<p>Supposons que vous vouliez utiliser la bibliothèque <code>requests</code>.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>uv<span class="w"> </span>add<span class="w"> </span>requests
+</span></code></pre></div>
+<p><em><code>uv</code> installe la bibliothèque dans votre &ldquo;bulle&rdquo; isolée et met à jour vos fichiers de configuration.</em></p>
+<h3 id="etape-3-executer-votre-code">Étape 3 : Exécuter votre code<a class="headerlink" href="#etape-3-executer-votre-code" title="Permanent link">&para;</a></h3>
+<p>Vous n&rsquo;avez pas besoin d&rsquo;activer manuellement un environnement. <code>uv</code> s&rsquo;en occupe.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>uv<span class="w"> </span>run<span class="w"> </span>hello.py
+</span></code></pre></div>
+<hr />
+<h2 id="4-les-deux-fichiers-indispensables-comprendre-la-theorie">4. Les deux fichiers indispensables (Comprendre la théorie)<a class="headerlink" href="#4-les-deux-fichiers-indispensables-comprendre-la-theorie" title="Permanent link">&para;</a></h2>
+<p>Dans votre dossier, vous verrez deux fichiers cruciaux. Il est vital de comprendre la différence :</p>
+<ol type="1">
+<li><strong><code>pyproject.toml</code> (La liste de courses) :</strong> C&rsquo;est ici que vous listez les bibliothèques dont vous avez besoin (ex:
+   <code>requests &gt;= 2.31</code>). C&rsquo;est un fichier que <strong>vous</strong> lisez et modifiez.</li>
+<li><strong><code>uv.lock</code> (La facture détaillée) :</strong> C&rsquo;est ici que <code>uv</code> note les versions exactes (au millième près) de TOUTES les
+   bibliothèques installées. <strong>C&rsquo;est ce fichier qui garantit que votre projet fonctionnera de la même manière sur n&rsquo;
+   importe quel ordinateur.</strong></li>
+</ol>
+<blockquote>
+<p><strong>⚠️ Règle d&rsquo;or :</strong> Ne modifiez jamais le fichier <code>uv.lock</code> à la main. Laissez <code>uv</code> le gérer.</p>
+</blockquote>
+<hr />
+<h2 id="5-gerer-les-versions-de-python">5. Gérer les versions de Python<a class="headerlink" href="#5-gerer-les-versions-de-python" title="Permanent link">&para;</a></h2>
+<p>Avec <code>uv</code>, vous n&rsquo;avez plus besoin de télécharger Python manuellement sur un site web. <code>uv</code> gère même l&rsquo;installation de
+Python lui-même !</p>
+<ul>
+<li><strong>Installer une version spécifique de Python :</strong>
+  <div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>uv<span class="w"> </span>python<span class="w"> </span>install<span class="w"> </span><span class="m">3</span>.12
+</span></code></pre></div></li>
+<li><strong>Forcer un projet à utiliser une version précise :</strong>
+  <div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>uv<span class="w"> </span>python<span class="w"> </span>pin<span class="w"> </span><span class="m">3</span>.11
+</span></code></pre></div></li>
+<li><strong>Lister les versions de Python installées sur votre machine :</strong>
+  <div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>uv<span class="w"> </span>python<span class="w"> </span>list
+</span></code></pre></div></li>
 </ul>
 <hr />
-<h3 id="resume-final"><strong>Résumé Final</strong><a class="headerlink" href="#resume-final" title="Permanent link">&para;</a></h3>
+<h2 id="6-aide-memoire">6. Aide-mémoire<a class="headerlink" href="#6-aide-memoire" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Concept</th>
-<th>Java</th>
-<th>Python</th>
+<th style="text-align: left;">Action</th>
+<th style="text-align: left;">Commande <code>uv</code></th>
+<th style="text-align: left;">Pourquoi l&rsquo;utiliser ?</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Classe générique</td>
-<td><code>class Boite&lt;T&gt; { ... }</code></td>
-<td><code>class Boite(Generic[T]): ...</code></td>
+<td style="text-align: left;"><strong>Démarrer un projet</strong></td>
+<td style="text-align: left;"><code>uv init</code></td>
+<td style="text-align: left;">Créer la structure de base.</td>
 </tr>
 <tr>
-<td>Paramètre de type</td>
-<td><code>&lt;T&gt;</code></td>
-<td><code>TypeVar('T')</code></td>
+<td style="text-align: left;"><strong>Ajouter un paquet</strong></td>
+<td style="text-align: left;"><code>uv add &lt;paquet&gt;</code></td>
+<td style="text-align: left;">Installer une bibliothèque dans la &ldquo;bulle&rdquo;.</td>
 </tr>
 <tr>
-<td>Annotation de type</td>
-<td><code>List&lt;String&gt;</code></td>
-<td><code>List[str]</code></td>
+<td style="text-align: left;"><strong>Supprimer un paquet</strong></td>
+<td style="text-align: left;"><code>uv remove &lt;paquet&gt;</code></td>
+<td style="text-align: left;">Retirer une bibliothèque.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Lancer un script</strong></td>
+<td style="text-align: left;"><code>uv run &lt;script.py&gt;</code></td>
+<td style="text-align: left;">Exécuter le code dans la bonne bulle.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Synchroniser</strong></td>
+<td style="text-align: left;"><code>uv sync</code></td>
+<td style="text-align: left;">Installer toutes les versions du fichier <code>.lock</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Installer Python</strong></td>
+<td style="text-align: left;"><code>uv python install 3.x</code></td>
+<td style="text-align: left;">Installer une version de Python sans rien faire d&rsquo;autre.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Outil de développement</strong></td>
+<td style="text-align: left;"><code>uv add --dev pytest</code></td>
+<td style="text-align: left;">Ajouter un outil utile uniquement pour le développement.</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Points clés :</strong></p>
-<ul>
-<li>Les types génériques améliorent la sécurité et la réutilisabilité.</li>
-<li>En Python, utilisez <code>typing</code> pour les annotations (optionnelles mais recommandées).</li>
-<li>Vérifiez le code avec <code>mypy</code> pour une meilleure robustesse.</li>
-</ul>
+<hr />
+<h2 id="conseils-pour-reussir-vos-projets">Conseils pour réussir vos projets<a class="headerlink" href="#conseils-pour-reussir-vos-projets" title="Permanent link">&para;</a></h2>
+<ol type="1">
+<li><strong>N&rsquo;installez rien &ldquo;globalement&rdquo;</strong> : Utilisez toujours <code>uv add</code> dans un projet initialisé avec <code>uv init</code>.</li>
+<li><strong>Utilisez toujours <code>uv run</code></strong> : Cela garantit que vous travaillez dans l&rsquo;environnement du projet et non sur le
+   Python de votre ordinateur.</li>
+<li><strong>Partagez vos fichiers de configuration</strong> : Si vous travaillez en groupe, envoyez toujours votre <code>pyproject.toml</code> et
+   votre <code>uv.lock</code> sur GitHub. Vos camarades n&rsquo;auront qu&rsquo;à taper <code>uv sync</code> pour avoir exactement le même environnement
+   que vous.</li>
+</ol>
 
 
 
@@ -3924,7 +3725,7 @@ print(pile_de_strings.depiler())  # Affiche &quot;B&quot;
       <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
         
           
-          <a href="../01_abc/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Classes Abstraites (ABC)">
+          <a href="../02_transition/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Introduction à Python : Guide de Transition">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -3934,20 +3735,20 @@ print(pile_de_strings.depiler())  # Affiche &quot;B&quot;
                 Précédent
               </span>
               <div class="md-ellipsis">
-                Classes Abstraites (ABC)
+                Introduction à Python : Guide de Transition
               </div>
             </div>
           </a>
         
         
           
-          <a href="../03_protocoles/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Les Protocoles">
+          <a href="../../section1/01_survol_python/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Introduction à Python">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Suivant
               </span>
               <div class="md-ellipsis">
-                Les Protocoles
+                Introduction à Python
               </div>
             </div>
             <div class="md-footer__button md-icon">

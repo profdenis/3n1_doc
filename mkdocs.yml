@@ -7,6 +7,7 @@ nav:
   - Intro:
       - introduction/01_index.md
       - introduction/02_transition.md
+      - introduction/03_uv.md
   - 1. Python (bases):
       - section1/01_survol_python.md
       - section1/02_exercices1.md
