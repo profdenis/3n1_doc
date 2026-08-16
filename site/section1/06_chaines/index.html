@@ -1091,10 +1091,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#b-in-operateur-de-membership" class="md-nav__link">
+  <a href="#b-in-operateur-dinclusion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        b) in – Opérateur de membership
+        b) in – Opérateur d&rsquo;inclusion
       
     </span>
   </a>
@@ -3658,10 +3658,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#b-in-operateur-de-membership" class="md-nav__link">
+  <a href="#b-in-operateur-dinclusion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        b) in – Opérateur de membership
+        b) in – Opérateur d&rsquo;inclusion
       
     </span>
   </a>
@@ -3876,14 +3876,23 @@ modifiées après création) et offrent de nombreuses méthodes pour les manipul
 <h2 id="1-creation-et-acces-aux-caracteres"><strong>1. Création et Accès aux Caractères</strong><a class="headerlink" href="#1-creation-et-acces-aux-caracteres" title="Permanent link">&para;</a></h2>
 <h3 id="a-declaration-de-chaines"><strong>a) Déclaration de chaînes</strong><a class="headerlink" href="#a-declaration-de-chaines" title="Permanent link">&para;</a></h3>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">texte</span> <span class="o">=</span> <span class="s2">&quot;Bonjour, monde!&quot;</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">multiligne</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Ceci est une chaîne</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="s2">sur plusieurs lignes.&quot;&quot;&quot;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">texte</span> <span class="o">=</span> <span class="s1">&#39;Bonjour, monde!&#39;</span>  <span class="c1"># même résultat</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">multiligne</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Ceci est une chaîne</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="s2">sur plusieurs lignes.&quot;&quot;&quot;</span>
 </span></code></pre></div>
 <h3 id="b-acces-aux-caracteres-indexation"><strong>b) Accès aux caractères (indexation)</strong><a class="headerlink" href="#b-acces-aux-caracteres-indexation" title="Permanent link">&para;</a></h3>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">print</span><span class="p">(</span><span class="n">texte</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># &#39;B&#39; (premier caractère)</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">texte</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># &#39;!&#39; (dernier caractère)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">print</span><span class="p">(</span><span class="n">texte</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># &quot;B&quot; (premier caractère)</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">texte</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># &quot;!&quot; (dernier caractère)</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">texte</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">12</span><span class="p">])</span>  <span class="c1"># &quot;monde&quot; (slicing)</span>
 </span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Avertissement</p>
+<p>En python, contrairement à d&rsquo;autres langages, l&rsquo;usage des <code>''</code> est identique à l&rsquo;usage des <code>""</code> : les deux sont 
+interprétés comme des chaînes de caractères. Ils sont interchangeables et peuvent être utilisés selon les 
+préférences personnelles ou les conventions de style du projet. Les <code>''</code> ne désignent pas des caractères 
+individuels. <code>texte[0]</code> ne donne pas un caractère, mais plutôt une chaîne de caractères contenant un seul
+caractère.</p>
+</div>
 <hr />
 <h2 id="2-methodes-essentielles"><strong>2. Méthodes Essentielles</strong><a class="headerlink" href="#2-methodes-essentielles" title="Permanent link">&para;</a></h2>
 <h3 id="a-len-longueur-dune-chaine"><strong>a) <code>len()</code> – Longueur d&rsquo;une chaîne</strong><a class="headerlink" href="#a-len-longueur-dune-chaine" title="Permanent link">&para;</a></h3>
@@ -3945,10 +3954,11 @@ modifiées après création) et offrent de nombreuses méthodes pour les manipul
 </span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;123&quot;</span><span class="o">.</span><span class="n">isdigit</span><span class="p">())</span>  <span class="c1"># True</span>
 </span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="o">.</span><span class="n">isalpha</span><span class="p">())</span>  <span class="c1"># True</span>
 </span></code></pre></div>
-<h3 id="b-in-operateur-de-membership"><strong>b) <code>in</code> – Opérateur de membership</strong><a class="headerlink" href="#b-in-operateur-de-membership" title="Permanent link">&para;</a></h3>
+<h3 id="b-in-operateur-dinclusion"><strong>b) <code>in</code> – Opérateur d&rsquo;inclusion</strong><a class="headerlink" href="#b-in-operateur-dinclusion" title="Permanent link">&para;</a></h3>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">texte</span> <span class="o">=</span> <span class="s2">&quot;Bonjour&quot;</span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;o&quot;</span> <span class="ow">in</span> <span class="n">texte</span><span class="p">)</span>  <span class="c1"># True</span>
 </span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;z&quot;</span> <span class="ow">in</span> <span class="n">texte</span><span class="p">)</span>  <span class="c1"># False</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;z&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">texte</span><span class="p">)</span>  <span class="c1"># True</span>
 </span></code></pre></div>
 <hr />
 <h2 id="5-formatage-de-chaines-f-strings-format"><strong>5. Formatage de Chaînes (f-strings, <code>.format()</code>)</strong><a class="headerlink" href="#5-formatage-de-chaines-f-strings-format" title="Permanent link">&para;</a></h2>
@@ -3969,13 +3979,13 @@ modifiées après création) et offrent de nombreuses méthodes pour les manipul
 <li>Remplace les tabulations par des espaces.</li>
 </ul>
 <p><strong>Exemple :</strong></p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">texte</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">  Bonjour</span><span class="se">\t</span><span class="s2">&quot;</span>
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">nettoyer_texte</span><span class="p">(</span><span class="n">texte</span><span class="p">))</span>  <span class="c1"># &quot;Bonjour&quot;</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">texte</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">  Bonjour</span><span class="se">\t</span><span class="s2">!  &quot;</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">nettoyer_texte</span><span class="p">(</span><span class="n">texte</span><span class="p">))</span>  <span class="c1"># &quot;Bonjour !&quot;</span>
 </span></code></pre></div>
 <hr />
 <h3 id="2-compteur-de-mots"><strong>2. Compteur de mots</strong><a class="headerlink" href="#2-compteur-de-mots" title="Permanent link">&para;</a></h3>
-<p>Écrivez une fonction qui compte le nombre de mots dans une phrase.
-<strong>Indice :</strong> Utilisez <code>split()</code>.</p>
+<p>Écrivez une fonction qui compte le nombre de mots dans une phrase.</p>
+<p><strong>Indice :</strong> Utilisez <code>split()</code>.</p>
 <p><strong>Exemple :</strong></p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">phrase</span> <span class="o">=</span> <span class="s2">&quot;Bonjour monde!&quot;</span>
 </span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">nombre_mots</span><span class="p">(</span><span class="n">phrase</span><span class="p">))</span>  <span class="c1"># 2</span>
@@ -4037,9 +4047,9 @@ modifiées après création) et offrent de nombreuses méthodes pour les manipul
 </table>
 <hr />
 <h2 id="8-bonnes-pratiques"><strong>8. Bonnes Pratiques</strong><a class="headerlink" href="#8-bonnes-pratiques" title="Permanent link">&para;</a></h2>
-<p>✅ <strong>Utilisez <code>f-strings</code></strong> pour le formatage (plus lisible).
-✅ <strong>Préférez <code>str.startswith()</code>/<code>endswith()</code></strong> aux comparaisons manuelles.
-⚠️ <strong>Évitez les boucles sur les chaînes</strong> (utilisez des méthodes intégrées).</p>
+<p>✅ <strong>Utilisez <code>f-strings</code></strong> pour le formatage (plus lisible).</p>
+<p>✅ <strong>Préférez <code>str.startswith()</code>/<code>endswith()</code></strong> aux comparaisons manuelles.</p>
+<p>⚠️ <strong>Évitez les boucles sur les chaînes</strong> (utilisez des méthodes intégrées).</p>
 <hr />
 <h3 id="conclusion"><strong>Conclusion</strong><a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h3>
 <p>Les chaînes de caractères en Python sont riches en fonctionnalités. Maîtriser ces méthodes vous permettra d&rsquo;écrire du

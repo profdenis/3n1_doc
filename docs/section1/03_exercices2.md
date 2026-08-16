@@ -65,53 +65,9 @@ Liste de courses : ['pomme', 'banane']
 
 ---
 
-### **Exercices sur les Compréhensions de Liste**
-
-#### **5. Carrés des nombres pairs**
-
-Écrivez une compréhension de liste qui génère les carrés des nombres pairs entre 1 et 20.
-
-**Résultat attendu :**
-
-```python
-[4, 16, 36, 64, 100, 144, 196]
-```
-
----
-
-#### **6. Filtrer les mots longs**
-
-Étant donné une liste de mots `["pomme", "banane", "cerise", "kiwi"]`, utilisez une compréhension de liste pour ne
-garder que les mots de plus de 5 lettres.
-
-**Résultat attendu :**
-
-```python
-['banane', 'cerise']
-```
-
----
-
-#### **7. Matrice en liste**
-
-Créez une matrice 3x3 (liste de listes) remplie de zéros, puis modifiez-la pour qu'elle contienne des `1` sur la
-diagonale.
-
-**Résultat attendu :**
-
-```python
-[
-    [1, 0, 0],
-    [0, 1, 0],
-    [0, 0, 1]
-]
-```
-
----
-
 ### **Exercices sur les Dictionnaires**
 
-#### **8. Compteur de mots**
+#### **5. Compteur de mots**
 
 Écrivez un programme qui compte le nombre d'occurrences de chaque mot dans une phrase donnée.
 
@@ -127,7 +83,7 @@ print(compter_mots(phrase))
 
 ---
 
-#### **9. Carnet d'adresses**
+#### **6. Carnet d'adresses**
 
 Créez un dictionnaire `carnet` avec des entrées comme `{"Alice": "alice@example.com", "Bob": "bob@example.com"}`.
 
@@ -141,7 +97,7 @@ print(rechercher_email("Alice"))  # "alice@example.com"
 
 ---
 
-#### **10. Fusion de dictionnaires**
+#### **7. Fusion de dictionnaires**
 
 Écrivez une fonction `fusionner(dict1, dict2)` qui fusionne deux dictionnaires en un seul (les clés en double sont
 conservées depuis `dict2`).
@@ -156,7 +112,7 @@ print(fusionner(d1, d2))  # {'a': 1, 'b': 3, 'c': 4}
 
 ---
 
-#### **11. Inventaire de jeu vidéo**
+#### **8. Inventaire de jeu vidéo**
 
 Simulez un inventaire de jeu avec un dictionnaire où les clés sont des items (`"épée", "potion"`) et les valeurs sont
 les quantités.
@@ -175,7 +131,7 @@ print(inventaire)  # {'épée': 1, 'potion': 4}
 
 ### **Exercices Combinaisons (Listes + Dictionnaires)**
 
-#### **12. Statistiques de notes**
+#### **9. Statistiques de notes**
 
 Étant donné une liste de notes `[85, 90, 78, 92, 88]`, créez un dictionnaire qui compte le nombre d'étudiants ayant
 obtenu :
@@ -192,7 +148,7 @@ obtenu :
 
 ---
 
-#### **13. Jeu de devinette avec scores**
+#### **10. Jeu de devinette avec scores**
 
 Modifiez l'exercice "Devine le nombre" pour :
 
@@ -206,40 +162,3 @@ scores = {"Alice": 4, "Bob": 6}
 print(scores)
 ```
 
----
-
-### **Corrigés Partiels**
-
-#### **Exercice 5 (Carrés des pairs) :**
-
-```python
-carrés_pairs = [x ** 2 for x in range(1, 21) if x % 2 == 0]
-```
-
-#### **Exercice 8 (Compteur de mots) :**
-
-```python
-def compter_mots(phrase):
-    mots = phrase.split()
-    compteur = {}
-    for mot in mots:
-        compteur[mot] = compteur.get(mot, 0) + 1
-    return compteur
-```
-
-#### **Exercice 12 (Statistiques de notes) :**
-
-```python
-notes = [85, 90, 78, 92, 88]
-stats = {"A": 0, "B": 0, "C": 0}
-for note in notes:
-    if note >= 90:
-        stats["A"] += 1
-    elif note >= 80:
-        stats["B"] += 1
-    else:
-        stats["C"] += 1
-print(stats)
-```
-
----

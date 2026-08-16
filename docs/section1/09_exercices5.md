@@ -234,31 +234,9 @@ print(pipeline(5, transformations))  # ((5*2)+1) = 11
 
 ---
 
-## **Corrigés Partiels**
+## **Autres Exercices**
 
-### **Exercice 4 (Factorielle) :**
-
-```python
-def factorielle(n):
-    if n == 0:
-        return 1
-    return n * factorielle(n - 1)
-```
-
-### **Exercice 12 (Dictionnaire d'opérations) :**
-
-```python
-opérations = {
-    "+": lambda a, b: a + b,
-    "-": lambda a, b: a - b,
-}
-```
-
----
-
-## **7. Exercices Pratiques**
-
-### **1. Calculatrice avec Dictionnaire d'Opérations**
+### **17. Calculatrice avec Dictionnaire d'Opérations**
 
 Écrivez un programme qui :
 
@@ -277,7 +255,7 @@ Résultat : 8
 
 ---
 
-### **2. Liste de Fonctions pour Filtrer des Nombres**
+### **18. Liste de Fonctions pour Filtrer des Nombres**
 
 Écrivez une fonction `filtrer(nombres, conditions)` qui :
 
@@ -298,7 +276,7 @@ print(filtrer(nombres, conditions))  # [1, 3]
 
 ---
 
-### **3. Dictionnaire de Formattage**
+### **19. Dictionnaire de Formattage**
 
 Créez un dictionnaire `formats` où :
 
@@ -318,57 +296,10 @@ for texte in textes:
 
 ---
 
-## **8. Solutions aux Exercices**
+## **Exercices sur les Paramètres par Défaut**
 
-### **Exercice 1 (Calculatrice) :**
+### **20. Fonction de formatage**
 
-```python
-opérations = {
-    "+": lambda a, b: a + b,
-    "-": lambda a, b: a - b,
-    "*": lambda a, b: a * b,
-    "/": lambda a, b: a / b if b != 0 else "Erreur",
-}
-
-symbole = input("Opération : ")
-a = float(input("Premier nombre : "))
-b = float(input("Deuxième nombre : "))
-print(opérations[symbole](a, b))
-```
-
-### **Exercice 2 (Filtrer des Nombres) :**
-
-```python
-def filtrer(nombres, conditions):
-    for condition in conditions:
-        nombres = list(filter(condition, nombres))
-    return nombres
-
-
-nombres = [1, -2, 3, -4]
-conditions = [
-    lambda x: x > 0,
-    lambda x: x % 2 == 1,
-]
-print(filtrer(nombres, conditions))  # [1, 3]
-```
-
----
-
-## **9. Bonnes Pratiques**
-
-✅ **Préférez les noms de fonctions explicites** plutôt que des lambdas complexes.
-
-✅ **Documentez vos fonctions** avec des docstrings.
-
-⚠️ **Évitez les effets de bord** dans les fonctions (modifications externes).
- 
----
-
-
-### **4. Exercices sur les Paramètres par Défaut**
-
-#### **Exercice 1 : Fonction de formatage**
 Écrivez une fonction `formater_texte(texte, majuscules=False, alignement="gauche")` qui :
 - Met le texte en majuscules si `majuscules=True`.
 - Aligne le texte à gauche/droite/centre selon `alignement`.
@@ -382,7 +313,8 @@ print(formater_texte("bonjour", False, "droite"))  # "bonjour" (aligné à droit
 
 ---
 
-#### **Exercice 2 : Fonction de dessin**
+### **Exercice 21 : Fonction de dessin**
+
 Écrivez une fonction `dessiner_ligne(caractère="*", longueur=10)` qui retourne une chaîne comme `"**********"`.
 
 **Exemple :**
@@ -393,7 +325,8 @@ print(dessiner_ligne("#", 5))    # "#####"
 
 ---
 
-#### **Exercice 3 : Fonction de calcul avancé**
+### **Exercice 22 : Fonction de calcul avancé**
+
 Écrivez une fonction `calculer_statistiques(nombres, moyenne=True, médiane=False)` qui :
 - Calcule la moyenne si `moyenne=True`.
 - Calcule la médiane si `médiane=True`.
@@ -406,7 +339,8 @@ print(calculer_statistiques([1, 2, 3], True, True))  # {"moyenne": 2.0, "médian
 
 ---
 
-#### **Exercice 4 : Fonction de connexion (simulée)**
+### **Exercice 23 : Fonction de connexion (simulée)**
+
 Écrivez une fonction `se_connecter(utilisateur, mot_de_passe=None)` qui :
 - Retourne `"Connecté"` si le mot de passe est correct.
 - Si aucun mot de passe n'est fourni, retourne `"Connexion anonyme"`.
@@ -419,191 +353,9 @@ print(se_connecter("Bob", "1234"))    # "Connecté"
 
 ---
 
-### **5. Solutions aux Exercices**
-
-#### **Solution Exercice 1 :**
-```python
-def formater_texte(texte, majuscules=False, alignement="gauche"):
-    if majuscules:
-        texte = texte.upper()
-    if alignement == "droite":
-        return texte.rjust(len(texte))
-    elif alignement == "centre":
-        return texte.center(len(texte))
-    else:  # gauche
-        return texte
-```
-
-#### **Solution Exercice 2 :**
-```python
-def dessiner_ligne(caractère="*", longueur=10):
-    return caractère * longueur
-```
-
-#### **Solution Exercice 3 :**
-```python
-def calculer_statistiques(nombres, moyenne=True, médiane=False):
-    résultats = {}
-    if moyenne:
-        résultats["moyenne"] = sum(nombres) / len(nombres)
-    if médiane:
-        nombres_tris = sorted(nombres)
-        n = len(nombres_tris)
-        if n % 2 == 1:
-            résultats["médiane"] = nombres_tris[n//2]
-        else:
-            résultats["médiane"] = (nombres_tris[n//2-1] + nombres_tris[n//2]) / 2
-    return résultats
-```
-
----
-
-### **6. Bonnes Pratiques**
+### **Bonnes Pratiques**
 ✅ **Placez toujours les paramètres obligatoires en premier**, suivis des optionnels.
 ✅ **Utilisez `None` comme valeur par défaut** pour les paramètres mutables.
 ⚠️ **Évitez les valeurs mutables par défaut** (listes, dictionnaires) sauf si c'est intentionnel.
 
 ---
-
-### **7. Cas Réel : Fonction de Logging**
-```python
-def logger(message, niveau="INFO", fichier=None):
-    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    log_entry = f"[{timestamp}] [{niveau}] {message}"
-
-    if fichier:
-        with open(fichier, "a") as f:
-            f.write(log_entry + "\n")
-    else:
-        print(log_entry)
-
-# Utilisation
-logger("Début du programme")          # INFO par défaut
-logger("Erreur critique", "ERROR")   # Niveau personnalisé
-logger("Debug", "DEBUG", "log.txt")  # Avec fichier
-```
-
----
-
-### **5. Exercices sur les Paramètres Nommés**
-
-#### **Exercice 1 : Fonction de formatage**
-Écrivez une fonction `formater_texte(texte, majuscules=False, alignement="gauche")` et appelez-la avec des paramètres nommés pour :
-- Mettre le texte en majuscules.
-- Aligner à droite.
-
-**Exemple :**
-```python
-print(formater_texte("bonjour", alignement="droite"))  # "bonjour" (aligné à droite)
-```
-
----
-
-#### **Exercice 2 : Fonction de calcul**
-Écrivez une fonction `calculer(a, b, opération="+")` qui effectue l'opération demandée. Appelez-la avec :
-- L'ordre des arguments inversé.
-- Un paramètre nommé pour l'opération.
-
-**Exemple :**
-```python
-print(calculer(b=10, a=5, opération="-"))  # 5
-```
-
----
-
-#### **Exercice 3 : Fonction de dessin**
-Écrivez une fonction `dessiner_ligne(caractère="*", longueur=10)` et appelez-la avec :
-- Le caractère en premier (positionnel).
-- La longueur comme paramètre nommé.
-
-**Exemple :**
-```python
-print(dessiner_ligne("#", longueur=5))  # "#####"
-```
-
----
-
-#### **Exercice 4 : Fonction de configuration**
-Écrivez une fonction `configurer(largeur, hauteur, couleur="bleu")` et appelez-la avec :
-- La couleur en premier (paramètre nommé).
-- Les dimensions dans l'ordre classique.
-
-**Exemple :**
-```python
-print(configurer(couleur="rouge", largeur=10, hauteur=5))  # "10x5 en rouge"
-```
-
----
-
-### **6. Solutions aux Exercices**
-
-#### **Solution Exercice 1 :**
-```python
-def formater_texte(texte, majuscules=False, alignement="gauche"):
-    if majuscules:
-        texte = texte.upper()
-    if alignement == "droite":
-        return texte.rjust(len(texte))
-    elif alignement == "centre":
-        return texte.center(len(texte))
-    else:  # gauche
-        return texte
-
-print(formater_texte("bonjour", alignement="droite"))  # "bonjour" (aligné à droite)
-```
-
-#### **Solution Exercice 2 :**
-```python
-def calculer(a, b, opération="+"):
-    if opération == "+":
-        return a + b
-    elif opération == "-":
-        return a - b
-    else:
-        return "Opération non supportée"
-
-print(calculer(b=10, a=5, opération="-"))  # 5
-```
-
-#### **Solution Exercice 3 :**
-```python
-def dessiner_ligne(caractère="*", longueur=10):
-    return caractère * longueur
-
-print(dessiner_ligne("#", longueur=5))  # "#####"
-```
-
----
-
-### **7. Cas Réel : Fonction de Logging Avancé**
-
-```python
-def logger(message, niveau="INFO", fichier=None, timestamp=True):
-    log_entry = message
-    if timestamp:
-        log_entry = f"[{datetime.now()}] {log_entry}"
-    log_entry = f"[{niveau}] {log_entry}"
-
-    if fichier:
-        with open(fichier, "a") as f:
-            f.write(log_entry + "\n")
-    else:
-        print(log_entry)
-
-# Appels avec paramètres nommés
-logger("Début du programme", niveau="INFO")  # Niveau spécifié en premier
-logger(message="Erreur critique", fichier="log.txt")  # Message en dernier
-```
-
----
-
-
-## **Conseils pour les Étudiants**
-
-- **Testez dans le REPL** : Utilisez `python` en ligne de commande pour vérifier rapidement vos fonctions.
-- **Comparez avec des boucles** : Par exemple, pour l'exercice 5 (`somme`), comparez une solution avec `*args` et une
-  boucle manuelle.
-- **Utilisez `help(fonction)`** dans le REPL pour explorer les attributs d'une fonction.
-
-Ces exercices couvrent les cas d'usage courants et permettent de bien maîtriser la programmation fonctionnelle en
-Python. Bonne pratique ! 🚀

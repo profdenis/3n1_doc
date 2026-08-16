@@ -32,6 +32,14 @@ traiter_personne(e)  # "Étudiant en Informatique: Bob"
 traiter_personne(prof)  # "Professeur de Mathématiques: Charlie"
 ```
 
+!!! note "Utiliser le polymorphisme si possible"
+    Encore une fois ici, il serait préférable d'utiliser le polymorphisme plutôt que de faire des vérifications de type 
+    avec `match` (ou `isinstance()` ou `type()`). Par exemple, on pourrait ajouter une autre méthode à la classe 
+    `Personne` et la surcharger dans les classes filles pour obtenir le comportement souhaité. Si on créait une nouvelle
+    sous-classe, il faudrait redéfinir cette méthode dans la nouvelle sous-classe et on obtiendrait le comportement 
+    souhaité. Avec `match`, on devrait également ajouter une condition supplémentaire pour cette nouvelle 
+    sous-classe, et ce, partout où on a ce genre de situation (avec `match` ou `isinstance()` ou `type()`).
+
 ---
 
 ### **b) Matching avec Conditions Supplémentaires**
@@ -59,7 +67,7 @@ classifier_par_age(Professeur("Charlie", 70, "Maths"))  # "Charlie est retraité
 
 ### **c) Matching avec `isinstance()` (Alternative)**
 
-Si vous préférez éviter le destructuring (`case Personne(nom, age)`), utilisez `isinstance` :
+Si vous préférez éviter le _destructuring_ (`case Personne(nom, age)`), utilisez `isinstance` :
 
 ```python
 def traiter_personne_alt(personne):
@@ -88,7 +96,8 @@ traiter_personne_alt(e)  # "Étudiant: Bob, matière: Informatique"
 ### **Conclusion**
 
 Le `match` est un outil puissant pour gérer le polymorphisme de manière élégante. Il remplace avantageusement les
-chaînes d'`if/elif` pour vérifier les types d'objets.
+chaînes d'`if/elif` pour vérifier les types d'objets. Mais lorsque possible, il est normalement préférable d'utiliser
+le polymorphisme pour obtenir un résultat semblable.
 
 !!! note "📌 **Astuce**"
     Utilisez `case _:` comme "default" pour capturer tous les cas non matchés !

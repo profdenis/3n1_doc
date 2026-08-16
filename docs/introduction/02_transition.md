@@ -14,8 +14,8 @@ Contrairement au Java ou au C, Python est un langage **interprété**.
 * **L'environnement de développement (IDE) :**
     * **PyCharm :** Recommandé pour les projets complexes (excellent support du débogage et de l'analyse statique).
     * **VS Code :** Très populaire, léger, nécessite l'extension Python.
-* **Gestion des environnements (Note rapide) :** Mentionner que contrairement au C, on installe souvent des
-  bibliothèques via `pip`.
+* **Gestion des environnements :** traditionnellement, on installe des bibliothèques via `pip`. Mais `uv` est un nouvel 
+  outil qui permet de gérer les environnements de manière plus efficace.
 
 ## 2. Python comme calculatrice (Les particularités mathématiques)
 
@@ -25,9 +25,9 @@ Python est extrêmement puissant pour le calcul numérique.
   en Python grandit tant que votre RAM le permet.
     * *Exemple : $2^{100}$ fonctionne sans problème.*
 * **La division (Attention piège !) :**
-    * `/` : Division réelle (toujours retourne un `float`). Ex: `5 / 2` $\rightarrow$ `2.5`.
+    * `/` : Division réelle (retourne toujours un `float`). Ex: `5 / 2` $\rightarrow$ `2.5`.
     * `//` : Division entière (tronque le résultat). Ex: `5 // 2` $\rightarrow$ `2`.
-    * `%` : Modulo (reste de la division).
+    * `%` : Modulo (reste de la division entière).
 
 ## 3. La syntaxe : Adieu les accolades, bonjour l'indentation
 
@@ -91,9 +91,10 @@ L'équivalent des objets JSON en JS ou des `HashMap` en Java. C'est une structur
 * `mon_dict = {"nom": "Alice", "age": 20}`
 * Accès : `mon_dict["nom"]`.
 
-> **Note sur les tableaux :** En Python, pour faire du calcul matriciel intensif (comme en C ou avec des tableaux de
-taille fixe), on utilise la bibliothèque **NumPy**. Les listes standards ne sont pas optimisées pour le calcul
-scientifique pur.
+!!! note "Note sur les tableaux"
+    En Python, pour faire du calcul matriciel intensif (comme en C ou avec des tableaux de
+    taille fixe), on utilise la bibliothèque **NumPy**. Les listes standards ne sont pas optimisées pour le calcul
+    scientifique pur.
 
 ## 6. Gestion des erreurs (Exceptions)
 

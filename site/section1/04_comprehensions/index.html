@@ -1101,10 +1101,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-comparaison-avec-map-et-filter" class="md-nav__link">
+  <a href="#3-bonnes-pratiques" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Comparaison avec map() et filter()
+        3. Bonnes Pratiques
       
     </span>
   </a>
@@ -1112,26 +1112,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-bonnes-pratiques" class="md-nav__link">
+  <a href="#4-exercices-pour-sentrainer" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Bonnes Pratiques
+        4. Exercices pour s&rsquo;entraîner
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-exercices-pour-sentrainer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Exercices pour S&rsquo;entraîner
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. Exercices pour S’entraîner">
+    <nav class="md-nav" aria-label="4. Exercices pour s’entraîner">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3735,10 +3724,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-comparaison-avec-map-et-filter" class="md-nav__link">
+  <a href="#3-bonnes-pratiques" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Comparaison avec map() et filter()
+        3. Bonnes Pratiques
       
     </span>
   </a>
@@ -3746,26 +3735,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-bonnes-pratiques" class="md-nav__link">
+  <a href="#4-exercices-pour-sentrainer" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Bonnes Pratiques
+        4. Exercices pour s&rsquo;entraîner
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-exercices-pour-sentrainer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Exercices pour S&rsquo;entraîner
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. Exercices pour S’entraîner">
+    <nav class="md-nav" aria-label="4. Exercices pour s’entraîner">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -4010,46 +3988,17 @@ ensembles.</p>
 </span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">carrés</span><span class="p">)</span>
 </span></code></pre></div>
 <hr />
-<h2 id="3-comparaison-avec-map-et-filter"><strong>3. Comparaison avec <code>map()</code> et <code>filter()</code></strong><a class="headerlink" href="#3-comparaison-avec-map-et-filter" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th><strong>Méthode</strong></th>
-<th><strong>Exemple</strong></th>
-<th><strong>Avantages</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Compréhension de Liste</strong></td>
-<td><code>[x*2 for x in range(5)]</code></td>
-<td>Lisible, Pythonique.</td>
-</tr>
-<tr>
-<td><strong><code>map()</code></strong></td>
-<td><code>list(map(lambda x: x*2, range(5)))</code></td>
-<td>Utile pour les fonctions complexes.</td>
-</tr>
-<tr>
-<td><strong><code>filter()</code></strong></td>
-<td><code>list(filter(lambda x: x%2==0, range(5)))</code></td>
-<td>Pour des filtres simples.</td>
-</tr>
-</tbody>
-</table>
-<p>✅ <strong>Préférez les compréhensions</strong> pour la clarté, sauf si vous utilisez des fonctions existantes.</p>
-<hr />
-<h2 id="4-bonnes-pratiques"><strong>4. Bonnes Pratiques</strong><a class="headerlink" href="#4-bonnes-pratiques" title="Permanent link">&para;</a></h2>
+<h2 id="3-bonnes-pratiques"><strong>3. Bonnes Pratiques</strong><a class="headerlink" href="#3-bonnes-pratiques" title="Permanent link">&para;</a></h2>
 <ol type="1">
 <li><strong>Évitez les compréhensions trop complexes</strong> (privilégiez la lisibilité).</li>
 <li><strong>Utilisez <code>_</code> pour les variables inutilisées</strong> :
    <div class="language-python highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>  <span class="c1"># Correct</span>
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="p">[</span><span class="n">_</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>  <span class="c1"># Si la valeur n&#39;est pas utilisée</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="p">[</span><span class="s2">&quot;&quot;</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>  <span class="c1"># Si la valeur n&#39;est pas utilisée</span>
 </span></code></pre></div></li>
 <li><strong>Testez avec des petits exemples</strong> avant de généraliser.</li>
 </ol>
 <hr />
-<h2 id="5-exercices-pour-sentrainer"><strong>5. Exercices pour S&rsquo;entraîner</strong><a class="headerlink" href="#5-exercices-pour-sentrainer" title="Permanent link">&para;</a></h2>
+<h2 id="4-exercices-pour-sentrainer"><strong>4. Exercices pour s&rsquo;entraîner</strong><a class="headerlink" href="#4-exercices-pour-sentrainer" title="Permanent link">&para;</a></h2>
 <h3 id="list-comprehension"><strong>List Comprehension</strong><a class="headerlink" href="#list-comprehension" title="Permanent link">&para;</a></h3>
 <ol type="1">
 <li>Créez une liste des cubes des nombres impairs entre 1 et 20.</li>

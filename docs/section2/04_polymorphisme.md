@@ -60,6 +60,10 @@ class Etudiant(Personne):  # Héritage optionnel
 # Utilisation
 p = Etudiant()
 print(p.saluer())  # "Salut, je suis étudiant!"
+p = Personne()
+print(p.saluer())  # "Bonjour!"
+p = "Allo"
+print(p.saluer())  # AttributeError: 'str' object has no attribute 'saluer'
 ```
 
 **Caractéristiques :**
@@ -81,8 +85,8 @@ print(p.saluer())  # "Salut, je suis étudiant!"
 
 ## **4. Duck Typing : "Si ça marche comme un canard, c'est un canard"**
 
-Version longue : "Si ça ressemble à un canard, si ça nage comme un canard et si ça cancane comme un canard, c'est un 
-canard."
+**Version longue** : *"Si ça ressemble à un canard, si ça nage comme un canard et si ça cancane comme un canard, c'est un 
+canard."*
 
 En Python, le polymorphisme ne nécessite pas d'héritage :
 
@@ -114,6 +118,9 @@ faire_voler(Avion())  # "L'avion décolle!"
 
 - **Flexibilité** : Pas besoin de créer une hiérarchie de classes.
 - **Code plus simple** pour des cas simples.
+- Mais **attention aux erreurs** : si une méthode n'est pas présente, une erreur `AttributeError` sera levée.
+- Le code est plus **lisible**, mais il peut être plus difficile à déboguer, **car les erreurs peuvent être plus 
+  difficiles à localiser**.
 
 ---
 

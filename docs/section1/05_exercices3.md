@@ -202,30 +202,8 @@ Générez une liste de dictionnaires représentant des coordonnées `(x, y)` où
 
 ---
 
-## **Corrigés Partiels (Pour Vérification)**
-
-### **Exercice 4 (Nombres pairs et impairs) :**
-
-```python
-nombres = range(10)
-pairs = [x for x in nombres if x % 2 == 0]
-impairs = [x for x in nombres if x % 2 != 0]
-```
-
-### **Exercice 11 (Compteur de lettres) :**
-
-```python
-phrase = "hello"
-compteur = {lettre: phrase.count(lettre) for lettre in set(phrase)}
-```
-
----
-
 ## **Conseils pour les Étudiants**
 
 - **Testez dans le REPL** : Utilisez `python` en ligne de commande pour vérifier rapidement vos compréhensions.
 - **Comparez avec des boucles** : Écrivez d'abord une solution avec `for`, puis convertissez-la en compréhension.
 - **Évitez les compréhensions trop complexes** : Si le code devient illisible, utilisez une boucle classique.
-
-Ces exercices couvrent les cas d'usage courants et permettent de bien maîtriser les compréhensions en Python. Bonne
-pratique ! 🚀

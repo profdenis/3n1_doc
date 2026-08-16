@@ -134,7 +134,7 @@ print(est_palindrome("python"))  # False
 
 ---
 
-#### **9. Fonction récursive (optionnel)**
+#### **9. Fonction récursive**
 
 Écrivez une fonction récursive `fibonacci(n)` qui retourne le n-ième nombre de la suite de Fibonacci (
 `0, 1, 1, 2, 3, 5, ...`).
@@ -199,40 +199,3 @@ from utils import soustraction
 resultat = soustraction(10, 3)
 print(resultat)  # 7
 ```
-
----
-
-#### **13. Défi : Calculatrice avec modules**
-
-Créez deux fichiers :
-
-1. `calculs.py` avec des fonctions pour les opérations (`addition`, `multiplication`, etc.).
-2. `app.py` qui utilise ces fonctions pour créer une calculatrice interactive (comme l'exercice 1).
-
----
-
-### **Corrigés partiels (pour vérification)**
-
-#### **Exercice 4 (Table de multiplication) :**
-
-```python
-n = int(input("Entrez un nombre : "))
-for i in range(1, 11):
-    print(f"{n} × {i} = {n * i}")
-```
-
-#### **Exercice 6 (Factorielle) :**
-
-```python
-def factorielle(n):
-    if n < 0:
-        return "Erreur : n doit être positif"
-    result = 1
-    for i in range(1, n + 1):
-        result *= i
-    return result
-```
-
-#### **Exercice 12 (Module personnalisé) :**
-
-Assurez-vous que les fichiers sont dans le même dossier et exécutez `main.py`.

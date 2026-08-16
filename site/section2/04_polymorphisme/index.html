@@ -3507,6 +3507,10 @@
 </span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="c1"># Utilisation</span>
 </span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="n">p</span> <span class="o">=</span> <span class="n">Etudiant</span><span class="p">()</span>
 </span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">saluer</span><span class="p">())</span>  <span class="c1"># &quot;Salut, je suis étudiant!&quot;</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="n">p</span> <span class="o">=</span> <span class="n">Personne</span><span class="p">()</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">saluer</span><span class="p">())</span>  <span class="c1"># &quot;Bonjour!&quot;</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="n">p</span> <span class="o">=</span> <span class="s2">&quot;Allo&quot;</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">saluer</span><span class="p">())</span>  <span class="c1"># AttributeError: &#39;str&#39; object has no attribute &#39;saluer&#39;</span>
 </span></code></pre></div>
 <p><strong>Caractéristiques :</strong></p>
 <ul>
@@ -3539,8 +3543,8 @@
 </table>
 <hr />
 <h2 id="4-duck-typing-si-ca-marche-comme-un-canard-cest-un-canard"><strong>4. Duck Typing : &ldquo;Si ça marche comme un canard, c&rsquo;est un canard&rdquo;</strong><a class="headerlink" href="#4-duck-typing-si-ca-marche-comme-un-canard-cest-un-canard" title="Permanent link">&para;</a></h2>
-<p>Version longue : &ldquo;Si ça ressemble à un canard, si ça nage comme un canard et si ça cancane comme un canard, c&rsquo;est un 
-canard.&rdquo;</p>
+<p><strong>Version longue</strong> : <em>&ldquo;Si ça ressemble à un canard, si ça nage comme un canard et si ça cancane comme un canard, c&rsquo;est un 
+canard.&rdquo;</em></p>
 <p>En Python, le polymorphisme ne nécessite pas d&rsquo;héritage :</p>
 <ul>
 <li>Une méthode est appelée si l&rsquo;objet a cette méthode.</li>
@@ -3568,6 +3572,9 @@ canard.&rdquo;</p>
 <ul>
 <li><strong>Flexibilité</strong> : Pas besoin de créer une hiérarchie de classes.</li>
 <li><strong>Code plus simple</strong> pour des cas simples.</li>
+<li>Mais <strong>attention aux erreurs</strong> : si une méthode n&rsquo;est pas présente, une erreur <code>AttributeError</code> sera levée.</li>
+<li>Le code est plus <strong>lisible</strong>, mais il peut être plus difficile à déboguer, <strong>car les erreurs peuvent être plus 
+  difficiles à localiser</strong>.</li>
 </ul>
 <hr />
 <h2 id="5-quand-utiliser-lheritage-vs-duck-typing"><strong>5. Quand Utiliser l&rsquo;Héritage vs Duck Typing ?</strong><a class="headerlink" href="#5-quand-utiliser-lheritage-vs-duck-typing" title="Permanent link">&para;</a></h2>

@@ -3457,8 +3457,8 @@ dynamique.</p>
 <li><strong>VS Code :</strong> Très populaire, léger, nécessite l&rsquo;extension Python.</li>
 </ul>
 </li>
-<li><strong>Gestion des environnements (Note rapide) :</strong> Mentionner que contrairement au C, on installe souvent des
-  bibliothèques via <code>pip</code>.</li>
+<li><strong>Gestion des environnements :</strong> traditionnellement, on installe des bibliothèques via <code>pip</code>. Mais <code>uv</code> est un nouvel 
+  outil qui permet de gérer les environnements de manière plus efficace.</li>
 </ul>
 <h2 id="2-python-comme-calculatrice-les-particularites-mathematiques">2. Python comme calculatrice (Les particularités mathématiques)<a class="headerlink" href="#2-python-comme-calculatrice-les-particularites-mathematiques" title="Permanent link">&para;</a></h2>
 <p>Python est extrêmement puissant pour le calcul numérique.</p>
@@ -3469,9 +3469,9 @@ dynamique.</p>
 </ul>
 </li>
 <li><strong>La division (Attention piège !) :</strong><ul>
-<li><code>/</code> : Division réelle (toujours retourne un <code>float</code>). Ex: <code>5 / 2</code> <span class="arithmatex">\(\rightarrow\)</span> <code>2.5</code>.</li>
+<li><code>/</code> : Division réelle (retourne toujours un <code>float</code>). Ex: <code>5 / 2</code> <span class="arithmatex">\(\rightarrow\)</span> <code>2.5</code>.</li>
 <li><code>//</code> : Division entière (tronque le résultat). Ex: <code>5 // 2</code> <span class="arithmatex">\(\rightarrow\)</span> <code>2</code>.</li>
-<li><code>%</code> : Modulo (reste de la division).</li>
+<li><code>%</code> : Modulo (reste de la division entière).</li>
 </ul>
 </li>
 </ul>
@@ -3530,11 +3530,12 @@ inutiles.</p>
 <li><code>mon_dict = {"nom": "Alice", "age": 20}</code></li>
 <li>Accès : <code>mon_dict["nom"]</code>.</li>
 </ul>
-<blockquote>
-<p><strong>Note sur les tableaux :</strong> En Python, pour faire du calcul matriciel intensif (comme en C ou avec des tableaux de
+<div class="admonition note">
+<p class="admonition-title">Note sur les tableaux</p>
+<p>En Python, pour faire du calcul matriciel intensif (comme en C ou avec des tableaux de
 taille fixe), on utilise la bibliothèque <strong>NumPy</strong>. Les listes standards ne sont pas optimisées pour le calcul
 scientifique pur.</p>
-</blockquote>
+</div>
 <h2 id="6-gestion-des-erreurs-exceptions">6. Gestion des erreurs (Exceptions)<a class="headerlink" href="#6-gestion-des-erreurs-exceptions" title="Permanent link">&para;</a></h2>
 <p>Le concept est identique à Java/JS, mais la syntaxe change.</p>
 <ul>

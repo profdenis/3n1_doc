@@ -3393,6 +3393,15 @@
 </span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="n">traiter_personne</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>  <span class="c1"># &quot;Étudiant en Informatique: Bob&quot;</span>
 </span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="n">traiter_personne</span><span class="p">(</span><span class="n">prof</span><span class="p">)</span>  <span class="c1"># &quot;Professeur de Mathématiques: Charlie&quot;</span>
 </span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Utiliser le polymorphisme si possible</p>
+<p>Encore une fois ici, il serait préférable d&rsquo;utiliser le polymorphisme plutôt que de faire des vérifications de type 
+avec <code>match</code> (ou <code>isinstance()</code> ou <code>type()</code>). Par exemple, on pourrait ajouter une autre méthode à la classe 
+<code>Personne</code> et la surcharger dans les classes filles pour obtenir le comportement souhaité. Si on créait une nouvelle
+sous-classe, il faudrait redéfinir cette méthode dans la nouvelle sous-classe et on obtiendrait le comportement 
+souhaité. Avec <code>match</code>, on devrait également ajouter une condition supplémentaire pour cette nouvelle 
+sous-classe, et ce, partout où on a ce genre de situation (avec <code>match</code> ou <code>isinstance()</code> ou <code>type()</code>).</p>
+</div>
 <hr />
 <h3 id="b-matching-avec-conditions-supplementaires"><strong>b) Matching avec Conditions Supplémentaires</strong><a class="headerlink" href="#b-matching-avec-conditions-supplementaires" title="Permanent link">&para;</a></h3>
 <p>On peut ajouter des conditions après le <code>case</code> :</p>
@@ -3413,7 +3422,7 @@
 </span></code></pre></div>
 <hr />
 <h3 id="c-matching-avec-isinstance-alternative"><strong>c) Matching avec <code>isinstance()</code> (Alternative)</strong><a class="headerlink" href="#c-matching-avec-isinstance-alternative" title="Permanent link">&para;</a></h3>
-<p>Si vous préférez éviter le destructuring (<code>case Personne(nom, age)</code>), utilisez <code>isinstance</code> :</p>
+<p>Si vous préférez éviter le <em>destructuring</em> (<code>case Personne(nom, age)</code>), utilisez <code>isinstance</code> :</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">traiter_personne_alt</span><span class="p">(</span><span class="n">personne</span><span class="p">):</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="k">match</span> <span class="n">personne</span><span class="p">:</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>        <span class="k">case</span> <span class="n">p</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">Etudiant</span><span class="p">):</span>
@@ -3436,7 +3445,8 @@
 <hr />
 <h3 id="conclusion"><strong>Conclusion</strong><a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h3>
 <p>Le <code>match</code> est un outil puissant pour gérer le polymorphisme de manière élégante. Il remplace avantageusement les
-chaînes d&rsquo;<code>if/elif</code> pour vérifier les types d&rsquo;objets.</p>
+chaînes d&rsquo;<code>if/elif</code> pour vérifier les types d&rsquo;objets. Mais lorsque possible, il est normalement préférable d&rsquo;utiliser
+le polymorphisme pour obtenir un résultat semblable.</p>
 <div class="admonition note">
 <p class="admonition-title">📌 <strong>Astuce</strong></p>
 <p>Utilisez <code>case _:</code> comme &ldquo;default&rdquo; pour capturer tous les cas non matchés !</p>

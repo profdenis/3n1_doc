@@ -11,6 +11,7 @@ modifiées après création) et offrent de nombreuses méthodes pour les manipul
 
 ```python
 texte = "Bonjour, monde!"
+texte = 'Bonjour, monde!'  # même résultat
 multiligne = """Ceci est une chaîne
 sur plusieurs lignes."""
 ```
@@ -18,10 +19,17 @@ sur plusieurs lignes."""
 ### **b) Accès aux caractères (indexation)**
 
 ```python
-print(texte[0])  # 'B' (premier caractère)
-print(texte[-1])  # '!' (dernier caractère)
+print(texte[0])  # "B" (premier caractère)
+print(texte[-1])  # "!" (dernier caractère)
 print(texte[7:12])  # "monde" (slicing)
 ```
+
+!!! warning "Avertissement"
+    En python, contrairement à d'autres langages, l'usage des `''` est identique à l'usage des `""` : les deux sont 
+    interprétés comme des chaînes de caractères. Ils sont interchangeables et peuvent être utilisés selon les 
+    préférences personnelles ou les conventions de style du projet. Les `''` ne désignent pas des caractères 
+    individuels. `texte[0]` ne donne pas un caractère, mais plutôt une chaîne de caractères contenant un seul
+    caractère.
 
 ---
 
@@ -117,12 +125,13 @@ print("123".isdigit())  # True
 print("abc".isalpha())  # True
 ```
 
-### **b) `in` – Opérateur de membership**
+### **b) `in` – Opérateur d'inclusion**
 
 ```python
 texte = "Bonjour"
 print("o" in texte)  # True
 print("z" in texte)  # False
+print("z" not in texte)  # True
 ```
 
 ---
@@ -157,8 +166,8 @@ texte = "Bonjour {}, vous avez {} ans.".format(nom, âge)
 **Exemple :**
 
 ```python
-texte = "\t  Bonjour\t"
-print(nettoyer_texte(texte))  # "Bonjour"
+texte = "\t  Bonjour\t!  "
+print(nettoyer_texte(texte))  # "Bonjour !"
 ```
 
 ---
@@ -166,6 +175,7 @@ print(nettoyer_texte(texte))  # "Bonjour"
 ### **2. Compteur de mots**
 
 Écrivez une fonction qui compte le nombre de mots dans une phrase.
+
 **Indice :** Utilisez `split()`.
 
 **Exemple :**
@@ -206,7 +216,9 @@ print(censurer(texte, "bonjour"))  # "*** monde, *** Python"
 ## **8. Bonnes Pratiques**
 
 ✅ **Utilisez `f-strings`** pour le formatage (plus lisible).
+
 ✅ **Préférez `str.startswith()`/`endswith()`** aux comparaisons manuelles.
+
 ⚠️ **Évitez les boucles sur les chaînes** (utilisez des méthodes intégrées).
 
 ---

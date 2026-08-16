@@ -107,12 +107,15 @@ print(compter_mots("Bonjour monde!"))  # 2
 ### **8. Censurer un mot**
 
 Écrivez une fonction `censurer(texte, mot)` qui remplace toutes les occurrences de `mot` par `***`.
+
 **Exemple :**
 
 ```python
 print(censurer("Bonjour monde, bonjour Python", "bonjour"))
 # "*** monde, *** Python"
 ```
+
+**Variation :** le nombre de `*` devrait correspondre au nombre de caractères dans `mot`.
 
 ---
 
@@ -179,31 +182,9 @@ Trop petit ! Essayez plus haut.
 
 ---
 
-## **Corrigés Partiels**
-
-### **Exercice 4 (`split`) :**
-
-```python
-phrase = "Bonjour, monde!"
-mots = phrase.split()
-print(mots)  # ["Bonjour,", "monde!"]
-```
-
-### **Exercice 8 (Censurer un mot) :**
-
-```python
-def censurer(texte, mot):
-    return texte.replace(mot, "***")
-```
-
----
-
 ## **Conseils pour les Étudiants**
 
 - **Testez dans le REPL** : Utilisez `python` en ligne de commande pour vérifier rapidement vos fonctions.
 - **Comparez avec des boucles** : Par exemple, pour compter les mots, comparez une solution avec `split()` et une boucle
   manuelle.
 - **Utilisez `help(str)`** dans le REPL pour voir toutes les méthodes disponibles sur les chaînes.
-
-Ces exercices couvrent les cas d'usage courants et permettent de bien maîtriser la manipulation des chaînes en Python.
-Bonne pratique ! 🚀

@@ -63,8 +63,9 @@ print(decrire_animal(Chien("Rex")))  # "C'est un chien"
 
 ### **4. Polymorphisme avec Méthodes Abstraites**
 
-Modifiez l'exercice 2 pour que `Forme` ait une méthode abstraite `aire()` (en Python, utilisez une exception si non
-redéfinie).
+Modifiez l'exercice 2 pour simuler une méthode abstraite `aire()` dans `Forme` (en Python, utilisez une exception si non
+redéfinie). Les vraies méthodes abstraites (avec le décorateur `@abstractmethod`) seront présentées dans la section sur
+la programmation OO avancée.
 
 **Exemple :**
 
@@ -160,80 +161,14 @@ for fichier in fichiers:
 
 ---
 
-## **Solutions aux Exercices**
+## **Exercices supplémentaires**
 
-### **Solution Exercice 1 :**
-
-```python
-class Animal:
-    def __init__(self, nom):
-        self.nom = nom
-
-    def faire_son(self):
-        return "Un son indéfini"
+Remplacez l'utilisation de `match` par des méthodes dans les différentes classes, et utilisez le polymorphisme pour 
+appeler ces méthodes. 
 
 
-class Chien(Animal):
-    def faire_son(self):
-        return "Wouf!"
-
-
-class Chat(Animal):
-    def faire_son(self):
-        return "Miaou!"
-
-
-animaux = [Chien("Rex"), Chat("Felix")]
-for animal in animaux:
-    print(animal.faire_son())
-```
-
-### **Solution Exercice 3 :**
-
-```python
-def decrire_animal(animal):
-    match animal:
-        case Chien():
-            return "C'est un chien"
-        case Chat():
-            return "C'est un chat"
-        case _:
-            return "Autre animal"
-
-
-print(decrire_animal(Chien("Rex")))  # "C'est un chien"
-```
-
-### **Solution Exercice 5 :**
-
-```python
-class Voiture:
-    def deplacer(self):
-        return "La voiture roule"
-
-
-class Avion:
-    def deplacer(self):
-        return "L'avion vole"
-
-
-def decrire_deplacement(obj):
-    match obj:
-        case Voiture():
-            return "La voiture roule"
-        case Avion():
-            return "L'avion vole"
-
-
-print(decrire_deplacement(Voiture()))  # "La voiture roule"
-```
-
----
-
-### **Conseils pour les Étudiants**
+## **Conseils pour les Étudiants**
 
 - Pour le `duck typing`, concentrez-vous sur **les méthodes** plutôt que sur l'héritage.
 - Utilisez `match` pour remplacer les chaînes d'`if isinstance()`.
 - Testez vos solutions avec des objets de types inattendus (cas par défaut).
-
-Ces exercices couvrent les concepts clés tout en laissant une marge pour des extensions créatives. Bonne pratique ! 🚀

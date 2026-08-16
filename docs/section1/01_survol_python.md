@@ -37,7 +37,7 @@ Python peut être exécuté de plusieurs manières :
 
 - **PyCharm** (recommandé pour son support complet).
 - **VS Code** (léger, avec extensions Python comme *Python* et *Pylance*).
-- **IDLE** (simple, fourni avec Python).
+- Ou votre éditeur de texte préféré, et le terminal.
 
 ---
 
@@ -47,14 +47,14 @@ L'interpréteur Python peut servir de calculatrice avancée :
 
 ### **a) Opérations de base**
 
-```python
->> > 2 + 3  # Addition
+```
+>>> 2 + 3  # Addition
 5
->> > 10 / 3  # Division réelle (float)
-3.333...
->> > 10 // 3  # Division entière (floor division)
+>>> 10 / 3  # Division réelle (float)
+3.3333333333333335
+>>> 10 // 3  # Division entière (floor division)
 3
->> > 10 % 3  # Modulo (reste de la division)
+>>> 10 % 3  # Modulo (reste de la division)
 1
 ```
 
@@ -65,6 +65,8 @@ Contrairement à certains langages, Python gère les grands entiers sans perte d
 ```text
 >>> 123456789012345678901234567890
 123456789012345678901234567890
+>>> 2**100  # 2 à la puissance 100
+1267650600228229401496703205376
 ```
 
 ---
@@ -98,6 +100,10 @@ else:
     print("Négatif")  # Résultat : "Négatif"
 ```
 
+!!! note "Opérateurs booléens"
+    Python utilise les opérateurs `and`, `or` et `not` pour les opérations booléennes.
+
+
 ### **b) Boucles (`for`, `while`)**
 
 ```python
@@ -105,6 +111,11 @@ else:
 for i in [1, 2, 3]:
     print(i)
 
+# Boucle sur l'intervalle de nombres de 0 (inclus) jusqu'à 5 (exclus) 
+for i in range(5):
+    print(i, end=" ")  # print ajoute un \n par défaut, sauf si on redéfinit end
+print()
+    
 # Boucle while
 count = 0
 while count < 5:
@@ -177,18 +188,7 @@ print(nombres[1:3])  # [2, 3]
 
 ---
 
-## **8. Compréhensions de liste**
-
-Syntaxe concise pour créer des listes :
-
-```python
-carrés = [x ** 2 for x in range(5)]  # [0, 1, 4, 9, 16]
-pairs = [x for x in carrés if x % 2 == 0]  # [0, 4, 16]
-```
-
----
-
-## **9. Dictionnaires**
+## **8. Dictionnaires**
 
 Structures clé-valeur (similaires aux objets JS) :
 
@@ -200,7 +200,7 @@ personne["ville"] = "Montréal"  # Ajout d'une nouvelle clé
 
 ---
 
-## **10. Exceptions**
+## **9. Exceptions**
 
 Gestion des erreurs avec `try`/`except` :
 
@@ -213,7 +213,7 @@ except ZeroDivisionError:
 
 ---
 
-## **11. Lecture/Écriture de fichiers texte**
+## **10. Lecture/Écriture de fichiers texte**
 
 ### **a) Écrire dans un fichier**
 
@@ -232,7 +232,7 @@ with open("fichier.txt", "r") as f:  # "r" = lecture
 
 ---
 
-## **12. Autres concepts utiles**
+## **11. Autres concepts utiles**
 
 - **Commentaires** : `#` pour une ligne, `'''` ou `"""` pour des blocs.
 - **Docstrings** : Chaînes de documentation dans les fonctions (ex: `"""Fonction qui..."""`).
@@ -240,7 +240,7 @@ with open("fichier.txt", "r") as f:  # "r" = lecture
 
 ---
 
-## **13. À éviter pour l'instant**
+## **12. À éviter pour l'instant**
 
 Certains concepts seront vus plus tard :
 

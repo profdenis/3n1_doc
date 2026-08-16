@@ -4,7 +4,7 @@
 
 ---
 
-## **1. Introduction à la Classe `Person`**
+## **1. Introduction à la Classe `Personne`**
 
 Voici une classe simple représentant une personne :
 
@@ -100,7 +100,7 @@ print(p._nom)  # "Alice" → Accessible, mais déconseillé en dehors de la clas
 
 **Pourquoi l'utiliser ?**
 
-- Permet des sous-classes d'accéder à l'attribut.
+- Permet aux sous-classes d'accéder à l'attribut.
 - Moins strict que privé (`__`).
 
 ---
@@ -322,75 +322,7 @@ print(voiture._vitesse_max)  # 200 → Protégé (accessible, mais déconseillé
 
 ---
 
-## **5. Solutions aux Exercices**
-
-### **Solution Exercice 1 :**
-
-```python
-class Livre:
-    def __init__(self, titre, auteur, annee):
-        self.titre = titre
-        self.auteur = auteur
-        self.annee = annee
-
-    def afficher(self):
-        return f"Titre: {self.titre}, Auteur: {self.auteur}"
-
-    def __repr__(self):
-        return f"Livre(titre='{self.titre}', auteur='{self.auteur}', annee={self.annee})"
-
-    def __str__(self):
-        return self.afficher()
-
-
-livre = Livre("1984", "George Orwell", 1949)
-print(livre)  # "Titre: 1984, Auteur: George Orwell"
-```
-
-### **Solution Exercice 2 :**
-
-```python
-class CompteBancaire:
-    def __init__(self, titulaire, solde):
-        self.titulaire = titulaire
-        self.solde = solde
-
-    def deposer(self, montant):
-        self.solde += montant
-
-    def __eq__(self, autre):
-        if isinstance(autre, CompteBancaire):
-            return self.solde == autre.solde
-        return False
-
-
-compte1 = CompteBancaire("Alice", 1000)
-compte2 = CompteBancaire("Bob", 1000)
-print(compte1 == compte2)  # True
-```
-
-### **Solution Exercice 4 :**
-
-```python
-class Voiture:
-    def __init__(self, marque):
-        self.marque = marque  # Public
-        self._vitesse_max = 200  # Protégé (convention)
-        self.__kilométrage = 0  # privé
-
-    def rouler(self, km):
-        self.__kilométrage += km
-
-
-voiture = Voiture("Toyota")
-print(voiture.marque)  # "Toyota"
-print(voiture._vitesse_max)  # 200 (accessible, mais déconseillé)
-# print(voiture.__kilométrage)  # ❌ Erreur
-```
-
----
-
-## **6. Bonnes Pratiques**
+## **5. Bonnes Pratiques**
 
 - ✅ **Utilisez `__repr__` et `__str__`** pour une meilleure lisibilité.
 - ✅ **Implémentez `__eq__` et `__hash__` ensemble** si vous voulez utiliser des objets comme clés dans un dictionnaire.

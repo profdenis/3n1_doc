@@ -27,8 +27,10 @@ deux courants de pensée majeurs.
 | **Force**       | Flexibilité extrême, polymorphisme dynamique   | Organisation rigide, prévisibilité, réutilisation  |
 
 !!! note "Note importante"
-Le courant de la "Hiérarchie" a dominé l'industrie pendant des décennies. C'est ce que la
-plupart des gens appellent _"faire de l'OO"_. Mais cette vision a ses limites face à la complexité moderne.
+    Le courant de la "Hiérarchie" a dominé l'industrie pendant des décennies. C'est ce que la
+    plupart des gens appellent _"faire de l'OO"_. Mais cette vision a ses limites face à la complexité moderne.
+    Depuis quelques années, l'industrie s'éloigne de cette approche en favorisant les modèles basés sur le **Message 
+    Passing** et la composition à la place de l'héritage.
 
 ---
 
@@ -42,9 +44,9 @@ Une erreur commune est de croire que l'_Orienté-Objet_ se résume à créer des
 #### Pourquoi l'industrie s'éloigne de l'héritage massif ?
 
 1. **Le couplage fort :** Modifier la classe parente peut briser involontairement des dizaines de classes enfants (le
-   problème de la *Fragile Base Class*).
-2. **L'explosion combinatoire :** Si un objet doit appartenir à plusieurs catégories, l'héritage devient un cauchemar (
-   le *Problème du Diamant*).
+   problème de la *classe de base fragile*, ou la *Fragile Base Class*).
+2. **L'explosion combinatoire :** Si un objet doit appartenir à plusieurs catégories, l'héritage (multiple) devient un 
+   cauchemar (le *Problème du Diamant*).
 3. **La rigidité :** L'héritage définit la nature d'un objet au moment de la compilation. On ne peut pas changer sa
    "nature" durant l'exécution.
 
@@ -76,7 +78,7 @@ conception. Nous reviendrons sur chacun d'eux tout au long du semestre.
 
 ---
 
-### 5. Vers une approche Multi-Paradigme et Data-Centric
+### 5. Vers une approche Multi-Paradigme et centrée sur les données
 
 Le monde logiciel actuel ne se limite plus à l'OO pur. Nous allons naviguer entre plusieurs approches :
 

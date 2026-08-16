@@ -160,31 +160,19 @@ print(carrés)
 
 ---
 
-## **3. Comparaison avec `map()` et `filter()`**
-
-| **Méthode**                | **Exemple**                                | **Avantages**                       |
-|----------------------------|--------------------------------------------|-------------------------------------|
-| **Compréhension de Liste** | `[x*2 for x in range(5)]`                  | Lisible, Pythonique.                |
-| **`map()`**                | `list(map(lambda x: x*2, range(5)))`       | Utile pour les fonctions complexes. |
-| **`filter()`**             | `list(filter(lambda x: x%2==0, range(5)))` | Pour des filtres simples.           |
-
-✅ **Préférez les compréhensions** pour la clarté, sauf si vous utilisez des fonctions existantes.
-
----
-
-## **4. Bonnes Pratiques**
+## **3. Bonnes Pratiques**
 
 1. **Évitez les compréhensions trop complexes** (privilégiez la lisibilité).
 2. **Utilisez `_` pour les variables inutilisées** :
    ```python
    [x for x in range(5)]  # Correct
-   [_ for _ in range(5)]  # Si la valeur n'est pas utilisée
+   ["" for _ in range(5)]  # Si la valeur n'est pas utilisée
    ```
 3. **Testez avec des petits exemples** avant de généraliser.
 
 ---
 
-## **5. Exercices pour S'entraîner**
+## **4. Exercices pour s'entraîner**
 
 ### **List Comprehension**
 

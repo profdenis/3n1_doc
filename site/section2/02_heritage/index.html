@@ -3440,13 +3440,10 @@
 <div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Etudiant</span><span class="p">(</span><span class="n">Personne</span><span class="p">):</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nom</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">matiere_principale</span><span class="p">):</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">nom</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span>  <span class="c1"># Appel au constructeur parent</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">matiere_principale</span> <span class="o">=</span> <span class="n">matriere_principale</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">matiere_principale</span> <span class="o">=</span> <span class="n">matiere_principale</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">saluer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  <span class="c1"># Redéfinition (polymorphisme)</span>
 </span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Bonjour, je suis </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">nom</span><span class="si">}</span><span class="s2">, étudiant en </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">matiere_principale</span><span class="si">}</span><span class="s2">!&quot;</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">saluer</span><span class="p">()</span>  <span class="c1"># Utilise la méthode redéfinie</span>
 </span></code></pre></div>
 <h3 id="b-classe-professeur-heritage-de-personne"><strong>b) Classe <code>Professeur</code> (héritage de <code>Personne</code>)</strong><a class="headerlink" href="#b-classe-professeur-heritage-de-personne" title="Permanent link">&para;</a></h3>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Professeur</span><span class="p">(</span><span class="n">Personne</span><span class="p">):</span>
@@ -3469,7 +3466,7 @@
 <div class="admonition note">
 <p class="admonition-title"><code>super()</code></p>
 <p>N&rsquo;oubliez pas les parenthèses lors de l&rsquo;appel à <code>super()</code>, contrairement à Java, où <code>super</code> est un mot-clé. En python,
-<code>super()</code> est une fonction qui renvoie une instance de la classe parente, permettant d&rsquo;appeler ses méthodes ou accéder à
+<code>super()</code> est une fonction qui renvoie une référence à la classe parente, permettant d&rsquo;appeler ses méthodes ou accéder à
 ses attributs.</p>
 </div>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">p</span> <span class="o">=</span> <span class="n">Personne</span><span class="p">(</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
@@ -3485,7 +3482,8 @@ ses attributs.</p>
 <p>Le polymorphisme permet à une méthode d&rsquo;avoir un <strong>comportement différent selon la classe</strong> :</p>
 <ul>
 <li><code>saluer()</code> est redéfini dans <code>Etudiant</code> et <code>Professeur</code>.</li>
-<li><code>__str__()</code> utilise la version redéfinie de <code>saluer()</code>.</li>
+<li><code>__str__()</code>, bien qu&rsquo;elle n&rsquo;est pas redéfinie elle-même, utilise la version redéfinie de <code>saluer()</code> dans les 
+  sous-classes, à cause du polymorphisme.</li>
 </ul>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">personnes</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">prof</span><span class="p">]</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
@@ -3498,7 +3496,7 @@ ses attributs.</p>
 </span></code></pre></div>
 <hr />
 <h2 id="4-methodes-specifiques-aux-sous-classes"><strong>4. Méthodes Spécifiques aux Sous-Classes</strong><a class="headerlink" href="#4-methodes-specifiques-aux-sous-classes" title="Permanent link">&para;</a></h2>
-<p>Chaque sous-classe peut ajouter des méthodes propres :</p>
+<p>Chaque sous-classe peut ajouter des attributs et méthodes propres :</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">matiere_principale</span><span class="p">)</span>  <span class="c1"># &quot;Informatique&quot; (attribut d&#39;Etudiant)</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">prof</span><span class="o">.</span><span class="n">enseigner</span><span class="p">(</span><span class="s2">&quot;Python&quot;</span><span class="p">))</span>  <span class="c1"># &quot;Charlie enseigne Python.&quot; (méthode de Professeur)</span>
 </span></code></pre></div>
@@ -3509,6 +3507,20 @@ ses attributs.</p>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nb">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">prof</span><span class="p">,</span> <span class="n">Personne</span><span class="p">))</span>  <span class="c1"># True (héritage)</span>
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="nb">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">Professeur</span><span class="p">))</span>  <span class="c1"># False</span>
 </span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Utilisation de <code>isinstance()</code></p>
+<p>Il ne faut pas abuser de la fonction <code>isinstance()</code>, car cela peut rendre le code moins clair et plus difficile à
+maintenir. Il faut prioriser d&rsquo;autres approches comme l&rsquo;utilisation du polymorphisme, pour éviter d&rsquo;écrire du code
+qui est trop complexe, comme la version suivante de la méthode <code>saluer()</code> dans <code>Personne</code> :</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">saluer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>        <span class="k">if</span> <span class="n">isintance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Etudiant</span><span class="p">):</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>            <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Bonjour, je suis </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">nom</span><span class="si">}</span><span class="s2">, étudiant en </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">matiere_principale</span><span class="si">}</span><span class="s2">!&quot;</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Professeur</span><span class="p">):</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>            <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Bonjour, je suis </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">nom</span><span class="si">}</span><span class="s2">, professeur en </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">matiere_principale</span><span class="si">}</span><span class="s2">!&quot;</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>        <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>            <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Bonjour, je m&#39;appelle </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">nom</span><span class="si">}</span><span class="s2"> et j&#39;ai </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="si">}</span><span class="s2"> ans.&quot;</span>
+</span></code></pre></div>
+</div>
 <hr />
 <h2 id="6-resume-des-concepts"><strong>6. Résumé des Concepts</strong><a class="headerlink" href="#6-resume-des-concepts" title="Permanent link">&para;</a></h2>
 <table>

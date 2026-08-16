@@ -57,6 +57,14 @@ pairs = list(filter(lambda x: x % 2 == 0, nombres))
 print(pairs)  # [2, 4]
 ```
 
+!!! note "Compréhension vs. `map()` et `filter()`"
+    Python utilise les compréhensions pour créer des listes, des dictionnaires et des ensembles à partir de séquences 
+    existantes, mais `map()` et `filter()` sont plus flexibles et peuvent être utilisés avec des fonctions plus 
+    complexes. Pour des cas simples, on devrait privilégier les compréhensions, mais pour des cas plus compliqués, 
+    `map()` et `filter()` peuvent être plus appropriés.
+
+    **Exercice :** Réécrire les exemples de `map()` et `filter()` avec des compréhensions de liste.
+
 #### **c) Dans `sorted()`**
 
 ```python
@@ -64,6 +72,7 @@ print(pairs)  # [2, 4]
 # Trier par âge (deuxième élément du tuple)
 triés = sorted(étudiants, key=lambda x: x[1])
 print(triés)  # [('Bob', 20), ('Alice', 25)]
+print(sorted(triés))  # [('Alice', 25), ('Bob', 20)]
 ```
 
 ---
@@ -234,130 +243,9 @@ print(resultat)  # "[1], [2], [3]"
 
 ---
 
-### **7. Paramètres avec Valeurs par Défaut**
+## **7. Paramètres Nommés en Python**
 
-#### **1. Syntaxe de Base**
-
-En Python, vous pouvez définir des valeurs par défaut pour les paramètres :
-
-```python
-def fonction(param_obligatoire, param_optionnel=valeur_défaut):
-# Corps de la fonction
-```
-
-**Règles importantes :**
-
-- Les paramètres avec valeurs par défaut doivent **toujours venir après** les paramètres obligatoires.
-- Si un paramètre a une valeur par défaut, tous ceux qui suivent doivent aussi en avoir une.
-
----
-
-#### **2. Exemples Pratiques**
-
-##### **a) Un seul paramètre optionnel**
-
-```python
-def saluer(nom, message="Bonjour"):
-    return f"{message}, {nom}!"
-
-
-print(saluer("Alice"))  # "Bonjour, Alice!"
-print(saluer("Bob", "Salut"))  # "Salut, Bob!"
-```
-
-##### **b) Plusieurs paramètres optionnels**
-
-```python
-def dessiner_rectangle(largeur, hauteur=10, couleur="bleu"):
-    return f"Rectangle {largeur}x{hauteur} en {couleur}"
-
-
-print(dessiner_rectangle(5))  # "Rectangle 5x10 en bleu"
-print(dessiner_rectangle(3, 7))  # "Rectangle 3x7 en bleu"
-print(dessiner_rectangle(2, 5, "rouge"))  # "Rectangle 2x5 en rouge"
-```
-
-##### **c) Cas mixte (obligatoire + optionnel)**
-
-```python
-def calculer_prix(base, tvq=0.05, tps=0.09975):
-    return base * (1 + tvq + tps)
-
-
-print(calculer_prix(100))  # 114.975 (valeurs par défaut)
-print(calculer_prix(200, 0.06))  # 223.95 (TVQ modifiée)
-```
-
----
-
-#### **3. Cas Particuliers**
-
-##### **a) Valeurs mutables par défaut (PIège !)**
-
-⚠️ **Attention** : Évitez les valeurs mutables comme `[]` ou `{}` par défaut :
-
-```python
-def ajouter_element(liste=[]):  # ❌ PIÈGE !
-    liste.append(1)
-    return liste
-
-
-print(ajouter_element())  # [1]
-print(ajouter_element())  # [1, 1] → Problème ! La liste est conservée entre appels
-```
-
-**Solution :**
-
-```python
-def ajouter_element(liste=None):  # ✅ Correct
-    if liste is None:
-        liste = []
-    liste.append(1)
-    return liste
-
-
-print(ajouter_element())  # [1]
-print(ajouter_element())  # [1] → Nouveau tableau à chaque appel
-```
-
-##### **b) `None` comme valeur par défaut**
-
-```python
-def afficher_infos(nom, âge=None):
-    if âge is None:
-        return f"Bonjour {nom}!"
-    else:
-        return f"{nom} a {âge} ans"
-
-
-print(afficher_infos("Alice"))  # "Bonjour Alice!"
-print(afficher_infos("Bob", 30))  # "Bob a 30 ans"
-```
-
----
-
-#### **Conclusion**
-
-Les paramètres avec valeurs par défaut permettent d'écrire des fonctions **flexibles et réutilisables**. Maîtriser leur
-utilisation est essentiel pour :
-
-- Créer des interfaces claires.
-- Éviter la duplication de code.
-- Gérer les cas d'usage courants sans surcharger l'appelant.
-
-📌 **Astuce** : Utilisez `inspect.signature(fonction)` dans le REPL pour voir les paramètres et leurs valeurs par défaut
-d'une fonction !
-
----
-
-Vous avez tout à fait raison ! Voici une section complète sur les **paramètres nommés** (et leur ordre inversé), avec
-des exemples concrets et des exercices pour bien maîtriser ce concept.
-
----
-
-### **7. Paramètres Nommés en Python**
-
-#### **1. Syntaxe de Base**
+### **1. Syntaxe de Base**
 
 En Python, vous pouvez :
 
@@ -378,7 +266,7 @@ print(addition(y=3, x=5))  # 8 (ordre inversé !)
 
 ---
 
-#### **2. Avantages des Paramètres Nommés**
+### **2. Avantages des Paramètres Nommés**
 
 ✅ **Lisibilité améliorée** :
 
@@ -403,7 +291,7 @@ print(afficher_coordonnées(y=10, x=5))  # "(5, 10)" (ordre inversé)
 
 ---
 
-#### **3. Mélange de Paramètres Positionnels et Nommés**
+### **3. Mélange de Paramètres Positionnels et Nommés**
 
 Vous pouvez combiner les deux styles, mais :
 
@@ -423,9 +311,9 @@ print(fonction(1, b=2, c=3))  # 6 (mélange)
 
 ---
 
-#### **4. Cas Particuliers**
+### **4. Cas Particuliers**
 
-##### **a) Valeurs par défaut + paramètres nommés**
+#### **a) Valeurs par défaut + paramètres nommés**
 
 ```python
 def dessiner_rectangle(largeur, hauteur=10, couleur="bleu"):
@@ -436,7 +324,7 @@ print(dessiner_rectangle(5))  # "5x10 en bleu"
 print(dessiner_rectangle(hauteur=20, largeur=3))  # "3x20 en bleu"
 ```
 
-##### **b) `**kwargs` pour arguments nommés variables**
+#### **b) `**kwargs` pour arguments nommés variables**
 
 ```python
 def afficher_infos(**kwargs):
@@ -452,7 +340,7 @@ afficher_infos(nom="Alice", âge=25, ville="Montréal")
 
 ---
 
-#### **8. Bonnes Pratiques**
+### **Bonnes Pratiques**
 
 ✅ **Utilisez les paramètres nommés** pour :
 
@@ -460,22 +348,6 @@ afficher_infos(nom="Alice", âge=25, ville="Montréal")
 - Les cas où l'ordre n'est pas intuitif.
 
 ⚠️ **Évitez de mélanger positionnel et nommé** si cela rend le code illisible.
-
----
-
-#### **9. Piège à Éviter**
-
-```python
-def fonction(a, b=10):
-    return a + b
-
-
-# ❌ Erreur ! 'b' spécifié deux fois
-print(fonction(5, 2))  # Correct (positionnel)
-print(fonction(a=5, b=2))  # Correct (nommé)
-print(fonction(5, b=2))  # Correct (mélange)
-# print(fonction(b=2, a=5))    ❌ Erreur ! 'a' doit être positionnel
-```
 
 ---
 
@@ -489,7 +361,46 @@ Les paramètres nommés permettent :
 
 ---
 
-### **Conclusion**
+## **8. Nombre de paramètres variable**
+
+Il est possible d'utiliser `**kwargs` pour **des paramètres nommés variables** (comme mentionné plus haut), et
+`*args` pour **des paramètres positionnels variables**.
+
+```python
+def formatter_noms(*args):
+    temp = ", ".join(map(str.lower, args))
+    return f"[{temp}]"
+
+
+print(formatter_noms("Alice", "Bob", "Charlie"))
+```
+
+---
+
+## **9. Exemple : Fonction de Logging**
+
+```python
+from datetime import datetime
+
+def logger(message, niveau="INFO", fichier=None):
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    log_entry = f"[{timestamp}] [{niveau}] {message}"
+
+    if fichier:
+        with open(fichier, "a") as f:
+            f.write(log_entry + "\n")
+    else:
+        print(log_entry)
+
+# Utilisation
+logger("Début du programme")         # INFO par défaut
+logger("Erreur critique", "ERROR")   # Niveau personnalisé
+logger("Debug", "DEBUG", "log.txt")  # Avec fichier
+```
+
+---
+
+## **10. Conclusion**
 
 Les fonctions en Python sont puissantes et flexibles. En comprenant leur nature d'objet, vous pouvez créer des designs
 élégants comme :

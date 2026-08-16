@@ -12,13 +12,10 @@
 class Etudiant(Personne):
     def __init__(self, nom, age, matiere_principale):
         super().__init__(nom, age)  # Appel au constructeur parent
-        self.matiere_principale = matriere_principale
+        self.matiere_principale = matiere_principale
 
     def saluer(self):  # Redéfinition (polymorphisme)
         return f"Bonjour, je suis {self.nom}, étudiant en {self.matiere_principale}!"
-
-    def __str__(self):
-        return self.saluer()  # Utilise la méthode redéfinie
 ```
 
 ### **b) Classe `Professeur` (héritage de `Personne`)**
@@ -45,7 +42,7 @@ class Professeur(Personne):
 
 !!! Note "`super()`"
     N'oubliez pas les parenthèses lors de l'appel à `super()`, contrairement à Java, où `super` est un mot-clé. En python,
-    `super()` est une fonction qui renvoie une instance de la classe parente, permettant d'appeler ses méthodes ou accéder à
+    `super()` est une fonction qui renvoie une référence à la classe parente, permettant d'appeler ses méthodes ou accéder à
     ses attributs.
 
 ```python
@@ -65,7 +62,8 @@ print(prof.saluer())  # "Bonjour, je suis Charlie, professeur en Mathématiques!
 Le polymorphisme permet à une méthode d'avoir un **comportement différent selon la classe** :
 
 - `saluer()` est redéfini dans `Etudiant` et `Professeur`.
-- `__str__()` utilise la version redéfinie de `saluer()`.
+- `__str__()`, bien qu'elle n'est pas redéfinie elle-même, utilise la version redéfinie de `saluer()` dans les 
+  sous-classes, à cause du polymorphisme.
 
 ```python
 personnes = [p, e, prof]
@@ -82,7 +80,7 @@ for personne in personnes:
 
 ## **4. Méthodes Spécifiques aux Sous-Classes**
 
-Chaque sous-classe peut ajouter des méthodes propres :
+Chaque sous-classe peut ajouter des attributs et méthodes propres :
 
 ```python
 print(e.matiere_principale)  # "Informatique" (attribut d'Etudiant)
@@ -100,6 +98,21 @@ print(isinstance(e, Etudiant))  # True
 print(isinstance(prof, Personne))  # True (héritage)
 print(isinstance(p, Professeur))  # False
 ```
+
+!!! note "Utilisation de `isinstance()`"
+    Il ne faut pas abuser de la fonction `isinstance()`, car cela peut rendre le code moins clair et plus difficile à
+    maintenir. Il faut prioriser d'autres approches comme l'utilisation du polymorphisme, pour éviter d'écrire du code
+    qui est trop complexe, comme la version suivante de la méthode `saluer()` dans `Personne` :
+
+    ```python
+        def saluer(self):
+            if isintance(self, Etudiant):
+                return f"Bonjour, je suis {self.nom}, étudiant en {self.matiere_principale}!"
+            elif isinstance(self, Professeur):
+                return f"Bonjour, je suis {self.nom}, professeur en {self.matiere_principale}!"
+            else:
+                return f"Bonjour, je m'appelle {self.nom} et j'ai {self.age} ans."
+    ```
 
 ---
 
