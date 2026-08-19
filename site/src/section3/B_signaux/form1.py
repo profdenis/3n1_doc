@@ -20,8 +20,8 @@ class Person:
     def __str__(self):
         return (f"Personne : {self.first_name} {self.last_name}\n"
                 f"Email : {self.email}\n"
-                f"Date de naissance : {self.dob.toString('yyyy-MM-dd')}\n"
-                f"Étudiant(e) : {'Oui' if self.is_student else 'Non'}\n"
+                f"Date de naissance : {self.dob.toString("yyyy-MM-dd")}\n"
+                f"Étudiant(e) : {"Oui" if self.is_student else "Non"}\n"
                 f"Genre : {self.gender}\n"
                 f"Âge : {self.age}\n"
                 f"Pays : {self.country}")

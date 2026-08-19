@@ -6,7 +6,7 @@ un exemple d'approche structurée :
 
 ## **Exemple : Position de la souris**
 
-```python
+```python title="custom_button.py"
 from PySide6.QtWidgets import QApplication, QWidget, QVBoxLayout, QPushButton, QLabel
 from PySide6.QtGui import QCursor
 import sys

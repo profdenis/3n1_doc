@@ -28,7 +28,7 @@ pour contacter (ou exécuter) les observateurs (slots).
 Voici un exemple minimal PySide6 avec un bouton et une étiquette. Lorsque le bouton est cliqué, un entier aléatoire
 entre 1 et 100 (inclus) est affiché dans l'étiquette.
 
-```python
+```python title="bouton.py"
 import sys
 import random
 from PySide6.QtWidgets import QApplication, QWidget, QVBoxLayout, QPushButton, QLabel

@@ -82,7 +82,7 @@
 
 ??? info "Exemple de solution pour la Partie 1"
     
-    ```python
+    ```python title="compteur1.py"
     import sys
     from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QLabel, QPushButton
     
@@ -122,7 +122,7 @@
 
 ??? info "Exemple de solution pour la Partie 2"
 
-    ```python
+    ```python title="compteur2.py"
     import sys
     from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QLabel, QPushButton
     
@@ -168,7 +168,7 @@
 
 ??? info "Exemple de solution pour la Partie 3"
 
-    ```python
+    ```python title="compteur3.py"
     import sys
     from PySide6.QtWidgets import (QApplication, QMainWindow, QWidget,
                                    QVBoxLayout, QLabel, QPushButton, QSpinBox, QHBoxLayout)
@@ -237,7 +237,7 @@
 
 ??? info "Exemple de solution pour la Partie 4"
 
-    ```python
+    ```python title="compteur4.py"
     import sys
     from PySide6.QtWidgets import (QApplication, QMainWindow, QWidget,
                                    QVBoxLayout, QLabel, QPushButton, QSpinBox,
@@ -356,7 +356,7 @@
 
 ??? info "Exemple de solution pour la Partie 5"
 
-    ```python
+    ```python title="compteur5.py"
     import sys
     from PySide6.QtWidgets import (QApplication, QMainWindow, QWidget,
                                    QVBoxLayout, QLabel, QPushButton, QSpinBox,
@@ -491,7 +491,7 @@
 
 ??? info "Exemple de solution pour la Partie 6"
 
-    ```python
+    ```python title="compteur6.py"
     import sys
     from PySide6.QtWidgets import (QApplication, QMainWindow, QWidget,
                                    QVBoxLayout, QLabel, QPushButton, QSpinBox,

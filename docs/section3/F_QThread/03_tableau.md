@@ -131,7 +131,7 @@ immédiatement sans avoir besoin de nos propres fichiers CSV.
 
 ## Code complet
 
-```python
+```python title="tableau.py"
 import sys
 import csv
 import time

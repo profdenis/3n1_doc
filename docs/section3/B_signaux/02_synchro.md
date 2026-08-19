@@ -3,7 +3,7 @@
 Voici un exemple PySide6 avec un curseur (`QSlider`), un cadran (`QDial`) et une étiquette qui restent synchronisés (
 valeurs de 1 à 10) :
 
-```python
+```python title="synchro1.py"
 import sys
 from PySide6.QtWidgets import QApplication, QWidget, QSlider, QDial, QLabel, QVBoxLayout
 from PySide6.QtCore import Qt
@@ -88,7 +88,7 @@ développement d'interfaces graphiques.
 Voici une version modifiée de `LinkedControlsApp` qui stocke explicitement la valeur actuelle dans un attribut
 d'instance et utilise une méthode setter pour gérer les mises à jour :
 
-```python
+```python title="synchro2.py"
 import sys
 from PySide6.QtWidgets import QApplication, QWidget, QSlider, QDial, QLabel, QVBoxLayout
 from PySide6.QtCore import Qt

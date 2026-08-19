@@ -22,7 +22,7 @@ Les layouts permettent d'organiser les widgets de manière dynamique (adaptative
   ```python
   layout = QHBoxLayout()
   layout.addWidget(QPushButton("Gauche"))
-  layout.addWidget(QLabel("Milieu"), stretch=1)  # Prend plus d'espace
+  layout.addWidget(QLabel("Milieu"))
   layout.addWidget(QPushButton("Droite"))
   ```
 

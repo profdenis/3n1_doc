@@ -13,7 +13,7 @@ Ce document présente deux exemples d'interfaces graphiques simples utilisant de
 
 ### **Code complet**
 
-```python
+```python title="box1.py"
 import sys
 from PySide6.QtWidgets import (
     QApplication, QWidget, QVBoxLayout,
@@ -60,22 +60,13 @@ sys.exit(app.exec())
     - `QCheckBox` : Case à cocher (état binaire).
     - `QRadioButton` : Bouton radio (choix exclusif dans un groupe).
 
-3. **Résultat visuel** :
-   ```
-   [QLabel]
-   [QPushButton]
-   [QLineEdit]
-   [QCheckBox]
-   [QRadioButton]
-   ```
-
 ---
 
 ## **3. Exemple 2 : QHBoxLayout (Horizontal)**
 
 ### **Code complet**
 
-```python
+```python title="box2.py"
 import sys
 from PySide6.QtWidgets import (
     QApplication, QWidget, QHBoxLayout,

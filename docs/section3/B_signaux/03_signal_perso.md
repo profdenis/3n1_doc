@@ -52,7 +52,7 @@ counter.valueChanged.emit(42)  # Cela appellera print_value(42)
 
 #### 4. Tout mettre ensemble : un exemple minimal
 
-```python
+```python title="signal_perso.py"
 from PySide6.QtCore import QObject, Signal
 
 

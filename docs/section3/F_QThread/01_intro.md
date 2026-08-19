@@ -16,7 +16,7 @@ l'application semble "gelée".
 
 Voici ce qui se passe lorsque vous exécutez une tâche longue dans le thread principal :
 
-```python
+```python title="intro1.py"
 import sys
 import time
 from PySide6.QtWidgets import QApplication, QWidget, QVBoxLayout, QPushButton, QLabel
@@ -74,7 +74,7 @@ l'application se fige !
 PySide6 fournit `QThread` pour exécuter des tâches dans des threads séparés. Voici la bonne façon de gérer les tâches en
 arrière-plan :
 
-```python
+```python title="intro2.py"
 import sys
 import time
 from PySide6.QtCore import QThread, Signal

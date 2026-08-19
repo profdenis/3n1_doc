@@ -10,7 +10,7 @@ application. Voici ce que l'exemple démontre :
 ```python
 self.worker_thread.cancel()  # Définir le drapeau d'annulation
 if self.worker_thread.wait(3000):  # Attendre 3 secondes
-# Le thread s'est arrêté proprement - nous avons terminé !
+    # Le thread s'est arrêté proprement - nous avons terminé !
 ```
 
 ### **Étape 2 : Signal de sortie (2 secondes)**
@@ -18,7 +18,7 @@ if self.worker_thread.wait(3000):  # Attendre 3 secondes
 ```python
 self.worker_thread.quit()  # Envoyer le signal de sortie à la boucle d'événements
 if self.worker_thread.wait(2000):  # Attendre 2 secondes
-# Le thread a répondu au signal de sortie - nous avons terminé !
+    # Le thread a répondu au signal de sortie - nous avons terminé !
 ```
 
 ### **Étape 3 : Choix utilisateur + Terminaison forcée**
@@ -91,7 +91,7 @@ l'approche progressive gère chaque cas de manière appropriée.
 
 ## Code complet
 
-```python
+```python title="arret.py"
 import sys
 import time
 from PySide6.QtCore import QThread, Signal, QTimer

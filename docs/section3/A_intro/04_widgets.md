@@ -132,7 +132,7 @@ Les widgets sont les éléments graphiques de base (boutons, zones de texte, etc
 form_layout = QFormLayout()
 form_layout.addRow(QLabel("Nom:"), QLineEdit())
 form_layout.addRow(QLabel("Âge:"), QSpinBox())  # Champ numérique
-form_layout.addRow(QCheckBox("Accepter les CGU"))
+form_layout.addRow(QCheckBox("Accepter"))
 ```
 
 ---

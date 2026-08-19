@@ -2,7 +2,7 @@
 
 Voici une version modifiée de l'exemple précédent de layout de formulaire, cette fois avec des signaux pour réagir aux clics sur les boutons :
 
-```python
+```python title="form1.py"
 import sys
 from PySide6.QtWidgets import (
     QApplication, QMainWindow, QWidget, QFormLayout, QLineEdit,
@@ -205,7 +205,7 @@ Vous avez maintenant une interface maître-détail :
 - Le côté droit affiche les informations détaillées pour la personne sélectionnée.
 - De nouvelles personnes peuvent être ajoutées et apparaîtront immédiatement dans la liste.
 
-```python
+```python title="form2.py"
 import sys
 from PySide6.QtWidgets import (
     QApplication, QMainWindow, QWidget, QFormLayout, QLineEdit,

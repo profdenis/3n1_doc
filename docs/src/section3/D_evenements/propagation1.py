@@ -15,7 +15,7 @@ class ChildButton(QPushButton):
 class MainFrame(QFrame):
     def event(self, event):
         if event.type() == QEvent.Type.MouseButtonPress:
-            print("MainFrame : événement MouseButtonPress (reçu du enfant)")
+            print("MainFrame : événement MouseButtonPress (reçu de l'enfant)")
         return super().event(event)
 
 

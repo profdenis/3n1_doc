@@ -5,7 +5,7 @@
 Voici comment créer une grille de **3 lignes et 5 colonnes** avec `QGridLayout` et des widgets `QLabel` en PySide6.
 Chaque étiquette indique sa position (ligne, colonne) :
 
-```python
+```python title="grid1.py"
 import sys
 from PySide6.QtWidgets import QApplication, QWidget, QLabel, QGridLayout
 
@@ -57,7 +57,7 @@ de la méthode `addWidget()` pour spécifier l'étendue (`rowSpan`, `columnSpan`
 - Un `QPushButton` occupe 2 lignes et 1 colonne (en bas à gauche).
 - Un `QLabel` occupe une seule cellule (en bas à droite).
 
-```python
+```python title="grid2.py"
 import sys
 from PySide6.QtWidgets import (
     QApplication, QWidget, QGridLayout,

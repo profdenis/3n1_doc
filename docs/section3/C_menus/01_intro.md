@@ -2,39 +2,37 @@
 
 ## **Introduction aux menus**
 
-```python
+```python title="menu1.py"
 from PySide6.QtWidgets import QApplication, QMainWindow
 from PySide6.QtGui import QAction
 
 import sys
 
-
 class SimpleMenuApp(QMainWindow):
-   def __init__(self):
-      super().__init__()
-      self.init_ui()
+    def __init__(self):
+        super().__init__()
+        self.init_ui()
 
-   def init_ui(self):
-      self.setWindowTitle('Application avec menu simple')
-      self.setGeometry(100, 100, 400, 300)
+    def init_ui(self):
+        self.setWindowTitle("Application avec menu simple")
+        self.setGeometry(100, 100, 400, 300)
 
-      # Création de la barre de menus
-      menubar = self.menuBar()
+        # Création de la barre de menus
+        menubar = self.menuBar()
 
-      # Ajout du menu Fichier
-      file_menu = menubar.addMenu('Fichier')
+        # Ajout du menu Fichier
+        file_menu = menubar.addMenu("Fichier")
 
-      # Ajout de l'action Quitter
-      quit_action = QAction('Quitter', self)
-      quit_action.triggered.connect(self.close)  # Ferme l'application quand déclenché
-      file_menu.addAction(quit_action)
+        # Ajout de l'action Quitter
+        quit_action = QAction("Quitter", self)
+        quit_action.triggered.connect(self.close)  # Ferme l'application quand déclenché
+        file_menu.addAction(quit_action)
 
-
-if __name__ == '__main__':
-   app = QApplication(sys.argv)
-   ex = SimpleMenuApp()
-   ex.show()
-   sys.exit(app.exec())
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    ex = SimpleMenuApp()
+    ex.show()
+    sys.exit(app.exec())
 ```
 
 Dans cet exemple, nous créons une application PySide6 simple qui démontre comment ajouter une barre de menus à votre interface graphique. Les menus sont une partie essentielle de la plupart des applications de bureau, permettant d'organiser les commandes et fonctionnalités dans une structure hiérarchique.
@@ -68,7 +66,7 @@ Nous créons une classe qui hérite de `QMainWindow`, ce qui nous donne automati
 
 ```python
 def init_ui(self):
-    self.setWindowTitle('Application avec menu simple')
+    self.setWindowTitle("Application avec menu simple")
     self.setGeometry(100, 100, 400, 300)
 
     # Création de la barre de menus
@@ -78,15 +76,15 @@ def init_ui(self):
 La méthode `menuBar()` retourne la barre de menus pour la fenêtre principale. Si la barre de menus n'existe pas encore, une nouvelle est créée. C'est votre première étape dans la création des menus.
 
 ```python
-    # Ajout du menu Fichier
-file_menu = menubar.addMenu('Fichier')
+# Ajout du menu Fichier
+file_menu = menubar.addMenu("Fichier")
 ```
 
 La méthode `addMenu()` crée un nouveau menu dans la barre de menus avec le titre 'Fichier'. Cela retourne un objet `QMenu` auquel nous pouvons ajouter des actions.
 
 ```python
-    # Ajout de l'action Quitter
-quit_action = QAction('Quitter', self)
+# Ajout de l'action Quitter
+quit_action = QAction("Quitter", self)
 quit_action.triggered.connect(self.close)  # Ferme l'application quand déclenché
 file_menu.addAction(quit_action)
 ```
@@ -120,8 +118,8 @@ Pour ajouter plus d'actions à votre menu :
 
 ```python
 # Ajout d'une action Nouveau dans le menu Fichier
-new_action = QAction('Nouveau', self)
-new_action.setShortcut('Ctrl+N')  # Raccourci clavier
+new_action = QAction("Nouveau", self)
+new_action.setShortcut("Ctrl+N")  # Raccourci clavier
 file_menu.addAction(new_action)
 
 # Connexion de l'action Nouveau à une méthode

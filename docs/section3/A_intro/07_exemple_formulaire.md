@@ -4,7 +4,7 @@ Voici un exemple complet d'un formulaire PySide6 pour saisir les informations d'
 `QFormLayout` avec des champs pour le prénom, nom, email, date de naissance, statut étudiant (case à cocher), et
 plusieurs autres attributs. Cet exemple suit les bonnes pratiques décrites dans la documentation Qt.
 
-```python
+```python title="form1.py"
 import sys
 from PySide6.QtWidgets import (
     QApplication, QWidget, QFormLayout, QLineEdit,
@@ -87,13 +87,14 @@ if __name__ == "__main__":
     - Exemple : `layout.addRow("Prénom :", QLineEdit())`
 
 2. **Widgets utilisés** :
-   | Widget | Utilisation dans le formulaire |
-   |-----------------|--------------------------------------|
-   | `QLineEdit`     | Champs de texte (prénom, nom, email)  |
-   | `QDateEdit`     | Sélecteur de date avec calendrier |
-   | `QCheckBox`     | Case à cocher pour statut étudiant |
-   | `QComboBox`     | Listes déroulantes (genre, pays)      |
-   | `QSpinBox`      | Champ numérique pour l'âge |
+
+      | Widget      | Utilisation dans le formulaire       |
+      |-------------|--------------------------------------|
+      | `QLineEdit` | Champs de texte (prénom, nom, email) |
+      | `QDateEdit` | Sélecteur de date avec calendrier    |
+      | `QCheckBox` | Case à cocher pour statut étudiant   |
+      | `QComboBox` | Listes déroulantes (genre, pays)     |
+      | `QSpinBox`  | Champ numérique pour l'âge           |
 
 3. **Personnalisation** :
     - Ajoutez/supprimez des champs en suivant le même schéma.

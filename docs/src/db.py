@@ -172,12 +172,12 @@ class DatabaseConnectionWidget(QWidget):
     def get_connection_params(self):
         """Get connection parameters as dictionary"""
         return {
-            'host': self.host_edit.text().strip(),
-            'port': self.port_spin.value(),
-            'database': self.database_edit.text().strip(),
-            'user': self.username_edit.text().strip(),
-            'password': self.password_edit.text(),
-            'options': f'-c search_path={self.schema_edit.text().strip()}'
+            "host": self.host_edit.text().strip(),
+            "port": self.port_spin.value(),
+            "database": self.database_edit.text().strip(),
+            "user": self.username_edit.text().strip(),
+            "password": self.password_edit.text(),
+            "options": f"-c search_path={self.schema_edit.text().strip()}"
         }
 
     def test_connection(self):
@@ -448,8 +448,8 @@ class NorthwindQueryApp(QMainWindow):
         connection_params = self.connection_widget.get_connection_params()
 
         # Validate connection parameters
-        if not all([connection_params['host'], connection_params['database'],
-                    connection_params['user']]):
+        if not all([connection_params["host"], connection_params["database"],
+                    connection_params["user"]]):
             QMessageBox.warning(self, "Invalid Configuration",
                                 "Please fill in all required connection fields (host, database, username).")
             return

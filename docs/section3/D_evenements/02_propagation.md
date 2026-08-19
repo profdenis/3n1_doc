@@ -8,7 +8,7 @@ traité ou atteigne la fenêtre de niveau supérieur.
 Voici un exemple concis qui démontre cette propagation en utilisant des widgets personnalisés et la méthode `event()`.
 Le widget enfant imprimera un message et ignorera l'événement, permettant au parent de répondre également :
 
-```python
+```python title="propagation1.py"
 import sys
 from PySide6.QtWidgets import QApplication, QFrame, QVBoxLayout, QLabel, QPushButton
 from PySide6.QtCore import QEvent
@@ -26,7 +26,7 @@ class ChildButton(QPushButton):
 class MainFrame(QFrame):
     def event(self, event):
         if event.type() == QEvent.Type.MouseButtonPress:
-            print("MainFrame : événement MouseButtonPress (reçu du enfant)")
+            print("MainFrame : événement MouseButtonPress (reçu de l'enfant)")
         return super().event(event)
 
 
@@ -111,11 +111,10 @@ afin que les utilisateurs ne puissent saisir que les chiffres '0' et '1', quel q
 ils se concentrent. Au lieu de sous-classer chaque widget d'entrée, vous pouvez installer un seul filtre d'événements
 global sur l'objet application.
 
-```python
+```python title="propagation2.py"
 import sys
 from PySide6.QtWidgets import QApplication, QWidget, QVBoxLayout, QLineEdit, QLabel
 from PySide6.QtCore import QObject, QEvent
-
 
 class BinaryInputFilter(QObject):
     def eventFilter(self, obj, event):
@@ -124,12 +123,11 @@ class BinaryInputFilter(QObject):
             # Ne filtrer que les widgets QLineEdit
             if isinstance(obj, QLineEdit):
                 text = event.text()
-                if text and text not in ('0', '1'):
+                if text and text not in ("0", "1"):
                     # Bloquer l'événement (ne pas le laisser atteindre le widget)
                     return True
         # Permettre le traitement normal
         return False
-
 
 app = QApplication(sys.argv)
 
@@ -140,7 +138,6 @@ app.installEventFilter(binary_filter)
 window = QWidget()
 layout = QVBoxLayout(window)
 layout.addWidget(QLabel("Seuls '0' et '1' sont autorisés :"))
-layout.addWidget(QLineEdit())
 layout.addWidget(QLineEdit())
 window.show()
 

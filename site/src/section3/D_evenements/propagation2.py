@@ -9,7 +9,7 @@ class BinaryInputFilter(QObject):
             # Ne filtrer que les widgets QLineEdit
             if isinstance(obj, QLineEdit):
                 text = event.text()
-                if text and text not in ('0', '1'):
+                if text and text not in ("0", "1"):
                     # Bloquer l'événement (ne pas le laisser atteindre le widget)
                     return True
         # Permettre le traitement normal
@@ -24,7 +24,6 @@ app.installEventFilter(binary_filter)
 window = QWidget()
 layout = QVBoxLayout(window)
 layout.addWidget(QLabel("Seuls '0' et '1' sont autorisés :"))
-layout.addWidget(QLineEdit())
 layout.addWidget(QLineEdit())
 window.show()
 

@@ -12,7 +12,7 @@
 
 ## **2. Exemple : Bouton qui modifie un texte aléatoire**
 
-```python
+```python title="signal1.py"
 import sys
 import random
 from PySide6.QtWidgets import (

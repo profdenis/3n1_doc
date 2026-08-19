@@ -2,7 +2,7 @@
 
 ??? note "Code complet"
 
-    ```python
+    ```python title="avance.py"
     import sys
     import time
     from PySide6.QtCore import QThread, Signal, QTimer

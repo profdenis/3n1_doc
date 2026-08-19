@@ -25,11 +25,8 @@ par une tierce partie).
 
 ## **2. Installation de PySide6**
 
-### **2.1 Sous Linux (Ubuntu/Debian)**
-
 ```bash
-sudo apt update
-sudo apt install python3-pyside6
+uv add pyside6
 ```
 
 *Vérification* :
@@ -40,25 +37,7 @@ from PySide6.QtWidgets import QApplication, QLabel
 print("PySide6 installé !")
 ```
 
-### **2.2 Sous Windows**
-
-- **Via pip** (recommandé) :
-  ```bash
-  pip install pyside6
-  ```
-- **Via l'installateur Qt** : [Télécharger Qt](https://www.qt.io/download) (optionnel pour les outils de développement).
-
-### **2.3 Sous macOS**
-
-```bash
-brew install python
-pip install pyside6
-```
-
-### **2.4 Installation via PyCharm**
-
-1. Ouvrir PyCharm → `File` → `Settings` → `Project: [votre projet]` → `Python Interpreter`.
-2. Cliquer sur `+` → `Install` → Taper `pyside6` → Installer.
+**Alternative** : Utiliser l'interface graphique de PyCharm pour l'installer.
 
 ---
 
@@ -66,7 +45,7 @@ pip install pyside6
 
 ### **Code complet**
 
-```python
+```python title="hello1.py"
 import sys
 from PySide6.QtWidgets import QApplication, QLabel
 
@@ -108,7 +87,7 @@ QApplication
 
 ### **Exemple avec une fenêtre principale**
 
-```python
+```python title="hello2.py"
 import sys
 from PySide6.QtWidgets import QMainWindow, QPushButton, QApplication
 

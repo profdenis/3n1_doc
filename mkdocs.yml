@@ -24,6 +24,7 @@ nav:
         - section1/fichiers/03-csv.md
         - section1/fichiers/04-json.md
         - section1/fichiers/05-toml.md
+        - section1/fichiers/06-yaml.md
   - 2. Python (bases OO):
       - section2/01_bases.md
       - section2/02_heritage.md
@@ -56,6 +57,12 @@ nav:
         - section3/D_evenements/02_propagation.md
       - E. Exercices:
           - section3/E_exercices/01_compteur.md
+      - F. QThread:
+          - section3/F_QThread/01_intro.md
+          - section3/F_QThread/02_avance.md
+          - section3/F_QThread/03_tableau.md
+          - section3/F_QThread/04_arret.md
+          - section3/F_QThread/05_arret_progressif.md
   - 4. Encapsulation et intégrité:
       - section4/01_static.md
       - section4/02_proprietes.md
@@ -67,6 +74,7 @@ nav:
       - section4/08_encapsulation.md
   - 5. Python (OO avancé):
       - section5/01_abc.md
+      - section5/01a_dict.md
       - section5/02_generiques.md
       - section5/03_protocoles.md
       - section5/04_heritage_multiple.md

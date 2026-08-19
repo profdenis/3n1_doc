@@ -1,14 +1,13 @@
 # **6. Éditeur de texte : Intégration des raccourcis clavier**
 
 ??? note "Éditeur Version 5"
-    ```python
+    ```python title="editeur5.py"
     import sys
     
     from PySide6.QtWidgets import (QApplication, QMainWindow, QTextEdit,
                                    QFileDialog, QScrollArea, QToolBar, QLabel, QMessageBox)
     from PySide6.QtGui import QAction, QFont
     from PySide6.QtCore import Qt, Signal
-    
     
     class TextEditorApp(QMainWindow):
         def __init__(self):
@@ -18,7 +17,7 @@
             self.init_ui()
     
         def init_ui(self):
-            self.setWindowTitle('Éditeur de texte')
+            self.setWindowTitle("Éditeur de texte")
             self.setGeometry(100, 100, 800, 600)
     
             self.create_text_edit()
@@ -54,31 +53,31 @@
             # Création de la barre de menus
             menubar = self.menuBar()
             # Menu Fichier
-            file_menu = menubar.addMenu('Fichier')
+            file_menu = menubar.addMenu("Fichier")
             # Action Nouveau
-            new_action = QAction('Nouveau', self)
+            new_action = QAction("Nouveau", self)
             new_action.triggered.connect(self.new_file)
-            new_action.setShortcut('Ctrl+N')  # Raccourci ajouté directement à l'action
+            new_action.setShortcut("Ctrl+N")  # Raccourci ajouté directement à l'action
     
             # Action Ouvrir
-            open_action = QAction('Ouvrir...', self)
+            open_action = QAction("Ouvrir...", self)
             open_action.triggered.connect(self.open_file)
-            open_action.setShortcut('Ctrl+O')
+            open_action.setShortcut("Ctrl+O")
     
             # Action Enregistrer
-            save_action = QAction('Enregistrer', self)
+            save_action = QAction("Enregistrer", self)
             save_action.triggered.connect(self.save_file)
-            save_action.setShortcut('Ctrl+S')
+            save_action.setShortcut("Ctrl+S")
     
             # Action Enregistrer sous...
-            save_as_action = QAction('Enregistrer sous...', self)
+            save_as_action = QAction("Enregistrer sous...", self)
             save_as_action.triggered.connect(self.save_file_as)
-            save_as_action.setShortcut('Ctrl+Shift+S')
+            save_as_action.setShortcut("Ctrl+Shift+S")
     
             # Action Quitter
-            quit_action = QAction('Quitter', self)
+            quit_action = QAction("Quitter", self)
             quit_action.triggered.connect(self.close)
-            quit_action.setShortcut('Ctrl+Q')
+            quit_action.setShortcut("Ctrl+Q")
     
             # Ajout des actions au menu
             file_menu.addAction(new_action)
@@ -105,7 +104,7 @@
             )
             if file_path:
                 try:
-                    with open(file_path, 'r', encoding='utf-8') as file:
+                    with open(file_path, "r", encoding="utf-8") as file:
                         self.text_edit.setText(file.read())
                     self.current_file = file_path
                     self.is_modified = False
@@ -116,7 +115,7 @@
             """Enregistre le fichier actuel."""
             if self.current_file:
                 try:
-                    with open(self.current_file, 'w', encoding='utf-8') as file:
+                    with open(self.current_file, "w", encoding="utf-8") as file:
                         file.write(self.text_edit.toPlainText())
                     self.is_modified = False  # Réinitialise l'indicateur de modification
                 except Exception as e:
@@ -131,7 +130,7 @@
             )
             if file_path:
                 try:
-                    with open(file_path, 'w') as file:
+                    with open(file_path, "w") as file:
                         file.write(self.text_edit.toPlainText())
                     self.current_file = file_path
                     self.is_modified = False
@@ -201,16 +200,16 @@
         def create_settings_menu(self):
             """Crée le menu Paramètres."""
             menubar = self.menuBar()
-            settings_menu = menubar.addMenu('Paramètres')
+            settings_menu = menubar.addMenu("Paramètres")
     
-            increase_font_action = QAction('Augmenter la taille de police', self)
+            increase_font_action = QAction("Augmenter la taille de police", self)
             increase_font_action.triggered.connect(self.increase_font_size)
-            increase_font_action.setShortcut('Ctrl++')  # Raccourci pour augmenter la taille
+            increase_font_action.setShortcut("Ctrl++")  # Raccourci pour augmenter la taille
             settings_menu.addAction(increase_font_action)
     
-            decrease_font_action = QAction('Diminuer la taille de police', self)
+            decrease_font_action = QAction("Diminuer la taille de police", self)
             decrease_font_action.triggered.connect(self.decrease_font_size)
-            decrease_font_action.setShortcut('Ctrl+-')  # Raccourci pour diminuer la taille
+            decrease_font_action.setShortcut("Ctrl+-")  # Raccourci pour diminuer la taille
             settings_menu.addAction(decrease_font_action)
     
         def add_toolbar(self):
@@ -236,7 +235,6 @@
             else:
                 event.ignore()
     
-    
     class WheelAwareTextEdit(QTextEdit):
         ctrl_wheel = Signal(int)  # Émet la valeur de défilement
     
@@ -248,8 +246,7 @@
             else:
                 super().wheelEvent(event)
     
-    
-    if __name__ == '__main__':
+    if __name__ == "__main__":
         app = QApplication(sys.argv)
         editor = TextEditorApp()
         editor.show()
@@ -269,13 +266,13 @@ actions de menu :
 ```python
 def create_file_menu(self):
     # ...
-    new_action = QAction('Nouveau', self)
+    new_action = QAction("Nouveau", self)
     new_action.triggered.connect(self.new_file)
-    new_action.setShortcut('Ctrl+N')  # Raccourci ajouté directement à l'action
+    new_action.setShortcut("Ctrl+N")  # Raccourci ajouté directement à l'action
 
-    open_action = QAction('Ouvrir...', self)
+    open_action = QAction("Ouvrir...", self)
     open_action.triggered.connect(self.open_file)
-    open_action.setShortcut('Ctrl+O')  # Raccourci ici
+    open_action.setShortcut("Ctrl+O")  # Raccourci ici
 ```
 
 Cette approche remplace la méthode précédente `add_shortcuts()`. Les raccourcis sont maintenant :
@@ -290,15 +287,15 @@ L'application utilise désormais des raccourcis clavier conventionnels :
 
 ```python
 # Raccourcis du menu Fichier
-new_action.setShortcut('Ctrl+N')
-open_action.setShortcut('Ctrl+O')
-save_action.setShortcut('Ctrl+S')
-save_as_action.setShortcut('Ctrl+Shift+S')
-quit_action.setShortcut('Ctrl+Q')
+new_action.setShortcut("Ctrl+N")
+open_action.setShortcut("Ctrl+O")
+save_action.setShortcut("Ctrl+S")
+save_as_action.setShortcut("Ctrl+Shift+S")
+quit_action.setShortcut("Ctrl+Q")
 
 # Raccourcis du menu Paramètres
-increase_font_action.setShortcut('Ctrl++')
-decrease_font_action.setShortcut('Ctrl+-')
+increase_font_action.setShortcut("Ctrl++")
+decrease_font_action.setShortcut("Ctrl+-")
 ```
 
 Cela suit les conventions standards des applications, rendant les raccourcis plus discoverables et intuitifs pour les

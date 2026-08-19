@@ -12,7 +12,7 @@ class TextEditorApp(QMainWindow):
         self.init_ui()
 
     def init_ui(self):
-        self.setWindowTitle('Éditeur de texte')
+        self.setWindowTitle("Éditeur de texte")
         self.setGeometry(100, 100, 800, 600)
 
         # Création de la zone défilante et du champ de texte
@@ -34,26 +34,26 @@ class TextEditorApp(QMainWindow):
         menubar = self.menuBar()
 
         # Menu Fichier
-        file_menu = menubar.addMenu('Fichier')
+        file_menu = menubar.addMenu("Fichier")
 
         # Action Nouveau
-        new_action = QAction('Nouveau', self)
+        new_action = QAction("Nouveau", self)
         new_action.triggered.connect(self.new_file)
 
         # Action Ouvrir
-        open_action = QAction('Ouvrir...', self)
+        open_action = QAction("Ouvrir...", self)
         open_action.triggered.connect(self.open_file)
 
         # Action Enregistrer
-        save_action = QAction('Enregistrer', self)
+        save_action = QAction("Enregistrer", self)
         save_action.triggered.connect(self.save_file)
 
         # Action Enregistrer sous...
-        save_as_action = QAction('Enregistrer sous...', self)
+        save_as_action = QAction("Enregistrer sous...", self)
         save_as_action.triggered.connect(self.save_file_as)
 
         # Action Quitter
-        quit_action = QAction('Quitter', self)
+        quit_action = QAction("Quitter", self)
         quit_action.triggered.connect(self.close)
 
         # Ajout des actions au menu Fichier
@@ -76,7 +76,7 @@ class TextEditorApp(QMainWindow):
         )
         if file_path:
             try:
-                with open(file_path, 'r', encoding='utf-8') as file:
+                with open(file_path, "r", encoding="utf-8") as file:
                     self.text_area.setText(file.read())
                 self.current_file = file_path
             except Exception as e:
@@ -85,7 +85,7 @@ class TextEditorApp(QMainWindow):
     def save_file(self):
         if self.current_file:
             try:
-                with open(self.current_file, 'w', encoding='utf-8') as file:
+                with open(self.current_file, "w", encoding="utf-8") as file:
                     file.write(self.text_area.toPlainText())
             except Exception as e:
                 self.show_error(str(e))
@@ -98,7 +98,7 @@ class TextEditorApp(QMainWindow):
         )
         if file_path:
             try:
-                with open(file_path, 'w') as file:
+                with open(file_path, "w") as file:
                     file.write(self.text_area.toPlainText())
                 self.current_file = file_path
             except Exception as e:
@@ -128,18 +128,18 @@ class TextEditorApp(QMainWindow):
 
     def create_settings_menu(self):
         menubar = self.menuBar()
-        settings_menu = menubar.addMenu('Paramètres')
+        settings_menu = menubar.addMenu("Paramètres")
 
-        increase_font_action = QAction('Augmenter la taille de police', self)
+        increase_font_action = QAction("Augmenter la taille de police", self)
         increase_font_action.triggered.connect(self.increase_font_size)
         settings_menu.addAction(increase_font_action)
 
-        decrease_font_action = QAction('Diminuer la taille de police', self)
+        decrease_font_action = QAction("Diminuer la taille de police", self)
         decrease_font_action.triggered.connect(self.decrease_font_size)
         settings_menu.addAction(decrease_font_action)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app = QApplication(sys.argv)
     editor = TextEditorApp()
     editor.show()
