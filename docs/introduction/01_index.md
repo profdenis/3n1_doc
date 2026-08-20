@@ -55,7 +55,48 @@ Une erreur commune est de croire que l'_Orienté-Objet_ se résume à créer des
 
 ---
 
-### 4. La Boussole du Développeur : Les principes SOLID
+### 4. Les Deux Principes de la GoF
+
+Dans le livre _Design Patterns_, de la _Gang of Four_, les auteurs présentent deux principes fondamentaux qui guident la 
+conception de logiciels orientée-objet : 
+
+#### 1. Programmer pour une interface, pas pour une implémentation
+
+*(Program to an interface, not an implementation)*
+
+C'est sans doute le principe le plus crucial pour rendre un système flexible.
+
+- **Le concept :** Au lieu de déclarer vos variables, vos paramètres de méthode ou vos types de retour avec des 
+  classes concrètes (le "comment" l'objet fait les choses), vous devez les déclarer en utilisant des interfaces ou des 
+  classes abstraites (le "ce que" l'objet fait). 
+- **L'avantage :** Cela crée un **découplage** entre le code qui utilise l'objet (le client) et le code qui définit 
+  le comportement (l'implémentation). Si vous voulez changer l'implémentation (par exemple, passer d'une base de 
+  données SQL à une base de données NoSQL), vous n'avez pas besoin de modifier le code client, tant que les deux 
+  implémentations respectent la même interface. 
+- **Exemple :** Au lieu d'écrire `MySQLConnection conn = new MySQLConnection();`, vous 
+  écrirez `DatabaseConnection conn = getConnection();`.
+
+#### 2. Favoriser la composition plutôt que l'héritage
+
+*(Favor object composition over class inheritance)*
+
+C'est un principe souvent oublié en POO.
+
+- **Le concept :** L'héritage est une relation de type **"est un"** (*is-a*). Il est statique : une fois qu'une 
+  classe hérite d'une autre, elle est "bloquée" dans cette hiérarchie au moment de la compilation. La composition est 
+  une relation de type **"a un"** (*has-a*). Elle consiste à construire des classes complexes en les assemblant avec 
+  d'autres objets simples. 
+- **L'avantage :** La composition offre une flexibilité immense car on peut changer le comportement d'un objet 
+  **à l'exécution** (en changeant l'objet contenu) alors que l'héritage est fixé à la compilation. Cela évite aussi 
+  l'explosion du nombre de classes (le problème des "classes filles" qui multiplient les combinaisons inutiles). 
+- **Exemple :** Au lieu de créer une classe `VoitureElectrique` qui hérite de `Voiture`, vous créez une classe 
+  `Voiture` qui possède un objet de type `Moteur`. Vous pouvez alors lui injecter un `MoteurElectrique` ou un 
+  `MoteurEssence` dynamiquement.
+
+
+---
+
+### 5. La Boussole du Développeur : Les principes SOLID
 
 Pour éviter que le code ne devienne un chaos ingérable, nous utiliserons les principes **SOLID** comme boussole de
 conception. Nous reviendrons sur chacun d'eux tout au long du semestre.
@@ -78,7 +119,7 @@ conception. Nous reviendrons sur chacun d'eux tout au long du semestre.
 
 ---
 
-### 5. Vers une approche Multi-Paradigme et centrée sur les données
+### 6. Vers une approche Multi-Paradigme et centrée sur les données
 
 Le monde logiciel actuel ne se limite plus à l'OO pur. Nous allons naviguer entre plusieurs approches :
 

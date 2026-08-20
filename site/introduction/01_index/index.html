@@ -684,10 +684,22 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-la-boussole-du-developpeur-les-principes-solid" class="md-nav__link">
+  <a href="#4-les-deux-principes-de-la-gof" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. La Boussole du Développeur : Les principes SOLID
+        4. Les Deux Principes de la GoF
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Les Deux Principes de la GoF">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-programmer-pour-une-interface-pas-pour-une-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Programmer pour une interface, pas pour une implémentation
       
     </span>
   </a>
@@ -695,10 +707,37 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-vers-une-approche-multi-paradigme-et-centree-sur-les-donnees" class="md-nav__link">
+  <a href="#2-favoriser-la-composition-plutot-que-lheritage" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Vers une approche Multi-Paradigme et centrée sur les données
+        2. Favoriser la composition plutôt que l&rsquo;héritage
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-la-boussole-du-developpeur-les-principes-solid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. La Boussole du Développeur : Les principes SOLID
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-vers-une-approche-multi-paradigme-et-centree-sur-les-donnees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Vers une approche Multi-Paradigme et centrée sur les données
       
     </span>
   </a>
@@ -3563,10 +3602,22 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-la-boussole-du-developpeur-les-principes-solid" class="md-nav__link">
+  <a href="#4-les-deux-principes-de-la-gof" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. La Boussole du Développeur : Les principes SOLID
+        4. Les Deux Principes de la GoF
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Les Deux Principes de la GoF">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-programmer-pour-une-interface-pas-pour-une-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Programmer pour une interface, pas pour une implémentation
       
     </span>
   </a>
@@ -3574,10 +3625,37 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-vers-une-approche-multi-paradigme-et-centree-sur-les-donnees" class="md-nav__link">
+  <a href="#2-favoriser-la-composition-plutot-que-lheritage" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Vers une approche Multi-Paradigme et centrée sur les données
+        2. Favoriser la composition plutôt que l&rsquo;héritage
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-la-boussole-du-developpeur-les-principes-solid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. La Boussole du Développeur : Les principes SOLID
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-vers-une-approche-multi-paradigme-et-centree-sur-les-donnees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Vers une approche Multi-Paradigme et centrée sur les données
       
     </span>
   </a>
@@ -3742,7 +3820,40 @@ Passing</strong> et la composition à la place de l&rsquo;héritage.</p>
 <p><strong>Le paradigme moderne privilégie la Composition et les Interfaces (ou Protocoles) :</strong> on ne définit plus ce qu&rsquo;un objet
 <em>est</em>, mais ce qu&rsquo;il est capable de <em>faire</em>.</p>
 <hr />
-<h3 id="4-la-boussole-du-developpeur-les-principes-solid">4. La Boussole du Développeur : Les principes SOLID<a class="headerlink" href="#4-la-boussole-du-developpeur-les-principes-solid" title="Permanent link">&para;</a></h3>
+<h3 id="4-les-deux-principes-de-la-gof">4. Les Deux Principes de la GoF<a class="headerlink" href="#4-les-deux-principes-de-la-gof" title="Permanent link">&para;</a></h3>
+<p>Dans le livre <em>Design Patterns</em>, de la <em>Gang of Four</em>, les auteurs présentent deux principes fondamentaux qui guident la 
+conception de logiciels orientée-objet : </p>
+<h4 id="1-programmer-pour-une-interface-pas-pour-une-implementation">1. Programmer pour une interface, pas pour une implémentation<a class="headerlink" href="#1-programmer-pour-une-interface-pas-pour-une-implementation" title="Permanent link">&para;</a></h4>
+<p><em>(Program to an interface, not an implementation)</em></p>
+<p>C&rsquo;est sans doute le principe le plus crucial pour rendre un système flexible.</p>
+<ul>
+<li><strong>Le concept :</strong> Au lieu de déclarer vos variables, vos paramètres de méthode ou vos types de retour avec des 
+  classes concrètes (le &ldquo;comment&rdquo; l&rsquo;objet fait les choses), vous devez les déclarer en utilisant des interfaces ou des 
+  classes abstraites (le &ldquo;ce que&rdquo; l&rsquo;objet fait). </li>
+<li><strong>L&rsquo;avantage :</strong> Cela crée un <strong>découplage</strong> entre le code qui utilise l&rsquo;objet (le client) et le code qui définit 
+  le comportement (l&rsquo;implémentation). Si vous voulez changer l&rsquo;implémentation (par exemple, passer d&rsquo;une base de 
+  données SQL à une base de données NoSQL), vous n&rsquo;avez pas besoin de modifier le code client, tant que les deux 
+  implémentations respectent la même interface. </li>
+<li><strong>Exemple :</strong> Au lieu d&rsquo;écrire <code>MySQLConnection conn = new MySQLConnection();</code>, vous 
+  écrirez <code>DatabaseConnection conn = getConnection();</code>.</li>
+</ul>
+<h4 id="2-favoriser-la-composition-plutot-que-lheritage">2. Favoriser la composition plutôt que l&rsquo;héritage<a class="headerlink" href="#2-favoriser-la-composition-plutot-que-lheritage" title="Permanent link">&para;</a></h4>
+<p><em>(Favor object composition over class inheritance)</em></p>
+<p>C&rsquo;est un principe souvent oublié en POO.</p>
+<ul>
+<li><strong>Le concept :</strong> L&rsquo;héritage est une relation de type <strong>&ldquo;est un&rdquo;</strong> (<em>is-a</em>). Il est statique : une fois qu&rsquo;une 
+  classe hérite d&rsquo;une autre, elle est &ldquo;bloquée&rdquo; dans cette hiérarchie au moment de la compilation. La composition est 
+  une relation de type <strong>&ldquo;a un&rdquo;</strong> (<em>has-a</em>). Elle consiste à construire des classes complexes en les assemblant avec 
+  d&rsquo;autres objets simples. </li>
+<li><strong>L&rsquo;avantage :</strong> La composition offre une flexibilité immense car on peut changer le comportement d&rsquo;un objet 
+  <strong>à l&rsquo;exécution</strong> (en changeant l&rsquo;objet contenu) alors que l&rsquo;héritage est fixé à la compilation. Cela évite aussi 
+  l&rsquo;explosion du nombre de classes (le problème des &ldquo;classes filles&rdquo; qui multiplient les combinaisons inutiles). </li>
+<li><strong>Exemple :</strong> Au lieu de créer une classe <code>VoitureElectrique</code> qui hérite de <code>Voiture</code>, vous créez une classe 
+  <code>Voiture</code> qui possède un objet de type <code>Moteur</code>. Vous pouvez alors lui injecter un <code>MoteurElectrique</code> ou un 
+  <code>MoteurEssence</code> dynamiquement.</li>
+</ul>
+<hr />
+<h3 id="5-la-boussole-du-developpeur-les-principes-solid">5. La Boussole du Développeur : Les principes SOLID<a class="headerlink" href="#5-la-boussole-du-developpeur-les-principes-solid" title="Permanent link">&para;</a></h3>
 <p>Pour éviter que le code ne devienne un chaos ingérable, nous utiliserons les principes <strong>SOLID</strong> comme boussole de
 conception. Nous reviendrons sur chacun d&rsquo;eux tout au long du semestre.</p>
 <ul>
@@ -3773,7 +3884,7 @@ conception. Nous reviendrons sur chacun d&rsquo;eux tout au long du semestre.</p
 </li>
 </ul>
 <hr />
-<h3 id="5-vers-une-approche-multi-paradigme-et-centree-sur-les-donnees">5. Vers une approche Multi-Paradigme et centrée sur les données<a class="headerlink" href="#5-vers-une-approche-multi-paradigme-et-centree-sur-les-donnees" title="Permanent link">&para;</a></h3>
+<h3 id="6-vers-une-approche-multi-paradigme-et-centree-sur-les-donnees">6. Vers une approche Multi-Paradigme et centrée sur les données<a class="headerlink" href="#6-vers-une-approche-multi-paradigme-et-centree-sur-les-donnees" title="Permanent link">&para;</a></h3>
 <p>Le monde logiciel actuel ne se limite plus à l&rsquo;OO pur. Nous allons naviguer entre plusieurs approches :</p>
 <ol type="1">
 <li><strong>L&rsquo;approche Objet (Comportement) :</strong> Pour orchestrer la logique métier.</li>
