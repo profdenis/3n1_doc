@@ -139,7 +139,7 @@ Le monde logiciel actuel ne se limite plus à l'OO pur. Nous allons naviguer ent
 | Appliquer les principes SOLID de façon itérative | Chercher la "pureté" théorique au détriment du pragmatisme |
 
 ---
-
+m
 !!! note "Sagesse populaire"
     **_« La complexité est inévitable, mais le chaos est optionnel. »_**
 

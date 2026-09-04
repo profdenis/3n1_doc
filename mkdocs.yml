@@ -31,6 +31,7 @@ nav:
       - section2/03_match.md
       - section2/04_polymorphisme.md
       - section2/05_exercices.md
+      - section2/06_mini_projet.md
   - 3. Qt et PySide6:
       - A. Introduction:
         - section3/A_intro/01_hello_world.md
@@ -85,6 +86,8 @@ nav:
       - section6/04_creation2.md
       - section6/05_structuraux.md
       - section6/06_comportementaux.md
+      - section6/07_strategie.md
+      - section6/08_cas_personne.md
   - 7. Pygame:
       - section7/01_bases.md
 
