@@ -90,6 +90,8 @@ nav:
       - section6/08_cas_personne.md
   - 7. Pygame:
       - section7/01_bases.md
+  - 8. Extra:
+      - section8/01_argparse.md
 
 theme:
   name: material

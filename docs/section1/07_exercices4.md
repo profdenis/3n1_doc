@@ -130,7 +130,8 @@ print(censurer("Bonjour monde, bonjour Python", "bonjour"))
 
 ```python
 print(est_valide("Secr3t"))  # False (trop court)
-print(est_valide("Secr3t!"))  # True
+print(est_valide("Secretes"))  # False (pas de chiffre)
+print(est_valide("!Secr3t!"))  # True
 ```
 
 ---
