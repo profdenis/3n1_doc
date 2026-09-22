@@ -58,6 +58,8 @@ nav:
         - section3/D_evenements/02_propagation.md
       - E. Exercices:
           - section3/E_exercices/01_compteur.md
+          - section3/E_exercices/02_liste_taches.md
+          - section3/E_exercices/03_ardoise_dessin.md
       - F. QThread:
           - section3/F_QThread/01_intro.md
           - section3/F_QThread/02_avance.md
