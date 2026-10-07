@@ -3133,10 +3133,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#8-exercice-pour-les-etudiants" class="md-nav__link">
+  <a href="#8-exercice" class="md-nav__link">
     <span class="md-ellipsis">
       
-        8. Exercice pour les étudiants
+        8. Exercice
       
     </span>
   </a>
@@ -3250,7 +3250,7 @@
   <span class="md-ellipsis">
     
   
-    8. Encapsulation et Intégrité
+    Encapsulation et Intégrité
   
 
     
@@ -4235,10 +4235,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#8-exercice-pour-les-etudiants" class="md-nav__link">
+  <a href="#8-exercice" class="md-nav__link">
     <span class="md-ellipsis">
       
-        8. Exercice pour les étudiants
+        8. Exercice
       
     </span>
   </a>
@@ -4396,7 +4396,7 @@ définissant :</p>
 <h2 id="3-le-module-deal-version-4246"><strong>3. Le module <code>deal</code> (version 4.24.6)</strong><a class="headerlink" href="#3-le-module-deal-version-4246" title="Permanent link">&para;</a></h2>
 <p><code>deal</code> est une bibliothèque Python qui implémente le DbC de manière propre et puissante.</p>
 <h3 id="installation"><strong>Installation</strong><a class="headerlink" href="#installation" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>pip<span class="w"> </span>install<span class="w"> </span>deal
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>uv<span class="w"> </span>add<span class="w"> </span>deal
 </span></code></pre></div>
 <p>Note : la version actuelle de <code>deal</code>, utilisée dans ce document, est <code>4.24.6</code>.</p>
 <h3 id="decorateurs-disponibles"><strong>Décorateurs disponibles</strong><a class="headerlink" href="#decorateurs-disponibles" title="Permanent link">&para;</a></h3>
@@ -4534,14 +4534,12 @@ vérification runtime.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">deal</span><span class="w"> </span><span class="kn">import</span> <span class="n">pre</span>
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="nd">@pre</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">float</span><span class="p">))</span>  <span class="c1"># Vérification runtime</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">diviser</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="nd">@pre</span><span class="p">(</span><span class="k">lambda</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="nb">float</span><span class="p">))</span>     <span class="c1"># Vérification à l&#39;exécution de b seulement</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">diviser</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>   <span class="c1"># Vérification statique par mypy</span>
 </span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    <span class="k">return</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
 </span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
-</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="c1"># mypy détectera une erreur si on appelle :</span>
-</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="n">diviser</span><span class="p">(</span><span class="s2">&quot;10&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># Erreur statique (mypy)</span>
-</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="n">diviser</span><span class="p">(</span><span class="mf">10.5</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">)</span>  <span class="c1"># Erreur runtime (deal)</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="n">diviser</span><span class="p">(</span><span class="s2">&quot;10&quot;</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>  <span class="c1"># Erreur statique (mypy), et dynamique (unsupported operand type(s) for /: &#39;str&#39; and &#39;float&#39;)</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="n">diviser</span><span class="p">(</span><span class="mf">10.5</span><span class="p">,</span> <span class="s2">&quot;2.0&quot;</span><span class="p">)</span>  <span class="c1"># Erreur runtime (deal)</span>
 </span></code></pre></div>
 <hr />
 <h4 id="3-bonnes-pratiques"><strong>3. Bonnes pratiques</strong><a class="headerlink" href="#3-bonnes-pratiques" title="Permanent link">&para;</a></h4>
@@ -4639,7 +4637,7 @@ vérification runtime.</p>
 <li><strong>Tests automatisés</strong> : Les contrats peuvent servir d’assertions.</li>
 </ul>
 <hr />
-<h2 id="8-exercice-pour-les-etudiants"><strong>8. Exercice pour les étudiants</strong><a class="headerlink" href="#8-exercice-pour-les-etudiants" title="Permanent link">&para;</a></h2>
+<h2 id="8-exercice"><strong>8. Exercice</strong><a class="headerlink" href="#8-exercice" title="Permanent link">&para;</a></h2>
 <ol type="1">
 <li>
 <p><strong>Implémente une classe <code>Rectangle</code> avec DbC</strong> :</p>

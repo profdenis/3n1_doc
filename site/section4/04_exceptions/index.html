@@ -3199,7 +3199,7 @@
   <span class="md-ellipsis">
     
   
-    8. Encapsulation et Intégrité
+    Encapsulation et Intégrité
   
 
     
@@ -4395,6 +4395,11 @@ complément des vérifications de type.</p>
 </span><span id="__span-3-40"><a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a><span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
 </span><span id="__span-3-41"><a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Erreur: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </span></code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Utilisation des assertions</p>
+<p>Les assertions peuvent servir à vérifier les préconditions, les postconditions et les invariants de classes. Plus de 
+  détails dans la <a href="http://127.0.0.1:8000/3n1_doc/section4/05_dbc/">section suivante</a>.</p>
+</div>
 <h2 id="3-comparaison-assert-vs-if-avec-raise">3. Comparaison : <code>assert</code> vs <code>if</code> avec <code>raise</code><a class="headerlink" href="#3-comparaison-assert-vs-if-avec-raise" title="Permanent link">&para;</a></h2>
 <h3 id="quand-utiliser-assert">Quand utiliser <code>assert</code>?<a class="headerlink" href="#quand-utiliser-assert" title="Permanent link">&para;</a></h3>
 <p>Les assertions sont appropriées pour :</p>
@@ -4501,7 +4506,7 @@ complément des vérifications de type.</p>
 <ul>
 <li>Sont désactivables avec l&rsquo;option <code>-O</code> de Python (<code>python -O script.py</code>)</li>
 <li>Ne doivent pas être utilisées pour gérer les erreurs d&rsquo;entrée utilisateur</li>
-<li>Doivent documenter des conditions qui ne devraient jamais échouer dans un code correct</li>
+<li><strong>Doivent documenter des conditions qui ne devraient jamais échouer dans un code correct</strong></li>
 </ul>
 </li>
 <li>

@@ -13,7 +13,7 @@
 ### **Installation**
 
 ```bash
-pip install pytest
+uv add pytest
 ```
 
 *(Aucune configuration supplémentaire nécessaire pour commencer !)*
@@ -77,12 +77,17 @@ def test_additionner_avec_message():
 ```python
 import pytest
 
+
 class CompteBancaire:
     def __init__(self, solde):
         self.solde = solde
 
     def deposer(self, montant):
         self.solde += montant
+
+    def retirer(self, montant):
+        self.solde -= montant
+
 
 @pytest.fixture
 def compte_bancaire():
@@ -95,7 +100,7 @@ def test_deposer(compte_bancaire):  # `compte_bancaire` est fourni par la fixtur
 
 
 def test_retirer(compte_bancaire):
-    compte_bancaire.solde -= 30
+    compte_bancaire.retirer(30)
     assert compte_bancaire.solde == 70
 ```
 
@@ -130,7 +135,114 @@ def test_additionner_parametre(a, b, expected):
 
 ---
 
-## **7. Exercice pour les étudiants**
+## **7. Tester les exceptions**
+
+Pour tester qu'une fonction lève une exception spécifique avec `pytest`, on utilise le gestionnaire de contexte
+**`pytest.raises`**.
+
+Voici comment procéder, du cas le plus simple au cas le plus professionnel (utilisant le paramétrage).
+
+### 1. La syntaxe de base : `pytest.raises`
+
+Si vous voulez simplement vérifier que l'exception de type `ValueError` est levée, on utilise un bloc `with`. Si la
+fonction ne lève pas l'exception (ou lève une autre exception que celle attendue), le test échouera.
+
+```python
+import pytest
+
+
+# La fonction à tester
+def diviser(a, b):
+    if b == 0:
+        raise ValueError("Le diviseur ne peut pas être nul.")
+    if a < 0:
+        raise ValueError("Le dividende doit être positif.")
+    return a / b
+
+
+# Le test
+def test_division_par_zero():
+    # On s'attend à ce que ce bloc lève une ValueError
+    with pytest.raises(ValueError):
+        diviser(10, 0)
+```
+
+---
+
+### 2. Vérifier le message d'erreur (Recommandé)
+
+Il est souvent risqué de vérifier seulement le type d'exception (car une fonction peut lever un `ValueError` pour une
+raison totalement différente de celle que vous testez). Il est préférable de vérifier que le **message d'erreur**
+contient bien le texte attendu en utilisant l'argument `match`.
+
+L'argument `match` accepte une **expression régulière (regex)**.
+
+```python
+def test_division_message_specifique():
+    # On vérifie le type ET le contenu du message
+    with pytest.raises(ValueError, match="Le diviseur ne peut pas être nul"):
+        diviser(10, 0)
+```
+
+---
+
+### 3. La méthode "Pro" : `@pytest.mark.parametrize`
+
+Puisque vous avez mentionné vouloir tester "certains paramètres" (sous-entendu : plusieurs cas de figure), la manière la
+plus propre et la plus efficace en programmation de tests est d'utiliser le **paramétrage**.
+
+Cela permet de tester une liste de jeux de données (inputs / expected_exception / expected_message) avec une seule
+fonction de test.
+
+```python
+import pytest
+
+
+# --- Code source ---
+def verifier_age(age):
+    if age < 0:
+        raise ValueError("L'âge ne peut pas être négatif.")
+    if age > 150:
+        raise ValueError("L'âge est trop élevé.")
+    return True
+
+
+# --- Tests ---
+
+@pytest.mark.parametrize("age_erreur, exception_attendue, message_attendu", [
+    (-1, ValueError, "L'âge ne peut pas être négatif."),  # Cas 1
+    (151, ValueError, "L'âge est trop élevé."),  # Cas 2
+    (-50, ValueError, "ne peut pas être négatif"),  # Cas 3 (vérifie que regex fonctionne aussi)
+])
+def test_verifier_age_exceptions(age_erreur, exception_attendue, message_attendu):
+    """
+    Teste que la fonction lève les bonnes exceptions 
+    pour les mauvaises valeurs d'âge.
+    """
+    with pytest.raises(exception_attendue, match=message_attendu):
+        verifier_age(age_erreur)
+
+
+def test_verifier_age_valide():
+    """Test que la fonction fonctionne normalement pour des valeurs valides."""
+    assert verifier_age(25) is True
+```
+
+### À retenir :
+
+1. **`with pytest.raises(ExceptionType):`** est la syntaxe standard pour capturer une exception.
+2. **L'importance du `match`** : Toujours essayer de matcher le message d'erreur pour s'assurer que l'exception levée
+   est bien celle que l'on attendait (et pas une autre erreur de type `ValueError` causée par un autre bug).
+3. **`@pytest.mark.parametrize`** : C'est l'outil indispensable pour éviter la duplication de code lorsque vous avez
+   plusieurs cas de tests d'erreurs (cas limites, valeurs négatives, valeurs trop grandes, etc.).
+4. **Échec du test** :
+    * Si aucune exception n'est levée $\rightarrow$ **Échec**.
+    * Si une exception d'un *autre type* est levée $\rightarrow$ **Échec**.
+    * Si l'exception est la bonne mais le message ne correspond pas au `match` $\rightarrow$ **Échec**.
+
+---
+
+## **8. Exercice**
 
 ### **Consigne**
 
@@ -163,14 +275,14 @@ class CompteBancaire:
 
 ---
 
-## **8. Ressources supplémentaires**
+## **9. Ressources supplémentaires**
 
 - [Documentation officielle pytest](https://docs.pytest.org/)
 - [Tutoriel pytest pour débutants](https://realpython.com/pytest-python-testing/)
 
 ---
 
-### **Résumé final**
+## **Résumé final**
 
 - `pytest` est simple et puissant pour les tests unitaires.
 - Utilisez `assert` pour vérifier les résultats attendus.

@@ -3237,7 +3237,7 @@
   <span class="md-ellipsis">
     
   
-    8. Encapsulation et Intégrité
+    Encapsulation et Intégrité
   
 
     
@@ -4692,16 +4692,19 @@ les types. Par exemple :</p>
 </span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>    <span class="n">timeout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">30.0</span>
 </span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>    <span class="n">max_connexions</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span>
 </span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>
-</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">debug</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># Surcharge la valeur par défaut</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_connections</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>        <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">n_connections</span> <span class="o">&lt;=</span> <span class="n">Configuration</span><span class="o">.</span><span class="n">max_connexions</span><span class="p">:</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">n_connexions</span> <span class="o">=</span> <span class="n">n_connections</span>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>        <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">n_connexions</span> <span class="o">=</span> <span class="n">Configuration</span><span class="o">.</span><span class="n">max_connexions</span>
 </span></code></pre></div>
 <h2 id="outils-pour-les-type-hints">Outils pour les Type Hints<a class="headerlink" href="#outils-pour-les-type-hints" title="Permanent link">&para;</a></h2>
 <h3 id="1-mypy-verificateur-de-type-statique">1. mypy - Vérificateur de type statique<a class="headerlink" href="#1-mypy-verificateur-de-type-statique" title="Permanent link">&para;</a></h3>
 <p>Installez avec :</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>pip<span class="w"> </span>install<span class="w"> </span>mypy
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>uv<span class="w"> </span>add<span class="w"> </span>mypy
 </span></code></pre></div>
 <p>Utilisation :</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>mypy<span class="w"> </span>mon_fichier.py
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>uv<span class="w"> </span>run<span class="w"> </span>mypy<span class="w"> </span>mon_fichier.py
 </span></code></pre></div>
 <p>Exemple de sortie :</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>mon_fichier.py:5: error: Argument 1 to &quot;Personne&quot; has incompatible type &quot;int&quot;; expected &quot;str&quot;
@@ -4723,12 +4726,14 @@ les types. Par exemple :</p>
 </ul>
 <h3 id="4-pytype-verificateur-de-google">4. pytype - Vérificateur de Google<a class="headerlink" href="#4-pytype-verificateur-de-google" title="Permanent link">&para;</a></h3>
 <p>Installez avec :</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>pip<span class="w"> </span>install<span class="w"> </span>pytype
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>uv<span class="w"> </span>add<span class="w"> </span>pytype
 </span></code></pre></div>
 <p>Utilisation :</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>pytype<span class="w"> </span>mon_fichier.py
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>uv<span class="w"> </span>run<span class="w"> </span>pytype<span class="w"> </span>mon_fichier.py
 </span></code></pre></div>
 <h2 id="exercice-pratique-avec-type-hints">Exercice pratique avec Type Hints<a class="headerlink" href="#exercice-pratique-avec-type-hints" title="Permanent link">&para;</a></h2>
+<p>Complétez le code des classes suivantes, et testez-les. Utilisez <code>mypy</code> pour vérifier que votre implémentation respecte 
+les types déclarés. </p>
 <ol type="1">
 <li>
 <p><strong>Classe CompteBancaire</strong> :
@@ -4765,7 +4770,7 @@ les types. Par exemple :</p>
 <p><strong>Fonction de tri personnalisée</strong> :
    <div class="language-python highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">TypeVar</span>
 </span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>
-</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="n">T</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">)</span>
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="n">T</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;T&quot;</span><span class="p">)</span>
 </span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>
 </span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">tri_personnalise</span><span class="p">(</span>
 </span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>    <span class="n">liste</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">T</span><span class="p">],</span>
@@ -4773,7 +4778,9 @@ les types. Par exemple :</p>
 </span><span id="__span-25-8"><a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
 </span><span id="__span-25-9"><a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Trie une liste en utilisant une clé de comparaison.&quot;&quot;&quot;</span>
 </span><span id="__span-25-10"><a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a>    <span class="k">pass</span>
-</span></code></pre></div></p>
+</span></code></pre></div>
+   Note : <code>T = TypeVar("T")</code> est une déclaration de type générique. Plus de détails 
+   <a href="https://profdenis.github.io/3n1_doc/section5/02_generiques/">ici</a>.</p>
 </li>
 </ol>
 <h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>

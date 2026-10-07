@@ -52,23 +52,23 @@ from deal import pre, post, inv
 @inv(lambda self: self._solde >= 0)  # Invariant : solde toujours ≥ 0
 class CompteBancaire:
     def __init__(self, titulaire: str, solde_initial: float = 0.0):
-        self.titulaire = titulaire
         self._solde = solde_initial
+        self.titulaire = titulaire
 
-    @pre(lambda montant: montant > 0)  # Précondition : montant positif
+
+    @pre(lambda self, montant: montant > 0)  # Précondition : montant positif
     def deposer(self, montant: float):
         """Dépose un montant sur le compte."""
         self._solde += montant
 
-    @pre(lambda montant: montant > 0 and montant <= self._solde)  # Précondition
+    @pre(lambda self, montant: 0 < montant <= self._solde, exception=ValueError)  # Précondition
     def retirer(self, montant: float):
         """Retire un montant du compte. Lève ValueError si solde insuffisant."""
-        if montant > self._solde:
-            raise ValueError("Solde insuffisant")
         self._solde -= montant
 
-    @post(lambda result: isinstance(result, (int, float)) and result >= 0)  # Postcondition
-    def get_solde(self) -> float:
+    @property
+    @post(lambda result: result >= 0)  # Postcondition
+    def solde(self) -> float:
         """Retourne le solde actuel."""
         return self._solde
 ```
@@ -77,19 +77,19 @@ class CompteBancaire:
 
 ```python
 import pytest
-from votre_module import CompteBancaire
+from compte_bancaire import CompteBancaire
 
 
 def test_deposer_montant_valide():
     compte = CompteBancaire("Alice", 100.0)
     compte.deposer(50.0)  # Précondition vérifiée par `deal`
-    assert compte.get_solde() == 150.0  # Test du comportement logique
+    assert compte.solde == 150.0  # Test du comportement logique
 
 
 def test_retirer_montant_valide():
     compte = CompteBancaire("Bob", 200.0)
     compte.retirer(75.0)  # Précondition vérifiée par `deal`
-    assert compte.get_solde() == 125.0  # Test du comportement logique
+    assert compte.solde == 125.0  # Test du comportement logique
 
 
 def test_retirer_solde_insuffisant():
@@ -102,45 +102,24 @@ def test_invariant_solde_negatif():
     compte = CompteBancaire("Dave", 100.0)
     with pytest.raises(AssertionError):  # Test de l'invariant
         compte._solde = -50.0  # `deal` lève AssertionError
+
+
+def test_solde_propriete_lecture_seule():
+    compte = CompteBancaire("Eve", 100.0)
+    assert compte.solde == 100.0
+    with pytest.raises(AttributeError):
+        compte.solde = 200.0
 ```
 
 ---
 
 ## **4. Stratégie de test avec DbC**
 
-### **Étape 1 : Tester les cas valides (comportement logique)**
+1. Étape 1 : Tester les cas valides (comportement logique)
 
-```python
-def test_deposer_et_retirer():
-    compte = CompteBancaire("Alice", 100.0)
-    compte.deposer(50.0)  # OK (précondition vérifiée par `deal`)
-    compte.retirer(30.0)  # OK (précondition vérifiée par `deal`)
-    assert compte.get_solde() == 120.0  # Test du résultat final
-```
+2. Étape 2 : Tester les cas invalides (exceptions)
 
-### **Étape 2 : Tester les cas invalides (exceptions)**
-
-```python
-def test_deposer_montant_negatif():
-    compte = CompteBancaire("Bob", 100.0)
-    with pytest.raises(AssertionError):  # `deal` lève AssertionError
-        compte.deposer(-50.0)  # Précondition échoue
-
-
-def test_retirer_solde_insuffisant():
-    compte = CompteBancaire("Charlie", 50.0)
-    with pytest.raises(ValueError):  # Exception levée par la méthode
-        compte.retirer(60.0)  # Précondition échoue → `deal` lève AssertionError
-```
-
-### **Étape 3 : Tester les invariants (modifications directes)**
-
-```python
-def test_invariant_violé():
-    compte = CompteBancaire("Dave", 100.0)
-    with pytest.raises(AssertionError):  # `deal` lève AssertionError
-        compte._solde = -50.0  # Accès direct à l'attribut (interdit par `@inv`)
-```
+3. Étape 3 : Tester les invariants (modifications directes)
 
 ---
 
@@ -160,7 +139,7 @@ def test_invariant_violé():
 
 ---
 
-## **6. Exercice pour les étudiants**
+## **6. Exercice**
 
 ### **Consigne**
 

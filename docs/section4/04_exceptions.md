@@ -173,6 +173,10 @@ except AssertionError as e:
     print(f"Erreur: {e}")
 ```
 
+!!! info "Utilisation des assertions"
+      Les assertions peuvent servir à vérifier les préconditions, les postconditions et les invariants de classes. Plus de 
+      détails dans la [section suivante](http://127.0.0.1:8000/3n1_doc/section4/05_dbc/).
+
 ## 3. Comparaison : `assert` vs `if` avec `raise`
 
 ### Quand utiliser `assert`?
@@ -277,7 +281,7 @@ except Exception as e:
 1. **Les assertions** :
     - Sont désactivables avec l'option `-O` de Python (`python -O script.py`)
     - Ne doivent pas être utilisées pour gérer les erreurs d'entrée utilisateur
-    - Doivent documenter des conditions qui ne devraient jamais échouer dans un code correct
+    - **Doivent documenter des conditions qui ne devraient jamais échouer dans un code correct**
 
 2. **Les vérifications avec `if/raise`** :
     - Doivent toujours être activées en production

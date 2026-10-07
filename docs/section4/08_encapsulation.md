@@ -1,4 +1,4 @@
-# **8. Encapsulation et Intégrité**
+# **Encapsulation et Intégrité**
 
 Est-ce que la définition d'_encapsulation_ inclut également la _validation_ et le maintien de l'_intégrité_ de
 l'état des objets, ou est-ce que l'_encapsulation_ et l'_intégrité_ sont habituellement définies séparément ?

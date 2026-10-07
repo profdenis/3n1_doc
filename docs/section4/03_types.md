@@ -437,9 +437,13 @@ class Configuration:
     timeout: float = 30.0
     max_connexions: int = 100
 
-    def __init__(self):
-        self.debug = True  # Surcharge la valeur par défaut
+    def __init__(self, n_connections: int):
+        if 0 < n_connections <= Configuration.max_connexions:
+            self.n_connexions = n_connections
+        else:
+            self.n_connexions = Configuration.max_connexions
 ```
+
 
 ## Outils pour les Type Hints
 
@@ -448,13 +452,13 @@ class Configuration:
 Installez avec :
 
 ```bash
-pip install mypy
+uv add mypy
 ```
 
 Utilisation :
 
 ```bash
-mypy mon_fichier.py
+uv run mypy mon_fichier.py
 ```
 
 Exemple de sortie :
@@ -491,16 +495,19 @@ La plupart des IDE modernes supportent les type hints :
 Installez avec :
 
 ```bash
-pip install pytype
+uv add pytype
 ```
 
 Utilisation :
 
 ```bash
-pytype mon_fichier.py
+uv run pytype mon_fichier.py
 ```
 
 ## Exercice pratique avec Type Hints
+
+Complétez le code des classes suivantes, et testez-les. Utilisez `mypy` pour vérifier que votre implémentation respecte 
+les types déclarés. 
 
 1. **Classe CompteBancaire** :
    ```python
@@ -536,9 +543,9 @@ pytype mon_fichier.py
 3. **Fonction de tri personnalisée** :
    ```python
    from typing import Callable, TypeVar
-
-   T = TypeVar('T')
-
+   
+   T = TypeVar("T")
+   
    def tri_personnalise(
        liste: list[T],
        cle: Callable[[T], float]
@@ -546,6 +553,8 @@ pytype mon_fichier.py
        """Trie une liste en utilisant une clé de comparaison."""
        pass
    ```
+   Note : `T = TypeVar("T")` est une déclaration de type générique. Plus de détails 
+   [ici](https://profdenis.github.io/3n1_doc/section5/02_generiques/).
 
 ## Conclusion
 

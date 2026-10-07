@@ -69,7 +69,7 @@ compte.deposer(-10)  # Lève AssertionError: "Le montant doit être positif"
 ### **Installation**
 
 ```bash
-pip install deal
+uv add deal
 ```
 
 Note : la version actuelle de `deal`, utilisée dans ce document, est `4.24.6`.
@@ -206,14 +206,12 @@ Même avec des annotations de type, tu peux vouloir garder des vérifications lo
 from deal import pre
 
 
-@pre(lambda x: isinstance(x, float))  # Vérification runtime
-def diviser(a: float, b: float) -> float:
+@pre(lambda a, b: isinstance(b, float))     # Vérification à l'exécution de b seulement
+def diviser(a: float, b: float) -> float:   # Vérification statique par mypy
     return a / b
 
-
-# mypy détectera une erreur si on appelle :
-diviser("10", 2)  # Erreur statique (mypy)
-diviser(10.5, "2")  # Erreur runtime (deal)
+diviser("10", 2.0)  # Erreur statique (mypy), et dynamique (unsupported operand type(s) for /: 'str' and 'float')
+diviser(10.5, "2.0")  # Erreur runtime (deal)
 ```
 
 ---
@@ -283,7 +281,7 @@ print(diviser("10", 2))  # Erreur runtime : "isinstance(a, float)" échoue
 
 ---
 
-## **8. Exercice pour les étudiants**
+## **8. Exercice**
 
 1. **Implémente une classe `Rectangle` avec DbC** :
     - Précondition : La largeur et la hauteur doivent être positives.
