@@ -3290,15 +3290,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#8-exercice-pour-les-etudiants" class="md-nav__link">
+  <a href="#8-exercice" class="md-nav__link">
     <span class="md-ellipsis">
       
-        8. Exercice pour les étudiants
+        8. Exercice
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="8. Exercice pour les étudiants">
+    <nav class="md-nav" aria-label="8. Exercice">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -4052,15 +4052,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#8-exercice-pour-les-etudiants" class="md-nav__link">
+  <a href="#8-exercice" class="md-nav__link">
     <span class="md-ellipsis">
       
-        8. Exercice pour les étudiants
+        8. Exercice
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="8. Exercice pour les étudiants">
+    <nav class="md-nav" aria-label="8. Exercice">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -4194,7 +4194,7 @@ Il permet de spécifier les méthodes qu’une classe doit implémenter, sans h�
 <tr>
 <td>Définition</td>
 <td><code>interface Animal { void manger(); }</code></td>
-<td><code>@runtime_checkable class Animal(Protocol): def manger(self) -&gt; None: ...</code></td>
+<td><code>class Animal(Protocol): def manger(self) -&gt; None: ...</code></td>
 </tr>
 <tr>
 <td>Implémentation</td>
@@ -4212,9 +4212,9 @@ Il permet de spécifier les méthodes qu’une classe doit implémenter, sans h�
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Duck Typing</p>
-<p>En programmation informatique, le typage canard (<em>duck typing</em>) est une application du test du canard 
-<em>« Si ça marche comme un canard et que ça cancan comme un canard, alors c&rsquo;est un canard »</em>,
-ou en anglais <em>« If it walks like a duck and it quacks like a duck, then it must be a duck »</em>, 
+<p>En programmation informatique, le typage canard (<em>duck typing</em>) est une application du test du canard <em>« Si ça marche
+comme un canard et que ça cancan comme un canard, alors c&rsquo;est un canard »</em>,
+ou en anglais <em>« If it walks like a duck and it quacks like a duck, then it must be a duck »</em>,
 pour déterminer si un objet peut être utilisé à un but particulier.</p>
 <p>Avec le <strong>typage nominatif</strong>, un objet est d&rsquo;un type donné s&rsquo;il est déclaré comme tel (ou si
 l&rsquo;association d&rsquo;un type avec l&rsquo;objet est déduite par des mécanismes tels que l&rsquo;héritage d&rsquo;objets). Avec le typage
@@ -4347,7 +4347,7 @@ et les exigences d&rsquo;un type. <a href="https://en.wikipedia.org/wiki/Duck_ty
 ✅ <strong>Préfère <code>@runtime_checkable</code> pour les vérifications dynamiques.</strong>
 ✅ <strong>Combine avec des types génériques pour plus de polyvalence.</strong></p>
 <hr />
-<h2 id="8-exercice-pour-les-etudiants"><strong>8. Exercice pour les étudiants</strong><a class="headerlink" href="#8-exercice-pour-les-etudiants" title="Permanent link">&para;</a></h2>
+<h2 id="8-exercice"><strong>8. Exercice</strong><a class="headerlink" href="#8-exercice" title="Permanent link">&para;</a></h2>
 <h3 id="consigne"><strong>Consigne</strong><a class="headerlink" href="#consigne" title="Permanent link">&para;</a></h3>
 <ol type="1">
 <li>Créez un <code>Protocol</code> <code>Dessinable</code> avec une méthode <code>dessiner()</code>.</li>
@@ -4356,36 +4356,34 @@ et les exigences d&rsquo;un type. <a href="https://en.wikipedia.org/wiki/Duck_ty
 </ol>
 <details class="info">
 <summary>Solution</summary>
-<div class="language-text highlight"><pre><span></span><code>```python
-from typing import Protocol
-
-
-class Dessinable(Protocol):
-    def dessiner(self) -&gt; None: ...
-
-
-class Cercle:
-    def dessiner(self) -&gt; None:
-        print(&quot;Dessine un cercle.&quot;)
-
-
-class Ligne:
-    def dessiner(self) -&gt; None:
-        print(&quot;Dessine une ligne.&quot;)
-
-
-def afficher_dessin(dessin: Dessinable) -&gt; None:
-    dessin.dessiner()
-
-
-# Test :
-cercle = Cercle()
-ligne = Ligne()
-
-afficher_dessin(cercle)  # Affiche : &quot;Dessine un cercle.&quot;
-afficher_dessin(ligne)  # Affiche : &quot;Dessine une ligne.&quot;
-```
-</code></pre></div>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Protocol</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="k">class</span><span class="w"> </span><span class="nc">Dessinable</span><span class="p">(</span><span class="n">Protocol</span><span class="p">):</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">dessiner</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span> <span class="o">...</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="k">class</span><span class="w"> </span><span class="nc">Cercle</span><span class="p">:</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">dessiner</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dessine un cercle.&quot;</span><span class="p">)</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="k">class</span><span class="w"> </span><span class="nc">Ligne</span><span class="p">:</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">dessiner</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dessine une ligne.&quot;</span><span class="p">)</span>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="k">def</span><span class="w"> </span><span class="nf">afficher_dessin</span><span class="p">(</span><span class="n">dessin</span><span class="p">:</span> <span class="n">Dessinable</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>    <span class="n">dessin</span><span class="o">.</span><span class="n">dessiner</span><span class="p">()</span>
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="c1"># Test :</span>
+</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="n">cercle</span> <span class="o">=</span> <span class="n">Cercle</span><span class="p">()</span>
+</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="n">ligne</span> <span class="o">=</span> <span class="n">Ligne</span><span class="p">()</span>
+</span><span id="__span-5-25"><a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>
+</span><span id="__span-5-26"><a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="n">afficher_dessin</span><span class="p">(</span><span class="n">cercle</span><span class="p">)</span>  <span class="c1"># Affiche : &quot;Dessine un cercle.&quot;</span>
+</span><span id="__span-5-27"><a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a><span class="n">afficher_dessin</span><span class="p">(</span><span class="n">ligne</span><span class="p">)</span>  <span class="c1"># Affiche : &quot;Dessine une ligne.&quot;</span>
+</span></code></pre></div>
 </details>
 <hr />
 <h2 id="9-ressources-supplementaires"><strong>9. Ressources supplémentaires</strong><a class="headerlink" href="#9-ressources-supplementaires" title="Permanent link">&para;</a></h2>

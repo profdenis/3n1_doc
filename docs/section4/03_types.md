@@ -444,7 +444,6 @@ class Configuration:
             self.n_connexions = Configuration.max_connexions
 ```
 
-
 ## Outils pour les Type Hints
 
 ### 1. mypy - Vérificateur de type statique
@@ -506,8 +505,8 @@ uv run pytype mon_fichier.py
 
 ## Exercice pratique avec Type Hints
 
-Complétez le code des classes suivantes, et testez-les. Utilisez `mypy` pour vérifier que votre implémentation respecte 
-les types déclarés. 
+Complétez le code des classes suivantes, et testez-les. Utilisez `mypy` pour vérifier que votre implémentation respecte
+les types déclarés.
 
 1. **Classe CompteBancaire** :
    ```python
@@ -553,8 +552,79 @@ les types déclarés.
        """Trie une liste en utilisant une clé de comparaison."""
        pass
    ```
-   Note : `T = TypeVar("T")` est une déclaration de type générique. Plus de détails 
+   Note : `T = TypeVar("T")` est une déclaration de type générique. Plus de détails
    [ici](https://profdenis.github.io/3n1_doc/section5/02_generiques/).
+
+---
+
+## Annotations de Type vs Attributs : Ne confondez pas Déclaration et Création
+
+Une confusion fréquente en Python consiste à croire qu'une annotation de type (type hint) crée un attribut. Il est
+crucial de distinguer l' **annotation** (qui décrit la forme) de l' **assignation** (qui crée la donnée).
+
+### 1. L'annotation seule : Une déclaration (Type Hinting)
+
+Lorsque vous écrivez une variable suivie de son type, sans le signe `=`, vous ne créez pas d'attribut en mémoire. Vous
+faites une **déclaration**.
+
+```python
+class Personne:
+    nom: str  # Ceci est une ANNOTATION
+```
+
+* **Ce que cela fait :** Cela informe les outils de développement (IDE comme VS Code, Pycharm) et les analyseurs
+  statiques (comme `mypy`) que si l'attribut `nom` est utilisé, il *devrait* être une chaîne de caractères (`str`).
+* **Ce que cela NE fait PAS :** Cela ne crée pas la variable. Si vous essayez d'accéder à `Personne.nom` ou
+  `ma_personne.nom` immédiatement, Python lèvera une `AttributeError`.
+* **En mémoire :** L'information est stockée dans le dictionnaire spécial `__annotations__` de la classe, mais l'objet
+  n'existe pas encore.
+
+### 2. L'annotation avec assignation : L'attribut de classe
+
+Si vous ajoutez une valeur après l'annotation, vous créez un véritable attribut stocké au niveau de la **classe**.
+
+```python
+class Personne:
+    nom: str = "Inconnu"  # Annotation + Assignation
+```
+
+* **Ce que cela fait :** Vous créez un **attribut de classe**. Toutes les instances de `Personne` partageront, par
+  défaut, cette même valeur.
+* **Usage :** On l'utilise pour définir des constantes ou des valeurs par défaut communes à tous les objets de la
+  classe.
+
+### 3. L'assignation via `self` : L'attribut d'instance
+
+C'est la manière standard de définir les propriétés d'un objet dans un constructeur (`__init__`).
+
+```python
+class Personne:
+    def __init__(self, nom_initial: str):
+        self.nom = nom_initial  # Assignation sur l'instance
+```
+
+* **Ce que cela fait :** L'attribut est créé dans l'espace mémoire de l' **objet spécifique** (l'instance). Chaque
+  personne a son propre nom, indépendant des autres.
+* **Usage :** C'est la règle d'or pour stocker l' **état** d'un objet (ses données propres).
+
+---
+
+### Synthèse comparative
+
+Le tableau suivant récapitule les trois cas de figure rencontrés en programmation orientée objet :
+
+| Syntaxe               | Terme technique         | Ce qui est créé en mémoire    | Portée (Scope)   | Usage principal                               |
+|:----------------------|:------------------------|:------------------------------|:-----------------|:----------------------------------------------|
+| `nom: str`            | **Annotation seule**    | Rien (juste une note)         | Nulle (statique) | Déclarer une exigence de type pour l'analyse. |
+| `nom = "Valeur"`      | **Attribut de classe**  | Une variable partagée         | **Classe**       | Constantes ou valeurs par défaut communes.    |
+| `self.nom = "Valeur"` | **Attribut d'instance** | Une variable propre à l'objet | **Instance**     | État unique de l'objet (nom, âge, etc.).      |
+
+!!! note "Astuce de débogage" 
+   Si votre programme crash avec une
+   `AttributeError: 'Personne' object has no attribute 'nom'`, c'est généralement parce que vous avez seulement **annoté**
+   le type (`nom: str`) sans jamais l' **assigner** réellement dans un `__init__` ou ailleurs.
+
+
 
 ## Conclusion
 

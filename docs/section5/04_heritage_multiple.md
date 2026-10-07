@@ -33,7 +33,7 @@ enfant.method2()  # Sortie: Méthode de Parent2
 Dans cet exemple, la classe `Enfant` hérite des méthodes de `Parent1` et `Parent2`, lui permettant d'utiliser à la fois
 `method1()` et `method2()`.
 
-## Exemple pratique : Le licorne mythique
+## Exemple pratique : La licorne mythique
 
 Considérons un exemple plus concret utilisant une créature mythique :
 
@@ -226,8 +226,8 @@ avancés.
 
 ### Points clés
 
-- `super()` fait toujours référence à la prochaine classe dans le MRO, et non nécessairement à la première parente dans
-  la définition de la classe.
+- **`super()` fait toujours référence à la prochaine classe dans le MRO, et non nécessairement à la première parente dans
+  la définition de la classe.**
 - Pour appeler une méthode spécifique d'une classe parente, utilisez directement le nom de la classe parente.
 - Soyez prudent avec l'héritage multiple et `super()` pour éviter les appels en double ou les initialisations
   manquantes.

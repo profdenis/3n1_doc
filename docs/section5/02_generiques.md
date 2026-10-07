@@ -60,7 +60,7 @@ String message = boiteDeStrings.obtenir();  // Type connu : String
 ## **3. Types Génériques en Python**
 
 Python utilise des **annotations de type** (PEP 484) pour les types génériques, mais elles sont **optionnelles** et ne
-sont pas vérifiées au runtime (sauf avec des outils comme `mypy`).
+sont pas vérifiées à l'exécution, mais elles peuvent être vérifiées avec des outils comme `mypy`.
 
 ### **Exemple : Liste générique (`List`)**
 
@@ -87,14 +87,14 @@ class Boite(Generic[T]):  # Classe générique
     def mettre(self, item: T) -> None:
         self.contenu = item
 
-    def obtenir(self) -> T:
+    def obtenir(self) -> T | None:
         return self.contenu
 
 
 # Utilisation :
 boite_de_strings: Boite[str] = Boite()
 boite_de_strings.mettre("Hello")
-message: str = boite_de_strings.obtenir()  # Type connu : str
+message: str | None = boite_de_strings.obtenir()  # Type connu : str ou None
 print(message)  # Affiche "Hello"
 ```
 
@@ -163,35 +163,34 @@ nombres: Set[float] = {1.5, 2.5, 3.5}
 3. Testez avec des entiers et des chaînes.
 
 ??? info "Solution"
-
-        ```python
-        from typing import TypeVar, Generic, List
-        
-        T = TypeVar('T')
-        
-        
-        class Pile(Generic[T]):
-            def __init__(self) -> None:
-                self._elements: List[T] = []
-        
-            def empiler(self, item: T) -> None:
-                self._elements.append(item)
-        
-            def depiler(self) -> T:
-                return self._elements.pop()
-        
-        
-        # Test :
-        pile_de_entiers: Pile[int] = Pile()
-        pile_de_entiers.empiler(1)
-        pile_de_entiers.empiler(2)
-        print(pile_de_entiers.depiler())  # Affiche 2
-        
-        pile_de_strings: Pile[str] = Pile()
-        pile_de_strings.empiler("A")
-        pile_de_strings.empiler("B")
-        print(pile_de_strings.depiler())  # Affiche "B"
-        ```
+    ```python
+    from typing import TypeVar, Generic, List
+    
+    T = TypeVar('T')
+    
+    
+    class Pile(Generic[T]):
+        def __init__(self) -> None:
+            self._elements: List[T] = []
+    
+        def empiler(self, item: T) -> None:
+            self._elements.append(item)
+    
+        def depiler(self) -> T:
+            return self._elements.pop()
+    
+    
+    # Test :
+    pile_de_entiers: Pile[int] = Pile()
+    pile_de_entiers.empiler(1)
+    pile_de_entiers.empiler(2)
+    print(pile_de_entiers.depiler())  # Affiche 2
+    
+    pile_de_strings: Pile[str] = Pile()
+    pile_de_strings.empiler("A")
+    pile_de_strings.empiler("B")
+    print(pile_de_strings.depiler())  # Affiche "B"
+    ```
 
 ---
 

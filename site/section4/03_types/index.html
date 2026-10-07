@@ -3092,6 +3092,67 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#annotations-de-type-vs-attributs-ne-confondez-pas-declaration-et-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Annotations de Type vs Attributs : Ne confondez pas Déclaration et Création
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Annotations de Type vs Attributs : Ne confondez pas Déclaration et Création">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-lannotation-seule-une-declaration-type-hinting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. L&rsquo;annotation seule : Une déclaration (Type Hinting)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-lannotation-avec-assignation-lattribut-de-classe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. L&rsquo;annotation avec assignation : L&rsquo;attribut de classe
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-lassignation-via-self-lattribut-dinstance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. L&rsquo;assignation via self : L&rsquo;attribut d&rsquo;instance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#synthese-comparative" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Synthèse comparative
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#conclusion" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4237,6 +4298,67 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#annotations-de-type-vs-attributs-ne-confondez-pas-declaration-et-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Annotations de Type vs Attributs : Ne confondez pas Déclaration et Création
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Annotations de Type vs Attributs : Ne confondez pas Déclaration et Création">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-lannotation-seule-une-declaration-type-hinting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. L&rsquo;annotation seule : Une déclaration (Type Hinting)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-lannotation-avec-assignation-lattribut-de-classe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. L&rsquo;annotation avec assignation : L&rsquo;attribut de classe
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-lassignation-via-self-lattribut-dinstance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. L&rsquo;assignation via self : L&rsquo;attribut d&rsquo;instance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#synthese-comparative" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Synthèse comparative
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#conclusion" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4732,8 +4854,8 @@ les types. Par exemple :</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>uv<span class="w"> </span>run<span class="w"> </span>pytype<span class="w"> </span>mon_fichier.py
 </span></code></pre></div>
 <h2 id="exercice-pratique-avec-type-hints">Exercice pratique avec Type Hints<a class="headerlink" href="#exercice-pratique-avec-type-hints" title="Permanent link">&para;</a></h2>
-<p>Complétez le code des classes suivantes, et testez-les. Utilisez <code>mypy</code> pour vérifier que votre implémentation respecte 
-les types déclarés. </p>
+<p>Complétez le code des classes suivantes, et testez-les. Utilisez <code>mypy</code> pour vérifier que votre implémentation respecte
+les types déclarés.</p>
 <ol type="1">
 <li>
 <p><strong>Classe CompteBancaire</strong> :
@@ -4779,10 +4901,93 @@ les types déclarés. </p>
 </span><span id="__span-25-9"><a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Trie une liste en utilisant une clé de comparaison.&quot;&quot;&quot;</span>
 </span><span id="__span-25-10"><a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a>    <span class="k">pass</span>
 </span></code></pre></div>
-   Note : <code>T = TypeVar("T")</code> est une déclaration de type générique. Plus de détails 
+   Note : <code>T = TypeVar("T")</code> est une déclaration de type générique. Plus de détails
    <a href="https://profdenis.github.io/3n1_doc/section5/02_generiques/">ici</a>.</p>
 </li>
 </ol>
+<hr />
+<h2 id="annotations-de-type-vs-attributs-ne-confondez-pas-declaration-et-creation">Annotations de Type vs Attributs : Ne confondez pas Déclaration et Création<a class="headerlink" href="#annotations-de-type-vs-attributs-ne-confondez-pas-declaration-et-creation" title="Permanent link">&para;</a></h2>
+<p>Une confusion fréquente en Python consiste à croire qu&rsquo;une annotation de type (type hint) crée un attribut. Il est
+crucial de distinguer l&rsquo; <strong>annotation</strong> (qui décrit la forme) de l&rsquo; <strong>assignation</strong> (qui crée la donnée).</p>
+<h3 id="1-lannotation-seule-une-declaration-type-hinting">1. L&rsquo;annotation seule : Une déclaration (Type Hinting)<a class="headerlink" href="#1-lannotation-seule-une-declaration-type-hinting" title="Permanent link">&para;</a></h3>
+<p>Lorsque vous écrivez une variable suivie de son type, sans le signe <code>=</code>, vous ne créez pas d&rsquo;attribut en mémoire. Vous
+faites une <strong>déclaration</strong>.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Personne</span><span class="p">:</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>    <span class="n">nom</span><span class="p">:</span> <span class="nb">str</span>  <span class="c1"># Ceci est une ANNOTATION</span>
+</span></code></pre></div>
+<ul>
+<li><strong>Ce que cela fait :</strong> Cela informe les outils de développement (IDE comme VS Code, Pycharm) et les analyseurs
+  statiques (comme <code>mypy</code>) que si l&rsquo;attribut <code>nom</code> est utilisé, il <em>devrait</em> être une chaîne de caractères (<code>str</code>).</li>
+<li><strong>Ce que cela NE fait PAS :</strong> Cela ne crée pas la variable. Si vous essayez d&rsquo;accéder à <code>Personne.nom</code> ou
+  <code>ma_personne.nom</code> immédiatement, Python lèvera une <code>AttributeError</code>.</li>
+<li><strong>En mémoire :</strong> L&rsquo;information est stockée dans le dictionnaire spécial <code>__annotations__</code> de la classe, mais l&rsquo;objet
+  n&rsquo;existe pas encore.</li>
+</ul>
+<h3 id="2-lannotation-avec-assignation-lattribut-de-classe">2. L&rsquo;annotation avec assignation : L&rsquo;attribut de classe<a class="headerlink" href="#2-lannotation-avec-assignation-lattribut-de-classe" title="Permanent link">&para;</a></h3>
+<p>Si vous ajoutez une valeur après l&rsquo;annotation, vous créez un véritable attribut stocké au niveau de la <strong>classe</strong>.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Personne</span><span class="p">:</span>
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>    <span class="n">nom</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Inconnu&quot;</span>  <span class="c1"># Annotation + Assignation</span>
+</span></code></pre></div>
+<ul>
+<li><strong>Ce que cela fait :</strong> Vous créez un <strong>attribut de classe</strong>. Toutes les instances de <code>Personne</code> partageront, par
+  défaut, cette même valeur.</li>
+<li><strong>Usage :</strong> On l&rsquo;utilise pour définir des constantes ou des valeurs par défaut communes à tous les objets de la
+  classe.</li>
+</ul>
+<h3 id="3-lassignation-via-self-lattribut-dinstance">3. L&rsquo;assignation via <code>self</code> : L&rsquo;attribut d&rsquo;instance<a class="headerlink" href="#3-lassignation-via-self-lattribut-dinstance" title="Permanent link">&para;</a></h3>
+<p>C&rsquo;est la manière standard de définir les propriétés d&rsquo;un objet dans un constructeur (<code>__init__</code>).</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Personne</span><span class="p">:</span>
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nom_initial</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">nom</span> <span class="o">=</span> <span class="n">nom_initial</span>  <span class="c1"># Assignation sur l&#39;instance</span>
+</span></code></pre></div>
+<ul>
+<li><strong>Ce que cela fait :</strong> L&rsquo;attribut est créé dans l&rsquo;espace mémoire de l&rsquo; <strong>objet spécifique</strong> (l&rsquo;instance). Chaque
+  personne a son propre nom, indépendant des autres.</li>
+<li><strong>Usage :</strong> C&rsquo;est la règle d&rsquo;or pour stocker l&rsquo; <strong>état</strong> d&rsquo;un objet (ses données propres).</li>
+</ul>
+<hr />
+<h3 id="synthese-comparative">Synthèse comparative<a class="headerlink" href="#synthese-comparative" title="Permanent link">&para;</a></h3>
+<p>Le tableau suivant récapitule les trois cas de figure rencontrés en programmation orientée objet :</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Syntaxe</th>
+<th style="text-align: left;">Terme technique</th>
+<th style="text-align: left;">Ce qui est créé en mémoire</th>
+<th style="text-align: left;">Portée (Scope)</th>
+<th style="text-align: left;">Usage principal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>nom: str</code></td>
+<td style="text-align: left;"><strong>Annotation seule</strong></td>
+<td style="text-align: left;">Rien (juste une note)</td>
+<td style="text-align: left;">Nulle (statique)</td>
+<td style="text-align: left;">Déclarer une exigence de type pour l&rsquo;analyse.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>nom = "Valeur"</code></td>
+<td style="text-align: left;"><strong>Attribut de classe</strong></td>
+<td style="text-align: left;">Une variable partagée</td>
+<td style="text-align: left;"><strong>Classe</strong></td>
+<td style="text-align: left;">Constantes ou valeurs par défaut communes.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>self.nom = "Valeur"</code></td>
+<td style="text-align: left;"><strong>Attribut d&rsquo;instance</strong></td>
+<td style="text-align: left;">Une variable propre à l&rsquo;objet</td>
+<td style="text-align: left;"><strong>Instance</strong></td>
+<td style="text-align: left;">État unique de l&rsquo;objet (nom, âge, etc.).</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Astuce de débogage</p>
+</div>
+<p>Si votre programme crash avec une
+   <code>AttributeError: 'Personne' object has no attribute 'nom'</code>, c&rsquo;est généralement parce que vous avez seulement <strong>annoté</strong>
+   le type (<code>nom: str</code>) sans jamais l&rsquo; <strong>assigner</strong> réellement dans un <code>__init__</code> ou ailleurs.</p>
 <h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
 <p>Les type hints sont un outil puissant qui améliore :</p>
 <ol type="1">

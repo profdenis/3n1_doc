@@ -11,10 +11,10 @@ Il permet de spécifier les méthodes qu’une classe doit implémenter, sans h�
 
 ### **Comparaison avec Java**
 
-| Concept        | Java (`interface`)                     | Python (`Protocol`)                                                        |
-|----------------|----------------------------------------|----------------------------------------------------------------------------|
-| Définition     | `interface Animal { void manger(); }`  | `@runtime_checkable class Animal(Protocol): def manger(self) -> None: ...` |
-| Implémentation | `class Chat implements Animal { ... }` | Pas besoin de déclarer l’héritage (`class Chat: ...`).                     |
+| Concept        | Java (`interface`)                     | Python (`Protocol`)                                     |
+|----------------|----------------------------------------|---------------------------------------------------------|
+| Définition     | `interface Animal { void manger(); }`  | `class Animal(Protocol): def manger(self) -> None: ...` |
+| Implémentation | `class Chat implements Animal { ... }` | Pas besoin de déclarer l’héritage (`class Chat: ...`).  |
 
 ---
 
@@ -25,9 +25,9 @@ Il permet de spécifier les méthodes qu’une classe doit implémenter, sans h�
 - **Vérification statique** (avec `mypy`) pour une meilleure sécurité des types.
 
 !!! note "Duck Typing"
-    En programmation informatique, le typage canard (_duck typing_) est une application du test du canard 
-    _« Si ça marche comme un canard et que ça cancan comme un canard, alors c'est un canard »_,
-    ou en anglais _« If it walks like a duck and it quacks like a duck, then it must be a duck »_, 
+    En programmation informatique, le typage canard (_duck typing_) est une application du test du canard _« Si ça marche
+    comme un canard et que ça cancan comme un canard, alors c'est un canard »_,
+    ou en anglais _« If it walks like a duck and it quacks like a duck, then it must be a duck »_,
     pour déterminer si un objet peut être utilisé à un but particulier.
 
     Avec le **typage nominatif**, un objet est d'un type donné s'il est déclaré comme tel (ou si
@@ -191,7 +191,7 @@ print(p1.comparer(p2))  # Affiche : -5 (p1 est plus jeune que p2)
 
 ---
 
-## **8. Exercice pour les étudiants**
+## **8. Exercice**
 
 ### **Consigne**
 
@@ -201,35 +201,35 @@ print(p1.comparer(p2))  # Affiche : -5 (p1 est plus jeune que p2)
 
 ??? info "Solution"
 
-        ```python
-        from typing import Protocol
-        
-        
-        class Dessinable(Protocol):
-            def dessiner(self) -> None: ...
-        
-        
-        class Cercle:
-            def dessiner(self) -> None:
-                print("Dessine un cercle.")
-        
-        
-        class Ligne:
-            def dessiner(self) -> None:
-                print("Dessine une ligne.")
-        
-        
-        def afficher_dessin(dessin: Dessinable) -> None:
-            dessin.dessiner()
-        
-        
-        # Test :
-        cercle = Cercle()
-        ligne = Ligne()
-        
-        afficher_dessin(cercle)  # Affiche : "Dessine un cercle."
-        afficher_dessin(ligne)  # Affiche : "Dessine une ligne."
-        ```
+    ```python
+    from typing import Protocol
+    
+    
+    class Dessinable(Protocol):
+        def dessiner(self) -> None: ...
+    
+    
+    class Cercle:
+        def dessiner(self) -> None:
+            print("Dessine un cercle.")
+    
+    
+    class Ligne:
+        def dessiner(self) -> None:
+            print("Dessine une ligne.")
+    
+    
+    def afficher_dessin(dessin: Dessinable) -> None:
+        dessin.dessiner()
+    
+    
+    # Test :
+    cercle = Cercle()
+    ligne = Ligne()
+    
+    afficher_dessin(cercle)  # Affiche : "Dessine un cercle."
+    afficher_dessin(ligne)  # Affiche : "Dessine une ligne."
+    ```
 
 ---
 
