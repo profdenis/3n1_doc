@@ -620,9 +620,9 @@ Le tableau suivant récapitule les trois cas de figure rencontrés en programmat
 | `self.nom = "Valeur"` | **Attribut d'instance** | Une variable propre à l'objet | **Instance**     | État unique de l'objet (nom, âge, etc.).      |
 
 !!! note "Astuce de débogage" 
-   Si votre programme crash avec une
-   `AttributeError: 'Personne' object has no attribute 'nom'`, c'est généralement parce que vous avez seulement **annoté**
-   le type (`nom: str`) sans jamais l' **assigner** réellement dans un `__init__` ou ailleurs.
+       Si votre programme crash avec une
+       `AttributeError: 'Personne' object has no attribute 'nom'`, c'est généralement parce que vous avez seulement **annoté**
+       le type (`nom: str`) sans jamais l' **assigner** réellement dans un `__init__` ou ailleurs.
 
 
 

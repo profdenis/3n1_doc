@@ -1,7 +1,5 @@
 # **Guide : Combinaison de pytest et Design by Contract (DbC) avec `deal`**
 
-*Pour les étudiants en programmation orientée objet*
-
 ---
 
 ## **1. Introduction**
