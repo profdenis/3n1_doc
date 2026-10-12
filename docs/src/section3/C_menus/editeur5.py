@@ -4,6 +4,7 @@ from PySide6.QtWidgets import (QApplication, QMainWindow, QTextEdit,
                                QFileDialog, QScrollArea, QToolBar, QLabel, QMessageBox)
 from PySide6.QtGui import QAction, QFont
 from PySide6.QtCore import Qt, Signal
+from qt_material import apply_stylesheet
 
 class TextEditorApp(QMainWindow):
     def __init__(self):
@@ -245,5 +246,7 @@ class WheelAwareTextEdit(QTextEdit):
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     editor = TextEditorApp()
+    apply_stylesheet(app, theme='dark_lightgreen.xml', extra={"font_size": 24})
+    # apply_stylesheet(app, theme='light_blue.xml', invert_secondary=True, extra={"font_size": 24})
     editor.show()
     sys.exit(app.exec())

@@ -8,7 +8,7 @@ from PySide6.QtCore import Qt, Signal
 class TextEditorApp(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.is_modified = None  # Indique si le document a été modifié
+        self.is_modified = False  # Indique si le document a été modifié
         self.current_file = None
         self.init_ui()
 

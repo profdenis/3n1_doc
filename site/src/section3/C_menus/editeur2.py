@@ -3,6 +3,7 @@ import sys
 from PySide6.QtWidgets import (QApplication, QMainWindow, QTextEdit,
                                QFileDialog, QScrollArea)
 from PySide6.QtGui import QAction, QFont
+from qt_material import apply_stylesheet
 
 
 class TextEditorApp(QMainWindow):
@@ -20,11 +21,12 @@ class TextEditorApp(QMainWindow):
         self.text_area = QTextEdit()
         self.text_area.setLineWrapMode(QTextEdit.LineWrapMode.NoWrap)
         self.font_size = 12  # Taille de police par défaut
-        font = QFont("Courier New")
-        font.setStyleHint(QFont.StyleHint.Monospace)
-        font.setFixedPitch(True)
-        font.setPointSize(self.font_size)
-        self.text_area.setFont(font)
+        # font = QFont("Courier New")
+        # font.setStyleHint(QFont.StyleHint.Monospace)
+        # font.setFixedPitch(True)
+        # font.setPointSize(self.font_size)
+        # self.text_area.setFont(font)
+        self.set_textedit_font()
 
         scroll.setWidget(self.text_area)
         scroll.setWidgetResizable(True)
@@ -78,6 +80,7 @@ class TextEditorApp(QMainWindow):
             try:
                 with open(file_path, "r", encoding="utf-8") as file:
                     self.text_area.setText(file.read())
+                    self.set_textedit_font()
                 self.current_file = file_path
             except Exception as e:
                 self.show_error(str(e))
@@ -142,5 +145,7 @@ class TextEditorApp(QMainWindow):
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     editor = TextEditorApp()
+    # apply_stylesheet(app, theme='dark_lightgreen.xml')
+    apply_stylesheet(app, theme='light_red.xml', invert_secondary=True, extra={"font_size": 24})
     editor.show()
     sys.exit(app.exec())

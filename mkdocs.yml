@@ -81,6 +81,9 @@ nav:
       - section5/02_generiques.md
       - section5/03_protocoles.md
       - section5/04_heritage_multiple.md
+      - section5/05_mixin.md
+      - section5/06_dataclass.md
+      - section5/07_enum.md
   - 6. Patrons de conception:
       - section6/01_principes_OO.md
       - section6/02_Patrons_de_conception.md

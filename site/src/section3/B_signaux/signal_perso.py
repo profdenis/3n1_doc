@@ -11,8 +11,10 @@ class Counter(QObject):
         self._value += 1
         self.valueChanged.emit(self._value)  # Émettre le signal
 
+
 def handle_value(value):
     print(f"Valeur du compteur : {value}")
+
 
 counter = Counter()
 counter.valueChanged.connect(handle_value)
