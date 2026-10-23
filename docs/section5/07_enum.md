@@ -34,7 +34,9 @@ print(statut.value)  # 2
 
 ---
 
-## 2. Manipulation des Enums### Recherche et accèsIl existe trois façons d'accéder à un membre :
+## 2. Manipulation des Enums
+
+### Recherche et accèsIl existe trois façons d'accéder à un membre :
 
 * **Par attribut (direct) :** `StatutCommande.LIVREE`
 * **Par valeur :** `StatutCommande(3)` *(Idéal pour lire une donnée brute depuis une base de données)*
