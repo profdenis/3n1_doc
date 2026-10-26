@@ -1,4 +1,4 @@
-# Les Énumérations (Enums) en Python
+# Les Énumérations (Enums)
 
 En Python, les énumérations (ou **enums**) permettent de regrouper un ensemble de **constantes nommées** sous un type
 unique. Elles améliorent la lisibilité du code et la sécurité en remplaçant les valeurs brutes (*magic numbers* ou
@@ -36,7 +36,9 @@ print(statut.value)  # 2
 
 ## 2. Manipulation des Enums
 
-### Recherche et accèsIl existe trois façons d'accéder à un membre :
+### Recherche et accès
+
+Il existe trois façons d'accéder à un membre :
 
 * **Par attribut (direct) :** `StatutCommande.LIVREE`
 * **Par valeur :** `StatutCommande(3)` *(Idéal pour lire une donnée brute depuis une base de données)*
@@ -185,9 +187,9 @@ droits_editeur &= ~Permission.ECRITURE
 ```
 
 !!! info "Astuce"
-        Depuis Python 3.11, il existe aussi `IntFlag`. La différence est que `IntFlag` peut être
-        comparé directement à des entiers bruts, et utilisé dans des calculs numériques, tandis que `Flag` reste strictement
-        typé pour plus de sécurité.
+    Depuis Python 3.11, il y a aussi les `IntFlag`. La différence est que `IntFlag` peut être
+    comparé directement à des entiers bruts, et utilisé dans des calculs numériques, tandis que `Flag` reste strictement
+    typé pour plus de sécurité.
 
 ## 6. Exercices Pratiques : Enums & Dataclasses
 

@@ -1,4 +1,4 @@
-# Architecture de Données Avancée : Le Modèle Proxy dans Qt/PySide6
+# Le Modèle Proxy dans Qt/PySide6
 
 ## 1. Le Problème : Le Piège du Tri Lexicographique
 

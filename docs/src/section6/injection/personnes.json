@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "nom": "Tremblay",
+    "prenom": "Alice",
+    "age": 28,
+    "courriel": "alice.tremblay@exemple.qc.ca"
+  },
+  {
+    "id": 2,
+    "nom": "Gagnon",
+    "prenom": "Bob",
+    "age": 34,
+    "courriel": "bob.gagnon@exemple.qc.ca"
+  },
+  {
+    "id": 3,
+    "nom": "Roy",
+    "prenom": "Charlie",
+    "age": 22,
+    "courriel": "charlie.roy@exemple.qc.ca"
+  },
+  {
+    "id": 4,
+    "nom": "Bouchard",
+    "prenom": "Diane",
+    "age": 45,
+    "courriel": "diane.bouchard@exemple.qc.ca"
+  }
+]

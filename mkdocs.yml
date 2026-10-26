@@ -85,14 +85,17 @@ nav:
       - section5/06_dataclass.md
       - section5/07_enum.md
   - 6. Patrons de conception:
-      - section6/01_principes_OO.md
-      - section6/02_Patrons_de_conception.md
+      - section6/01_intro.md
+      - section6/02_principes_OO.md
       - section6/03_creation1_fabrique.md
       - section6/04_creation2.md
-      - section6/05_structuraux.md
-      - section6/06_comportementaux.md
-      - section6/07_strategie.md
-      - section6/08_cas_personne.md
+      - section6/05_injection_dependance.md
+      - section6/06_structuraux.md
+      - section6/07_comportementaux.md
+      - section6/08_strategie.md
+      - section6/09_strategie_mixin.md
+      - section6/10_cas_personne.md
+      - section6/11_proxy_qt.md
   - 7. Pygame:
       - section7/01_bases.md
   - 8. Extra:

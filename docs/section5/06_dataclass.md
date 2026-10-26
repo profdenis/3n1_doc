@@ -1,7 +1,7 @@
 # Les Classes de Données (`@dataclass`)
 
 En programmation orientée objet, on crée souvent des classes dont le seul but est de **stocker des données** (comme le
-profil d'un utilisateur, un produit de e-commerce ou un point géographique).
+profil d'un utilisateur, un produit d'e-commerce ou un point géographique).
 
 Avant Python 3.7, l'écriture de ces classes exigeait beaucoup de code répétitif (*boilerplate*) pour définir le
 constructeur (`__init__`), la représentation textuelle (`__repr__`) ou les comparaisons (`__eq__`).
@@ -83,16 +83,18 @@ class Etudiant:
     actif: bool = True  # Valeur par défaut
 ```
 
-> ⚠️ **Avertissement pédagogique (Le piège des types mutables) :**
-> On ne peut pas mettre une liste vide `[]` ou un dictionnaire `{}` directement comme valeur par défaut (ex:
-> `notes: list = []` lèvera une erreur). Il faut utiliser la fonction `field` avec `default_factory` :
-> ```python
-> from dataclasses import dataclass, field
-> 
-> @dataclass
-> class Classe:
->     eleves: list = field(default_factory=list) # Crée une nouvelle liste pour chaque instance
-> ```
+
+!!! warning "Avertissement : le piège des types mutables"
+
+    On ne peut pas mettre une liste vide `[]` ou un dictionnaire `{}` directement comme valeur par défaut (ex:
+    `notes: list = []` lèvera une erreur). Il faut utiliser la fonction `field` avec `default_factory` :
+    ```python
+    from dataclasses import dataclass, field
+    
+    @dataclass
+    class Classe:
+      eleves: list = field(default_factory=list) # Crée une nouvelle liste pour chaque instance
+    ```
 
 ---
 
@@ -112,7 +114,7 @@ p = Position(10.5, 20.0)
 # p.x = 15.0  <-- Lèvera une FrozenInstanceError
 ```
 
-L'avantage majeur de `frozen=True` est que l'objet devient **hachable** (`__hash__`). Vos étudiants peuvent ainsi
+L'avantage majeur de `frozen=True` est que l'objet devient **hachable** (`__hash__`). Nous pouvons ainsi
 utiliser ces instances comme **clés dans un dictionnaire** ou dans un **ensemble (`set`)**.
 
 ---

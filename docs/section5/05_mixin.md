@@ -9,7 +9,7 @@ classe de base « principale ». C'est la façon légitime et pratique d'utilise
 
 En général, on évite l'héritage multiple : il rend le code plus complexe et plus difficile à raisonner. Le cas classique
 est le **problème du losange** (diamant) : une classe `D` hérite de `B` et de `C`, qui héritent toutes deux de `A`. Si
-`B` et `C` redéfinissent chacune une méthode de `A`, laquelle `D` doit-elle utiliser? Chaque langage répond à sa manière
+`B` et `C` redéfinissent chacune une méthode de `A`, laquelle `D` doit-elle utiliser ? Chaque langage répond à sa manière
 (héritage virtuel en C++, ordre de résolution C3 en Python, interdiction pure et simple pour les classes en Java), mais
 dans tous les cas le comportement devient difficile à prévoir pour quiconque lit le code.
 
@@ -18,7 +18,7 @@ dans tous les cas le comportement devient difficile à prévoir pour quiconque l
 Un mixin évite ces difficultés en respectant une discipline stricte. Il se distingue d'une classe de base ordinaire par
 les caractéristiques suivantes :
 
-- **Il exprime « peut faire », pas « est un ».** Une classe `Livre` n' *est pas* un `Serialisable`; elle *sait* se
+- **Il exprime « peut faire », pas « est un ».** Une classe `Livre` *n'est pas* un `Serialisable`; elle *sait* se
   sérialiser.
 - **Il a une seule responsabilité**, petite et bien délimitée (journaliser, comparer, convertir en JSON, etc.).
 - **Il n'est jamais instancié seul.** Il n'a de sens que mélangé à une autre classe.
@@ -39,7 +39,7 @@ Les langages n'offrent pas tous le même soutien aux mixins. On distingue trois 
 | Java    | Interfaces avec méthodes `default`      | Partiel : une interface fournit une implémentation par défaut, mais sans état                         |
 | Python  | Héritage multiple de classes ordinaires | Aucun soutien spécifique : un mixin est simplement une classe écrite et utilisée selon une convention |
 
-En Python, il n'existe donc ni mot-clé `mixin` ni vérification par le langage. Tout repose sur l'héritage multiple, sur
+En Python, il n'existe donc ni mot-clé `mixin2.py` ni vérification par le langage. Tout repose sur l'héritage multiple, sur
 l'ordre de résolution des méthodes (MRO) et sur la discipline du programmeur. C'est pourquoi il est essentiel de bien
 comprendre l'héritage multiple, vu à la section précédente, avant d'écrire ses propres mixins.
 
@@ -165,45 +165,12 @@ class ReprMixin:
 
 Plus besoin de réécrire `__repr__` dans chaque classe : on la mélange avec ce mixin.
 
-### Exemple 3 : comparer à partir d'une clé
-
-Ce mixin a une **exigence** envers sa classe hôte : elle doit définir une méthode `_cle()`. On le signale clairement, et
-on fait échouer l'appel si l'exigence n'est pas respectée.
-
-```python
-class ComparableMixin:
-    """Fournit <, <=, > et >= à partir d'une méthode _cle() que la classe doit définir."""
-
-    def _cle(self):
-        raise NotImplementedError("La classe doit définir _cle()")
-
-    def __lt__(self, autre):
-        if not isinstance(autre, ComparableMixin):
-            return NotImplemented
-        return self._cle() < autre._cle()
-
-    def __le__(self, autre):
-        if not isinstance(autre, ComparableMixin):
-            return NotImplemented
-        return self._cle() <= autre._cle()
-
-    def __gt__(self, autre):
-        if not isinstance(autre, ComparableMixin):
-            return NotImplemented
-        return self._cle() > autre._cle()
-
-    def __ge__(self, autre):
-        if not isinstance(autre, ComparableMixin):
-            return NotImplemented
-        return self._cle() >= autre._cle()
-```
-
 ### Combiner les trois
 
 La force des mixins apparaît quand on en assemble plusieurs dans la même classe :
 
 ```python
-class Produit(ReprMixin, JsonMixin, ComparableMixin):
+class Produit(ReprMixin, JsonMixin):
     def __init__(self, nom, prix):
         self.nom = nom
         self.prix = prix
@@ -217,8 +184,6 @@ souris = Produit("Souris", 24.50)
 
 print(clavier)  # Produit(nom='Clavier', prix=49.99)
 print(souris.to_json())  # {"nom": "Souris", "prix": 24.5}
-print(souris < clavier)  # True
-print(sorted([clavier, souris]))  # [Produit(nom='Souris', ...), Produit(nom='Clavier', ...)]
 print(Produit.__mro__)
 # (Produit, ReprMixin, JsonMixin, ComparableMixin, object)
 ```

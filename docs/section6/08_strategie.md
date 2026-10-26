@@ -1,4 +1,4 @@
-# Le Patron de Conception _Stratégie_
+# Patron de Conception : _Stratégie_
 
 ## 1. Discussion Générale : Le Concept
 
@@ -94,7 +94,7 @@ SortContext --> Comparator : uses
 
 **Explication du diagramme :**
 
-- `Comparator` est l' **Interface de Stratégie**.
+- `Comparator` est l'**Interface de Stratégie**.
 - `NameComparator` et `AgeComparator` sont les **Stratégies Concrètes**.
 - `SortContext` (qui représente notre algorithme de tri) est le **Contexte**. Il ne connaît pas les détails du tri, il
   utilise simplement l'interface.
@@ -197,7 +197,7 @@ compare deux autres objets.
 
 ---
 
-### Le pont vers le Patron Stratégie
+### Exemple complet en Java
 
 C'est ici que nous faisons le lien :
 Le `Comparator` est une **Stratégie**. L'algorithme de tri (le contexte) ne sait pas comment comparer les objets ; il
@@ -457,7 +457,7 @@ méthode.
 
 ### 1. Le problème de "l'explosion des classes"
 
-L'approche OO pure peut mener à ce qu'on appelle l' **explosion des classes**. Imaginez une application où vous avez
+L'approche OO pure peut mener à ce qu'on appelle l'**explosion des classes**. Imaginez une application où vous avez
 besoin de 50 critères de tri différents. Créer 50 fichiers `.java` (ex: `TriNomComparator`, `TriDateComparator`,
 `TriPrixComparator`...) rend le projet lourd, difficile à naviguer et verbeux.
 
@@ -534,14 +534,14 @@ L'évolution vers le multi-paradigme a simplifié plusieurs patrons classiques :
 Lorsqu'on conçoit un système de comparaison, on peut être tenté d'utiliser l'héritage pour éviter la duplication de
 code. Analysons pourquoi l'approche moderne privilégie les interfaces et la composition plutôt que l'héritage multiple.
 
-### 1. "Est un" (Is-a) vs "Possède la capacité de" (Can-do)
+### 1. "Est un" (Is-a) vs "Possède la capacité de" (Peut-faire ou Can-do)
 
 En programmation OO, l'héritage doit représenter une relation de type **"Est un"**.
 
 - *Exemple :* Un `Chat` **est un** `Animal`. Cela a du sens.
 - *Problème :* Une `Personne` n'**est pas _un_** `Comparable`. Le fait d'être comparable n'est pas l'essence de ce qu'est
   une personne, c'est une **capacité** (un comportement) que l'on lui ajoute.
-- On pourrait dire qu'une `Personne` **est** `Comparable` en terme de fonctionnalité, mais pas **UN** `Comparable`.
+- On pourrait dire qu'une `Personne` **est** `Comparable` en termes de fonctionnalité, mais pas **UN** `Comparable`.
 - `Comparable` ne représente pas l'identité d'un objet, mais une capacité qu'il peut avoir. Normalement, on utilise un 
   nom pour nommer une classe, et un adjectif pour nommer une interface, à moins qu'une interface représente un rôle 
   (ex. `Comparator`, voir plus bas).
@@ -549,7 +549,7 @@ En programmation OO, l'héritage doit représenter une relation de type **"Est u
 Confondre l'identité d'un objet avec ses capacités mène souvent à des hiérarchies de classes rigides et fragiles. On
 préfère donc utiliser une **Interface** : on ne dit pas que l'objet *est* un Comparable, mais qu'il *implémente* le
 contrat de comparaison. Dans la langue française, et probablement dans d'autres langues également, la différence est 
-subtile : _"est **un** Comparable"_ vs. _"est Compable"_.
+subtile : _"est **un** Comparable"_ vs. _"est Comparable"_.
 
 #### L'Interface comme "Capacité" $\rightarrow$ L'Adjectif
 
@@ -562,7 +562,7 @@ En Java, cela se traduit très souvent par le suffixe **"-able"** (en anglais).
 *   **`Runnable`** : L'objet est *exécutable*.
 
 **L'idée derrière :** On ne dit pas que l'objet *est* un Comparable (comme on dirait qu'une Personne *est* un Humain), 
-mais qu'il *est capable d'être* comparé.
+mais qu'il *peut être* comparé, ou qu'il a la *capacité d'être comparé*.
 
 #### L'Interface comme "Rôle" $\rightarrow$ Le Nom
 
@@ -572,7 +572,6 @@ patrons de conception), on utilise souvent un **nom**. Ce nom décrit l'agent qu
 *   **`Comparator`** : C'est l'objet qui *fait* la comparaison (le Comparateur).
 *   **`Strategy`** : C'est l'objet qui *est* la stratégie.
 *   **`Observer`** : C'est l'objet qui *est* l'observateur.
-*   **`List`** : C'est un objet qui *est* une liste.
 
 **L'idée derrière :** Ici, l'interface ne décrit pas une qualité de l'objet, mais sa fonction dans le système.
 Par exemples, les instances des implémentations de `Comparator` sont des objets qui *font* la comparaison, qui
@@ -600,9 +599,10 @@ Cependant, les langages modernes ont résolu ce problème sans passer par l'hér
 - **En Java :** Les `default methods` dans les interfaces permettent de fournir une implémentation concrète. On peut
   définir une méthode `compare()` et utiliser des méthodes par défaut pour dériver les autres comportements, tout en
   restant dans le cadre d'une interface.
-- **En Python :** Le langage est conçu pour être minimaliste. Pour trier une liste, Python n'a besoin que d'une seule
-  méthode (`__lt__` pour *less than*). Si vous définissez `__lt__`, Python peut souvent en déduire les autres
-  comportements ou simplement ignorer ceux dont il n'a pas besoin pour l'algorithme de tri.
+- **En Python :** Le langage est conçu pour être minimaliste. Pour trier une liste, Python n'a besoin que des
+  méthodes `__eq__` (pour *equals*) et `__lt__` (pour *less than*). Si vous définissez `__eq__` et `__lt__`, Python 
+  peut souvent en déduire les autres comportements ou simplement ignorer ceux dont il n'a pas besoin pour l'algorithme
+  de tri.
 
 #### Diagramme 1 : L'approche par Interface (Le problème de la duplication)
 
@@ -706,7 +706,7 @@ maintenance.
 #### 2. Critique du choix de l'héritage multiple
 
 Bien que l'intention soit louable, cette approche pose plusieurs problèmes fondamentaux au regard des principes de 
-design modernes et des sections précédentes de ton cours :
+design modernes et des sections précédentes :
 
 ##### A. Confusion sémantique ("Is-a" vs "Can-do")
 
@@ -810,6 +810,7 @@ besoin d'une stratégie **unique et cohérente** pour tous les éléments, peu i
 
 Si on décide, pour éviter le problème précédent, que seule la classe `Personne` est `Comparable` et que les sous-classes
 n'outrepassent pas la méthode :
+
 - On perd la capacité de trier les étudiants par moyenne ou les professeurs par ancienneté. On est condamné au tri par 
   ID pour tout le monde.
 
@@ -831,6 +832,7 @@ Au lieu de demander à l'objet "Comment te compares-tu ?", on utilise un objet e
 ces deux objets".
 
 **L'approche moderne :**
+
 1.  `Personne`, `Etudiant`, et `Professeur` sont de simples classes de données (POJO).
 2.  On crée des stratégies distinctes :
     *   `IdComparator` $\rightarrow$ Trie n'importe quelle `Personne` par ID.
@@ -838,6 +840,7 @@ ces deux objets".
     *   `ProfesseurAncienneteComparator` $\rightarrow$ Trie des `Professeurs` par ancienneté.
 
 **Pourquoi c'est supérieur ?**
+
 - **Cohérence :** Si on trie une liste mixte de personnes, on utilise le `IdComparator`. Chaque élément est traité avec
   la **même règle**, garantissant la symétrie et la stabilité du tri.
 - **Flexibilité :** On peut trier la même liste de personnes par ID le matin, et par Nom l'après-midi, sans modifier 
@@ -845,7 +848,7 @@ ces deux objets".
 - **Découplage :** La hiérarchie des classes représente le **domaine** (qui est qui), et les comparateurs représentent 
   les **besoins métiers** (comment on trie).
 
-### Résumé final pour les étudiants :
+### Résumé final :
 
 L'héritage est utile pour partager des attributs et des comportements **intrinsèques**. Mais pour des comportements 
 **interchangeables** (comme le tri), l'héritage est un piège. **La composition (via le patron Stratégie) est la seule 
@@ -868,7 +871,7 @@ Le SRP stipule qu'une classe ne doit avoir qu'une seule raison de changer.
   deux responsabilités :
     1. Représenter les données d'une personne (Entité/Domaine).
     2. Définir comment on compare deux personnes (Logique métier). *Si la règle de tri change, on doit modifier la
-       classe `Personne`, ce qui est incohérent car les données de la personne n'ont pas changé, seule la règle de tri a
+       classe `Personne`, ce qui est incohérent, car les données de la personne n'ont pas changé, seule la règle de tri a
        évolué.*
 - **Avec Stratégie :** La classe `Personne` s'occupe uniquement de ses données. La responsabilité de la comparaison est
   déléguée à une classe `Comparator` ou une fonction lambda. Chaque entité a désormais une seule responsabilité.

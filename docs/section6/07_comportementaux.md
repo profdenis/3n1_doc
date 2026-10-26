@@ -1,4 +1,4 @@
-# Design Patterns : Comportementaux (Behavioral)
+# Patrons de conception : Comportementaux (Behavioral)
 
 ## Itérateur (*Iterator*, *Enumerator*, *Cursor*)
 

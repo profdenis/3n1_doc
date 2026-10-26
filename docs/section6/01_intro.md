@@ -1,43 +1,38 @@
-# De l'Architecture Classique à l'Agilité des Langages Modernes
+# Patrons de conception
 
-### *L'évolution des modèles de conception face à l'essor du multiparadigme*
+Les _design patterns_ ou **patrons de conception** en français, sont des solutions générales réutilisables à des
+problèmes communs rencontrés dans la conception logicielle. Ce sont essentiellement des _modèles_ ou des _schémas_
+éprouvés qui peuvent aider à résoudre certains problèmes de conception spécifiques.
 
----
+Ces patrons fournissent un moyen standard de résoudre des problèmes connus et récurrents, ce qui permet aux
+développeurs de ne pas réinventer la roue à chaque fois qu'ils rencontrent ces problèmes.
 
-## 1. Le Modèle MVC Classique : La Triade Fondamentale
+Ils peuvent être classés en trois catégories principales :
 
-L'architecture **MVC (Modèle-Vue-Contrôleur)** est née de la volonté de séparer la gestion des données de leur
-représentation visuelle. L'idée est de diviser une application en trois composants distincts :
+1. **Patrons de création** : Ces patrons sont conçus pour aider à la création d'objets tout en cachant les détails de
+   leur création. Ils encapsulent la connaissance sur quels objets concrets le système utilise, mais ils cachent
+   également comment ces instances sont créées et mises ensemble. Des exemples incluent le _Singleton_, _Factory
+   Method_, _Abstract Factory_, _Prototype_ et _Builder_.
 
-* **Le Modèle (Model) :** La "source de vérité". Il contient les données brutes et la logique métier (ex: calculs, accès
-  à la base de données). Il ne sait pas comment il est affiché.
-* **La Vue (View) :** La représentation visuelle des données. Elle "observe" le modèle et se met à jour quand celui-ci
-  change.
-* **Le Contrôleur (Controller) :** Le chef d'orchestre. Il reçoit les entrées utilisateur (clics, touches), les traduit
-  en commandes et les transmet au Modèle ou à la Vue.
+2. **Patrons de structure** : Ces patrons concernent la composition de classes ou d'objets pour former de nouvelles
+   structures plus grandes. Ils expliquent comment assembler les objets et les classes pour former des structures plus
+   grandes. Des exemples incluent le _Adapter_, _Bridge_, _Composite_, _Decorator_, _Facade_, _Flyweight_ et _Proxy_.
 
-**Le problème historique :** Dans les langages de programmation strictement orientés-objets (comme les premières
-versions de Java), le Contrôleur est une entité nécessaire pour faire le pont. Cela crée une séparation nette, mais
-aussi une complexité structurelle importante (beaucoup de classes "intermédiaires").
+3. **Patrons de comportement** : Ces patrons se concentrent sur l'interaction entre les objets, comment ils
+   communiquent et comment certains objets sont contrôlés par d'autres. Des exemples incluent le _Chain of
+   Responsibility_, _Command_, _Interpreter_, _Iterator_, _Mediator_, _Memento_, _Observer_ (ou _Publish/Subscribe_),
+   _State_, _Strategy_, _Template Method_ et _Visitor_.
 
----
-
-## 2. L'approche Qt/PySide6 : Le modèle MVD
-
-Dans les frameworks modernes comme **Qt (PySide6)**, le MVC a évolué vers le modèle **MVD (Modèle-Vue-Delegate)**. La
-distinction est subtile mais fondamentale : le "Contrôleur" est en grande partie absorbé par deux mécanismes :
-
-1. **Le mécanisme de Signal/Slot :** Il permet de lier une action (un signal) à une fonction (un slot) de manière
-   extrêmement directe, rendant la classe "Contrôleur" souvent superflue.
-2. **Le Déléguer (Delegate) :** Il gère à la fois l'affichage spécialisé (ex: une barre de progression dans une cellule)
-   et l'interaction (l'édition d'une cellule).
+Les _design patterns_ sont un outil de communication puissant entre les développeurs. En disant, par exemple, "Utilisons
+le patron Strategy ici", vous communiquez beaucoup d'informations sur la manière dont vous envisagez de résoudre
+un problème de conception.
 
 ---
 
-## 3. L'Évolution des Design Patterns et l'Impact du Multiparadigme
+## L'Évolution des Design Patterns et l'Impact du Multiparadigme
 
-L'arrivée des langages **multiparadigmes** (Python, C++, Java moderne) a radicalement modifié l'utilisation des Design
-Patterns classiques décrits par le *Gang of Four (GoF)*.
+L'arrivée des langages **multiparadigmes** (Python, Java moderne, Kotlin, ...) a radicalement modifié l'utilisation des
+Design Patterns classiques décrits par le *Gang of Four (GoF)*.
 
 ### L'influence des fonctions de première classe
 
@@ -54,11 +49,15 @@ maintenant le travail que le pattern faisait auparavant.
     * *Avant :* On créait une classe `UndoCommand` avec une méthode `execute()`.
     * *Maintenant :* On passe simplement une fonction (ou une lambda) à un gestionnaire. Le pattern est devenu une
       simple instruction de langage.
+    * Avec Qt/PySide6, on peut connecter une fonction à un signal sans avoir à créer une classe spécifique.
 * **Le Pattern Strategy :**
     * *Avant :* On définissait une interface `Strategy` et plusieurs classes concrètes (ex: `CalculRapide`,
       `CalculLent`).
     * *Maintenant :* On passe directement une fonction de calcul en paramètre. L'objet n'a plus besoin de connaître la
       hiérarchie de classes, il a seulement besoin de savoir qu'il peut "appeler" cet objet.
+    * Exemple en Python : pour trier une liste de nombres, on peut utiliser la fonction `sorted()` avec une fonction de
+      comparaison personnalisée. Pas besoin de créer une classe spécifique (comme une implémentation de `Comparator` en
+      Java) pour chaque stratégie de tri.
 
 ### Vers la Composition plutôt que l'Héritage
 
