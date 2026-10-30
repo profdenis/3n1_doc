@@ -12,6 +12,7 @@ dependencies = [
     { name = "mkdocs-material" },
     { name = "mkdocs-puml" },
     { name = "psycopg2-binary" },
+    { name = "pygame" },
     { name = "pyside6" },
     { name = "pytest" },
 ]
@@ -23,6 +24,7 @@ requires-dist = [
     { name = "mkdocs-material", specifier = "==9.7.6" },
     { name = "mkdocs-puml", specifier = "==2.3.0" },
     { name = "psycopg2-binary", specifier = ">=2.9.12" },
+    { name = "pygame", specifier = ">=2.6.1" },
     { name = "pyside6", specifier = ">=6.11.1" },
     { name = "pytest", specifier = ">=9.1.1" },
 ]
@@ -468,6 +470,12 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/1d/f2/10a1bcebadb6aa55e280e1f58975c36a7b560ea525184c7aa4064c466633/psycopg2_binary-2.9.12-cp314-cp314-musllinux_1_2_x86_64.whl", hash = "sha256:527e6342b3e44c2f0544f6b8e927d60de7f163f5723b8f1dfa7d2a84298738cd", size = 3351466, upload-time = "2026-04-20T23:35:43.993Z" },
     { url = "https://files.pythonhosted.org/packages/20/be/b732c8418ffa5bcfda002890f5dc4c869fc17db66ff11f53b17cfe44afc0/psycopg2_binary-2.9.12-cp314-cp314-win_amd64.whl", hash = "sha256:f12ae41fcafadb39b2785e64a40f9db05d6de2ac114077457e0e7c597f3af980", size = 2848762, upload-time = "2026-04-20T23:35:46.421Z" },
 ]
+
+[[package]]
+name = "pygame"
+version = "2.6.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/49/cc/08bba60f00541f62aaa252ce0cfbd60aebd04616c0b9574f755b583e45ae/pygame-2.6.1.tar.gz", hash = "sha256:56fb02ead529cee00d415c3e007f75e0780c655909aaa8e8bf616ee09c9feb1f", size = 14808125, upload-time = "2024-09-29T13:41:34.698Z" }
 
 [[package]]
 name = "pygments"
