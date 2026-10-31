@@ -14,7 +14,7 @@
         <link rel="prev" href="../03_creation1_fabrique/">
       
       
-        <link rel="next" href="../05_structuraux/">
+        <link rel="next" href="../05_injection_dependance/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Design Patterns : Création (Deuxième Partie) - Cours de programmation orientée objet 2</title>
+        <title>Patrons de conception : Création (Deuxième Partie) - Cours de programmation orientée objet 2</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#design-patterns-creation-deuxieme-partie" class="md-skip">
+        <a href="#patrons-de-conception-creation-deuxieme-partie" class="md-skip">
           Aller au contenu
         </a>
       
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Design Patterns : Création (Deuxième Partie)
+              Patrons de conception : Création (Deuxième Partie)
             
           </span>
         </div>
@@ -388,7 +388,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../01_principes_OO/" class="md-tabs__link">
+        <a href="../01_intro/" class="md-tabs__link">
           
   
   
@@ -3173,7 +3173,7 @@
   <span class="md-ellipsis">
     
   
-    Les Énumérations (Enums) en Python
+    Les Énumérations (Enums)
   
 
     
@@ -3258,35 +3258,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01_principes_OO/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Principes de Conception Orientée Objet
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../02_Patrons_de_conception/" class="md-nav__link">
+      <a href="../01_intro/" class="md-nav__link">
         
   
   
@@ -3314,6 +3286,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../02_principes_OO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Principes de Conception Orientée Objet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../03_creation1_fabrique/" class="md-nav__link">
         
   
@@ -3321,7 +3321,7 @@
   <span class="md-ellipsis">
     
   
-    Design Patterns : Création (Première Partie)
+    Patrons de conception : Création (Première Partie)
   
 
     
@@ -3358,7 +3358,7 @@
   <span class="md-ellipsis">
     
   
-    Design Patterns : Création (Deuxième Partie)
+    Patrons de conception : Création (Deuxième Partie)
   
 
     
@@ -3376,7 +3376,7 @@
   <span class="md-ellipsis">
     
   
-    Design Patterns : Création (Deuxième Partie)
+    Patrons de conception : Création (Deuxième Partie)
   
 
     
@@ -3433,13 +3433,69 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Mise en contexte">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#difference-avec-les-fabriques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Différence avec les Fabriques
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
   <a href="#d-tails_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Détails
+        Structure et fonctionnement
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Structure et fonctionnement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemple-dutilisation-moderne-interface-fluide-method-chaining" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemple d&rsquo;utilisation moderne (Interface fluide / Method Chaining)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problemes-potentiels-et-limites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problèmes potentiels et limites
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pertinence-moderne-et-approche-multiparadigme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pertinence moderne et approche multiparadigme
       
     </span>
   </a>
@@ -3489,7 +3545,29 @@
   <a href="#d-tails_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Détails
+        Détails : Copie de surface vs Copie en profondeur
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problemes-potentiels-et-limites_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problèmes potentiels et limites
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pertinence-moderne-et-approche-multiparadigme_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pertinence moderne et approche multiparadigme
       
     </span>
   </a>
@@ -3514,7 +3592,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#intention" class="md-nav__link">
+  <a href="#intention_3" class="md-nav__link">
     <span class="md-ellipsis">
       
         Intention
@@ -3525,7 +3603,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#mise-en-contexte" class="md-nav__link">
+  <a href="#mise-en-contexte_3" class="md-nav__link">
     <span class="md-ellipsis">
       
         Mise en contexte
@@ -3536,10 +3614,66 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#details" class="md-nav__link">
+  <a href="#d-tails_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Détails
+        Structure et implémentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problemes-potentiels-et-pieges-majeurs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problèmes potentiels et pièges majeurs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Problèmes potentiels et pièges majeurs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-le-syndrome-du-god-object-objet-divin-fourre-tout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Le syndrome du &ldquo;God Object&rdquo; (Objet Divin / Fourre-tout)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-etat-global-cache-et-couplage-fort" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. État global caché et couplage fort
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-lennemi-numero-1-des-tests-unitaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. L&rsquo;ennemi numéro 1 des tests unitaires
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-concurrence-et-thread-safety" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Concurrence et Thread Safety
       
     </span>
   </a>
@@ -3548,6 +3682,78 @@
         
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pertinence-moderne-et-alternatives-recommandees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pertinence moderne et alternatives recommandées
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pertinence moderne et alternatives recommandées">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-linjection-de-dependances-dependency-injection-di-et-les-conteneurs-ioc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. L&rsquo;Injection de Dépendances (Dependency Injection - DI) et les Conteneurs IoC
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. L’Injection de Dépendances (Dependency Injection - DI) et les Conteneurs IoC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quest-ce-que-linversion-de-controle-ioc-et-un-conteneur-ioc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Qu&rsquo;est-ce que l&rsquo;Inversion de Contrôle (IoC) et un conteneur IoC ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-les-modules-python-comme-singletons-naturels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Les modules Python comme Singletons naturels
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#synthese-comparative-des-patrons-de-creation-partie-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Synthèse comparative des patrons de création (Partie 2)
+      
+    </span>
+  </a>
   
 </li>
       
@@ -3567,14 +3773,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../05_structuraux/" class="md-nav__link">
+      <a href="../05_injection_dependance/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Design Patterns : Structuraux
+    L&rsquo;Injection de Dépendances (Dependency Injection)
   
 
     
@@ -3595,14 +3801,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../06_comportementaux/" class="md-nav__link">
+      <a href="../06_structuraux/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Design Patterns : Comportementaux (Behavioral)
+    Patrons de Conception : Structuraux
   
 
     
@@ -3623,14 +3829,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../07_strategie/" class="md-nav__link">
+      <a href="../07_comportementaux/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Le Patron de Conception Stratégie
+    Patrons de conception : Comportementaux (Behavioral)
   
 
     
@@ -3651,7 +3857,63 @@
   
   
     <li class="md-nav__item">
-      <a href="../08_cas_personne/" class="md-nav__link">
+      <a href="../08_strategie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Patron de Conception : Stratégie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_strategie_mixin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Approche hybride : Le Mixin comme injecteur de Stratégie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_cas_personne/" class="md-nav__link">
         
   
   
@@ -3659,6 +3921,34 @@
     
   
     Modélisation Avancée et la Gestion des Rôles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_proxy_qt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Le Modèle Proxy dans Qt/PySide6
   
 
     
@@ -3943,13 +4233,69 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Mise en contexte">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#difference-avec-les-fabriques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Différence avec les Fabriques
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
   <a href="#d-tails_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Détails
+        Structure et fonctionnement
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Structure et fonctionnement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemple-dutilisation-moderne-interface-fluide-method-chaining" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemple d&rsquo;utilisation moderne (Interface fluide / Method Chaining)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problemes-potentiels-et-limites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problèmes potentiels et limites
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pertinence-moderne-et-approche-multiparadigme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pertinence moderne et approche multiparadigme
       
     </span>
   </a>
@@ -3999,7 +4345,29 @@
   <a href="#d-tails_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Détails
+        Détails : Copie de surface vs Copie en profondeur
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problemes-potentiels-et-limites_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problèmes potentiels et limites
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pertinence-moderne-et-approche-multiparadigme_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pertinence moderne et approche multiparadigme
       
     </span>
   </a>
@@ -4024,7 +4392,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#intention" class="md-nav__link">
+  <a href="#intention_3" class="md-nav__link">
     <span class="md-ellipsis">
       
         Intention
@@ -4035,7 +4403,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#mise-en-contexte" class="md-nav__link">
+  <a href="#mise-en-contexte_3" class="md-nav__link">
     <span class="md-ellipsis">
       
         Mise en contexte
@@ -4046,10 +4414,66 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#details" class="md-nav__link">
+  <a href="#d-tails_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Détails
+        Structure et implémentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problemes-potentiels-et-pieges-majeurs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problèmes potentiels et pièges majeurs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Problèmes potentiels et pièges majeurs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-le-syndrome-du-god-object-objet-divin-fourre-tout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Le syndrome du &ldquo;God Object&rdquo; (Objet Divin / Fourre-tout)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-etat-global-cache-et-couplage-fort" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. État global caché et couplage fort
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-lennemi-numero-1-des-tests-unitaires" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. L&rsquo;ennemi numéro 1 des tests unitaires
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-concurrence-et-thread-safety" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Concurrence et Thread Safety
       
     </span>
   </a>
@@ -4058,6 +4482,78 @@
         
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pertinence-moderne-et-alternatives-recommandees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pertinence moderne et alternatives recommandées
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pertinence moderne et alternatives recommandées">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-linjection-de-dependances-dependency-injection-di-et-les-conteneurs-ioc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. L&rsquo;Injection de Dépendances (Dependency Injection - DI) et les Conteneurs IoC
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. L’Injection de Dépendances (Dependency Injection - DI) et les Conteneurs IoC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quest-ce-que-linversion-de-controle-ioc-et-un-conteneur-ioc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Qu&rsquo;est-ce que l&rsquo;Inversion de Contrôle (IoC) et un conteneur IoC ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-les-modules-python-comme-singletons-naturels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Les modules Python comme Singletons naturels
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#synthese-comparative-des-patrons-de-creation-partie-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Synthèse comparative des patrons de création (Partie 2)
+      
+    </span>
+  </a>
   
 </li>
       
@@ -4104,7 +4600,7 @@
     
     
       <li class="md-path__item">
-        <a href="../01_principes_OO/" class="md-path__link">
+        <a href="../01_intro/" class="md-path__link">
           
   <span class="md-ellipsis">
     6. Patrons de conception
@@ -4129,140 +4625,347 @@
   
 
 
-<h1 id="design-patterns-creation-deuxieme-partie">Design Patterns : Création (Deuxième Partie)<a class="headerlink" href="#design-patterns-creation-deuxieme-partie" title="Permanent link">&para;</a></h1>
+<h1 id="patrons-de-conception-creation-deuxieme-partie">Patrons de conception : Création (Deuxième Partie)<a class="headerlink" href="#patrons-de-conception-creation-deuxieme-partie" title="Permanent link">&para;</a></h1>
+<p>Dans ce chapitre, nous explorons trois autres patrons de conception de création du <em>Gang of Four</em> (GoF) : le <strong>Monteur</strong>
+(<em>Builder</em>), le <strong>Prototype</strong> et le <strong>Singleton</strong>.</p>
+<p>Nous analyserons leur intention d&rsquo;origine, leur implémentation, ainsi que leurs <strong>limites critiques</strong> et leur <strong>degré de
+pertinence dans les langages multiparadigmes modernes</strong> (comme Python, Kotlin ou TypeScript).</p>
+<hr />
 <h2 id="monteur-builder">Monteur (<em>Builder</em>)<a class="headerlink" href="#monteur-builder" title="Permanent link">&para;</a></h2>
 <h3 id="intention_1">Intention<a class="headerlink" href="#intention_1" title="Permanent link">&para;</a></h3>
-<p>Construire un objet complexe étape par étape.</p>
+<p>Séparer la construction d&rsquo;un objet complexe de sa représentation finale, de façon à ce que le même processus de
+construction puisse produire différentes représentations ou configurations de l&rsquo;objet étape par étape.</p>
 <h3 id="mise-en-contexte_1">Mise en contexte<a class="headerlink" href="#mise-en-contexte_1" title="Permanent link">&para;</a></h3>
-<p>Différence avec une fabrique abstraite :</p>
+<h4 id="difference-avec-les-fabriques">Différence avec les Fabriques<a class="headerlink" href="#difference-avec-les-fabriques" title="Permanent link">&para;</a></h4>
 <ul>
-<li><strong>Fabrique abstraite</strong> : construire des objets, <em>simples</em> ou <em>complexes</em>, d&rsquo;une <em>même famille</em><ul>
-<li>construire des <code>Shape</code>s de toutes sortes</li>
+<li><strong>Fabrique Abstraite (<em>Abstract Factory</em>)</strong> : se concentre sur la création immédiate de <strong>familles d&rsquo;objets complets</strong>
+  (ex. créer un ensemble cohérent de boutons, fenêtres et menus pour un thème donné).</li>
+<li><strong>Monteur (<em>Builder</em>)</strong> : se concentre sur la <strong>construction pas-à-pas</strong> d&rsquo;un seul objet complexe comportant de
+  multiples composants, étapes ou options de configuration.</li>
 </ul>
-</li>
-<li><strong>Monteur</strong> : construire un objet <em>complexe étape par étape</em>.<ul>
-<li>Construire des <code>Shape</code>s complexes composées de plusieurs autres formes</li>
-</ul>
-</li>
-</ul>
-<h3 id="d-tails_1">Détails<a class="headerlink" href="#d-tails_1" title="Permanent link">&para;</a></h3>
-<p>Exemple dans <a href="https://en.wikipedia.org/wiki/Design_Patterns">GoF</a> : Labyrinthe.</p>
-<p>Créer des labyrinthes étape par étape :</p>
+<h3 id="d-tails_1">Structure et fonctionnement<a class="headerlink" href="#d-tails_1" title="Permanent link">&para;</a></h3>
+<p>Le patron repose traditionnellement sur quatre acteurs :</p>
 <ol type="1">
-<li>Construire un labyrinthe vide</li>
-<li>Ajouter des salles</li>
-<li>Ajouter des portes</li>
-<li>etc.</li>
+<li><strong>Monteur Abstrait (<code>Monteur</code>)</strong> : définit les étapes communes de construction (ex. <code>ajouter_salle()</code>,
+   <code>ajouter_porte()</code>).</li>
+<li><strong>Monteur Concret (<code>MonteurLabyrintheStandard</code>, <code>MonteurLabyrinthePiege</code>)</strong> : implémente les étapes et assemble
+   l&rsquo;objet final.</li>
+<li><strong>Directeur (<code>DirecteurJeu</code>)</strong> : orchestre l&rsquo;ordre d&rsquo;exécution des étapes de construction.</li>
+<li><strong>Produit (<code>Labyrinthe</code>)</strong> : l&rsquo;objet résultant complexe.</li>
 </ol>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>@startuml
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>skinparam classAttributeIconSize 0
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>abstract MazeBuilder {
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>  +{abstract} BuildMaze()
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  +{abstract} BuildRoom()
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>  +{abstract} BuildDoor()
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>  +{abstract} GetMaze()
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>}
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>class Maze {
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>}
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>MazeBuilder --&gt; Maze
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>@enduml
+<div class='puml-container'><div class="puml light" style="display: block"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" data-diagram-type="CLASS" style="width:862px;height:325px;background:#FFFFFF;" width="862px" height="325px" viewBox="0 0 862 325" zoomAndPan="magnify" preserveAspectRatio="xMidYMid meet" contentStyleType="text/css" class="diagram"><?plantuml 1.2026.9beta4?><defs/><g font-family="sans-serif" lengthAdjust="spacing"><g class="entity" data-qualified-name="Directeur" id="ent0001" data-source-line="3"><rect x="7" y="15.15" width="258.784" height="96.891" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><ellipse cx="99.408" cy="31.15" rx="11" ry="11" fill="#ADD1B2" style="stroke:#181818;stroke-width:1;"/><path d="M102.377,36.791 Q101.799,37.088 101.158,37.228 Q100.518,37.384 99.814,37.384 Q97.314,37.384 95.986,35.744 Q94.674,34.088 94.674,30.963 Q94.674,27.838 95.986,26.181 Q97.314,24.525 99.814,24.525 Q100.518,24.525 101.158,24.681 Q101.814,24.838 102.377,25.134 L102.377,27.853 Q101.752,27.275 101.158,27.009 Q100.564,26.728 99.939,26.728 Q98.596,26.728 97.908,27.806 Q97.221,28.869 97.221,30.963 Q97.221,33.056 97.908,34.134 Q98.596,35.197 99.939,35.197 Q100.564,35.197 101.158,34.931 Q101.752,34.65 102.377,34.072 L102.377,36.791 Z " fill="#000"/><text x="119.908" y="35.997" fill="#000" font-size="14" textLength="65.468">Directeur</text><line x1="8" y1="47.15" x2="264.784" y2="47.15" style="stroke:#181818;stroke-width:0.5;"/><text x="13" y="64.145" fill="#000" font-size="14" textLength="207.32">-monteur: MonteurLabyrinthe</text><line x1="8" y1="71.447" x2="264.784" y2="71.447" style="stroke:#181818;stroke-width:0.5;"/><text x="13" y="88.442" fill="#000" font-size="14" textLength="224.807">+construire_labyrinthe_simple()</text><text x="13" y="104.739" fill="#000" font-size="14" textLength="246.784">+construire_labyrinthe_complexe()</text></g><g class="entity" data-qualified-name="MonteurLabyrinthe" id="ent0002" data-source-line="9"><rect x="340.03" y="7" width="306.725" height="113.188" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><ellipse cx="422.495" cy="23" rx="11" ry="11" fill="#A9DCDF" style="stroke:#181818;stroke-width:1;"/><path d="M422.605,18.344 L421.448,23.422 L423.777,23.422 L422.605,18.344 Z M421.12,16.109 L424.105,16.109 L427.464,28.5 L425.011,28.5 L424.245,25.438 L420.964,25.438 L420.214,28.5 L417.777,28.5 L421.12,16.109 Z " fill="#000"/><text x="442.995" y="27.847" fill="#000" font-size="14" textLength="133.294" font-style="italic">MonteurLabyrinthe</text><line x1="341.03" y1="39" x2="645.755" y2="39" style="stroke:#181818;stroke-width:0.5;"/><line x1="341.03" y1="47" x2="645.755" y2="47" style="stroke:#181818;stroke-width:0.5;"/><text x="346.03" y="63.995" fill="#000" font-size="14" textLength="101.076" font-style="italic">+reinitialiser()</text><text x="346.03" y="80.292" fill="#000" font-size="14" textLength="178.356" font-style="italic">+construire_piece(id: int)</text><text x="346.03" y="96.589" fill="#000" font-size="14" textLength="294.725" font-style="italic">+construire_porte(piece1: int, piece2: int)</text><text x="346.03" y="112.886" fill="#000" font-size="14" textLength="217.923" font-style="italic">+obtenir_resultat(): Labyrinthe</text></g><g class="entity" data-qualified-name="MonteurLabyrintheStandard" id="ent0003" data-source-line="16"><rect x="340.03" y="181.19" width="306.725" height="129.484" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><ellipse cx="390.527" cy="197.19" rx="11" ry="11" fill="#ADD1B2" style="stroke:#181818;stroke-width:1;"/><path d="M393.496,202.831 Q392.918,203.128 392.277,203.268 Q391.636,203.424 390.933,203.424 Q388.433,203.424 387.105,201.784 Q385.793,200.128 385.793,197.003 Q385.793,193.878 387.105,192.221 Q388.433,190.565 390.933,190.565 Q391.636,190.565 392.277,190.721 Q392.933,190.878 393.496,191.174 L393.496,193.893 Q392.871,193.315 392.277,193.049 Q391.683,192.768 391.058,192.768 Q389.715,192.768 389.027,193.846 Q388.34,194.909 388.34,197.003 Q388.34,199.096 389.027,200.174 Q389.715,201.237 391.058,201.237 Q391.683,201.237 392.277,200.971 Q392.871,200.69 393.496,200.112 L393.496,202.831 Z " fill="#000"/><text x="411.027" y="202.037" fill="#000" font-size="14" textLength="197.23">MonteurLabyrintheStandard</text><line x1="341.03" y1="213.19" x2="645.755" y2="213.19" style="stroke:#181818;stroke-width:0.5;"/><text x="346.03" y="230.185" fill="#000" font-size="14" textLength="160.398">-labyrinthe: Labyrinthe</text><line x1="341.03" y1="237.487" x2="645.755" y2="237.487" style="stroke:#181818;stroke-width:0.5;"/><text x="346.03" y="254.482" fill="#000" font-size="14" textLength="101.076">+reinitialiser()</text><text x="346.03" y="270.779" fill="#000" font-size="14" textLength="178.356">+construire_piece(id: int)</text><text x="346.03" y="287.076" fill="#000" font-size="14" textLength="294.725">+construire_porte(piece1: int, piece2: int)</text><text x="346.03" y="303.373" fill="#000" font-size="14" textLength="217.923">+obtenir_resultat(): Labyrinthe</text></g><g class="entity" data-qualified-name="Labyrinthe" id="ent0004" data-source-line="24"><rect x="740.87" y="205.63" width="107.045" height="80.594" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><ellipse cx="755.87" cy="221.63" rx="11" ry="11" fill="#ADD1B2" style="stroke:#181818;stroke-width:1;"/><path d="M758.839,227.271 Q758.261,227.568 757.62,227.708 Q756.979,227.864 756.276,227.864 Q753.776,227.864 752.448,226.224 Q751.136,224.568 751.136,221.443 Q751.136,218.318 752.448,216.661 Q753.776,215.005 756.276,215.005 Q756.979,215.005 757.62,215.161 Q758.276,215.318 758.839,215.614 L758.839,218.333 Q758.214,217.755 757.62,217.489 Q757.026,217.208 756.401,217.208 Q755.058,217.208 754.37,218.286 Q753.683,219.349 753.683,221.443 Q753.683,223.536 754.37,224.614 Q755.058,225.677 756.401,225.677 Q757.026,225.677 757.62,225.411 Q758.214,225.13 758.839,224.552 L758.839,227.271 Z " fill="#000"/><text x="769.87" y="226.477" fill="#000" font-size="14" textLength="75.045">Labyrinthe</text><line x1="741.87" y1="237.63" x2="846.915" y2="237.63" style="stroke:#181818;stroke-width:0.5;"/><text x="746.87" y="254.625" fill="#000" font-size="14" textLength="79.775">-pieces: list</text><text x="746.87" y="270.922" fill="#000" font-size="14" textLength="79.386">-portes: list</text><line x1="741.87" y1="278.224" x2="846.915" y2="278.224" style="stroke:#181818;stroke-width:0.5;"/></g><g class="link" data-entity-1="ent0001" data-entity-2="ent0002" id="lnk5" data-source-line="29" data-link-type="aggregation"><path d="M278.03,63.59 C301.97,63.59 310.17,63.59 334.74,63.59" style="stroke:#181818;stroke-width:1;" fill="none" id="Directeur-MonteurLabyrinthe" codeLine="29"/><polygon points="266.03,63.59,272.03,67.59,278.03,63.59,272.03,59.59,266.03,63.59" fill="none" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><polygon points="339.74,63.59,330.74,59.59,334.74,63.59,330.74,67.59,339.74,63.59" fill="#181818" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="283.91" y="56.657" fill="#000" font-size="13" textLength="38.943">utilise</text></g><g class="link" data-entity-1="ent0002" data-entity-2="ent0003" id="lnk6" data-source-line="30" data-link-type="extension"><path d="M493.39,138.66 C493.39,157.69 493.39,161.09 493.39,180.7" style="stroke:#181818;stroke-width:1;" fill="none" id="MonteurLabyrinthe-backto-MonteurLabyrintheStandard" codeLine="30"/><polygon points="493.39,120.66,487.39,138.66,499.39,138.66,493.39,120.66" fill="none" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/></g><g class="link" data-entity-1="ent0003" data-entity-2="ent0004" id="lnk7" data-source-line="31" data-link-type="dependency"><path d="M646.98,245.93 C680.6,245.93 709.02,245.93 735.52,245.93" style="stroke:#181818;stroke-width:1;stroke-dasharray:7,7;" fill="none" id="MonteurLabyrintheStandard-to-Labyrinthe" codeLine="31"/><polygon points="740.52,245.93,731.52,241.93,735.52,245.93,731.52,249.93,740.52,245.93" fill="#181818" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="664.81" y="238.997" fill="#000" font-size="13" textLength="58.684">instancie</text></g><?plantuml-src bLB1IiGm4BtdA-ROPQseno8BWXV1FUq7b3GTSB1DocGAgsl_tJIbRjUsYzuolFVovht4lvDjDEiQJAMzVn9XAbh15-FiWJuHxfIA23mJen5i6KuA8AsTxOSCziFXLHSVJ5RUCA3ReFR2RP3arG-GUwgR2fFDEiEudd7iEPrIkWWKRMJORUuKDzcUHbe7Z6H9I5VaaGUV2JgnR0WD9bHc42wwndCic4JsVUJUG1mU5eMk4BJ4EQDlAz6IR3AOzDADLSw274JRKdCvL7lkuq8Ul1RoNGtrloH_NV_N0wJn7fz1s4hYt5kDSr2TVuvBTmklc44hr4TIS-pnAqtN-rBhJTxkuCA2GXFQ6i9l?></g></svg></div></div>
+
+<h4 id="exemple-dutilisation-moderne-interface-fluide-method-chaining">Exemple d&rsquo;utilisation moderne (Interface fluide / <em>Method Chaining</em>)<a class="headerlink" href="#exemple-dutilisation-moderne-interface-fluide-method-chaining" title="Permanent link">&para;</a></h4>
+<p>En pratique, le directeur est souvent omis au profit d&rsquo;un chaînage de méthodes direct (<em>Fluent Interface</em>) :</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">RequeteHttp</span><span class="p">:</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">methode</span> <span class="o">=</span> <span class="s2">&quot;GET&quot;</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">en_tetes</span> <span class="o">=</span> <span class="p">{}</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">corps</span> <span class="o">=</span> <span class="kc">None</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="mi">30</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="k">class</span><span class="w"> </span><span class="nc">RequeteHttpMonteur</span><span class="p">:</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_requete</span> <span class="o">=</span> <span class="n">RequeteHttp</span><span class="p">()</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">avec_url</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;RequeteHttpMonteur&quot;</span><span class="p">:</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_requete</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="n">url</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>        <span class="k">return</span> <span class="bp">self</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">avec_methode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">methode</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;RequeteHttpMonteur&quot;</span><span class="p">:</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_requete</span><span class="o">.</span><span class="n">methode</span> <span class="o">=</span> <span class="n">methode</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>        <span class="k">return</span> <span class="bp">self</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">avec_en_tete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cle</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">valeur</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;RequeteHttpMonteur&quot;</span><span class="p">:</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_requete</span><span class="o">.</span><span class="n">en_tetes</span><span class="p">[</span><span class="n">cle</span><span class="p">]</span> <span class="o">=</span> <span class="n">valeur</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>        <span class="k">return</span> <span class="bp">self</span>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">avec_timeout</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">secondes</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;RequeteHttpMonteur&quot;</span><span class="p">:</span>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_requete</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="n">secondes</span>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>        <span class="k">return</span> <span class="bp">self</span>
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">construire</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">RequeteHttp</span><span class="p">:</span>
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>        <span class="c1"># Validation possible avant livraison</span>
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_requete</span><span class="o">.</span><span class="n">url</span><span class="p">:</span>
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;L&#39;URL est obligatoire.&quot;</span><span class="p">)</span>
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_requete</span>
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a><span class="c1"># Utilisation fluide :</span>
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a><span class="n">requete</span> <span class="o">=</span> <span class="p">(</span>
+</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>    <span class="n">RequeteHttpMonteur</span><span class="p">()</span>
+</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>    <span class="o">.</span><span class="n">avec_url</span><span class="p">(</span><span class="s2">&quot;https://api.exemple.com/donnees&quot;</span><span class="p">)</span>
+</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>    <span class="o">.</span><span class="n">avec_methode</span><span class="p">(</span><span class="s2">&quot;POST&quot;</span><span class="p">)</span>
+</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a>    <span class="o">.</span><span class="n">avec_en_tete</span><span class="p">(</span><span class="s2">&quot;Authorization&quot;</span><span class="p">,</span> <span class="s2">&quot;Bearer token123&quot;</span><span class="p">)</span>
+</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a>    <span class="o">.</span><span class="n">avec_timeout</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</span><span id="__span-0-44"><a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>    <span class="o">.</span><span class="n">construire</span><span class="p">()</span>
+</span><span id="__span-0-45"><a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a><span class="p">)</span>
 </span></code></pre></div>
-<p><strong>Notes</strong> :</p>
+<h3 id="problemes-potentiels-et-limites">Problèmes potentiels et limites<a class="headerlink" href="#problemes-potentiels-et-limites" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Prolifération de code standard (<em>Boilerplate</em>)</strong> : Nécessite la création de classes supplémentaires pour chaque
+  produit, dupliquant souvent la liste des attributs.</li>
+<li><strong>Complexité inutile pour les objets simples</strong> : Imposer un monteur lorsque l&rsquo;objet ne possède que 2 ou 3 paramètres
+  nuit à la lisibilité et à la productivité.</li>
+<li><strong>Risque d&rsquo;états incohérents si validation incomplète</strong> : Si la méthode finale <code>construire()</code> n&rsquo;effectue pas une
+  validation rigoureuse des dépendances entre étapes, on risque de produire des objets partiellement configurés.</li>
+</ul>
+<h3 id="pertinence-moderne-et-approche-multiparadigme">Pertinence moderne et approche multiparadigme<a class="headerlink" href="#pertinence-moderne-et-approche-multiparadigme" title="Permanent link">&para;</a></h3>
+<p>Dans les langages modernes comme <strong>Python</strong>, le patron Monteur classique est souvent rendu <strong>obsolète ou redondant</strong>
+pour la simple configuration d&rsquo;objets grâce à :</p>
 <ol type="1">
-<li>On pourrait avoir beaucoup plus de méthodes que celles données pour les
-   labyrinthes complexes.</li>
-<li>Il faudrait évidemment ajuster les signatures de ces méthodes pour y ajouter
-   des paramètres.</li>
-<li>Il n&rsquo;est pas obligatoire d&rsquo;avoir une classe et des méthodes abstraites. On
-   pourrait avoir seulement des classes et méthodes concrètes, avec la
-   possibilité d&rsquo;avoir des méthodes vides au besoin.</li>
+<li><strong>Les arguments nommés (<em>keyword arguments</em>) et valeurs par défaut</strong> :
+   <div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nd">@dataclass</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">class</span><span class="w"> </span><span class="nc">RequeteHttp</span><span class="p">:</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="n">url</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="n">methode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;GET&quot;</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="n">en_tetes</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="n">corps</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="n">timeout</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">30</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="c1"># Inutile de créer un Builder :</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="n">req</span> <span class="o">=</span> <span class="n">RequeteHttp</span><span class="p">(</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>    <span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://api.exemple.com&quot;</span><span class="p">,</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>    <span class="n">methode</span><span class="o">=</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>    <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="p">)</span>
+</span></code></pre></div></li>
+<li><strong>Quand reste-t-il utile ?</strong> Le patron conserve son utilité lorsque la construction implique un processus
+   algorithmique strict en plusieurs étapes indépendantes (ex. conversion d&rsquo;un document Markdown en arbre HTML,
+   construction de requêtes SQL complexes avec conditions imbriquées).</li>
 </ol>
 <hr />
 <h2 id="prototype">Prototype<a class="headerlink" href="#prototype" title="Permanent link">&para;</a></h2>
 <h3 id="intention_2">Intention<a class="headerlink" href="#intention_2" title="Permanent link">&para;</a></h3>
-<p>Spécifier les types d&rsquo;objets à créer en utilisant une instance prototype, et
-créer de nouveaux objets en copiant ce prototype.</p>
+<p>Spécifier les types d&rsquo;objets à créer en utilisant une instance prototype maîtresse, et créer de nouveaux objets en
+<strong>clonant</strong> ce prototype plutôt qu&rsquo;en passant par des constructeurs directs.</p>
 <h3 id="mise-en-contexte_2">Mise en contexte<a class="headerlink" href="#mise-en-contexte_2" title="Permanent link">&para;</a></h3>
-<p><strong>Application principale</strong> : cloner des objets, comme pour un copier-coller.</p>
-<h3 id="d-tails_2">Détails<a class="headerlink" href="#d-tails_2" title="Permanent link">&para;</a></h3>
-<p>Selon les besoins, on peut effectuer une copie en <em>surface</em> ou en <em>profondeur</em>
-d&rsquo;un objet prototype.</p>
+<p>Le patron Prototype est particulièrement utile lorsque :</p>
 <ul>
-<li><strong>Copie de surface</strong> (<em>shallow copy</em>):<ul>
-<li>seulement les références aux attributs ou propriétés sont
-  copiés, donc le clone va partager des références aux mêmes objets avec
-  l&rsquo;objet original (à condition évidemment d&rsquo;avoir des attributs ou propriétés de
-  type référence dans l&rsquo;objet)</li>
-<li>si les objets partagés sont modifiés, alors l&rsquo;objet original et ses clones
-  vont voir les modifications</li>
+<li>Le coût d&rsquo;instanciation directe ou d&rsquo;initialisation d&rsquo;un objet est élevé (ex. chargement réseau lourd, parsing de
+  fichiers).</li>
+<li>On souhaite isoler le client des classes concrètes d&rsquo;objets à dupliquer (ex. fonctionnalité <em>Copier-Coller</em> ou
+  <em>Dupliquer</em> dans un logiciel graphique comme Photoshop ou notre éditeur de formes).</li>
 </ul>
-</li>
-<li><strong>Copie en profondeur</strong> (<em>deep copy</em>):<ul>
-<li>les attributs et propriétés de type référence sont, eux aussi, clonés, donc
-  les références du clone seront vers des objets différents, mais avec le
-  même contenu, que l&rsquo;objet original</li>
-<li>pour une copie en profondeur complète, il faut effectuer une copie en
-  profondeur sur tous les attributs et propriétés de type référence
-  récursivement</li>
-</ul>
-</li>
-</ul>
-<p>En C#, il a différentes façons de cloner des objets</p>
+<div class='puml-container'><div class="puml light" style="display: block"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" data-diagram-type="CLASS" style="width:227px;height:275px;background:#FFFFFF;" width="227px" height="275px" viewBox="0 0 227 275" zoomAndPan="magnify" preserveAspectRatio="xMidYMid meet" contentStyleType="text/css" class="diagram"><?plantuml 1.2026.9beta4?><defs/><g font-family="sans-serif" lengthAdjust="spacing"><g class="entity" data-qualified-name="Prototype" id="ent0001" data-source-line="3"><rect x="31.87" y="7" width="155.309" height="64.297" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><ellipse cx="71.717" cy="23" rx="11" ry="11" fill="#B4A7E5" style="stroke:#181818;stroke-width:1;"/><path d="M67.639,18.766 L67.639,16.609 L75.03,16.609 L75.03,18.766 L72.561,18.766 L72.561,26.844 L75.03,26.844 L75.03,29 L67.639,29 L67.639,26.844 L70.108,26.844 L70.108,18.766 L67.639,18.766 Z " fill="#000"/><text x="91.239" y="27.847" fill="#000" font-size="14" textLength="68.093" font-style="italic">Prototype</text><line x1="32.87" y1="39" x2="186.179" y2="39" style="stroke:#181818;stroke-width:0.5;"/><line x1="32.87" y1="47" x2="186.179" y2="47" style="stroke:#181818;stroke-width:0.5;"/><text x="37.87" y="63.995" fill="#000" font-size="14" textLength="143.309" font-style="italic">+cloner(): Prototype</text></g><g class="entity" data-qualified-name="FormeGraphique" id="ent0002" data-source-line="7"><rect x="7" y="131.3" width="205.047" height="129.484" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><ellipse cx="46.847" cy="147.3" rx="11" ry="11" fill="#ADD1B2" style="stroke:#181818;stroke-width:1;"/><path d="M49.816,152.941 Q49.238,153.238 48.597,153.378 Q47.956,153.534 47.253,153.534 Q44.753,153.534 43.425,151.894 Q42.113,150.238 42.113,147.113 Q42.113,143.988 43.425,142.331 Q44.753,140.675 47.253,140.675 Q47.956,140.675 48.597,140.831 Q49.253,140.988 49.816,141.284 L49.816,144.003 Q49.191,143.425 48.597,143.159 Q48.003,142.878 47.378,142.878 Q46.035,142.878 45.347,143.956 Q44.66,145.019 44.66,147.113 Q44.66,149.206 45.347,150.284 Q46.035,151.347 47.378,151.347 Q48.003,151.347 48.597,151.081 Q49.191,150.8 49.816,150.222 L49.816,152.941 Z " fill="#000"/><text x="66.369" y="152.147" fill="#000" font-size="14" textLength="117.831">FormeGraphique</text><line x1="8" y1="163.3" x2="211.047" y2="163.3" style="stroke:#181818;stroke-width:0.5;"/><text x="13" y="180.295" fill="#000" font-size="14" textLength="40.756">-x: int</text><text x="13" y="196.592" fill="#000" font-size="14" textLength="40.756">-y: int</text><text x="13" y="212.889" fill="#000" font-size="14" textLength="85.025">-couleur: str</text><text x="13" y="229.186" fill="#000" font-size="14" textLength="159.455">-elements_enfants: list</text><line x1="8" y1="236.488" x2="211.047" y2="236.488" style="stroke:#181818;stroke-width:0.5;"/><text x="13" y="253.483" fill="#000" font-size="14" textLength="193.047">+cloner(): FormeGraphique</text></g><g class="link" data-entity-1="ent0001" data-entity-2="ent0002" id="lnk3" data-source-line="15" data-link-type="extension"><path d="M109.52,89.49 C109.52,106.64 109.52,110.53 109.52,131.11" style="stroke:#181818;stroke-width:1;stroke-dasharray:7,7;" fill="none" id="Prototype-backto-FormeGraphique" codeLine="15"/><polygon points="109.52,71.49,103.52,89.49,115.52,89.49,109.52,71.49" fill="none" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/></g><?plantuml-src NOx12i8m44Jl-OezAiNYENZnedWJ_03PXYq6qwHkDc2j_NSJ1OkUTXPctaoyMjyZOmV6OOnR4RPD4ZgOu4_sGR1ModeXRj4G73b8aA4d61L0DM8JXT78bDF14o-MUlQeIQat57Q1EzepzXTxIv_iwguXSuiQlig4v2YnXamjFpdgo4iyasynNmtEnkAivhfVTkcSHswUTVrdU040?></g></svg></div></div>
+
+<h3 id="d-tails_2">Détails : Copie de surface vs Copie en profondeur<a class="headerlink" href="#d-tails_2" title="Permanent link">&para;</a></h3>
+<p>Lors du clonage d&rsquo;un objet contenant des références vers d&rsquo;autres objets, deux stratégies s&rsquo;opposent :</p>
 <ol type="1">
-<li><code>Object.MemberwiseClone()</code> : copie de surface</li>
-<li><code>ICloneable.Clone()</code> : copie de surface ou profonde, selon les besoins</li>
-<li>Constructeur de copie :<ul>
-<li>copie de surface ou profonde, selon les besoins</li>
-<li>un constructeur de copie est un constructeur qui accepte un seul
-  paramètre, du même type que la classe</li>
-<li>exemple : <code>public Circle(Circle circle)</code></li>
+<li><strong>Copie de surface (<em>Shallow Copy</em>)</strong> :<ul>
+<li>Seules les valeurs immédiates et les références mémoire des attributs sont copiées.</li>
+<li>L&rsquo;original et le clone pointent vers les <strong>mêmes sous-objets en mémoire</strong>.</li>
+<li><em>Conséquence :</em> Modifier un sous-objet depuis le clone altère également l&rsquo;objet original.</li>
+</ul>
+</li>
+<li><strong>Copie en profondeur (<em>Deep Copy</em>)</strong> :<ul>
+<li>Les sous-objets référencés sont eux aussi récursivement dupliqués.</li>
+<li>L&rsquo;original et le clone sont totalement indépendants.</li>
 </ul>
 </li>
 </ol>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">copy</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="k">class</span><span class="w"> </span><span class="nc">Graphique</span><span class="p">:</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nom</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">styles</span><span class="p">:</span> <span class="nb">list</span><span class="p">):</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">nom</span> <span class="o">=</span> <span class="n">nom</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">styles</span> <span class="o">=</span> <span class="n">styles</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="n">original</span> <span class="o">=</span> <span class="n">Graphique</span><span class="p">(</span><span class="s2">&quot;Logo&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;bleu&quot;</span><span class="p">,</span> <span class="s2">&quot;ombré&quot;</span><span class="p">])</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="c1"># Copie superficielle (partage la liste interne) :</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="n">copie_surf</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">original</span><span class="p">)</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="n">copie_surf</span><span class="o">.</span><span class="n">styles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;brillant&quot;</span><span class="p">)</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="c1"># Attention : original.styles contient maintenant aussi &quot;brillant&quot; !</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="c1"># Copie en profondeur (totalement isolée) :</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="n">copie_prof</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">original</span><span class="p">)</span>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="n">copie_prof</span><span class="o">.</span><span class="n">styles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;arrondi&quot;</span><span class="p">)</span>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="c1"># original.styles n&#39;est PAS modifié.</span>
+</span></code></pre></div>
+<h3 id="problemes-potentiels-et-limites_1">Problèmes potentiels et limites<a class="headerlink" href="#problemes-potentiels-et-limites_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Complexité des graphes circulaires et des ressources système</strong> : Réaliser une copie en profondeur sur des objets
+  liés à des ressources système (fichiers ouverts, sockets réseau, connexions de base de données, threads) échoue ou
+  génère des comportements imprévisibles.</li>
+<li><strong>Gestion des identifiants uniques</strong> : Lors d&rsquo;un clonage, certains champs ne doivent souvent <em>pas</em> être dupliqués à
+  l&rsquo;identique (ex. clés primaires de base de données, identifiants de session, UUID).</li>
+<li><strong>Surcharge de mémoire</strong> : Une utilisation massive de copies profondes sur de gros objets non partagés peut entraîner
+  une surconsommation mémoire rapide.</li>
+</ul>
+<h3 id="pertinence-moderne-et-approche-multiparadigme_1">Pertinence moderne et approche multiparadigme<a class="headerlink" href="#pertinence-moderne-et-approche-multiparadigme_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Mécanismes intégrés aux langages</strong> : Dans les langages modernes, le patron Prototype en tant que hiérarchie de
+  classes formelle (interface <code>ICloneable</code> ou méthode abstraite <code>cloner()</code>) est largement remplacé par les fonctions
+  intégrées du langage (comme le module standard <code>copy</code> en Python ou la sérialisation/désérialisation JSON).</li>
+<li><strong>Immutabilité et mise à jour non destructive</strong> : Dans les paradigmes fonctionnels et modernes, on favorise les
+  structures de données immuables et le clonage avec modification ciblée (ex. <code>dataclasses.replace()</code> en Python ou les
+  <em>data classes</em> avec <code>.copy()</code> en Kotlin) :</li>
+</ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">replace</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="k">class</span><span class="w"> </span><span class="nc">Configuration</span><span class="p">:</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="n">hote</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="n">port</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="n">debug</span><span class="p">:</span> <span class="nb">bool</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="n">prod</span> <span class="o">=</span> <span class="n">Configuration</span><span class="p">(</span><span class="n">hote</span><span class="o">=</span><span class="s2">&quot;db.prod.local&quot;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">5432</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="c1"># Création d&#39;une variante par clonage immuté :</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="n">dev</span> <span class="o">=</span> <span class="n">replace</span><span class="p">(</span><span class="n">prod</span><span class="p">,</span> <span class="n">hote</span><span class="o">=</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></code></pre></div>
 <hr />
 <h2 id="singleton">Singleton<a class="headerlink" href="#singleton" title="Permanent link">&para;</a></h2>
-<h3 id="intention">Intention<a class="headerlink" href="#intention" title="Permanent link">&para;</a></h3>
-<p>S&rsquo;assurer qu&rsquo;une classe ne peut avoir qu&rsquo;une seule instance.</p>
-<h3 id="mise-en-contexte">Mise en contexte<a class="headerlink" href="#mise-en-contexte" title="Permanent link">&para;</a></h3>
-<p>Dans certaines applications, il n&rsquo;est pas logique d&rsquo;avoir plusieurs instances
-d&rsquo;une classe. Comme dans une application avec interface graphique
-(mobile ou bureau), il n&rsquo;est souvent pas logique d&rsquo;avoir plus d&rsquo;une fenêtre
-principale.</p>
-<p>Dans d&rsquo;autres applications, il faut s&rsquo;assurer de bien gérer les resources pour
-éviter d&rsquo;avoir des applications trop gourmandes en termes de mémoire ou de
-processeur ou de réseau &hellip; Comme dans une application qui utilise
-une base de données, on ne peut avoir qu&rsquo;un seul pool de connexions à la base de
-données. Avoir plusieurs pools de connexions serait plus difficile à gérer et
-consommerait plus de resources.</p>
-<p>Ou il faut bien synchroniser l&rsquo;accès à une resource partagée pour éviter de la
-corrompre. Les applications avec plusieurs fils d&rsquo;exécution (avec des <em>thread</em>
-ou avec des <code>asynch</code>/<code>await</code>) ont normalement besoin de partager certaines
-structures de données en mémoire, et de synchroniser leur utilisation de ces
-structures.</p>
-<h3 id="details">Détails<a class="headerlink" href="#details" title="Permanent link">&para;</a></h3>
-<ol type="1">
-<li>On peut mettre tous les constructeurs d&rsquo;une classe en mode d&rsquo;accès privé (ou
-   potentiellement protégé), ce qui empêchera d&rsquo;autres classes de créer des
-   instances de cette classe.</li>
-<li>Ensuite, on ajoute un attribut privé statique pour contenir la référence à
-   l&rsquo;unique instance</li>
-<li>La méthode statique <code>GetInstance</code> doit retourner la référence à l&rsquo;unique
-   instance. La
-   première fois, l&rsquo;attribut privé statique sera <code>null</code>, donc on devra créer
-   l&rsquo;unique instance au premier appel de <code>GetInstance</code>, et la placer dans
-   l&rsquo;attribut prévu à cet effet, avant de retourner la référence à l&rsquo;unique
-   instance.</li>
-<li>Alternativement, on pourrait utiliser une propriété avec un <em>getter</em> public
-   qui ferait le même travail de la méthode <code>GetInstance</code>, et un <em>setter</em> privé
-   qui serait utilisé seulement par le <em>getter</em> lors de sa première utilisation.</li>
-<li>Une autre option serait d&rsquo;utiliser
-   un <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/static-constructors">constructeur statique en C#</a>,
-   ou
-   un <a href="https://www.c-sharpcorner.com/UploadFile/3614a6/static-initialization-block-in-java/">bloc d&rsquo;initialisation statique</a>
-   dans d&rsquo;autres langages.</li>
-</ol>
+<h3 id="intention_3">Intention<a class="headerlink" href="#intention_3" title="Permanent link">&para;</a></h3>
+<p>Garantir qu&rsquo;une classe n&rsquo;a qu&rsquo; <strong>une seule et unique instance</strong> à l&rsquo;échelle de l&rsquo;application et fournir un point d&rsquo;accès
+global à celle-ci.</p>
+<h3 id="mise-en-contexte_3">Mise en contexte<a class="headerlink" href="#mise-en-contexte_3" title="Permanent link">&para;</a></h3>
+<p>Ce patron est historiquement utilisé pour contrôler l&rsquo;accès à des ressources partagées uniques :</p>
+<ul>
+<li>Un gestionnaire de configuration globale de l&rsquo;application.</li>
+<li>Un pool de connexions à une base de données.</li>
+<li>Un système de journalisation (<em>logger</em> centralisé).</li>
+</ul>
+<h3 id="d-tails_3">Structure et implémentation<a class="headerlink" href="#d-tails_3" title="Permanent link">&para;</a></h3>
+<p>Dans l&rsquo;approche classique GoF, on restreint le constructeur et on fournit une méthode statique d&rsquo;accès :</p>
+<div class='puml-container'><div class="puml light" style="display: block"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" data-diagram-type="CLASS" style="width:364px;height:149px;background:#FFFFFF;" width="364px" height="149px" viewBox="0 0 364 149" zoomAndPan="magnify" preserveAspectRatio="xMidYMid meet" contentStyleType="text/css" class="diagram"><?plantuml 1.2026.9beta4?><defs/><g font-family="sans-serif" lengthAdjust="spacing"><g class="entity" data-qualified-name="GestionnaireConfiguration" id="ent0001" data-source-line="3"><rect x="7" y="7" width="344.432" height="129.484" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><ellipse cx="82.852" cy="23" rx="11" ry="11" fill="#ADD1B2" style="stroke:#181818;stroke-width:1;"/><path d="M85.82,28.641 Q85.242,28.938 84.602,29.078 Q83.961,29.234 83.258,29.234 Q80.758,29.234 79.43,27.594 Q78.117,25.938 78.117,22.813 Q78.117,19.688 79.43,18.031 Q80.758,16.375 83.258,16.375 Q83.961,16.375 84.602,16.531 Q85.258,16.688 85.82,16.984 L85.82,19.703 Q85.195,19.125 84.602,18.859 Q84.008,18.578 83.383,18.578 Q82.039,18.578 81.352,19.656 Q80.664,20.719 80.664,22.813 Q80.664,24.906 81.352,25.984 Q82.039,27.047 83.383,27.047 Q84.008,27.047 84.602,26.781 Q85.195,26.5 85.82,25.922 L85.82,28.641 Z " fill="#000"/><text x="103.352" y="27.847" fill="#000" font-size="14" textLength="184.229">GestionnaireConfiguration</text><line x1="8" y1="39" x2="350.432" y2="39" style="stroke:#181818;stroke-width:0.5;"/><text x="13" y="55.995" fill="#000" font-size="14" textLength="264.756" text-decoration="underline">-_instance: GestionnaireConfiguration</text><text x="13" y="72.292" fill="#000" font-size="14" textLength="133.048">-configuration: dict</text><line x1="8" y1="79.594" x2="350.432" y2="79.594" style="stroke:#181818;stroke-width:0.5;"/><text x="13" y="96.589" fill="#000" font-size="14" textLength="200.204">-GestionnaireConfiguration()</text><text x="13" y="112.886" fill="#000" font-size="14" textLength="332.432" text-decoration="underline">+obtenir_instance(): GestionnaireConfiguration</text><text x="13" y="129.183" fill="#000" font-size="14" textLength="233.338">+charger_parametre(cle: str): str</text></g><?plantuml-src VO-n3i8m34JtV8N7L1KISpV4W9ZvW2erfbWK1pdkqgh_JfgXOYcBPT_fwSxfnV896jw0GqZfPARSZKPNZ7BZYU3eN77WGiauYWHMEaTvS3zgM1MO7S1XJfOlNA1boQiWDVl82k2lqC2TqLPvb_5Ljkij9dP6mhgb-Uf_NetFe3rfMxubK_8uv8x9j2hJBLy0?></g></svg></div></div>
+
+<p>En Python, une implémentation courante repose sur la surcharge de la méthode spéciale <code>__new__</code> :</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">GestionnaireConfig</span><span class="p">:</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="n">_instance</span> <span class="o">=</span> <span class="kc">None</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>        <span class="k">if</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_instance</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>            <span class="bp">cls</span><span class="o">.</span><span class="n">_instance</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>            <span class="bp">cls</span><span class="o">.</span><span class="n">_instance</span><span class="o">.</span><span class="n">_initialiser</span><span class="p">()</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_instance</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">_initialiser</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">parametres</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;theme&quot;</span><span class="p">:</span> <span class="s2">&quot;sombre&quot;</span><span class="p">,</span> <span class="s2">&quot;langue&quot;</span><span class="p">:</span> <span class="s2">&quot;fr&quot;</span><span class="p">}</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="c1"># Les deux variables pointent vers exactement la même instance :</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="n">c1</span> <span class="o">=</span> <span class="n">GestionnaireConfig</span><span class="p">()</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="n">c2</span> <span class="o">=</span> <span class="n">GestionnaireConfig</span><span class="p">()</span>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="k">assert</span> <span class="n">c1</span> <span class="ow">is</span> <span class="n">c2</span>
+</span></code></pre></div>
+<hr />
+<h3 id="problemes-potentiels-et-pieges-majeurs">Problèmes potentiels et pièges majeurs<a class="headerlink" href="#problemes-potentiels-et-pieges-majeurs" title="Permanent link">&para;</a></h3>
+<p>Bien qu&rsquo;il soit l&rsquo;un des patrons les plus connus, le Singleton est aujourd&rsquo;hui souvent considéré comme un
+<strong>anti-patron (<em>anti-pattern</em>)</strong> s&rsquo;il est utilisé sans précaution :</p>
+<h4 id="1-le-syndrome-du-god-object-objet-divin-fourre-tout">1. Le syndrome du &ldquo;God Object&rdquo; (Objet Divin / Fourre-tout)<a class="headerlink" href="#1-le-syndrome-du-god-object-objet-divin-fourre-tout" title="Permanent link">&para;</a></h4>
+<p>Comme le Singleton est accessible de partout, il devient un aimant à code facile : les développeurs ont tendance à y
+ajouter continuellement des responsabilités disparates (authentification, base de données, caches, interface, options).
+Il enfreint alors directement le <strong>Principe de Responsabilité Unique (SRP)</strong>.</p>
+<h4 id="2-etat-global-cache-et-couplage-fort">2. État global caché et couplage fort<a class="headerlink" href="#2-etat-global-cache-et-couplage-fort" title="Permanent link">&para;</a></h4>
+<p>Le Singleton réintroduit les dangers des <strong>variables globales déguisées en classes</strong>. Il crée des dépendances
+invisibles :</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">traiter_commande</span><span class="p">(</span><span class="n">commande</span><span class="p">):</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="c1"># Dépendance cachée ! Impossible de savoir en lisant la signature </span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    <span class="c1"># de la fonction que cette dernière dépend de GestionnaireConfig.</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    <span class="n">tva</span> <span class="o">=</span> <span class="n">GestionnaireConfig</span><span class="p">()</span><span class="o">.</span><span class="n">parametres</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;tva&quot;</span><span class="p">)</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    <span class="k">return</span> <span class="n">commande</span><span class="o">.</span><span class="n">montant</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">tva</span><span class="p">)</span>
+</span></code></pre></div>
+<h4 id="3-lennemi-numero-1-des-tests-unitaires">3. L&rsquo;ennemi numéro 1 des tests unitaires<a class="headerlink" href="#3-lennemi-numero-1-des-tests-unitaires" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Pollution d&rsquo;état entre tests</strong> : L&rsquo;état interne du singleton persiste d&rsquo;un test unitaire au suivant. Un test
+  modifiant l&rsquo;instance peut faire échouer un test exécuté plus tard de manière imprévisible.</li>
+<li><strong>Impossibilité de paralléliser</strong> : L&rsquo;exécution de tests en parallèle devient hasardeuse en raison de l&rsquo;accès
+  concurrent au même état partagé.</li>
+<li><strong>Difficulté de substitution</strong> : Remplacer un singleton par un bouchon (<em>mock/stub</em>) pour isoler un composant en test
+  demande des hacks complexes de réinitialisation.</li>
+</ul>
+<h4 id="4-concurrence-et-thread-safety">4. Concurrence et <em>Thread Safety</em><a class="headerlink" href="#4-concurrence-et-thread-safety" title="Permanent link">&para;</a></h4>
+<p>Dans un environnement multithread, l&rsquo;instanciation d&rsquo;un singleton requiert des verrous de synchronisation (<em>locks</em>) pour
+éviter que deux fils d&rsquo;exécution ne créent deux instances simultanées au démarrage.</p>
+<hr />
+<h3 id="pertinence-moderne-et-alternatives-recommandees">Pertinence moderne et alternatives recommandées<a class="headerlink" href="#pertinence-moderne-et-alternatives-recommandees" title="Permanent link">&para;</a></h3>
+<p>Dans le développement moderne et les approches multiparadigmes, le Singleton classique est presque systématiquement
+remplacé par des solutions plus propres et modulaires :</p>
+<h4 id="1-linjection-de-dependances-dependency-injection-di-et-les-conteneurs-ioc">1. L&rsquo;Injection de Dépendances (<em>Dependency Injection</em> - DI) et les Conteneurs IoC<a class="headerlink" href="#1-linjection-de-dependances-dependency-injection-di-et-les-conteneurs-ioc" title="Permanent link">&para;</a></h4>
+<p>Au lieu qu&rsquo;une classe ou une fonction aille chercher elle-même son instance globale (couplage fort), on lui <strong>passe explicitement ses dépendances</strong> en paramètre (au constructeur ou à la méthode).</p>
+<h5 id="quest-ce-que-linversion-de-controle-ioc-et-un-conteneur-ioc">Qu&rsquo;est-ce que l&rsquo;Inversion de Contrôle (IoC) et un conteneur IoC ?<a class="headerlink" href="#quest-ce-que-linversion-de-controle-ioc-et-un-conteneur-ioc" title="Permanent link">&para;</a></h5>
+<ul>
+<li><strong>Inversion de Contrôle (<em>Inversion of Control</em> - IoC)</strong> : C&rsquo;est le principe général selon lequel une classe ne contrôle plus elle-même l&rsquo;instanciation de ses collaborateurs ou le flux d&rsquo;exécution. Au lieu que l&rsquo;objet dise <em>&ldquo;je crée ou je vais chercher mon gestionnaire de configuration&rdquo;</em>, il déclare seulement <em>&ldquo;j&rsquo;ai besoin d&rsquo;une configuration&rdquo;</em> et attend qu&rsquo;on la lui fournisse (souvent résumé par le principe d&rsquo;Hollywood : <em>&ldquo;Ne nous appelez pas, nous vous appellerons&rdquo;</em>). L&rsquo;Injection de Dépendances (DI) est la forme d&rsquo;IoC la plus répandue.</li>
+<li><strong>Conteneur IoC (<em>IoC Container</em> ou conteneur d&rsquo;injection de dépendances)</strong> : C&rsquo;est un outil ou cadriciel (ex. <em>Dependency Injector</em> en Python, le conteneur DI de FastAPI, ou ceux de .NET et Spring) qui automatise la création des objets, la résolution de leurs dépendances et la gestion de leur <strong>cycle de vie</strong> :<ul>
+<li>Le conteneur peut être configuré pour instancier un objet en mode <strong>Singleton</strong> (une seule instance partagée créée au démarrage et injectée partout où elle est requise).</li>
+<li>La classe métier reste ainsi simple, pure et totalement découplée : elle n&rsquo;a plus besoin d&rsquo;implémenter de logique de verrouillage, de méthode statique <code>obtenir_instance()</code> ou de constructeur privé.</li>
+</ul>
+</li>
+</ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># 1. Classe métier pure : aucune logique de Singleton à l&#39;intérieur</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">ServiceFacturation</span><span class="p">:</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tva</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">tva</span> <span class="o">=</span> <span class="n">tva</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">calculer_total</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">montant_ht</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>        <span class="k">return</span> <span class="n">montant_ht</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">tva</span><span class="p">)</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="c1"># 2. Injection manuelle ou via conteneur au démarrage de l&#39;application :</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="n">taux_tva_unique</span> <span class="o">=</span> <span class="mf">0.20</span>  <span class="c1"># Instance unique gérée à la racine</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="n">service</span> <span class="o">=</span> <span class="n">ServiceFacturation</span><span class="p">(</span><span class="n">tva</span><span class="o">=</span><span class="n">taux_tva_unique</span><span class="p">)</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="c1"># 3. Facilement testable avec un mock ou une valeur personnalisée :</span>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="n">service_test</span> <span class="o">=</span> <span class="n">ServiceFacturation</span><span class="p">(</span><span class="n">tva</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="k">assert</span> <span class="n">service_test</span><span class="o">.</span><span class="n">calculer_total</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">==</span> <span class="mi">100</span>
+</span></code></pre></div>
+<h4 id="2-les-modules-python-comme-singletons-naturels">2. Les modules Python comme Singletons naturels<a class="headerlink" href="#2-les-modules-python-comme-singletons-naturels" title="Permanent link">&para;</a></h4>
+<p>En Python, le mécanisme d&rsquo;importation charge et exécute chaque fichier module une seule et unique fois (conservé dans
+<code>sys.modules</code>). Un simple module contenant des fonctions et un état privé remplit le rôle d&rsquo;un singleton sans aucune
+complexité :</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># config.py</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">_parametres</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;theme&quot;</span><span class="p">:</span> <span class="s2">&quot;sombre&quot;</span><span class="p">}</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">obtenir</span><span class="p">(</span><span class="n">cle</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>    <span class="k">return</span> <span class="n">_parametres</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">cle</span><span class="p">)</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="k">def</span><span class="w"> </span><span class="nf">definir</span><span class="p">(</span><span class="n">cle</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">valeur</span><span class="p">):</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>    <span class="n">_parametres</span><span class="p">[</span><span class="n">cle</span><span class="p">]</span> <span class="o">=</span> <span class="n">valeur</span>
+</span></code></pre></div>
+<hr />
+<h2 id="synthese-comparative-des-patrons-de-creation-partie-2">Synthèse comparative des patrons de création (Partie 2)<a class="headerlink" href="#synthese-comparative-des-patrons-de-creation-partie-2" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Patron</th>
+<th style="text-align: left;">Intention principale</th>
+<th style="text-align: left;">Limite principale</th>
+<th style="text-align: left;">Alternative moderne privilégiée</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Monteur</strong> (<em>Builder</em>)</td>
+<td style="text-align: left;">Construire un objet complexe étape par étape</td>
+<td style="text-align: left;">Verbosité, sur-ingénierie pour objets simples</td>
+<td style="text-align: left;">Arguments nommés, valeurs par défaut, <code>@dataclass</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Prototype</strong></td>
+<td style="text-align: left;">Créer de nouveaux objets en clonant une instance modèle</td>
+<td style="text-align: left;">Gestion délicate des copies profondes et des cycles</td>
+<td style="text-align: left;">Modules de copie intégrés (<code>copy.deepcopy</code>), structures immuables (<code>replace</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Singleton</strong></td>
+<td style="text-align: left;">Garantir une seule instance et un accès global</td>
+<td style="text-align: left;">&ldquo;God object&rdquo;, état global masqué, tests unitaires difficiles</td>
+<td style="text-align: left;"><strong>Injection de dépendances (DI)</strong>, modules ou conteneurs de services</td>
+</tr>
+</tbody>
+</table>
 
 
 
@@ -4298,7 +5001,7 @@ structures.</p>
       <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
         
           
-          <a href="../03_creation1_fabrique/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Design Patterns : Création (Première Partie)">
+          <a href="../03_creation1_fabrique/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Patrons de conception : Création (Première Partie)">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -4308,20 +5011,20 @@ structures.</p>
                 Précédent
               </span>
               <div class="md-ellipsis">
-                Design Patterns : Création (Première Partie)
+                Patrons de conception : Création (Première Partie)
               </div>
             </div>
           </a>
         
         
           
-          <a href="../05_structuraux/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Design Patterns : Structuraux">
+          <a href="../05_injection_dependance/" class="md-footer__link md-footer__link--next" aria-label="Suivant: L&amp;rsquo;Injection de Dépendances (Dependency Injection)">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Suivant
               </span>
               <div class="md-ellipsis">
-                Design Patterns : Structuraux
+                L&rsquo;Injection de Dépendances (Dependency Injection)
               </div>
             </div>
             <div class="md-footer__button md-icon">

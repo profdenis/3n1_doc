@@ -101,6 +101,7 @@ nav:
       - section7/02_oo.md
   - 8. Extra:
       - section8/01_argparse.md
+      - section8/02_uml.md
 
 theme:
   name: material

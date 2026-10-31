@@ -13,10 +13,11 @@ chaque ligne de code produite contribue directement à la résolution du problè
 Pour minimiser la charge cognitive lors de la lecture et maximiser la maintenabilité, PlantUML utilise une syntaxe
 textuelle concise.
 
-Dans votre documentation MkDocs :
-
-- Les blocs ````puml```` génèrent le rendu visuel.
-- Les blocs ````plantuml```` affichent le code source pour que les étudiants puissent l'étudier ou le réutiliser.
+Dans vos fichiers Markdown, les blocs de code `plantuml` affichent les diagrammes en format PlantUML sous forme
+d'images, si le logiciel le supporte. Dans PyCharm, on peut soit installer le support de PlantUML dans les paramètres
+de l'éditeur, section Markdown, soit utiliser le plugin [PlantUML](https://plugins.jetbrains.com/plugin/7017-plantuml)
+pour afficher les diagrammes directement dans l'éditeur dans un onglet dédié, normalement accessible dans la barre
+d'onglets verticale à droite de la fenêtre.
 
 ### A. Classes, Attributs et Méthodes
 
@@ -26,7 +27,6 @@ responsabilités pour réduire le risque d'effets de bord indésirables.
 - `+` : `public` (accessible par tous)
 - `-` : `private` (accessible uniquement par la classe elle-même)
 - `#` : `protected` (accessible par la classe et ses sous-classes)
-- `~` : `package` / `internal`
 
 Rendu visuel :
 
@@ -56,6 +56,41 @@ class Utilisateur {
 @enduml
 ```
 
+**Recommandé** : pour remplacer les icônes de visibilité dans le rendu des diagrammes par des `+`, `-` et `#`, ajouter
+`skinparam classAttributeIconSize 0` au début du diagramme, juste après `@startuml`.
+
+Rendu visuel :
+
+```puml
+@startuml
+skinparam classAttributeIconSize 0
+
+class Utilisateur {
+  - id: int
+  - nom: string
+  - courriel: string
+  + changerCourriel(nouveauCourriel: string): bool
+  # verifierIdentite(): void
+}
+@enduml
+```
+
+Code PlantUML correspondant :
+
+```plantuml
+@startuml
+skinparam classAttributeIconSize 0
+
+class Utilisateur {
+  - id: int
+  - nom: string
+  - courriel: string
+  + changerCourriel(nouveauCourriel: string): bool
+  # verifierIdentite(): void
+}
+@enduml
+```
+
 ### B. Types particuliers : Classes abstraites, Interfaces et Énumérations
 
 Structurer clairement les contrats d'interface et les abstractions permet de découpler les modules, facilitant les tests
@@ -65,6 +100,8 @@ Rendu visuel :
 
 ```puml
 @startuml
+skinparam classAttributeIconSize 0
+
 abstract class EntiteGraphique {
   # positionX: float
   # positionY: float
@@ -87,6 +124,8 @@ Code PlantUML correspondant :
 
 ```plantuml
 @startuml
+skinparam classAttributeIconSize 0
+
 abstract class EntiteGraphique {
   # positionX: float
   # positionY: float
@@ -114,8 +153,8 @@ des liens entre objets engendre souvent des dépendances cycliques ou une gestio
 
 | Relation        | Signification pragmatique                                       | Syntaxe PlantUML   |
 |:----------------|:----------------------------------------------------------------|:-------------------|
-| **Héritage**    | Spécialisation / Polymorphisme ("est un")                       | `<\|--` ou `--\|>` |
-| **Réalisation** | Implémentation d'un contrat d'interface                         | `<\|..` ou `..\|>` |
+| **Héritage**    | Spécialisation / Polymorphisme ("est un")                       | `<|--` ou `--|>`   |
+| **Réalisation** | Implémentation d'un contrat d'interface                         | `<|..` ou `..|>`   |
 | **Composition** | Dépendance de cycle de vie forte (la partie meurt avec le tout) | `*--` ou `--*`     |
 | **Agrégation**  | Conteneur d'objets indépendants (cycle de vie partagé)          | `o--` ou `--o`     |
 | **Association** | Référence simple / navigation directionnelle                    | `-->` ou `--`      |
@@ -125,6 +164,8 @@ Rendu visuel :
 
 ```puml
 @startuml
+skinparam classAttributeIconSize 0
+
 interface IAuthentifiable {
   + connecter(): bool
 }
@@ -160,6 +201,8 @@ Code PlantUML correspondant :
 
 ```plantuml
 @startuml
+skinparam classAttributeIconSize 0
+
 interface IAuthentifiable {
   + connecter(): bool
 }
@@ -204,7 +247,7 @@ orientée vers la valeur fonctionnelle :
 - **Principe d'utilité** : Éviter de modéliser chaque variable ou détail technique mineur dès le début. Concentrez-vous
   sur les concepts qui stockent un état durable ou coordonnent des flux de travail.
 
-### Étape 2 : Répartir les responsabilités (Cohésion forte, Faible couplage)
+### Étape 2 : Répartir les responsabilités (Cohésion forte, couplage faible)
 
 - **Action** : Assigner à chaque classe un rôle unique et cohérent (principe de responsabilité unique).
 - **Principe d'utilité** : Réduire le couplage évite qu'une modification locale n'entraîne une cascade de bogues dans le
@@ -236,6 +279,8 @@ Rendu visuel :
 
 ```puml
 @startuml
+skinparam classAttributeIconSize 0
+
 title Architecture du Module de Commandes
 
 enum StatutPaiement {
@@ -300,6 +345,8 @@ Code PlantUML correspondant :
 
 ```plantuml
 @startuml
+skinparam classAttributeIconSize 0
+
 title Architecture du Module de Commandes
 
 enum StatutPaiement {

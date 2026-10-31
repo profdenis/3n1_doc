@@ -1,0 +1,4289 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://profdenis.github.io/3n1_doc/section8/02_uml/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Modélisation : Créer des diagrammes de classes avec PlantUML - Cours de programmation orientée objet 2</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../style.css">
+    
+      <link rel="stylesheet" href="../../assets/mkdocs_puml/puml.css">
+    
+      <link rel="stylesheet" href="../../assets/mkdocs_puml/interaction.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#modelisation-creer-des-diagrammes-de-classes-avec-plantuml" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../.." title="Cours de programmation orientée objet 2" class="md-header__button md-logo" aria-label="Cours de programmation orientée objet 2" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.14 7.5A2.86 2.86 0 0 1 22 10.36v3.78A2.86 2.86 0 0 1 19.14 17H12c0 .39.32.96.71.96H17v1.68a2.86 2.86 0 0 1-2.86 2.86H9.86A2.86 2.86 0 0 1 7 19.64v-3.75a2.85 2.85 0 0 1 2.86-2.85h5.25a2.85 2.85 0 0 0 2.85-2.86V7.5zm-4.28 11.79c-.4 0-.72.3-.72.89s.32.71.72.71a.71.71 0 0 0 .71-.71c0-.59-.32-.89-.71-.89m-10-1.79A2.86 2.86 0 0 1 2 14.64v-3.78A2.86 2.86 0 0 1 4.86 8H12c0-.39-.32-.96-.71-.96H7V5.36A2.86 2.86 0 0 1 9.86 2.5h4.28A2.86 2.86 0 0 1 17 5.36v3.75a2.85 2.85 0 0 1-2.86 2.85H8.89a2.85 2.85 0 0 0-2.85 2.86v2.68zM9.14 5.71c.4 0 .72-.3.72-.89s-.32-.71-.72-.71c-.39 0-.71.12-.71.71s.32.89.71.89"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cours de programmation orientée objet 2
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Modélisation : Créer des diagrammes de classes avec PlantUML
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/profdenis/3n1_doc" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    profdenis/3n1_doc
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Accueil
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../introduction/01_index/" class="md-tabs__link">
+          
+  
+  
+  Intro
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../section1/01_survol_python/" class="md-tabs__link">
+          
+  
+  
+  1. Python (bases)
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../section2/01_bases/" class="md-tabs__link">
+          
+  
+  
+  2. Python (bases OO)
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../section3/A_intro/01_hello_world/" class="md-tabs__link">
+          
+  
+  
+  3. Qt et PySide6
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../section4/01_static/" class="md-tabs__link">
+          
+  
+  
+  4. Encapsulation et intégrité
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../section5/01_abc/" class="md-tabs__link">
+          
+  
+  
+  5. Python (OO avancé)
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../section6/01_intro/" class="md-tabs__link">
+          
+  
+  
+  6. Patrons de conception
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../section7/01_bases/" class="md-tabs__link">
+          
+  
+  
+  7. Pygame
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../01_argparse/" class="md-tabs__link">
+          
+  
+  
+  8. Extra
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Cours de programmation orientée objet 2" class="md-nav__button md-logo" aria-label="Cours de programmation orientée objet 2" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.14 7.5A2.86 2.86 0 0 1 22 10.36v3.78A2.86 2.86 0 0 1 19.14 17H12c0 .39.32.96.71.96H17v1.68a2.86 2.86 0 0 1-2.86 2.86H9.86A2.86 2.86 0 0 1 7 19.64v-3.75a2.85 2.85 0 0 1 2.86-2.85h5.25a2.85 2.85 0 0 0 2.85-2.86V7.5zm-4.28 11.79c-.4 0-.72.3-.72.89s.32.71.72.71a.71.71 0 0 0 .71-.71c0-.59-.32-.89-.71-.89m-10-1.79A2.86 2.86 0 0 1 2 14.64v-3.78A2.86 2.86 0 0 1 4.86 8H12c0-.39-.32-.96-.71-.96H7V5.36A2.86 2.86 0 0 1 9.86 2.5h4.28A2.86 2.86 0 0 1 17 5.36v3.75a2.85 2.85 0 0 1-2.86 2.85H8.89a2.85 2.85 0 0 0-2.85 2.86v2.68zM9.14 5.71c.4 0 .72-.3.72-.89s-.32-.71-.72-.71c-.39 0-.71.12-.71.71s.32.89.71.89"/></svg>
+
+    </a>
+    Cours de programmation orientée objet 2
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/profdenis/3n1_doc" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    profdenis/3n1_doc
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intro
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Intro
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction/01_index/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction au cours de Programmation Orientée Objet 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction/02_transition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction à Python : Guide de Transition
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction/03_uv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide : Maîtriser le développement Python moderne avec uv
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Python (bases)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1. Python (bases)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section1/01_survol_python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction à Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section1/02_exercices1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercices 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section1/03_exercices2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercices 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section1/04_comprehensions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compréhensions de Liste et Dictionnaire
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section1/05_exercices3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercices 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section1/06_chaines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manipulation des Chaînes de Caractères
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section1/07_exercices4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercices 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section1/08_fonctions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Les Fonctions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section1/09_exercices5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercices 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_10" id="__nav_3_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fichiers
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fichiers
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section1/fichiers/01_intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lecture et écriture de fichiers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section1/fichiers/02-special-cases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestion des problèmes de fichiers sous Windows : encodage et fins de ligne
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section1/fichiers/03-csv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lecture et écriture de fichiers CSV
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section1/fichiers/04-json/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lecture et écriture de fichiers JSON
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section1/fichiers/05-toml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Travail avec les fichiers de configuration TOML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section1/fichiers/06-yaml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Travail avec les fichiers de configuration YAML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Python (bases OO)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    2. Python (bases OO)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section2/01_bases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OO Python : Concepts de Base
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section2/02_heritage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Héritage et Polymorphisme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section2/03_match/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    match avec Héritage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section2/04_polymorphisme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Polymorphisme : Comparaison Java vs Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section2/05_exercices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section2/06_mini_projet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mini-Projet : Le Gestionnaire de Compagnons de Donjon
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Qt et PySide6
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    3. Qt et PySide6
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A. Introduction
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    A. Introduction
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/A_intro/01_hello_world/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interfaces Graphiques avec PySide6 et Qt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/A_intro/02_signal_slot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Signaux et Slots
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/A_intro/03_agencements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Les agencements (Layouts)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/A_intro/04_widgets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Widgets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/A_intro/05_exemples_box_layouts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documentation : Exemples de Box Layouts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/A_intro/06_exemples_grid_layout/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exemples de QGridLayout
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/A_intro/07_exemple_formulaire/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exemple de formulaire
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B. Signaux et Slots
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    B. Signaux et Slots
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/B_signaux/01_bouton/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Introduction à la gestion des événements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/B_signaux/02_synchro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Exemple avec un curseur et un cadran
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/B_signaux/03_signal_perso/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Définition et utilisation de signaux personnalisés
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/B_signaux/04_form/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Soumission des données de formulaire
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C. Menus et Dialogues
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    C. Menus et Dialogues
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/C_menus/01_intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Menus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/C_menus/02_editeur1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Éditeur de texte simple
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/C_menus/03_editeur2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Éditeur de texte : menu des paramètres
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/C_menus/04_editeur3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Éditeur de texte : Barre d&rsquo;outils et événements de la molette
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/C_menus/05_editeur4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Éditeur de texte : Gestion de l&rsquo;état du document
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/C_menus/06_editeur5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Éditeur de texte : Intégration des raccourcis clavier
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D. Événements
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    D. Événements
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/D_evenements/01_intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Vue d&rsquo;ensemble des événements système
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/D_evenements/02_propagation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Exemple : Propagation et bulle des événements dans PySide6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    E. Exercices
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    E. Exercices
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/E_exercices/01_compteur/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercice 1 : Construction d&rsquo;une application compteur
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/E_exercices/02_liste_taches/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercice 2 : Gestionnaire de tâches (To-Do List)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/E_exercices/03_ardoise_dessin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercice 3 : Ardoise de dessin interactive (Mini Paint)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_6" id="__nav_5_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    F. QThread
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    F. QThread
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/F_QThread/01_intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestion des tâches en arrière-plan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/F_QThread/02_avance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exemple Avancé
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/F_QThread/03_tableau/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exemple : Chargeur CSV
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/F_QThread/04_arret/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terminaison forcée d&rsquo;un thread
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/F_QThread/05_arret_progressif/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fermeture progressive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Encapsulation et intégrité
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    4. Encapsulation et intégrité
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section4/01_static/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Attributs et méthodes de classe et méthodes statiques
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section4/02_proprietes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Définir des propriétés avec @property
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section4/03_types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Les indices de type (Type Hints)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section4/04_exceptions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestion des erreurs : Exceptions et Assertions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section4/05_dbc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Le Design par Contrat (DbC)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section4/06_pytest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tests unitaires avec pytest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section4/07_dbc_pytest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide : Combinaison de pytest et Design by Contract (DbC) avec deal
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section4/08_encapsulation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Encapsulation et Intégrité
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Python (OO avancé)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    5. Python (OO avancé)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section5/01_abc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Classes Abstraites (ABC)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section5/01a_dict/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Extension de dict en Python : Pourquoi éviter l&rsquo;héritage ?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section5/02_generiques/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Les Types Génériques
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section5/03_protocoles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Les Protocoles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section5/04_heritage_multiple/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Héritage multiple
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section5/05_mixin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Les mixins
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section5/06_dataclass/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Les Classes de Données (@dataclass)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section5/07_enum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Les Énumérations (Enums)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Patrons de conception
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    6. Patrons de conception
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section6/01_intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Patrons de conception
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section6/02_principes_OO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Principes de Conception Orientée Objet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section6/03_creation1_fabrique/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Patrons de conception : Création (Première Partie)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section6/04_creation2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Patrons de conception : Création (Deuxième Partie)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section6/05_injection_dependance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    L&rsquo;Injection de Dépendances (Dependency Injection)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section6/06_structuraux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Patrons de Conception : Structuraux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section6/07_comportementaux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Patrons de conception : Comportementaux (Behavioral)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section6/08_strategie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Patron de Conception : Stratégie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section6/09_strategie_mixin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Approche hybride : Le Mixin comme injecteur de Stratégie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section6/10_cas_personne/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modélisation Avancée et la Gestion des Rôles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section6/11_proxy_qt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Le Modèle Proxy dans Qt/PySide6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Pygame
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    7. Pygame
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section7/01_bases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction à Pygame : Les bases du jeu 2D
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section7/02_oo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pygame et Programmation Orientée Objet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Extra
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    8. Extra
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_argparse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide de l&rsquo;utilisation de argparse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-survol-des-elements-fondamentaux-et-syntaxe-plantuml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Survol des éléments fondamentaux et syntaxe PlantUML
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Survol des éléments fondamentaux et syntaxe PlantUML">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-classes-attributs-et-methodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A. Classes, Attributs et Méthodes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-types-particuliers-classes-abstraites-interfaces-et-enumerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B. Types particuliers : Classes abstraites, Interfaces et Énumérations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-relations-entre-classes-et-cardinalites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Relations entre classes et cardinalités
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-methodologie-active-pour-concevoir-un-diagramme-de-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Méthodologie active pour concevoir un diagramme de classes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Méthodologie active pour concevoir un diagramme de classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#etape-1-identifier-les-entites-du-domaine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 1 : Identifier les entités du domaine
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-2-repartir-les-responsabilites-cohesion-forte-faible-couplage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 2 : Répartir les responsabilités (Cohésion forte, Faible couplage)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-3-qualifier-les-relations-et-cardinalites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 3 : Qualifier les relations et cardinalités
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-4-raffiner-les-signatures-utiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 4 : Raffiner les signatures utiles
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-exemple-complet-dapplication-de-projet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Exemple complet d&rsquo;application de projet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-bonnes-pratiques-pour-maximiser-lefficacite-de-modelisation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Bonnes pratiques pour maximiser l&rsquo;efficacité de modélisation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="modelisation-creer-des-diagrammes-de-classes-avec-plantuml">Modélisation : Créer des diagrammes de classes avec PlantUML<a class="headerlink" href="#modelisation-creer-des-diagrammes-de-classes-avec-plantuml" title="Permanent link">&para;</a></h1>
+<p>La modélisation orientée objet n&rsquo;est pas un exercice abstrait ou décoratif : sa valeur réside dans sa capacité à
+maximiser le succès d&rsquo;un projet en minimisant les coûts de refactorisation, en réduisant la dette technique et en
+optimisant la communication au sein d&rsquo;une équipe. Concevoir un diagramme de classes avant ou pendant le développement
+permet de clarifier la structure logicielle, d&rsquo;anticiper les goulots d&rsquo;étranglement conceptuels et de garantir que
+chaque ligne de code produite contribue directement à la résolution du problème.</p>
+<hr />
+<h2 id="1-survol-des-elements-fondamentaux-et-syntaxe-plantuml">1. Survol des éléments fondamentaux et syntaxe PlantUML<a class="headerlink" href="#1-survol-des-elements-fondamentaux-et-syntaxe-plantuml" title="Permanent link">&para;</a></h2>
+<p>Pour minimiser la charge cognitive lors de la lecture et maximiser la maintenabilité, PlantUML utilise une syntaxe
+textuelle concise.</p>
+<p>Dans votre documentation MkDocs :</p>
+<ul>
+<li>Les blocs <code>puml</code> génèrent le rendu visuel.</li>
+<li>Les blocs <code>plantuml</code> affichent le code source pour que les étudiants puissent l&rsquo;étudier ou le réutiliser.</li>
+</ul>
+<h3 id="a-classes-attributs-et-methodes">A. Classes, Attributs et Méthodes<a class="headerlink" href="#a-classes-attributs-et-methodes" title="Permanent link">&para;</a></h3>
+<p>Une classe regroupe des données (attributs) et des comportements (méthodes). La visibilité permet d&rsquo;encapsuler les
+responsabilités pour réduire le risque d&rsquo;effets de bord indésirables.</p>
+<ul>
+<li><code>+</code> : <code>public</code> (accessible par tous)</li>
+<li><code>-</code> : <code>private</code> (accessible uniquement par la classe elle-même)</li>
+<li><code>#</code> : <code>protected</code> (accessible par la classe et ses sous-classes)</li>
+<li><code>~</code> : <code>package</code> / <code>internal</code></li>
+</ul>
+<p>Rendu visuel :</p>
+<div class='puml-container'><div class="puml light" style="display: block"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" data-diagram-type="CLASS" style="width:373px;height:149px;background:#FFFFFF;" width="373px" height="149px" viewBox="0 0 373 149" zoomAndPan="magnify" preserveAspectRatio="xMidYMid meet" contentStyleType="text/css" class="diagram"><?plantuml 1.2026.9beta4?><defs/><g font-family="sans-serif" lengthAdjust="spacing"><g class="entity" data-qualified-name="Utilisateur" id="ent0001" data-source-line="1"><rect x="7" y="7" width="353.53" height="129.484" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><ellipse cx="143.51" cy="23" rx="11" ry="11" fill="#ADD1B2" style="stroke:#181818;stroke-width:1;"/><path d="M146.479,28.641 Q145.901,28.938 145.26,29.078 Q144.62,29.234 143.917,29.234 Q141.417,29.234 140.088,27.594 Q138.776,25.938 138.776,22.813 Q138.776,19.688 140.088,18.031 Q141.417,16.375 143.917,16.375 Q144.62,16.375 145.26,16.531 Q145.917,16.688 146.479,16.984 L146.479,19.703 Q145.854,19.125 145.26,18.859 Q144.667,18.578 144.042,18.578 Q142.698,18.578 142.01,19.656 Q141.323,20.719 141.323,22.813 Q141.323,24.906 142.01,25.984 Q142.698,27.047 144.042,27.047 Q144.667,27.047 145.26,26.781 Q145.854,26.5 146.479,25.922 L146.479,28.641 Z " fill="#000"/><text x="164.01" y="27.847" fill="#000" font-size="14" textLength="72.01">Utilisateur</text><line x1="8" y1="39" x2="359.53" y2="39" style="stroke:#181818;stroke-width:0.5;"/><g data-visibility-modifier="PRIVATE_FIELD"><rect x="15" y="49.648" width="6" height="6" fill="none" style="stroke:#C82930;stroke-width:1;"/></g><text x="27" y="55.995" fill="#000" font-size="14" textLength="40.195">id: int</text><g data-visibility-modifier="PRIVATE_FIELD"><rect x="15" y="65.945" width="6" height="6" fill="none" style="stroke:#C82930;stroke-width:1;"/></g><text x="27" y="72.292" fill="#000" font-size="14" textLength="80.432">nom: string</text><g data-visibility-modifier="PRIVATE_FIELD"><rect x="15" y="82.242" width="6" height="6" fill="none" style="stroke:#C82930;stroke-width:1;"/></g><text x="27" y="88.589" fill="#000" font-size="14" textLength="102.396">courriel: string</text><line x1="8" y1="95.891" x2="359.53" y2="95.891" style="stroke:#181818;stroke-width:0.5;"/><g data-visibility-modifier="PUBLIC_METHOD"><ellipse cx="18" cy="109.539" rx="3" ry="3" fill="#84BE84" style="stroke:#038048;stroke-width:1;"/></g><text x="27" y="112.886" fill="#000" font-size="14" textLength="327.53">changerCourriel(nouveauCourriel: string): bool</text><g data-visibility-modifier="PROTECTED_METHOD"><polygon points="18,120.836,22,124.836,18,128.836,14,124.836" fill="#FF4" style="stroke:#B38D22;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/></g><text x="27" y="129.183" fill="#000" font-size="14" textLength="153.433">verifierIdentite(): void</text></g><?plantuml-src NOin3i8m40JxlE8acaI83xXDbGVa0SO-mahEdNG-kq7ydIYYG7GxExkfn5ffTHJKwDoCNWFHZP03GVpCedkWwWRPJaxQpC3bfxnIUaRPsEQl6qLRvzZcl-qKwAvQZik5EXiUO5ioYyDvF6HNvE7z0G00?></g></svg></div></div>
+
+<p>Code PlantUML correspondant :</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>@startuml
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>class Utilisateur {
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  - id: int
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  - nom: string
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>  - courriel: string
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  + changerCourriel(nouveauCourriel: string): bool
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>  # verifierIdentite(): void
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>}
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>@enduml
+</span></code></pre></div>
+<h3 id="b-types-particuliers-classes-abstraites-interfaces-et-enumerations">B. Types particuliers : Classes abstraites, Interfaces et Énumérations<a class="headerlink" href="#b-types-particuliers-classes-abstraites-interfaces-et-enumerations" title="Permanent link">&para;</a></h3>
+<p>Structurer clairement les contrats d&rsquo;interface et les abstractions permet de découpler les modules, facilitant les tests
+unitaires et la réutilisation du code.</p>
+<p>Rendu visuel :</p>
+<div class='puml-container'><div class="puml light" style="display: block"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" data-diagram-type="CLASS" style="width:398px;height:275px;background:#FFFFFF;" width="398px" height="275px" viewBox="0 0 398 275" zoomAndPan="magnify" preserveAspectRatio="xMidYMid meet" contentStyleType="text/css" class="diagram"><?plantuml 1.2026.9beta4?><defs/><g font-family="sans-serif" lengthAdjust="spacing"><g class="entity" data-qualified-name="EntiteGraphique" id="ent0001" data-source-line="1"><rect x="9" y="7" width="146.406" height="96.891" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><ellipse cx="24" cy="23" rx="11" ry="11" fill="#A9DCDF" style="stroke:#181818;stroke-width:1;"/><path d="M24.109,18.344 L22.953,23.422 L25.281,23.422 L24.109,18.344 Z M22.625,16.109 L25.609,16.109 L28.969,28.5 L26.516,28.5 L25.75,25.438 L22.469,25.438 L21.719,28.5 L19.281,28.5 L22.625,16.109 Z " fill="#000"/><text x="38" y="27.847" fill="#000" font-size="14" textLength="114.406" font-style="italic">EntiteGraphique</text><line x1="10" y1="39" x2="154.406" y2="39" style="stroke:#181818;stroke-width:0.5;"/><g data-visibility-modifier="PROTECTED_FIELD"><polygon points="20,47.648,24,51.648,20,55.648,16,51.648" fill="none" style="stroke:#B38D22;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/></g><text x="29" y="55.995" fill="#000" font-size="14" textLength="105.663">positionX: float</text><g data-visibility-modifier="PROTECTED_FIELD"><polygon points="20,63.945,24,67.945,20,71.945,16,67.945" fill="none" style="stroke:#B38D22;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/></g><text x="29" y="72.292" fill="#000" font-size="14" textLength="104.624">positionY: float</text><line x1="10" y1="79.594" x2="154.406" y2="79.594" style="stroke:#181818;stroke-width:0.5;"/><g data-visibility-modifier="PUBLIC_METHOD"><ellipse cx="20" cy="93.242" rx="3" ry="3" fill="#84BE84" style="stroke:#038048;stroke-width:1;"/></g><text x="29" y="96.589" fill="#000" font-size="14" textLength="108.938" font-style="italic">dessiner(): void</text></g><g class="entity" data-qualified-name="IExportable" id="ent0002" data-source-line="7"><rect x="190.79" y="23.3" width="192.824" height="64.297" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><ellipse cx="242.989" cy="39.3" rx="11" ry="11" fill="#B4A7E5" style="stroke:#181818;stroke-width:1;"/><path d="M238.911,35.066 L238.911,32.909 L246.302,32.909 L246.302,35.066 L243.833,35.066 L243.833,43.144 L246.302,43.144 L246.302,45.3 L238.911,45.3 L238.911,43.144 L241.38,43.144 L241.38,35.066 L238.911,35.066 Z " fill="#000"/><text x="263.489" y="44.147" fill="#000" font-size="14" textLength="79.926" font-style="italic">IExportable</text><line x1="191.79" y1="55.3" x2="382.614" y2="55.3" style="stroke:#181818;stroke-width:0.5;"/><line x1="191.79" y1="63.3" x2="382.614" y2="63.3" style="stroke:#181818;stroke-width:0.5;"/><g data-visibility-modifier="PUBLIC_METHOD"><ellipse cx="201.79" cy="76.948" rx="3" ry="3" fill="#84BE84" style="stroke:#038048;stroke-width:1;"/></g><text x="210.79" y="80.295" fill="#000" font-size="14" textLength="166.824">exporterEnJson(): string</text></g><g class="entity" data-qualified-name="StatutTache" id="ent0003" data-source-line="11"><rect x="23.64" y="163.89" width="117.121" height="96.891" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><ellipse cx="38.64" cy="179.89" rx="11" ry="11" fill="#EB937F" style="stroke:#181818;stroke-width:1;"/><path d="M42.749,185.89 L35.031,185.89 L35.031,173.499 L42.749,173.499 L42.749,175.656 L37.484,175.656 L37.484,178.328 L42.249,178.328 L42.249,180.484 L37.484,180.484 L37.484,183.734 L42.749,183.734 L42.749,185.89 Z " fill="#000"/><text x="52.64" y="184.737" fill="#000" font-size="14" textLength="85.121">StatutTache</text><line x1="24.64" y1="195.89" x2="139.761" y2="195.89" style="stroke:#181818;stroke-width:0.5;"/><text x="29.64" y="212.885" fill="#000" font-size="14" textLength="56.909">A_FAIRE</text><text x="29.64" y="229.182" fill="#000" font-size="14" textLength="75.975">EN_COURS</text><text x="29.64" y="245.479" fill="#000" font-size="14" textLength="62.651">TERMINE</text><line x1="24.64" y1="252.781" x2="139.761" y2="252.781" style="stroke:#181818;stroke-width:0.5;"/></g><?plantuml-src LOt12e9054NtynKFsXJ-WJk9AGmoK8DQoNDyve3DsCmp0l7VqmoYtUN0EHTBpmuLWshHUv26DTFUOTVeHqym280LTDPhrjPSGgXRY_m7hpyOm83VtWWLUQyDkVKcXAVLbHY5q8R9rQW8Oldgh6Cis-Ka0Fe0Sj8Sl3MpDPMqkSqUcVuE6IFtdADg5YKgTb6Socd9fDYUpcaspLocnpYHOdm3?></g></svg></div></div>
+
+<p>Code PlantUML correspondant :</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>@startuml
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>abstract class EntiteGraphique {
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  # positionX: float
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>  # positionY: float
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>  + {abstract} dessiner(): void
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>}
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>interface IExportable {
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>  + exporterEnJson(): string
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>}
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>enum StatutTache {
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>  A_FAIRE
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>  EN_COURS
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>  TERMINE
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>}
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>@enduml
+</span></code></pre></div>
+<hr />
+<h2 id="2-relations-entre-classes-et-cardinalites">2. Relations entre classes et cardinalités<a class="headerlink" href="#2-relations-entre-classes-et-cardinalites" title="Permanent link">&para;</a></h2>
+<p>Définir précisément les relations apporte le plus grand gain de clarté pour l&rsquo;architecture. Une mauvaise qualification
+des liens entre objets engendre souvent des dépendances cycliques ou une gestion de mémoire inefficace.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Relation</th>
+<th style="text-align: left;">Signification pragmatique</th>
+<th style="text-align: left;">Syntaxe PlantUML</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Héritage</strong></td>
+<td style="text-align: left;">Spécialisation / Polymorphisme (&ldquo;est un&rdquo;)</td>
+<td style="text-align: left;"><code>&lt;\|--</code> ou <code>--\|&gt;</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Réalisation</strong></td>
+<td style="text-align: left;">Implémentation d&rsquo;un contrat d&rsquo;interface</td>
+<td style="text-align: left;"><code>&lt;\|..</code> ou <code>..\|&gt;</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Composition</strong></td>
+<td style="text-align: left;">Dépendance de cycle de vie forte (la partie meurt avec le tout)</td>
+<td style="text-align: left;"><code>*--</code> ou <code>--*</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Agrégation</strong></td>
+<td style="text-align: left;">Conteneur d&rsquo;objets indépendants (cycle de vie partagé)</td>
+<td style="text-align: left;"><code>o--</code> ou <code>--o</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Association</strong></td>
+<td style="text-align: left;">Référence simple / navigation directionnelle</td>
+<td style="text-align: left;"><code>--&gt;</code> ou <code>--</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Dépendance</strong></td>
+<td style="text-align: left;">Utilisation ponctuelle (paramètre de méthode, création locale)</td>
+<td style="text-align: left;"><code>..&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<p>Rendu visuel :</p>
+<div class='puml-container'><div class="puml light" style="display: block"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" data-diagram-type="CLASS" style="width:487px;height:368px;background:#FFFFFF;" width="487px" height="368px" viewBox="0 0 487 368" zoomAndPan="magnify" preserveAspectRatio="xMidYMid meet" contentStyleType="text/css" class="diagram"><?plantuml 1.2026.9beta4?><defs/><g font-family="sans-serif" lengthAdjust="spacing"><g class="entity" data-qualified-name="IAuthentifiable" id="ent0001" data-source-line="1"><rect x="13.4" y="7" width="146.176" height="64.297" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><ellipse cx="33.612" cy="23" rx="11" ry="11" fill="#B4A7E5" style="stroke:#181818;stroke-width:1;"/><path d="M29.534,18.766 L29.534,16.609 L36.924,16.609 L36.924,18.766 L34.456,18.766 L34.456,26.844 L36.924,26.844 L36.924,29 L29.534,29 L29.534,26.844 L32.003,26.844 L32.003,18.766 L29.534,18.766 Z " fill="#000"/><text x="48.77" y="27.847" fill="#000" font-size="14" textLength="102.594" font-style="italic">IAuthentifiable</text><line x1="14.4" y1="39" x2="158.576" y2="39" style="stroke:#181818;stroke-width:0.5;"/><line x1="14.4" y1="47" x2="158.576" y2="47" style="stroke:#181818;stroke-width:0.5;"/><g data-visibility-modifier="PUBLIC_METHOD"><ellipse cx="24.4" cy="60.648" rx="3" ry="3" fill="#84BE84" style="stroke:#038048;stroke-width:1;"/></g><text x="33.4" y="63.995" fill="#000" font-size="14" textLength="120.176">connecter(): bool</text></g><g class="entity" data-qualified-name="CompteUtilisateur" id="ent0002" data-source-line="5"><rect x="7" y="148.3" width="158.978" height="64.297" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><ellipse cx="22" cy="164.3" rx="11" ry="11" fill="#ADD1B2" style="stroke:#181818;stroke-width:1;"/><path d="M24.969,169.941 Q24.391,170.237 23.75,170.378 Q23.109,170.534 22.406,170.534 Q19.906,170.534 18.578,168.894 Q17.266,167.237 17.266,164.112 Q17.266,160.987 18.578,159.331 Q19.906,157.675 22.406,157.675 Q23.109,157.675 23.75,157.831 Q24.406,157.987 24.969,158.284 L24.969,161.003 Q24.344,160.425 23.75,160.159 Q23.156,159.878 22.531,159.878 Q21.188,159.878 20.5,160.956 Q19.813,162.019 19.813,164.112 Q19.813,166.206 20.5,167.284 Q21.188,168.347 22.531,168.347 Q23.156,168.347 23.75,168.081 Q24.344,167.8 24.969,167.222 L24.969,169.941 Z " fill="#000"/><text x="36" y="169.147" fill="#000" font-size="14" textLength="126.978">CompteUtilisateur</text><line x1="8" y1="180.3" x2="164.978" y2="180.3" style="stroke:#181818;stroke-width:0.5;"/><g data-visibility-modifier="PRIVATE_FIELD"><rect x="15" y="190.948" width="6" height="6" fill="none" style="stroke:#C82930;stroke-width:1;"/></g><text x="27" y="197.295" fill="#000" font-size="14" textLength="120.757">identifiant: string</text><line x1="8" y1="204.597" x2="164.978" y2="204.597" style="stroke:#181818;stroke-width:0.5;"/></g><g class="entity" data-qualified-name="SessionSecurisee" id="ent0003" data-source-line="9"><rect x="9.66" y="289.59" width="153.652" height="64.297" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><ellipse cx="24.66" cy="305.59" rx="11" ry="11" fill="#ADD1B2" style="stroke:#181818;stroke-width:1;"/><path d="M27.629,311.231 Q27.051,311.528 26.41,311.668 Q25.769,311.824 25.066,311.824 Q22.566,311.824 21.238,310.184 Q19.926,308.528 19.926,305.403 Q19.926,302.278 21.238,300.621 Q22.566,298.965 25.066,298.965 Q25.769,298.965 26.41,299.121 Q27.066,299.278 27.629,299.574 L27.629,302.293 Q27.004,301.715 26.41,301.449 Q25.816,301.168 25.191,301.168 Q23.848,301.168 23.16,302.246 Q22.473,303.309 22.473,305.403 Q22.473,307.496 23.16,308.574 Q23.848,309.637 25.191,309.637 Q25.816,309.637 26.41,309.371 Q27.004,309.09 27.629,308.512 L27.629,311.231 Z " fill="#000"/><text x="38.66" y="310.437" fill="#000" font-size="14" textLength="121.652">SessionSecurisee</text><line x1="10.66" y1="321.59" x2="162.312" y2="321.59" style="stroke:#181818;stroke-width:0.5;"/><g data-visibility-modifier="PRIVATE_FIELD"><rect x="17.66" y="332.238" width="6" height="6" fill="none" style="stroke:#C82930;stroke-width:1;"/></g><text x="29.66" y="338.585" fill="#000" font-size="14" textLength="89.004">token: string</text><line x1="10.66" y1="345.887" x2="162.312" y2="345.887" style="stroke:#181818;stroke-width:0.5;"/></g><g class="entity" data-qualified-name="Document" id="ent0004" data-source-line="13"><rect x="281.19" y="148.3" width="104.593" height="64.297" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><ellipse cx="296.219" cy="164.3" rx="11" ry="11" fill="#ADD1B2" style="stroke:#181818;stroke-width:1;"/><path d="M299.187,169.941 Q298.609,170.237 297.969,170.378 Q297.328,170.534 296.625,170.534 Q294.125,170.534 292.797,168.894 Q291.484,167.237 291.484,164.112 Q291.484,160.987 292.797,159.331 Q294.125,157.675 296.625,157.675 Q297.328,157.675 297.969,157.831 Q298.625,157.987 299.187,158.284 L299.187,161.003 Q298.562,160.425 297.969,160.159 Q297.375,159.878 296.75,159.878 Q295.406,159.878 294.719,160.956 Q294.031,162.019 294.031,164.112 Q294.031,166.206 294.719,167.284 Q295.406,168.347 296.75,168.347 Q297.375,168.347 297.969,168.081 Q298.562,167.8 299.187,167.222 L299.187,169.941 Z " fill="#000"/><text x="310.225" y="169.147" fill="#000" font-size="14" textLength="72.529">Document</text><line x1="282.19" y1="180.3" x2="384.783" y2="180.3" style="stroke:#181818;stroke-width:0.5;"/><g data-visibility-modifier="PRIVATE_FIELD"><rect x="289.19" y="190.948" width="6" height="6" fill="none" style="stroke:#C82930;stroke-width:1;"/></g><text x="301.19" y="197.295" fill="#000" font-size="14" textLength="78.593">titre: string</text><line x1="282.19" y1="204.597" x2="384.783" y2="204.597" style="stroke:#181818;stroke-width:0.5;"/></g><g class="entity" data-qualified-name="Section" id="ent0005" data-source-line="17"><rect x="267.32" y="289.59" width="132.34" height="64.297" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><ellipse cx="304.066" cy="305.59" rx="11" ry="11" fill="#ADD1B2" style="stroke:#181818;stroke-width:1;"/><path d="M307.035,311.231 Q306.457,311.528 305.816,311.668 Q305.176,311.824 304.473,311.824 Q301.973,311.824 300.644,310.184 Q299.332,308.528 299.332,305.403 Q299.332,302.278 300.644,300.621 Q301.973,298.965 304.473,298.965 Q305.176,298.965 305.816,299.121 Q306.473,299.278 307.035,299.574 L307.035,302.293 Q306.41,301.715 305.816,301.449 Q305.223,301.168 304.598,301.168 Q303.254,301.168 302.566,302.246 Q301.879,303.309 301.879,305.403 Q301.879,307.496 302.566,308.574 Q303.254,309.637 304.598,309.637 Q305.223,309.637 305.816,309.371 Q306.41,309.09 307.035,308.512 L307.035,311.231 Z " fill="#000"/><text x="322.899" y="310.437" fill="#000" font-size="14" textLength="52.015">Section</text><line x1="268.32" y1="321.59" x2="398.66" y2="321.59" style="stroke:#181818;stroke-width:0.5;"/><g data-visibility-modifier="PRIVATE_FIELD"><rect x="275.32" y="332.238" width="6" height="6" fill="none" style="stroke:#C82930;stroke-width:1;"/></g><text x="287.32" y="338.585" fill="#000" font-size="14" textLength="106.34">contenu: string</text><line x1="268.32" y1="345.887" x2="398.66" y2="345.887" style="stroke:#181818;stroke-width:0.5;"/></g><g class="entity" data-qualified-name="GestionnaireRapport" id="ent0006" data-source-line="21"><rect x="194.84" y="7" width="277.303" height="64.297" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><ellipse cx="256.654" cy="23" rx="11" ry="11" fill="#ADD1B2" style="stroke:#181818;stroke-width:1;"/><path d="M259.623,28.641 Q259.045,28.938 258.404,29.078 Q257.763,29.234 257.06,29.234 Q254.56,29.234 253.232,27.594 Q251.92,25.938 251.92,22.813 Q251.92,19.688 253.232,18.031 Q254.56,16.375 257.06,16.375 Q257.763,16.375 258.404,16.531 Q259.06,16.688 259.623,16.984 L259.623,19.703 Q258.998,19.125 258.404,18.859 Q257.81,18.578 257.185,18.578 Q255.841,18.578 255.154,19.656 Q254.466,20.719 254.466,22.813 Q254.466,24.906 255.154,25.984 Q255.841,27.047 257.185,27.047 Q257.81,27.047 258.404,26.781 Q258.998,26.5 259.623,25.922 L259.623,28.641 Z " fill="#000"/><text x="277.154" y="27.847" fill="#000" font-size="14" textLength="145.175">GestionnaireRapport</text><line x1="195.84" y1="39" x2="471.143" y2="39" style="stroke:#181818;stroke-width:0.5;"/><line x1="195.84" y1="47" x2="471.143" y2="47" style="stroke:#181818;stroke-width:0.5;"/><g data-visibility-modifier="PUBLIC_METHOD"><ellipse cx="205.84" cy="60.648" rx="3" ry="3" fill="#84BE84" style="stroke:#038048;stroke-width:1;"/></g><text x="214.84" y="63.995" fill="#000" font-size="14" textLength="251.303">genererRapport(d: Document): void</text></g><g class="link" data-entity-1="ent0001" data-entity-2="ent0002" id="lnk7" data-source-line="25" data-link-type="extension"><path d="M86.49,89.76 C86.49,112.55 86.49,125.19 86.49,147.96" style="stroke:#181818;stroke-width:1;stroke-dasharray:7,7;" fill="none" id="IAuthentifiable-backto-CompteUtilisateur" codeLine="25"/><polygon points="86.49,71.76,80.49,89.76,92.49,89.76,86.49,71.76" fill="none" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="87.49" y="114.367" fill="#000" font-size="13" textLength="43.304">réalise</text></g><g class="link" data-entity-1="ent0002" data-entity-2="ent0003" id="lnk8" data-source-line="26" data-link-type="aggregation"><path d="M86.49,225.05 C86.49,247.85 86.49,266.49 86.49,289.26" style="stroke:#181818;stroke-width:1;" fill="none" id="CompteUtilisateur-backto-SessionSecurisee" codeLine="26"/><polygon points="86.49,213.05,82.49,219.05,86.49,225.05,90.49,219.05,86.49,213.05" fill="none" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="87.49" y="255.657" fill="#000" font-size="13" textLength="45.811">agrège</text><text x="77.754" y="232.774" fill="#000" font-size="13">1</text><text x="61.23" y="278.469" fill="#000" font-size="13" textLength="23.036">0..*</text></g><g class="link" data-entity-1="ent0004" data-entity-2="ent0005" id="lnk9" data-source-line="27" data-link-type="composition"><path d="M333.49,225.05 C333.49,247.85 333.49,266.49 333.49,289.26" style="stroke:#181818;stroke-width:1;" fill="none" id="Document-backto-Section" codeLine="27"/><polygon points="333.49,213.05,329.49,219.05,333.49,225.05,337.49,219.05,333.49,213.05" fill="#181818" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="334.49" y="255.657" fill="#000" font-size="13" textLength="58.741">compose</text><text x="324.754" y="232.774" fill="#000" font-size="13">1</text><text x="308.229" y="278.469" fill="#000" font-size="13" textLength="23.036">1..*</text></g><g class="link" data-entity-1="ent0006" data-entity-2="ent0004" id="lnk10" data-source-line="28" data-link-type="dependency"><path d="M333.49,71.76 C333.49,94.55 333.49,120.19 333.49,142.96" style="stroke:#181818;stroke-width:1;stroke-dasharray:7,7;" fill="none" id="GestionnaireRapport-to-Document" codeLine="28"/><polygon points="333.49,147.96,337.49,138.96,333.49,142.96,329.49,138.96,333.49,147.96" fill="#181818" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="334.49" y="114.367" fill="#000" font-size="13" textLength="69.374">dépend de</text></g><?plantuml-src RP11JiCm44NtFiKegr8KYsujX8H0GjssuW2kFGqZad5aJzW0zw7doCLmmBGIoN8y___n-yI2yMWTmlP-a1TaeIFPGulmhW2kmGLcT5cpkZ9m2A5LdqgvrgO43w7h1P-5MafMS8W_bXh8bnGM0qaYSNCnxJ4b2hn7DqHAYCKZuHLvhduCRkXosf-A9E9IffESMKJvnu8yp6LFc2OPMuguitqVeXJ81XaZnlAuykPyE4E_1V9JoFz-RZ-qNkZ0G1nFDe-evijgKq6eQwXkj5vNyp8Cs2QENmsgC_baMK-MJR7yifhCsVKXNrd2qlhkqfq1FvvwP0yUlm40?></g></svg></div></div>
+
+<p>Code PlantUML correspondant :</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>@startuml
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>interface IAuthentifiable {
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  + connecter(): bool
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>}
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>class CompteUtilisateur {
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>  - identifiant: string
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>}
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>class SessionSecurisee {
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>  - token: string
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>}
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>class Document {
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>  - titre: string
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>}
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>class Section {
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>  - contenu: string
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>}
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>class GestionnaireRapport {
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>  + genererRapport(d: Document): void
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>}
+</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>
+</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>IAuthentifiable &lt;|.. CompteUtilisateur : réalise
+</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>CompteUtilisateur &quot;1&quot; o-- &quot;0..*&quot; SessionSecurisee : agrège
+</span><span id="__span-2-28"><a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>Document &quot;1&quot; *-- &quot;1..*&quot; Section : compose
+</span><span id="__span-2-29"><a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a>GestionnaireRapport ..&gt; Document : dépend de
+</span><span id="__span-2-30"><a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>@enduml
+</span></code></pre></div>
+<hr />
+<h2 id="3-methodologie-active-pour-concevoir-un-diagramme-de-classes">3. Méthodologie active pour concevoir un diagramme de classes<a class="headerlink" href="#3-methodologie-active-pour-concevoir-un-diagramme-de-classes" title="Permanent link">&para;</a></h2>
+<p>Pour rentabiliser au maximum le temps investi dans la conception, il est conseillé de suivre une démarche itérative
+orientée vers la valeur fonctionnelle :</p>
+<h3 id="etape-1-identifier-les-entites-du-domaine">Étape 1 : Identifier les entités du domaine<a class="headerlink" href="#etape-1-identifier-les-entites-du-domaine" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Action</strong> : Extraire les substantifs pertinents des exigences ou du cahier des charges.</li>
+<li><strong>Principe d&rsquo;utilité</strong> : Éviter de modéliser chaque variable ou détail technique mineur dès le début. Concentrez-vous
+  sur les concepts qui stockent un état durable ou coordonnent des flux de travail.</li>
+</ul>
+<h3 id="etape-2-repartir-les-responsabilites-cohesion-forte-faible-couplage">Étape 2 : Répartir les responsabilités (Cohésion forte, Faible couplage)<a class="headerlink" href="#etape-2-repartir-les-responsabilites-cohesion-forte-faible-couplage" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Action</strong> : Assigner à chaque classe un rôle unique et cohérent (principe de responsabilité unique).</li>
+<li><strong>Principe d&rsquo;utilité</strong> : Réduire le couplage évite qu&rsquo;une modification locale n&rsquo;entraîne une cascade de bogues dans le
+  reste du système.</li>
+</ul>
+<h3 id="etape-3-qualifier-les-relations-et-cardinalites">Étape 3 : Qualifier les relations et cardinalités<a class="headerlink" href="#etape-3-qualifier-les-relations-et-cardinalites" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Action</strong> : Poser la question de la durée de vie et de la propriété des objets :<ul>
+<li><em>Si l&rsquo;objet parent est supprimé, que deviennent les enfants ?</em><ul>
+<li>S&rsquo;ils disparaissent : <strong>Composition</strong> (<code>*--</code>).</li>
+<li>S&rsquo;ils continuent d&rsquo;exister indépendamment : <strong>Agrégation</strong> (<code>o--</code>).</li>
+</ul>
+</li>
+<li><em>La classe manipule-t-elle l&rsquo;autre uniquement dans une méthode ?</em><ul>
+<li>C&rsquo;est une <strong>Dépendance</strong> (<code>..&gt;</code>).</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="etape-4-raffiner-les-signatures-utiles">Étape 4 : Raffiner les signatures utiles<a class="headerlink" href="#etape-4-raffiner-les-signatures-utiles" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Action</strong> : Spécifier les méthodes publiques principales qui constituent l&rsquo;API interne du composant.</li>
+<li><strong>Principe d&rsquo;utilité</strong> : Ne surchargez pas le schéma avec des accesseurs/mutateurs triviaux (<code>get/set</code>) sauf s&rsquo;ils
+  portent une logique métier significative.</li>
+</ul>
+<hr />
+<h2 id="4-exemple-complet-dapplication-de-projet">4. Exemple complet d&rsquo;application de projet<a class="headerlink" href="#4-exemple-complet-dapplication-de-projet" title="Permanent link">&para;</a></h2>
+<p>Voici un exemple concret représentant un module de gestion de commandes et de paiements, structuré pour apporter une
+lisibilité optimale.</p>
+<p>Rendu visuel :</p>
+<div class='puml-container'><div class="puml light" style="display: block"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" data-diagram-type="CLASS" style="width:723px;height:726px;background:#FFFFFF;" width="723px" height="726px" viewBox="0 0 723 726" zoomAndPan="magnify" preserveAspectRatio="xMidYMid meet" contentStyleType="text/css" class="diagram"><?plantuml 1.2026.9beta4?><defs/><g font-family="sans-serif" lengthAdjust="spacing"><g class="title" data-source-line="1"><text x="202.276" y="22.995" fill="#000" font-size="14" textLength="311.514" font-weight="700">Architecture du Module de Commandes</text></g><g class="entity" data-qualified-name="StatutPaiement" id="ent0001" data-source-line="3"><rect x="213" y="52.447" width="140.944" height="96.891" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><ellipse cx="228" cy="68.447" rx="11" ry="11" fill="#EB937F" style="stroke:#181818;stroke-width:1;"/><path d="M232.109,74.447 L224.391,74.447 L224.391,62.056 L232.109,62.056 L232.109,64.213 L226.844,64.213 L226.844,66.884 L231.609,66.884 L231.609,69.041 L226.844,69.041 L226.844,72.291 L232.109,72.291 L232.109,74.447 Z " fill="#000"/><text x="242" y="73.294" fill="#000" font-size="14" textLength="108.944">StatutPaiement</text><line x1="214" y1="84.447" x2="352.944" y2="84.447" style="stroke:#181818;stroke-width:0.5;"/><text x="219" y="101.442" fill="#000" font-size="14" textLength="89.715">EN_ATTENTE</text><text x="219" y="117.739" fill="#000" font-size="14" textLength="50.709">VALIDE</text><text x="219" y="134.036" fill="#000" font-size="14" textLength="59.261">ECHOUE</text><line x1="214" y1="141.338" x2="352.944" y2="141.338" style="stroke:#181818;stroke-width:0.5;"/></g><g class="entity" data-qualified-name="MoyenPaiement" id="ent0002" data-source-line="9"><rect x="281" y="457.267" width="238.939" height="64.297" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><ellipse cx="339.943" cy="473.267" rx="11" ry="11" fill="#B4A7E5" style="stroke:#181818;stroke-width:1;"/><path d="M335.865,469.033 L335.865,466.876 L343.255,466.876 L343.255,469.033 L340.787,469.033 L340.787,477.111 L343.255,477.111 L343.255,479.267 L335.865,479.267 L335.865,477.111 L338.333,477.111 L338.333,469.033 L335.865,469.033 Z " fill="#000"/><text x="360.443" y="478.114" fill="#000" font-size="14" textLength="112.554" font-style="italic">MoyenPaiement</text><line x1="282" y1="489.267" x2="518.939" y2="489.267" style="stroke:#181818;stroke-width:0.5;"/><line x1="282" y1="497.267" x2="518.939" y2="497.267" style="stroke:#181818;stroke-width:0.5;"/><g data-visibility-modifier="PUBLIC_METHOD"><ellipse cx="292" cy="510.915" rx="3" ry="3" fill="#84BE84" style="stroke:#038048;stroke-width:1;"/></g><text x="301" y="514.262" fill="#000" font-size="14" textLength="212.939">autoriser(montant: float): bool</text></g><g class="entity" data-qualified-name="PaiementCarteCredit" id="ent0003" data-source-line="13"><rect x="7" y="614.857" width="238.939" height="96.891" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><ellipse cx="49.08" cy="630.857" rx="11" ry="11" fill="#ADD1B2" style="stroke:#181818;stroke-width:1;"/><path d="M52.049,636.498 Q51.471,636.794 50.83,636.935 Q50.19,637.091 49.487,637.091 Q46.987,637.091 45.659,635.451 Q44.346,633.794 44.346,630.669 Q44.346,627.544 45.659,625.888 Q46.987,624.232 49.487,624.232 Q50.19,624.232 50.83,624.388 Q51.487,624.544 52.049,624.841 L52.049,627.56 Q51.424,626.982 50.83,626.716 Q50.237,626.435 49.612,626.435 Q48.268,626.435 47.58,627.513 Q46.893,628.576 46.893,630.669 Q46.893,632.763 47.58,633.841 Q48.268,634.904 49.612,634.904 Q50.237,634.904 50.83,634.638 Q51.424,634.357 52.049,633.779 L52.049,636.498 Z " fill="#000"/><text x="69.098" y="635.704" fill="#000" font-size="14" textLength="146.761">PaiementCarteCredit</text><line x1="8" y1="646.857" x2="244.939" y2="646.857" style="stroke:#181818;stroke-width:0.5;"/><g data-visibility-modifier="PRIVATE_FIELD"><rect x="15" y="657.505" width="6" height="6" fill="none" style="stroke:#C82930;stroke-width:1;"/></g><text x="27" y="663.852" fill="#000" font-size="14" textLength="141.887">numeroCarte: string</text><g data-visibility-modifier="PRIVATE_FIELD"><rect x="15" y="673.802" width="6" height="6" fill="none" style="stroke:#C82930;stroke-width:1;"/></g><text x="27" y="680.149" fill="#000" font-size="14" textLength="151.983">dateExpiration: string</text><line x1="8" y1="687.451" x2="244.939" y2="687.451" style="stroke:#181818;stroke-width:0.5;"/><g data-visibility-modifier="PUBLIC_METHOD"><ellipse cx="18" cy="701.099" rx="3" ry="3" fill="#84BE84" style="stroke:#038048;stroke-width:1;"/></g><text x="27" y="704.446" fill="#000" font-size="14" textLength="212.939">autoriser(montant: float): bool</text></g><g class="entity" data-qualified-name="PaiementVirement" id="ent0004" data-source-line="19"><rect x="281" y="623.007" width="238.939" height="80.594" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><ellipse cx="330.926" cy="639.007" rx="11" ry="11" fill="#ADD1B2" style="stroke:#181818;stroke-width:1;"/><path d="M333.895,644.648 Q333.317,644.944 332.676,645.085 Q332.036,645.241 331.333,645.241 Q328.833,645.241 327.504,643.601 Q326.192,641.944 326.192,638.819 Q326.192,635.694 327.504,634.038 Q328.833,632.382 331.333,632.382 Q332.036,632.382 332.676,632.538 Q333.333,632.694 333.895,632.991 L333.895,635.71 Q333.27,635.132 332.676,634.866 Q332.083,634.585 331.458,634.585 Q330.114,634.585 329.426,635.663 Q328.739,636.726 328.739,638.819 Q328.739,640.913 329.426,641.991 Q330.114,643.054 331.458,643.054 Q332.083,643.054 332.676,642.788 Q333.27,642.507 333.895,641.929 L333.895,644.648 Z " fill="#000"/><text x="351.426" y="643.854" fill="#000" font-size="14" textLength="130.587">PaiementVirement</text><line x1="282" y1="655.007" x2="518.939" y2="655.007" style="stroke:#181818;stroke-width:0.5;"/><g data-visibility-modifier="PRIVATE_FIELD"><rect x="289" y="665.655" width="6" height="6" fill="none" style="stroke:#C82930;stroke-width:1;"/></g><text x="301" y="672.002" fill="#000" font-size="14" textLength="79.584">iban: string</text><line x1="282" y1="679.304" x2="518.939" y2="679.304" style="stroke:#181818;stroke-width:0.5;"/><g data-visibility-modifier="PUBLIC_METHOD"><ellipse cx="292" cy="692.952" rx="3" ry="3" fill="#84BE84" style="stroke:#038048;stroke-width:1;"/></g><text x="301" y="696.299" fill="#000" font-size="14" textLength="212.939">autoriser(montant: float): bool</text></g><g class="entity" data-qualified-name="Client" id="ent0005" data-source-line="24"><rect x="388.64" y="44.297" width="253.65" height="113.188" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><ellipse cx="490.95" cy="60.297" rx="11" ry="11" fill="#ADD1B2" style="stroke:#181818;stroke-width:1;"/><path d="M493.919,65.938 Q493.341,66.234 492.7,66.375 Q492.059,66.531 491.356,66.531 Q488.856,66.531 487.528,64.891 Q486.216,63.234 486.216,60.109 Q486.216,56.984 487.528,55.328 Q488.856,53.672 491.356,53.672 Q492.059,53.672 492.7,53.828 Q493.356,53.984 493.919,54.281 L493.919,57 Q493.294,56.422 492.7,56.156 Q492.106,55.875 491.481,55.875 Q490.138,55.875 489.45,56.953 Q488.763,58.016 488.763,60.109 Q488.763,62.203 489.45,63.281 Q490.138,64.344 491.481,64.344 Q492.106,64.344 492.7,64.078 Q493.294,63.797 493.919,63.219 L493.919,65.938 Z " fill="#000"/><text x="511.45" y="65.144" fill="#000" font-size="14" textLength="40.53">Client</text><line x1="389.64" y1="76.297" x2="641.29" y2="76.297" style="stroke:#181818;stroke-width:0.5;"/><g data-visibility-modifier="PRIVATE_FIELD"><rect x="396.64" y="86.945" width="6" height="6" fill="none" style="stroke:#C82930;stroke-width:1;"/></g><text x="408.64" y="93.292" fill="#000" font-size="14" textLength="40.195">id: int</text><g data-visibility-modifier="PRIVATE_FIELD"><rect x="396.64" y="103.242" width="6" height="6" fill="none" style="stroke:#C82930;stroke-width:1;"/></g><text x="408.64" y="109.589" fill="#000" font-size="14" textLength="80.432">nom: string</text><g data-visibility-modifier="PRIVATE_FIELD"><rect x="396.64" y="119.539" width="6" height="6" fill="none" style="stroke:#C82930;stroke-width:1;"/></g><text x="408.64" y="125.886" fill="#000" font-size="14" textLength="102.396">courriel: string</text><line x1="389.64" y1="133.188" x2="641.29" y2="133.188" style="stroke:#181818;stroke-width:0.5;"/><g data-visibility-modifier="PUBLIC_METHOD"><ellipse cx="399.64" cy="146.836" rx="3" ry="3" fill="#84BE84" style="stroke:#038048;stroke-width:1;"/></g><text x="408.64" y="150.183" fill="#000" font-size="14" textLength="227.65">passerCommande(): Commande</text></g><g class="entity" data-qualified-name="Commande" id="ent0006" data-source-line="31"><rect x="372.56" y="234.477" width="285.813" height="129.484" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><ellipse cx="470.933" cy="250.477" rx="11" ry="11" fill="#ADD1B2" style="stroke:#181818;stroke-width:1;"/><path d="M473.901,256.118 Q473.323,256.414 472.683,256.555 Q472.042,256.711 471.339,256.711 Q468.839,256.711 467.511,255.071 Q466.198,253.414 466.198,250.289 Q466.198,247.164 467.511,245.508 Q468.839,243.852 471.339,243.852 Q472.042,243.852 472.683,244.008 Q473.339,244.164 473.901,244.461 L473.901,247.18 Q473.276,246.602 472.683,246.336 Q472.089,246.055 471.464,246.055 Q470.12,246.055 469.433,247.133 Q468.745,248.196 468.745,250.289 Q468.745,252.383 469.433,253.461 Q470.12,254.524 471.464,254.524 Q472.089,254.524 472.683,254.258 Q473.276,253.977 473.901,253.399 L473.901,256.118 Z " fill="#000"/><text x="491.433" y="255.324" fill="#000" font-size="14" textLength="80.568">Commande</text><line x1="373.56" y1="266.477" x2="657.373" y2="266.477" style="stroke:#181818;stroke-width:0.5;"/><g data-visibility-modifier="PRIVATE_FIELD"><rect x="380.56" y="277.125" width="6" height="6" fill="none" style="stroke:#C82930;stroke-width:1;"/></g><text x="392.56" y="283.472" fill="#000" font-size="14" textLength="103.674">numero: string</text><g data-visibility-modifier="PRIVATE_FIELD"><rect x="380.56" y="293.422" width="6" height="6" fill="none" style="stroke:#C82930;stroke-width:1;"/></g><text x="392.56" y="299.769" fill="#000" font-size="14" textLength="163.475">dateCreation: datetime</text><g data-visibility-modifier="PRIVATE_FIELD"><rect x="380.56" y="309.719" width="6" height="6" fill="none" style="stroke:#C82930;stroke-width:1;"/></g><text x="392.56" y="316.066" fill="#000" font-size="14" textLength="90.569">statut: string</text><line x1="373.56" y1="323.368" x2="657.373" y2="323.368" style="stroke:#181818;stroke-width:0.5;"/><g data-visibility-modifier="PUBLIC_METHOD"><ellipse cx="383.56" cy="337.016" rx="3" ry="3" fill="#84BE84" style="stroke:#038048;stroke-width:1;"/></g><text x="392.56" y="340.363" fill="#000" font-size="14" textLength="141.613">calculerTotal(): float</text><g data-visibility-modifier="PUBLIC_METHOD"><ellipse cx="383.56" cy="353.313" rx="3" ry="3" fill="#84BE84" style="stroke:#038048;stroke-width:1;"/></g><text x="392.56" y="356.659" fill="#000" font-size="14" textLength="259.813">payer(moyen: MoyenPaiement): bool</text></g><g class="entity" data-qualified-name="LigneCommande" id="ent0007" data-source-line="39"><rect x="556.15" y="440.967" width="150.631" height="96.891" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><ellipse cx="571.15" cy="456.967" rx="11" ry="11" fill="#ADD1B2" style="stroke:#181818;stroke-width:1;"/><path d="M574.119,462.608 Q573.541,462.904 572.9,463.045 Q572.259,463.201 571.556,463.201 Q569.056,463.201 567.728,461.561 Q566.416,459.904 566.416,456.779 Q566.416,453.654 567.728,451.998 Q569.056,450.342 571.556,450.342 Q572.259,450.342 572.9,450.498 Q573.556,450.654 574.119,450.951 L574.119,453.67 Q573.494,453.092 572.9,452.826 Q572.306,452.545 571.681,452.545 Q570.338,452.545 569.65,453.623 Q568.963,454.686 568.963,456.779 Q568.963,458.873 569.65,459.951 Q570.338,461.014 571.681,461.014 Q572.306,461.014 572.9,460.748 Q573.494,460.467 574.119,459.889 L574.119,462.608 Z " fill="#000"/><text x="585.15" y="461.814" fill="#000" font-size="14" textLength="118.631">LigneCommande</text><line x1="557.15" y1="472.967" x2="705.781" y2="472.967" style="stroke:#181818;stroke-width:0.5;"/><g data-visibility-modifier="PRIVATE_FIELD"><rect x="564.15" y="483.615" width="6" height="6" fill="none" style="stroke:#C82930;stroke-width:1;"/></g><text x="576.15" y="489.962" fill="#000" font-size="14" textLength="86.112">quantite: int</text><g data-visibility-modifier="PRIVATE_FIELD"><rect x="564.15" y="499.912" width="6" height="6" fill="none" style="stroke:#C82930;stroke-width:1;"/></g><text x="576.15" y="506.259" fill="#000" font-size="14" textLength="122.773">prixUnitaire: float</text><line x1="557.15" y1="513.561" x2="705.781" y2="513.561" style="stroke:#181818;stroke-width:0.5;"/><g data-visibility-modifier="PUBLIC_METHOD"><ellipse cx="567.15" cy="527.209" rx="3" ry="3" fill="#84BE84" style="stroke:#038048;stroke-width:1;"/></g><text x="576.15" y="530.556" fill="#000" font-size="14" textLength="118.645">sousTotal(): float</text></g><g class="entity" data-qualified-name="Article" id="ent0008" data-source-line="45"><rect x="554.87" y="614.857" width="153.196" height="96.891" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><ellipse cx="604.762" cy="630.857" rx="11" ry="11" fill="#ADD1B2" style="stroke:#181818;stroke-width:1;"/><path d="M607.731,636.498 Q607.153,636.794 606.512,636.935 Q605.871,637.091 605.168,637.091 Q602.668,637.091 601.34,635.451 Q600.028,633.794 600.028,630.669 Q600.028,627.544 601.34,625.888 Q602.668,624.232 605.168,624.232 Q605.871,624.232 606.512,624.388 Q607.168,624.544 607.731,624.841 L607.731,627.56 Q607.106,626.982 606.512,626.716 Q605.918,626.435 605.293,626.435 Q603.95,626.435 603.262,627.513 Q602.575,628.576 602.575,630.669 Q602.575,632.763 603.262,633.841 Q603.95,634.904 605.293,634.904 Q605.918,634.904 606.512,634.638 Q607.106,634.357 607.731,633.779 L607.731,636.498 Z " fill="#000"/><text x="625.262" y="635.704" fill="#000" font-size="14" textLength="44.912">Article</text><line x1="555.87" y1="646.857" x2="707.066" y2="646.857" style="stroke:#181818;stroke-width:0.5;"/><g data-visibility-modifier="PRIVATE_FIELD"><rect x="562.87" y="657.505" width="6" height="6" fill="none" style="stroke:#C82930;stroke-width:1;"/></g><text x="574.87" y="663.852" fill="#000" font-size="14" textLength="116.819">reference: string</text><g data-visibility-modifier="PRIVATE_FIELD"><rect x="562.87" y="673.802" width="6" height="6" fill="none" style="stroke:#C82930;stroke-width:1;"/></g><text x="574.87" y="680.149" fill="#000" font-size="14" textLength="127.196">description: string</text><g data-visibility-modifier="PRIVATE_FIELD"><rect x="562.87" y="690.099" width="6" height="6" fill="none" style="stroke:#C82930;stroke-width:1;"/></g><text x="574.87" y="696.446" fill="#000" font-size="14" textLength="67.437">prix: float</text><line x1="555.87" y1="703.748" x2="707.066" y2="703.748" style="stroke:#181818;stroke-width:0.5;"/></g><g class="link" data-entity-1="ent0002" data-entity-2="ent0003" id="lnk9" data-source-line="51" data-link-type="extension"><path d="M334.962,531.503 C293.712,557.383 249.89,584.877 202.8,614.417" style="stroke:#181818;stroke-width:1;stroke-dasharray:7,7;" fill="none" id="MoyenPaiement-backto-PaiementCarteCredit" codeLine="51"/><polygon points="350.21,521.937,331.774,526.421,338.151,536.586,350.21,521.937" fill="none" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/></g><g class="link" data-entity-1="ent0002" data-entity-2="ent0004" id="lnk10" data-source-line="52" data-link-type="extension"><path d="M400.47,539.937 C400.47,568.337 400.47,592.197 400.47,622.817" style="stroke:#181818;stroke-width:1;stroke-dasharray:7,7;" fill="none" id="MoyenPaiement-backto-PaiementVirement" codeLine="52"/><polygon points="400.47,521.937,394.47,539.937,406.47,539.937,400.47,521.937" fill="none" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/></g><g class="link" data-entity-1="ent0005" data-entity-2="ent0006" id="lnk11" data-source-line="54" data-link-type="dependency"><path d="M515.47,157.887 C515.47,181.687 515.47,204.577 515.47,229.187" style="stroke:#181818;stroke-width:1;" fill="none" id="Client-to-Commande" codeLine="54"/><polygon points="515.47,234.187,519.47,225.187,515.47,229.187,511.47,225.187,515.47,234.187" fill="#181818" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="516.47" y="200.544" fill="#000" font-size="13" textLength="37.762">passe</text><text x="507.024" y="177.419" fill="#000" font-size="13">1</text><text x="491.214" y="223.328" fill="#000" font-size="13" textLength="23.036">0..*</text></g><g class="link" data-entity-1="ent0006" data-entity-2="ent0007" id="lnk12" data-source-line="55" data-link-type="composition"><path d="M561.364,374.674 C576.714,399.594 587.7,417.407 601.94,440.507" style="stroke:#181818;stroke-width:1;" fill="none" id="Commande-backto-LigneCommande" codeLine="55"/><polygon points="555.07,364.457,554.811,371.663,561.364,374.674,561.622,367.468,555.07,364.457" fill="#181818" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="581.47" y="407.034" fill="#000" font-size="13" textLength="53.384">contient</text><text x="550.756" y="384.032" fill="#000" font-size="13">1</text><text x="573.43" y="430.003" fill="#000" font-size="13" textLength="23.036">1..*</text></g><g class="link" data-entity-1="ent0007" data-entity-2="ent0008" id="lnk13" data-source-line="56" data-link-type="dependency"><path d="M631.47,538.297 C631.47,562.037 631.47,585.637 631.47,609.377" style="stroke:#181818;stroke-width:1;" fill="none" id="LigneCommande-to-Article" codeLine="56"/><polygon points="631.47,614.377,635.47,605.377,631.47,609.377,627.47,605.377,631.47,614.377" fill="#181818" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="632.47" y="580.924" fill="#000" font-size="13" textLength="62.645">référence</text><text x="606.928" y="557.949" fill="#000" font-size="13" textLength="23.036">0..*</text><text x="622.951" y="603.871" fill="#000" font-size="13">1</text></g><g class="link" data-entity-1="ent0006" data-entity-2="ent0002" id="lnk14" data-source-line="57" data-link-type="dependency"><path d="M476.21,364.457 C457.15,395.657 437.708,427.471 422.328,452.631" style="stroke:#181818;stroke-width:1;stroke-dasharray:7,7;" fill="none" id="Commande-to-MoyenPaiement" codeLine="57"/><polygon points="419.72,456.897,427.827,451.304,422.328,452.631,421.001,447.132,419.72,456.897" fill="#181818" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="459.47" y="407.034" fill="#000" font-size="13" textLength="38.943">utilise</text></g><?plantuml-src dLF1Jjmm4BtxAqPxebI9w3Mga5OXKf4e87NXMXbdbexasDl9M0Ar_I2-Wn-huqtOE20Ed6AFxVTctdiH4ekmPlEB18q4HcW3VFTjYEKMeVPTfrsBlLBeGWS_H4kGQqtOeHFuem2Qov_hpQQvt3HnSxk-E3yR5atzxUgcKV-K8YV8MsqmmZwYozv-1Xt4C_N8HvrtefrKiBLUowSAxhot0u2nkkzXUbTh5gmPMzf3513xGlQfNa4lJEu-rLijs3piYBMGTxEZ3x3U4X-wBe3kz0S1QqipcBQ2ACz-2jzbtHiVc0bjHhEB4CYJAKSHVLhF6CPAfiuhOQA2eop3JgZ3TDGdVpDEews9QU2D5sq7oZJOsCvZcZZQMkNklfhxWkuTBbhx7Q9GDBWsYR1ZUhXn93hAFIVgVUWN_2_8QnOoTi9at2AZCuieO6-OTeiSxFbcW7b0l_ujoxTYzzwrAITAZKQllgoWA4vXTLAMnwk3ETNUI_LI62uU5qNyfekvNbMCGvHg0CuFHjZ4404cBIhWvwVjyrDIui1HbgUBdx2286HZSFy3?></g></svg></div></div>
+
+<p>Code PlantUML correspondant :</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>@startuml
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>title Architecture du Module de Commandes
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>enum StatutPaiement {
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>  EN_ATTENTE
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>  VALIDE
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>  ECHOUE
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>}
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>interface MoyenPaiement {
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>  + autoriser(montant: float): bool
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>}
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>class PaiementCarteCredit {
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>  - numeroCarte: string
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>  - dateExpiration: string
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>  + autoriser(montant: float): bool
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>}
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>class PaiementVirement {
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>  - iban: string
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>  + autoriser(montant: float): bool
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>}
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>class Client {
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>  - id: int
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>  - nom: string
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>  - courriel: string
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>  + passerCommande(): Commande
+</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>}
+</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>
+</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>class Commande {
+</span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a>  - numero: string
+</span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>  - dateCreation: datetime
+</span><span id="__span-3-35"><a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>  - statut: string
+</span><span id="__span-3-36"><a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a>  + calculerTotal(): float
+</span><span id="__span-3-37"><a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a>  + payer(moyen: MoyenPaiement): bool
+</span><span id="__span-3-38"><a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a>}
+</span><span id="__span-3-39"><a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a>
+</span><span id="__span-3-40"><a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a>class LigneCommande {
+</span><span id="__span-3-41"><a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a>  - quantite: int
+</span><span id="__span-3-42"><a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a>  - prixUnitaire: float
+</span><span id="__span-3-43"><a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a>  + sousTotal(): float
+</span><span id="__span-3-44"><a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a>}
+</span><span id="__span-3-45"><a id="__codelineno-3-45" name="__codelineno-3-45" href="#__codelineno-3-45"></a>
+</span><span id="__span-3-46"><a id="__codelineno-3-46" name="__codelineno-3-46" href="#__codelineno-3-46"></a>class Article {
+</span><span id="__span-3-47"><a id="__codelineno-3-47" name="__codelineno-3-47" href="#__codelineno-3-47"></a>  - reference: string
+</span><span id="__span-3-48"><a id="__codelineno-3-48" name="__codelineno-3-48" href="#__codelineno-3-48"></a>  - description: string
+</span><span id="__span-3-49"><a id="__codelineno-3-49" name="__codelineno-3-49" href="#__codelineno-3-49"></a>  - prix: float
+</span><span id="__span-3-50"><a id="__codelineno-3-50" name="__codelineno-3-50" href="#__codelineno-3-50"></a>}
+</span><span id="__span-3-51"><a id="__codelineno-3-51" name="__codelineno-3-51" href="#__codelineno-3-51"></a>
+</span><span id="__span-3-52"><a id="__codelineno-3-52" name="__codelineno-3-52" href="#__codelineno-3-52"></a>MoyenPaiement &lt;|.. PaiementCarteCredit
+</span><span id="__span-3-53"><a id="__codelineno-3-53" name="__codelineno-3-53" href="#__codelineno-3-53"></a>MoyenPaiement &lt;|.. PaiementVirement
+</span><span id="__span-3-54"><a id="__codelineno-3-54" name="__codelineno-3-54" href="#__codelineno-3-54"></a>
+</span><span id="__span-3-55"><a id="__codelineno-3-55" name="__codelineno-3-55" href="#__codelineno-3-55"></a>Client &quot;1&quot; --&gt; &quot;0..*&quot; Commande : passe
+</span><span id="__span-3-56"><a id="__codelineno-3-56" name="__codelineno-3-56" href="#__codelineno-3-56"></a>Commande &quot;1&quot; *-- &quot;1..*&quot; LigneCommande : contient
+</span><span id="__span-3-57"><a id="__codelineno-3-57" name="__codelineno-3-57" href="#__codelineno-3-57"></a>LigneCommande &quot;0..*&quot; --&gt; &quot;1&quot; Article : référence
+</span><span id="__span-3-58"><a id="__codelineno-3-58" name="__codelineno-3-58" href="#__codelineno-3-58"></a>Commande ..&gt; MoyenPaiement : utilise
+</span><span id="__span-3-59"><a id="__codelineno-3-59" name="__codelineno-3-59" href="#__codelineno-3-59"></a>@enduml
+</span></code></pre></div>
+<hr />
+<h2 id="5-bonnes-pratiques-pour-maximiser-lefficacite-de-modelisation">5. Bonnes pratiques pour maximiser l&rsquo;efficacité de modélisation<a class="headerlink" href="#5-bonnes-pratiques-pour-maximiser-lefficacite-de-modelisation" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Rester au niveau d&rsquo;abstraction adapté</strong> : Un diagramme de classes doit éclairer la prise de décision architecturale,
+  pas reproduire l&rsquo;intégralité du code source ligne par ligne.</li>
+<li><strong>Rendre les diagrammes modulaires</strong> : Si un projet dépasse 10 à 15 classes, divisez-le en sous-diagrammes par
+  paquetage/module fonctionnel pour éviter la surcharge visuelle.</li>
+<li><strong>Aligner le code et le modèle de façon continue</strong> : Mettre à jour le diagramme au fur et à mesure que les choix de
+  conception évoluent évite l&rsquo;accumulation d&rsquo;informations obsolètes qui nuisent à l&rsquo;équipe.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.code.select", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.top", "navigation.footer", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/config.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../assets/mkdocs_puml/puml.js"></script>
+      
+        <script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
+      
+        <script src="../../assets/mkdocs_puml/interaction.js"></script>
+      
+    
+  </body>
+</html>

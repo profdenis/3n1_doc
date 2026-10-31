@@ -11,6 +11,10 @@
         <link rel="canonical" href="https://profdenis.github.io/3n1_doc/section6/01_intro/">
       
       
+        <link rel="prev" href="../../section5/07_enum/">
+      
+      
+        <link rel="next" href="../02_principes_OO/">
       
       
         
@@ -21,7 +25,7 @@
     
     
       
-        <title>De l’Architecture Classique à l’Agilité des Langages Modernes - Cours de programmation orientée objet 2</title>
+        <title>Patrons de conception - Cours de programmation orientée objet 2</title>
       
     
     
@@ -78,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#de-larchitecture-classique-a-lagilite-des-langages-modernes" class="md-skip">
+        <a href="#patrons-de-conception" class="md-skip">
           Aller au contenu
         </a>
       
@@ -114,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              De l&rsquo;Architecture Classique à l&rsquo;Agilité des Langages Modernes
+              Patrons de conception
             
           </span>
         </div>
@@ -378,11 +382,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../01_principes_OO/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
           
   
   
@@ -3167,7 +3173,7 @@
   <span class="md-ellipsis">
     
   
-    Les Énumérations (Enums) en Python
+    Les Énumérations (Enums)
   
 
     
@@ -3192,28 +3198,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
-        
-          
-          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
             
   
   
@@ -3231,7 +3240,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             
@@ -3246,10 +3255,141 @@
                 
   
   
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Patrons de conception
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Patrons de conception
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#levolution-des-design-patterns-et-limpact-du-multiparadigme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        L&rsquo;Évolution des Design Patterns et l&rsquo;Impact du Multiparadigme
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="L’Évolution des Design Patterns et l’Impact du Multiparadigme">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linfluence-des-fonctions-de-premiere-classe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        L&rsquo;influence des fonctions de première classe
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="L’influence des fonctions de première classe">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemples-de-simplification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemples de simplification :
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vers-la-composition-plutot-que-lheritage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vers la Composition plutôt que l&rsquo;Héritage
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
   
   
     <li class="md-nav__item">
-      <a href="../01_principes_OO/" class="md-nav__link">
+      <a href="../02_principes_OO/" class="md-nav__link">
         
   
   
@@ -3277,34 +3417,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../02_Patrons_de_conception/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Patrons de conception
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../03_creation1_fabrique/" class="md-nav__link">
         
   
@@ -3312,7 +3424,7 @@
   <span class="md-ellipsis">
     
   
-    Design Patterns : Création (Première Partie)
+    Patrons de conception : Création (Première Partie)
   
 
     
@@ -3340,7 +3452,7 @@
   <span class="md-ellipsis">
     
   
-    Design Patterns : Création (Deuxième Partie)
+    Patrons de conception : Création (Deuxième Partie)
   
 
     
@@ -3361,14 +3473,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../05_structuraux/" class="md-nav__link">
+      <a href="../05_injection_dependance/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Design Patterns : Structuraux
+    L&rsquo;Injection de Dépendances (Dependency Injection)
   
 
     
@@ -3389,14 +3501,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../06_comportementaux/" class="md-nav__link">
+      <a href="../06_structuraux/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Design Patterns : Comportementaux (Behavioral)
+    Patrons de Conception : Structuraux
   
 
     
@@ -3417,14 +3529,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../07_strategie/" class="md-nav__link">
+      <a href="../07_comportementaux/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Le Patron de Conception Stratégie
+    Patrons de conception : Comportementaux (Behavioral)
   
 
     
@@ -3445,7 +3557,63 @@
   
   
     <li class="md-nav__item">
-      <a href="../08_cas_personne/" class="md-nav__link">
+      <a href="../08_strategie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Patron de Conception : Stratégie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_strategie_mixin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Approche hybride : Le Mixin comme injecteur de Stratégie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_cas_personne/" class="md-nav__link">
         
   
   
@@ -3453,6 +3621,34 @@
     
   
     Modélisation Avancée et la Gestion des Rôles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_proxy_qt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Le Modèle Proxy dans Qt/PySide6
   
 
     
@@ -3706,48 +3902,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#levolution-des-modeles-de-conception-face-a-lessor-du-multiparadigme" class="md-nav__link">
+  <a href="#levolution-des-design-patterns-et-limpact-du-multiparadigme" class="md-nav__link">
     <span class="md-ellipsis">
       
-        L&rsquo;évolution des modèles de conception face à l&rsquo;essor du multiparadigme
+        L&rsquo;Évolution des Design Patterns et l&rsquo;Impact du Multiparadigme
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#1-le-modele-mvc-classique-la-triade-fondamentale" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Le Modèle MVC Classique : La Triade Fondamentale
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-lapproche-qtpyside6-le-modele-mvd" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. L&rsquo;approche Qt/PySide6 : Le modèle MVD
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-levolution-des-design-patterns-et-limpact-du-multiparadigme" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. L&rsquo;Évolution des Design Patterns et l&rsquo;Impact du Multiparadigme
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. L’Évolution des Design Patterns et l’Impact du Multiparadigme">
+    <nav class="md-nav" aria-label="L’Évolution des Design Patterns et l’Impact du Multiparadigme">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3812,6 +3975,46 @@
   
 
 
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Accueil
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="./" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    6. Patrons de conception
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
               
               <article class="md-content__inner md-typeset">
                 
@@ -3822,37 +4025,39 @@
   
 
 
-<h1 id="de-larchitecture-classique-a-lagilite-des-langages-modernes">De l&rsquo;Architecture Classique à l&rsquo;Agilité des Langages Modernes<a class="headerlink" href="#de-larchitecture-classique-a-lagilite-des-langages-modernes" title="Permanent link">&para;</a></h1>
-<h3 id="levolution-des-modeles-de-conception-face-a-lessor-du-multiparadigme"><em>L&rsquo;évolution des modèles de conception face à l&rsquo;essor du multiparadigme</em><a class="headerlink" href="#levolution-des-modeles-de-conception-face-a-lessor-du-multiparadigme" title="Permanent link">&para;</a></h3>
-<hr />
-<h2 id="1-le-modele-mvc-classique-la-triade-fondamentale">1. Le Modèle MVC Classique : La Triade Fondamentale<a class="headerlink" href="#1-le-modele-mvc-classique-la-triade-fondamentale" title="Permanent link">&para;</a></h2>
-<p>L&rsquo;architecture <strong>MVC (Modèle-Vue-Contrôleur)</strong> est née de la volonté de séparer la gestion des données de leur
-représentation visuelle. L&rsquo;idée est de diviser une application en trois composants distincts :</p>
-<ul>
-<li><strong>Le Modèle (Model) :</strong> La &ldquo;source de vérité&rdquo;. Il contient les données brutes et la logique métier (ex: calculs, accès
-  à la base de données). Il ne sait pas comment il est affiché.</li>
-<li><strong>La Vue (View) :</strong> La représentation visuelle des données. Elle &ldquo;observe&rdquo; le modèle et se met à jour quand celui-ci
-  change.</li>
-<li><strong>Le Contrôleur (Controller) :</strong> Le chef d&rsquo;orchestre. Il reçoit les entrées utilisateur (clics, touches), les traduit
-  en commandes et les transmet au Modèle ou à la Vue.</li>
-</ul>
-<p><strong>Le problème historique :</strong> Dans les langages de programmation strictement orientés-objets (comme les premières
-versions de Java), le Contrôleur est une entité nécessaire pour faire le pont. Cela crée une séparation nette, mais
-aussi une complexité structurelle importante (beaucoup de classes &ldquo;intermédiaires&rdquo;).</p>
-<hr />
-<h2 id="2-lapproche-qtpyside6-le-modele-mvd">2. L&rsquo;approche Qt/PySide6 : Le modèle MVD<a class="headerlink" href="#2-lapproche-qtpyside6-le-modele-mvd" title="Permanent link">&para;</a></h2>
-<p>Dans les frameworks modernes comme <strong>Qt (PySide6)</strong>, le MVC a évolué vers le modèle <strong>MVD (Modèle-Vue-Delegate)</strong>. La
-distinction est subtile mais fondamentale : le &ldquo;Contrôleur&rdquo; est en grande partie absorbé par deux mécanismes :</p>
+<h1 id="patrons-de-conception">Patrons de conception<a class="headerlink" href="#patrons-de-conception" title="Permanent link">&para;</a></h1>
+<p>Les <em>design patterns</em> ou <strong>patrons de conception</strong> en français, sont des solutions générales réutilisables à des
+problèmes communs rencontrés dans la conception logicielle. Ce sont essentiellement des <em>modèles</em> ou des <em>schémas</em>
+éprouvés qui peuvent aider à résoudre certains problèmes de conception spécifiques.</p>
+<p>Ces patrons fournissent un moyen standard de résoudre des problèmes connus et récurrents, ce qui permet aux
+développeurs de ne pas réinventer la roue à chaque fois qu&rsquo;ils rencontrent ces problèmes.</p>
+<p>Ils peuvent être classés en trois catégories principales :</p>
 <ol type="1">
-<li><strong>Le mécanisme de Signal/Slot :</strong> Il permet de lier une action (un signal) à une fonction (un slot) de manière
-   extrêmement directe, rendant la classe &ldquo;Contrôleur&rdquo; souvent superflue.</li>
-<li><strong>Le Déléguer (Delegate) :</strong> Il gère à la fois l&rsquo;affichage spécialisé (ex: une barre de progression dans une cellule)
-   et l&rsquo;interaction (l&rsquo;édition d&rsquo;une cellule).</li>
+<li>
+<p><strong>Patrons de création</strong> : Ces patrons sont conçus pour aider à la création d&rsquo;objets tout en cachant les détails de
+   leur création. Ils encapsulent la connaissance sur quels objets concrets le système utilise, mais ils cachent
+   également comment ces instances sont créées et mises ensemble. Des exemples incluent le <em>Singleton</em>, <em>Factory
+   Method</em>, <em>Abstract Factory</em>, <em>Prototype</em> et <em>Builder</em>.</p>
+</li>
+<li>
+<p><strong>Patrons de structure</strong> : Ces patrons concernent la composition de classes ou d&rsquo;objets pour former de nouvelles
+   structures plus grandes. Ils expliquent comment assembler les objets et les classes pour former des structures plus
+   grandes. Des exemples incluent le <em>Adapter</em>, <em>Bridge</em>, <em>Composite</em>, <em>Decorator</em>, <em>Facade</em>, <em>Flyweight</em> et <em>Proxy</em>.</p>
+</li>
+<li>
+<p><strong>Patrons de comportement</strong> : Ces patrons se concentrent sur l&rsquo;interaction entre les objets, comment ils
+   communiquent et comment certains objets sont contrôlés par d&rsquo;autres. Des exemples incluent le <em>Chain of
+   Responsibility</em>, <em>Command</em>, <em>Interpreter</em>, <em>Iterator</em>, <em>Mediator</em>, <em>Memento</em>, <em>Observer</em> (ou <em>Publish/Subscribe</em>),
+   <em>State</em>, <em>Strategy</em>, <em>Template Method</em> et <em>Visitor</em>.</p>
+</li>
 </ol>
+<p>Les <em>design patterns</em> sont un outil de communication puissant entre les développeurs. En disant, par exemple, &ldquo;Utilisons
+le patron Strategy ici&rdquo;, vous communiquez beaucoup d&rsquo;informations sur la manière dont vous envisagez de résoudre
+un problème de conception.</p>
 <hr />
-<h2 id="3-levolution-des-design-patterns-et-limpact-du-multiparadigme">3. L&rsquo;Évolution des Design Patterns et l&rsquo;Impact du Multiparadigme<a class="headerlink" href="#3-levolution-des-design-patterns-et-limpact-du-multiparadigme" title="Permanent link">&para;</a></h2>
-<p>L&rsquo;arrivée des langages <strong>multiparadigmes</strong> (Python, C++, Java moderne) a radicalement modifié l&rsquo;utilisation des Design
-Patterns classiques décrits par le <em>Gang of Four (GoF)</em>.</p>
+<h2 id="levolution-des-design-patterns-et-limpact-du-multiparadigme">L&rsquo;Évolution des Design Patterns et l&rsquo;Impact du Multiparadigme<a class="headerlink" href="#levolution-des-design-patterns-et-limpact-du-multiparadigme" title="Permanent link">&para;</a></h2>
+<p>L&rsquo;arrivée des langages <strong>multiparadigmes</strong> (Python, Java moderne, Kotlin, &hellip;) a radicalement modifié l&rsquo;utilisation des
+Design Patterns classiques décrits par le <em>Gang of Four (GoF)</em>.</p>
 <h3 id="linfluence-des-fonctions-de-premiere-classe">L&rsquo;influence des fonctions de première classe<a class="headerlink" href="#linfluence-des-fonctions-de-premiere-classe" title="Permanent link">&para;</a></h3>
 <p>Dans les langages anciens, une fonction était un bloc de code rigide. Pour passer un comportement à un objet, il fallait
 créer une classe entière pour encapsuler une seule méthode.</p>
@@ -3865,6 +4070,7 @@ maintenant le travail que le pattern faisait auparavant.</p>
 <li><em>Avant :</em> On créait une classe <code>UndoCommand</code> avec une méthode <code>execute()</code>.</li>
 <li><em>Maintenant :</em> On passe simplement une fonction (ou une lambda) à un gestionnaire. Le pattern est devenu une
   simple instruction de langage.</li>
+<li>Avec Qt/PySide6, on peut connecter une fonction à un signal sans avoir à créer une classe spécifique.</li>
 </ul>
 </li>
 <li><strong>Le Pattern Strategy :</strong><ul>
@@ -3872,6 +4078,9 @@ maintenant le travail que le pattern faisait auparavant.</p>
   <code>CalculLent</code>).</li>
 <li><em>Maintenant :</em> On passe directement une fonction de calcul en paramètre. L&rsquo;objet n&rsquo;a plus besoin de connaître la
   hiérarchie de classes, il a seulement besoin de savoir qu&rsquo;il peut &ldquo;appeler&rdquo; cet objet.</li>
+<li>Exemple en Python : pour trier une liste de nombres, on peut utiliser la fonction <code>sorted()</code> avec une fonction de
+  comparaison personnalisée. Pas besoin de créer une classe spécifique (comme une implémentation de <code>Comparator</code> en
+  Java) pour chaque stratégie de tri.</li>
 </ul>
 </li>
 </ul>
@@ -3915,6 +4124,44 @@ conception.</p>
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
+        
+          
+          <a href="../../section5/07_enum/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Les Énumérations (Enums)">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Précédent
+              </span>
+              <div class="md-ellipsis">
+                Les Énumérations (Enums)
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../02_principes_OO/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Principes de Conception Orientée Objet">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Suivant
+              </span>
+              <div class="md-ellipsis">
+                Principes de Conception Orientée Objet
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">

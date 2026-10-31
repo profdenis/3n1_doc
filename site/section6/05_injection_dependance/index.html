@@ -1,0 +1,4918 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://profdenis.github.io/3n1_doc/section6/05_injection_dependance/">
+      
+      
+        <link rel="prev" href="../04_creation2/">
+      
+      
+        <link rel="next" href="../06_structuraux/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>L’Injection de Dépendances (Dependency Injection) - Cours de programmation orientée objet 2</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../style.css">
+    
+      <link rel="stylesheet" href="../../assets/mkdocs_puml/puml.css">
+    
+      <link rel="stylesheet" href="../../assets/mkdocs_puml/interaction.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#linjection-de-dependances-dependency-injection" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../.." title="Cours de programmation orientée objet 2" class="md-header__button md-logo" aria-label="Cours de programmation orientée objet 2" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.14 7.5A2.86 2.86 0 0 1 22 10.36v3.78A2.86 2.86 0 0 1 19.14 17H12c0 .39.32.96.71.96H17v1.68a2.86 2.86 0 0 1-2.86 2.86H9.86A2.86 2.86 0 0 1 7 19.64v-3.75a2.85 2.85 0 0 1 2.86-2.85h5.25a2.85 2.85 0 0 0 2.85-2.86V7.5zm-4.28 11.79c-.4 0-.72.3-.72.89s.32.71.72.71a.71.71 0 0 0 .71-.71c0-.59-.32-.89-.71-.89m-10-1.79A2.86 2.86 0 0 1 2 14.64v-3.78A2.86 2.86 0 0 1 4.86 8H12c0-.39-.32-.96-.71-.96H7V5.36A2.86 2.86 0 0 1 9.86 2.5h4.28A2.86 2.86 0 0 1 17 5.36v3.75a2.85 2.85 0 0 1-2.86 2.85H8.89a2.85 2.85 0 0 0-2.85 2.86v2.68zM9.14 5.71c.4 0 .72-.3.72-.89s-.32-.71-.72-.71c-.39 0-.71.12-.71.71s.32.89.71.89"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cours de programmation orientée objet 2
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              L&rsquo;Injection de Dépendances (Dependency Injection)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/profdenis/3n1_doc" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    profdenis/3n1_doc
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Accueil
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../introduction/01_index/" class="md-tabs__link">
+          
+  
+  
+  Intro
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../section1/01_survol_python/" class="md-tabs__link">
+          
+  
+  
+  1. Python (bases)
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../section2/01_bases/" class="md-tabs__link">
+          
+  
+  
+  2. Python (bases OO)
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../section3/A_intro/01_hello_world/" class="md-tabs__link">
+          
+  
+  
+  3. Qt et PySide6
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../section4/01_static/" class="md-tabs__link">
+          
+  
+  
+  4. Encapsulation et intégrité
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../section5/01_abc/" class="md-tabs__link">
+          
+  
+  
+  5. Python (OO avancé)
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../01_intro/" class="md-tabs__link">
+          
+  
+  
+  6. Patrons de conception
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../section7/01_bases/" class="md-tabs__link">
+          
+  
+  
+  7. Pygame
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../section8/01_argparse/" class="md-tabs__link">
+          
+  
+  
+  8. Extra
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Cours de programmation orientée objet 2" class="md-nav__button md-logo" aria-label="Cours de programmation orientée objet 2" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.14 7.5A2.86 2.86 0 0 1 22 10.36v3.78A2.86 2.86 0 0 1 19.14 17H12c0 .39.32.96.71.96H17v1.68a2.86 2.86 0 0 1-2.86 2.86H9.86A2.86 2.86 0 0 1 7 19.64v-3.75a2.85 2.85 0 0 1 2.86-2.85h5.25a2.85 2.85 0 0 0 2.85-2.86V7.5zm-4.28 11.79c-.4 0-.72.3-.72.89s.32.71.72.71a.71.71 0 0 0 .71-.71c0-.59-.32-.89-.71-.89m-10-1.79A2.86 2.86 0 0 1 2 14.64v-3.78A2.86 2.86 0 0 1 4.86 8H12c0-.39-.32-.96-.71-.96H7V5.36A2.86 2.86 0 0 1 9.86 2.5h4.28A2.86 2.86 0 0 1 17 5.36v3.75a2.85 2.85 0 0 1-2.86 2.85H8.89a2.85 2.85 0 0 0-2.85 2.86v2.68zM9.14 5.71c.4 0 .72-.3.72-.89s-.32-.71-.72-.71c-.39 0-.71.12-.71.71s.32.89.71.89"/></svg>
+
+    </a>
+    Cours de programmation orientée objet 2
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/profdenis/3n1_doc" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    profdenis/3n1_doc
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intro
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Intro
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction/01_index/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction au cours de Programmation Orientée Objet 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction/02_transition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction à Python : Guide de Transition
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction/03_uv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide : Maîtriser le développement Python moderne avec uv
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Python (bases)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1. Python (bases)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section1/01_survol_python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction à Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section1/02_exercices1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercices 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section1/03_exercices2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercices 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section1/04_comprehensions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compréhensions de Liste et Dictionnaire
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section1/05_exercices3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercices 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section1/06_chaines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manipulation des Chaînes de Caractères
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section1/07_exercices4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercices 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section1/08_fonctions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Les Fonctions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section1/09_exercices5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercices 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_10" id="__nav_3_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fichiers
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fichiers
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section1/fichiers/01_intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lecture et écriture de fichiers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section1/fichiers/02-special-cases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestion des problèmes de fichiers sous Windows : encodage et fins de ligne
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section1/fichiers/03-csv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lecture et écriture de fichiers CSV
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section1/fichiers/04-json/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lecture et écriture de fichiers JSON
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section1/fichiers/05-toml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Travail avec les fichiers de configuration TOML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section1/fichiers/06-yaml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Travail avec les fichiers de configuration YAML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Python (bases OO)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    2. Python (bases OO)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section2/01_bases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OO Python : Concepts de Base
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section2/02_heritage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Héritage et Polymorphisme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section2/03_match/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    match avec Héritage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section2/04_polymorphisme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Polymorphisme : Comparaison Java vs Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section2/05_exercices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section2/06_mini_projet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mini-Projet : Le Gestionnaire de Compagnons de Donjon
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Qt et PySide6
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    3. Qt et PySide6
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A. Introduction
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    A. Introduction
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/A_intro/01_hello_world/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interfaces Graphiques avec PySide6 et Qt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/A_intro/02_signal_slot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Signaux et Slots
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/A_intro/03_agencements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Les agencements (Layouts)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/A_intro/04_widgets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Widgets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/A_intro/05_exemples_box_layouts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documentation : Exemples de Box Layouts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/A_intro/06_exemples_grid_layout/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exemples de QGridLayout
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/A_intro/07_exemple_formulaire/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exemple de formulaire
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    B. Signaux et Slots
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    B. Signaux et Slots
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/B_signaux/01_bouton/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Introduction à la gestion des événements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/B_signaux/02_synchro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Exemple avec un curseur et un cadran
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/B_signaux/03_signal_perso/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Définition et utilisation de signaux personnalisés
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/B_signaux/04_form/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Soumission des données de formulaire
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C. Menus et Dialogues
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    C. Menus et Dialogues
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/C_menus/01_intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Menus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/C_menus/02_editeur1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Éditeur de texte simple
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/C_menus/03_editeur2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Éditeur de texte : menu des paramètres
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/C_menus/04_editeur3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Éditeur de texte : Barre d&rsquo;outils et événements de la molette
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/C_menus/05_editeur4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Éditeur de texte : Gestion de l&rsquo;état du document
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/C_menus/06_editeur5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Éditeur de texte : Intégration des raccourcis clavier
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    D. Événements
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    D. Événements
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/D_evenements/01_intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Vue d&rsquo;ensemble des événements système
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/D_evenements/02_propagation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Exemple : Propagation et bulle des événements dans PySide6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    E. Exercices
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    E. Exercices
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/E_exercices/01_compteur/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercice 1 : Construction d&rsquo;une application compteur
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/E_exercices/02_liste_taches/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercice 2 : Gestionnaire de tâches (To-Do List)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/E_exercices/03_ardoise_dessin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercice 3 : Ardoise de dessin interactive (Mini Paint)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_6" id="__nav_5_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    F. QThread
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    F. QThread
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/F_QThread/01_intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestion des tâches en arrière-plan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/F_QThread/02_avance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exemple Avancé
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/F_QThread/03_tableau/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exemple : Chargeur CSV
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/F_QThread/04_arret/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terminaison forcée d&rsquo;un thread
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section3/F_QThread/05_arret_progressif/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fermeture progressive
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Encapsulation et intégrité
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    4. Encapsulation et intégrité
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section4/01_static/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Attributs et méthodes de classe et méthodes statiques
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section4/02_proprietes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Définir des propriétés avec @property
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section4/03_types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Les indices de type (Type Hints)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section4/04_exceptions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestion des erreurs : Exceptions et Assertions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section4/05_dbc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Le Design par Contrat (DbC)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section4/06_pytest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tests unitaires avec pytest
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section4/07_dbc_pytest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide : Combinaison de pytest et Design by Contract (DbC) avec deal
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section4/08_encapsulation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Encapsulation et Intégrité
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Python (OO avancé)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    5. Python (OO avancé)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section5/01_abc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Classes Abstraites (ABC)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section5/01a_dict/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Extension de dict en Python : Pourquoi éviter l&rsquo;héritage ?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section5/02_generiques/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Les Types Génériques
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section5/03_protocoles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Les Protocoles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section5/04_heritage_multiple/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Héritage multiple
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section5/05_mixin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Les mixins
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section5/06_dataclass/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Les Classes de Données (@dataclass)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section5/07_enum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Les Énumérations (Enums)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Patrons de conception
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    6. Patrons de conception
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Patrons de conception
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_principes_OO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Principes de Conception Orientée Objet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_creation1_fabrique/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Patrons de conception : Création (Première Partie)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_creation2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Patrons de conception : Création (Deuxième Partie)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    L&rsquo;Injection de Dépendances (Dependency Injection)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    L&rsquo;Injection de Dépendances (Dependency Injection)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-comprendre-le-probleme-le-couplage-fort" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Comprendre le problème : Le couplage fort
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Comprendre le problème : Le couplage fort">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quest-ce-quune-dependance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Qu&rsquo;est-ce qu&rsquo;une dépendance ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lanti-patron-linstanciation-interne-directe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        L&rsquo;anti-patron : L&rsquo;instanciation interne directe
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pourquoi-cette-approche-pose-t-elle-probleme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pourquoi cette approche pose-t-elle problème ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-la-solution-inversion-de-controle-et-injection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. La Solution : Inversion de Contrôle et Injection
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. La Solution : Inversion de Contrôle et Injection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#le-principe-dinversion-des-dependances-dip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le principe d&rsquo;inversion des dépendances (DIP)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#definition-de-linjection-de-dependances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Définition de l&rsquo;Injection de Dépendances
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-formes-dinjection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les formes d&rsquo;injection
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-exemple-concret-pas-a-pas-gestion-de-personnes-multi-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Exemple concret pas à pas : Gestion de personnes multi-sources
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Exemple concret pas à pas : Gestion de personnes multi-sources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagramme-de-classes-uml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagramme de classes UML
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-1-le-modele-metier-personne" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 1 : Le Modèle Métier (Personne)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-2-le-contrat-dabstraction-lecteurpersonnes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 2 : Le Contrat d&rsquo;Abstraction (LecteurPersonnes)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-3-les-implementations-concretes-csv-json-sqlite-memoire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 3 : Les Implémentations Concrètes (CSV, JSON, SQLite, Mémoire)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-4-le-service-metier-gestionnairepersonnes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 4 : Le Service Métier (GestionnairePersonnes)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-5-assemblage-et-execution-console" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 5 : Assemblage et Exécution Console
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Étape 5 : Assemblage et Exécution Console">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sortie-console-obtenue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sortie console obtenue :
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-le-grand-benefice-testabilite-maximale-mocks-fakes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Le Grand Bénéfice : Testabilité Maximale (Mocks &amp; Fakes)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-connexion-avec-les-patrons-structuraux-les-lecteurs-comme-adaptateurs-adapters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Connexion avec les patrons structuraux : Les lecteurs comme Adaptateurs (Adapters)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-synthese-des-benefices-de-linjection-de-dependances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Synthèse des Bénéfices de l&rsquo;Injection de Dépendances
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_structuraux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Patrons de Conception : Structuraux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_comportementaux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Patrons de conception : Comportementaux (Behavioral)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_strategie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Patron de Conception : Stratégie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_strategie_mixin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Approche hybride : Le Mixin comme injecteur de Stratégie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_cas_personne/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modélisation Avancée et la Gestion des Rôles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_proxy_qt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Le Modèle Proxy dans Qt/PySide6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Pygame
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    7. Pygame
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section7/01_bases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction à Pygame : Les bases du jeu 2D
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section7/02_oo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pygame et Programmation Orientée Objet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Extra
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    8. Extra
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../section8/01_argparse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide de l&rsquo;utilisation de argparse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-comprendre-le-probleme-le-couplage-fort" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Comprendre le problème : Le couplage fort
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Comprendre le problème : Le couplage fort">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quest-ce-quune-dependance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Qu&rsquo;est-ce qu&rsquo;une dépendance ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lanti-patron-linstanciation-interne-directe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        L&rsquo;anti-patron : L&rsquo;instanciation interne directe
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pourquoi-cette-approche-pose-t-elle-probleme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pourquoi cette approche pose-t-elle problème ?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-la-solution-inversion-de-controle-et-injection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. La Solution : Inversion de Contrôle et Injection
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. La Solution : Inversion de Contrôle et Injection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#le-principe-dinversion-des-dependances-dip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Le principe d&rsquo;inversion des dépendances (DIP)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#definition-de-linjection-de-dependances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Définition de l&rsquo;Injection de Dépendances
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-formes-dinjection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Les formes d&rsquo;injection
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-exemple-concret-pas-a-pas-gestion-de-personnes-multi-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Exemple concret pas à pas : Gestion de personnes multi-sources
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Exemple concret pas à pas : Gestion de personnes multi-sources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagramme-de-classes-uml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagramme de classes UML
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-1-le-modele-metier-personne" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 1 : Le Modèle Métier (Personne)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-2-le-contrat-dabstraction-lecteurpersonnes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 2 : Le Contrat d&rsquo;Abstraction (LecteurPersonnes)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-3-les-implementations-concretes-csv-json-sqlite-memoire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 3 : Les Implémentations Concrètes (CSV, JSON, SQLite, Mémoire)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-4-le-service-metier-gestionnairepersonnes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 4 : Le Service Métier (GestionnairePersonnes)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#etape-5-assemblage-et-execution-console" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étape 5 : Assemblage et Exécution Console
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Étape 5 : Assemblage et Exécution Console">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sortie-console-obtenue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sortie console obtenue :
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-le-grand-benefice-testabilite-maximale-mocks-fakes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Le Grand Bénéfice : Testabilité Maximale (Mocks &amp; Fakes)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-connexion-avec-les-patrons-structuraux-les-lecteurs-comme-adaptateurs-adapters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Connexion avec les patrons structuraux : Les lecteurs comme Adaptateurs (Adapters)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-synthese-des-benefices-de-linjection-de-dependances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Synthèse des Bénéfices de l&rsquo;Injection de Dépendances
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Accueil
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../01_intro/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    6. Patrons de conception
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="linjection-de-dependances-dependency-injection">L&rsquo;Injection de Dépendances (<em>Dependency Injection</em>)<a class="headerlink" href="#linjection-de-dependances-dependency-injection" title="Permanent link">&para;</a></h1>
+<p>L&rsquo;<strong>Injection de Dépendances</strong> (<em>Dependency Injection</em> ou <strong>DI</strong>) est un patron d&rsquo;architecture et de conception
+fondamental dans le génie logiciel moderne.</p>
+<p>Il découle directement du <strong>Principe d&rsquo;Inversion des Dépendances</strong> (<em>Dependency Inversion Principle</em> - <strong>DIP</strong>, le &ldquo;D&rdquo;
+de <strong>SOLID</strong>) et constitue la forme la plus courante d&rsquo; <strong>Inversion de Contrôle</strong> (<em>Inversion of Control</em> - <strong>IoC</strong>).</p>
+<hr />
+<h2 id="1-comprendre-le-probleme-le-couplage-fort">1. Comprendre le problème : Le couplage fort<a class="headerlink" href="#1-comprendre-le-probleme-le-couplage-fort" title="Permanent link">&para;</a></h2>
+<h3 id="quest-ce-quune-dependance">Qu&rsquo;est-ce qu&rsquo;une dépendance ?<a class="headerlink" href="#quest-ce-quune-dependance" title="Permanent link">&para;</a></h3>
+<p>Dans une application orientée objet, une classe dépend d&rsquo;une autre lorsqu&rsquo;elle a besoin d&rsquo;interagir avec elle pour
+accomplir son travail.
+Par exemple, un service de traitement de données dépend d&rsquo;un composant d&rsquo;accès aux fichiers ou à une base de données
+pour charger ces données.</p>
+<h3 id="lanti-patron-linstanciation-interne-directe">L&rsquo;anti-patron : L&rsquo;instanciation interne directe<a class="headerlink" href="#lanti-patron-linstanciation-interne-directe" title="Permanent link">&para;</a></h3>
+<p>Considérons une classe <code>GestionnairePersonnes</code> qui a pour rôle d&rsquo;appliquer des règles métier (calcul d&rsquo;âge moyen,
+filtrage, recherche).</p>
+<p>Si cette classe crée elle-même l&rsquo;objet concret dont elle a besoin avec <code>LecteurSQLite()</code> ou <code>LecteurCSV()</code>, elle devient
+<strong>étroitement couplée</strong> (<em>tightly coupled</em>) à cette implémentation technique précise :</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># ❌ MAUVAISE PRATIQUE : Couplage fort</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">GestionnairePersonnes</span><span class="p">:</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chemin_bd</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>        <span class="c1"># La classe contrôle et impose son implémentation de stockage !</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">lecteur</span> <span class="o">=</span> <span class="n">LecteurSQLite</span><span class="p">(</span><span class="n">chemin_bd</span><span class="p">)</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">obtenir_adultes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>        <span class="n">personnes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lecteur</span><span class="o">.</span><span class="n">charger_personnes</span><span class="p">()</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>        <span class="k">return</span> <span class="p">[</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">personnes</span> <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">]</span>
+</span></code></pre></div>
+<h3 id="pourquoi-cette-approche-pose-t-elle-probleme">Pourquoi cette approche pose-t-elle problème ?<a class="headerlink" href="#pourquoi-cette-approche-pose-t-elle-probleme" title="Permanent link">&para;</a></h3>
+<ol type="1">
+<li><strong>Rigidité (Violation de l&rsquo;Open/Closed Principle) :</strong> Si demain les données proviennent d&rsquo;un fichier JSON, d&rsquo;un
+   fichier CSV ou d&rsquo;un service web REST, il faut ouvrir et modifier la classe <code>GestionnairePersonnes</code>.</li>
+<li><strong>Difficulté majeure pour les tests unitaires :</strong> Impossible de tester la logique métier de <code>GestionnairePersonnes</code>
+   de manière isolée sans disposer d&rsquo;une base de données SQLite réelle sur le disque.</li>
+<li><strong>Violation de la responsabilité unique (SRP) :</strong> La classe métier s&rsquo;occupe à la fois de sa logique (filtrer les
+   adultes) et de la configuration technique de ses outils de persistance.</li>
+</ol>
+<hr />
+<h2 id="2-la-solution-inversion-de-controle-et-injection">2. La Solution : Inversion de Contrôle et Injection<a class="headerlink" href="#2-la-solution-inversion-de-controle-et-injection" title="Permanent link">&para;</a></h2>
+<h3 id="le-principe-dinversion-des-dependances-dip">Le principe d&rsquo;inversion des dépendances (DIP)<a class="headerlink" href="#le-principe-dinversion-des-dependances-dip" title="Permanent link">&para;</a></h3>
+<p>Le principe énonce que :</p>
+<blockquote>
+<p><em>Les modules de haut niveau (le domaine métier) ne doivent pas dépendre des modules de bas niveau (les détails
+techniques comme les fichiers ou la BD). Tous deux doivent dépendre d&rsquo;abstractions (interfaces ou classes abstraites).</em></p>
+</blockquote>
+<h3 id="definition-de-linjection-de-dependances">Définition de l&rsquo;Injection de Dépendances<a class="headerlink" href="#definition-de-linjection-de-dependances" title="Permanent link">&para;</a></h3>
+<p>Au lieu que l&rsquo;objet aille <strong>créer ou chercher</strong> ses dépendances, on lui <strong>injecte</strong> ses dépendances depuis l&rsquo;extérieur
+(généralement via son constructeur).</p>
+<blockquote>
+<p><strong>En résumé :</strong> <em>&ldquo;Ne construis pas tes outils, demande qu&rsquo;on te les donne.&rdquo;</em></p>
+</blockquote>
+<h3 id="les-formes-dinjection">Les formes d&rsquo;injection<a class="headerlink" href="#les-formes-dinjection" title="Permanent link">&para;</a></h3>
+<ol type="1">
+<li><strong>Injection par constructeur (<em>Constructor Injection</em>) [Recommandée] :</strong> Les dépendances requises sont fournies en
+   paramètres de <code>__init__</code>. Cela garantit que l&rsquo;objet est toujours dans un état valide dès son instanciation.</li>
+<li><strong>Injection par méthode (<em>Method Injection</em>) :</strong> La dépendance est passée en paramètre d&rsquo;une méthode spécifique qui
+   en a ponctuellement besoin.</li>
+<li><strong>Injection par propriété / mutateur (<em>Setter Injection</em>) :</strong> La dépendance est affectée via un attribut ou une
+   propriété après l&rsquo;instanciation (utile pour des dépendances optionnelles).</li>
+</ol>
+<hr />
+<h2 id="3-exemple-concret-pas-a-pas-gestion-de-personnes-multi-sources">3. Exemple concret pas à pas : Gestion de personnes multi-sources<a class="headerlink" href="#3-exemple-concret-pas-a-pas-gestion-de-personnes-multi-sources" title="Permanent link">&para;</a></h2>
+<p>Construisons un système simple où un <code>GestionnairePersonnes</code> manipule des données sans jamais savoir si elles
+proviennent d&rsquo;un fichier <strong>CSV</strong>, d&rsquo;un fichier <strong>JSON</strong>, d&rsquo;une base de données <strong>SQLite</strong>, ou d&rsquo;une liste en mémoire.</p>
+<h3 id="diagramme-de-classes-uml">Diagramme de classes UML<a class="headerlink" href="#diagramme-de-classes-uml" title="Permanent link">&para;</a></h3>
+<div class='puml-container'><div class="puml light" style="display: block"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" data-diagram-type="CLASS" style="width:1423px;height:390px;background:#FFFFFF;" width="1423px" height="390px" viewBox="0 0 1423 390" zoomAndPan="magnify" preserveAspectRatio="xMidYMid meet" contentStyleType="text/css" class="diagram"><?plantuml 1.2026.9beta4?><defs/><g font-family="sans-serif" lengthAdjust="spacing"><g class="entity" data-qualified-name="Personne" id="ent0001" data-source-line="3"><rect x="66.81" y="246.08" width="105.769" height="129.484" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><ellipse cx="85.742" cy="262.08" rx="11" ry="11" fill="#ADD1B2" style="stroke:#181818;stroke-width:1;"/><path d="M88.711,267.721 Q88.133,268.018 87.492,268.158 Q86.852,268.314 86.148,268.314 Q83.648,268.314 82.32,266.674 Q81.008,265.018 81.008,261.893 Q81.008,258.768 82.32,257.111 Q83.648,255.455 86.148,255.455 Q86.852,255.455 87.492,255.611 Q88.148,255.768 88.711,256.064 L88.711,258.783 Q88.086,258.205 87.492,257.939 Q86.898,257.658 86.273,257.658 Q84.93,257.658 84.242,258.736 Q83.555,259.799 83.555,261.893 Q83.555,263.986 84.242,265.064 Q84.93,266.127 86.273,266.127 Q86.898,266.127 87.492,265.861 Q88.086,265.58 88.711,265.002 L88.711,267.721 Z " fill="#000"/><text x="100.616" y="266.927" fill="#000" font-size="14" textLength="65.03">Personne</text><line x1="67.81" y1="278.08" x2="171.579" y2="278.08" style="stroke:#181818;stroke-width:0.5;"/><text x="72.81" y="295.075" fill="#000" font-size="14" textLength="51.926">+id: int</text><text x="72.81" y="311.372" fill="#000" font-size="14" textLength="70.513">+nom: str</text><text x="72.81" y="327.669" fill="#000" font-size="14" textLength="93.769">+prenom: str</text><text x="72.81" y="343.966" fill="#000" font-size="14" textLength="65.229">+age: int</text><text x="72.81" y="360.263" fill="#000" font-size="14" textLength="92.477">+courriel: str</text><line x1="67.81" y1="367.564" x2="171.579" y2="367.564" style="stroke:#181818;stroke-width:0.5;"/></g><g class="entity" data-qualified-name="LecteurPersonnes" id="ent0002" data-source-line="11"><rect x="516.56" y="55.89" width="274.268" height="64.297" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><ellipse cx="586.861" cy="71.89" rx="11" ry="11" fill="#A9DCDF" style="stroke:#181818;stroke-width:1;"/><path d="M586.97,67.234 L585.814,72.312 L588.142,72.312 L586.97,67.234 Z M585.486,64.999 L588.47,64.999 L591.83,77.39 L589.376,77.39 L588.611,74.327 L585.33,74.327 L584.58,77.39 L582.142,77.39 L585.486,64.999 Z " fill="#000"/><text x="607.361" y="76.737" fill="#000" font-size="14" textLength="125.166" font-style="italic">LecteurPersonnes</text><line x1="517.56" y1="87.89" x2="789.828" y2="87.89" style="stroke:#181818;stroke-width:0.5;"/><line x1="517.56" y1="95.89" x2="789.828" y2="95.89" style="stroke:#181818;stroke-width:0.5;"/><text x="522.56" y="112.885" fill="#000" font-size="14" textLength="262.268" font-style="italic">+charger_personnes(): list[Personne]</text></g><g class="entity" data-qualified-name="LecteurCSV" id="ent0003" data-source-line="15"><rect x="207.56" y="270.52" width="274.268" height="80.594" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><ellipse cx="299.903" cy="286.52" rx="11" ry="11" fill="#ADD1B2" style="stroke:#181818;stroke-width:1;"/><path d="M302.872,292.161 Q302.294,292.458 301.653,292.598 Q301.013,292.754 300.31,292.754 Q297.81,292.754 296.481,291.114 Q295.169,289.458 295.169,286.333 Q295.169,283.208 296.481,281.551 Q297.81,279.895 300.31,279.895 Q301.013,279.895 301.653,280.051 Q302.31,280.208 302.872,280.504 L302.872,283.223 Q302.247,282.645 301.653,282.379 Q301.06,282.098 300.435,282.098 Q299.091,282.098 298.403,283.176 Q297.716,284.239 297.716,286.333 Q297.716,288.426 298.403,289.504 Q299.091,290.567 300.435,290.567 Q301.06,290.567 301.653,290.301 Q302.247,290.02 302.872,289.442 L302.872,292.161 Z " fill="#000"/><text x="320.403" y="291.367" fill="#000" font-size="14" textLength="81.081">LecteurCSV</text><line x1="208.56" y1="302.52" x2="480.828" y2="302.52" style="stroke:#181818;stroke-width:0.5;"/><text x="213.56" y="319.515" fill="#000" font-size="14" textLength="147.834">-chemin_fichier: Path</text><line x1="208.56" y1="326.817" x2="480.828" y2="326.817" style="stroke:#181818;stroke-width:0.5;"/><text x="213.56" y="343.812" fill="#000" font-size="14" textLength="262.268">+charger_personnes(): list[Personne]</text></g><g class="entity" data-qualified-name="LecteurJSON" id="ent0004" data-source-line="20"><rect x="516.56" y="270.52" width="274.268" height="80.594" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><ellipse cx="605.769" cy="286.52" rx="11" ry="11" fill="#ADD1B2" style="stroke:#181818;stroke-width:1;"/><path d="M608.738,292.161 Q608.16,292.458 607.519,292.598 Q606.878,292.754 606.175,292.754 Q603.675,292.754 602.347,291.114 Q601.035,289.458 601.035,286.333 Q601.035,283.208 602.347,281.551 Q603.675,279.895 606.175,279.895 Q606.878,279.895 607.519,280.051 Q608.175,280.208 608.738,280.504 L608.738,283.223 Q608.113,282.645 607.519,282.379 Q606.925,282.098 606.3,282.098 Q604.956,282.098 604.269,283.176 Q603.581,284.239 603.581,286.333 Q603.581,288.426 604.269,289.504 Q604.956,290.567 606.3,290.567 Q606.925,290.567 607.519,290.301 Q608.113,290.02 608.738,289.442 L608.738,292.161 Z " fill="#000"/><text x="626.269" y="291.367" fill="#000" font-size="14" textLength="87.35">LecteurJSON</text><line x1="517.56" y1="302.52" x2="789.828" y2="302.52" style="stroke:#181818;stroke-width:0.5;"/><text x="522.56" y="319.515" fill="#000" font-size="14" textLength="147.834">-chemin_fichier: Path</text><line x1="517.56" y1="326.817" x2="789.828" y2="326.817" style="stroke:#181818;stroke-width:0.5;"/><text x="522.56" y="343.812" fill="#000" font-size="14" textLength="262.268">+charger_personnes(): list[Personne]</text></g><g class="entity" data-qualified-name="LecteurSQLite" id="ent0005" data-source-line="25"><rect x="825.56" y="270.52" width="274.268" height="80.594" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><ellipse cx="909.174" cy="286.52" rx="11" ry="11" fill="#ADD1B2" style="stroke:#181818;stroke-width:1;"/><path d="M912.143,292.161 Q911.564,292.458 910.924,292.598 Q910.283,292.754 909.58,292.754 Q907.08,292.754 905.752,291.114 Q904.439,289.458 904.439,286.333 Q904.439,283.208 905.752,281.551 Q907.08,279.895 909.58,279.895 Q910.283,279.895 910.924,280.051 Q911.58,280.208 912.143,280.504 L912.143,283.223 Q911.518,282.645 910.924,282.379 Q910.33,282.098 909.705,282.098 Q908.361,282.098 907.674,283.176 Q906.986,284.239 906.986,286.333 Q906.986,288.426 907.674,289.504 Q908.361,290.567 909.705,290.567 Q910.33,290.567 910.924,290.301 Q911.518,290.02 912.143,289.442 L912.143,292.161 Z " fill="#000"/><text x="929.674" y="291.367" fill="#000" font-size="14" textLength="98.54">LecteurSQLite</text><line x1="826.56" y1="302.52" x2="1098.828" y2="302.52" style="stroke:#181818;stroke-width:0.5;"/><text x="831.56" y="319.515" fill="#000" font-size="14" textLength="121.96">-chemin_bd: Path</text><line x1="826.56" y1="326.817" x2="1098.828" y2="326.817" style="stroke:#181818;stroke-width:0.5;"/><text x="831.56" y="343.812" fill="#000" font-size="14" textLength="262.268">+charger_personnes(): list[Personne]</text></g><g class="entity" data-qualified-name="LecteurMemoire" id="ent0006" data-source-line="30"><rect x="1134.56" y="262.37" width="274.268" height="96.891" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><ellipse cx="1210.446" cy="278.37" rx="11" ry="11" fill="#ADD1B2" style="stroke:#181818;stroke-width:1;"/><path d="M1213.414,284.011 Q1212.836,284.308 1212.196,284.448 Q1211.555,284.604 1210.852,284.604 Q1208.352,284.604 1207.024,282.964 Q1205.711,281.308 1205.711,278.183 Q1205.711,275.058 1207.024,273.401 Q1208.352,271.745 1210.852,271.745 Q1211.555,271.745 1212.196,271.901 Q1212.852,272.058 1213.414,272.354 L1213.414,275.073 Q1212.789,274.495 1212.196,274.229 Q1211.602,273.948 1210.977,273.948 Q1209.633,273.948 1208.946,275.026 Q1208.258,276.089 1208.258,278.183 Q1208.258,280.276 1208.946,281.354 Q1209.633,282.417 1210.977,282.417 Q1211.602,282.417 1212.196,282.151 Q1212.789,281.87 1213.414,281.292 L1213.414,284.011 Z " fill="#000"/><text x="1230.946" y="283.217" fill="#000" font-size="14" textLength="113.996">LecteurMemoire</text><line x1="1135.56" y1="294.37" x2="1407.828" y2="294.37" style="stroke:#181818;stroke-width:0.5;"/><text x="1140.56" y="311.365" fill="#000" font-size="14" textLength="190.504">-_personnes: list[Personne]</text><line x1="1135.56" y1="318.667" x2="1407.828" y2="318.667" style="stroke:#181818;stroke-width:0.5;"/><text x="1140.56" y="335.662" fill="#000" font-size="14" textLength="227.979">+ajouter_personne(p: Personne)</text><text x="1140.56" y="351.959" fill="#000" font-size="14" textLength="262.268">+charger_personnes(): list[Personne]</text></g><g class="entity" data-qualified-name="GestionnairePersonnes" id="ent0007" data-source-line="36"><rect x="7" y="7" width="377.395" height="162.078" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><ellipse cx="110.643" cy="23" rx="11" ry="11" fill="#ADD1B2" style="stroke:#181818;stroke-width:1;"/><path d="M113.612,28.641 Q113.034,28.938 112.393,29.078 Q111.752,29.234 111.049,29.234 Q108.549,29.234 107.221,27.594 Q105.909,25.938 105.909,22.813 Q105.909,19.688 107.221,18.031 Q108.549,16.375 111.049,16.375 Q111.752,16.375 112.393,16.531 Q113.049,16.688 113.612,16.984 L113.612,19.703 Q112.987,19.125 112.393,18.859 Q111.799,18.578 111.174,18.578 Q109.831,18.578 109.143,19.656 Q108.456,20.719 108.456,22.813 Q108.456,24.906 109.143,25.984 Q109.831,27.047 111.174,27.047 Q111.799,27.047 112.393,26.781 Q112.987,26.5 113.612,25.922 L113.612,28.641 Z " fill="#000"/><text x="131.143" y="27.847" fill="#000" font-size="14" textLength="161.608">GestionnairePersonnes</text><line x1="8" y1="39" x2="383.395" y2="39" style="stroke:#181818;stroke-width:0.5;"/><text x="13" y="55.995" fill="#000" font-size="14" textLength="193.184">-_source: LecteurPersonnes</text><line x1="8" y1="63.297" x2="383.395" y2="63.297" style="stroke:#181818;stroke-width:0.5;"/><text x="13" y="80.292" fill="#000" font-size="14" textLength="365.395">+GestionnairePersonnes(source: LecteurPersonnes)</text><text x="13" y="96.589" fill="#000" font-size="14" textLength="243.038">+lister_personnes(): list[Personne]</text><text x="13" y="112.886" fill="#000" font-size="14" textLength="350.26">+filtrer_par_age_min(age_min: int): list[Personne]</text><text x="13" y="129.183" fill="#000" font-size="14" textLength="319.197">+trouver_par_courriel(courriel: str): Personne</text><text x="13" y="145.479" fill="#000" font-size="14" textLength="206.322">+calculer_age_moyen(): float</text><text x="13" y="161.776" fill="#000" font-size="14" textLength="134.839">+afficher_rapport()</text></g><g class="link" data-entity-1="ent0002" data-entity-2="ent0003" id="lnk8" data-source-line="46" data-link-type="extension"><path d="M594.785,131.135 C539.715,170.485 460.3,227.22 400.39,270.02" style="stroke:#181818;stroke-width:1;" fill="none" id="LecteurPersonnes-backto-LecteurCSV" codeLine="46"/><polygon points="609.43,120.67,591.296,126.253,598.273,136.017,609.43,120.67" fill="none" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/></g><g class="link" data-entity-1="ent0002" data-entity-2="ent0004" id="lnk9" data-source-line="47" data-link-type="extension"><path d="M653.7,138.67 C653.7,178.02 653.7,227.22 653.7,270.02" style="stroke:#181818;stroke-width:1;" fill="none" id="LecteurPersonnes-backto-LecteurJSON" codeLine="47"/><polygon points="653.7,120.67,647.7,138.67,659.7,138.67,653.7,120.67" fill="none" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/></g><g class="link" data-entity-1="ent0002" data-entity-2="ent0005" id="lnk10" data-source-line="48" data-link-type="extension"><path d="M712.615,131.135 C767.685,170.485 847.09,227.22 907,270.02" style="stroke:#181818;stroke-width:1;" fill="none" id="LecteurPersonnes-backto-LecteurSQLite" codeLine="48"/><polygon points="697.97,120.67,709.127,136.017,716.104,126.253,697.97,120.67" fill="none" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/></g><g class="link" data-entity-1="ent0002" data-entity-2="ent0006" id="lnk11" data-source-line="49" data-link-type="extension"><path d="M770.161,126.075 C864.571,156.525 993.11,199.27 1117.7,246.08 C1130.97,251.06 1144.8,256.48 1158.5,261.97" style="stroke:#181818;stroke-width:1;" fill="none" id="LecteurPersonnes-backto-LecteurMemoire" codeLine="49"/><polygon points="753.03,120.55,768.319,131.786,772.003,120.365,753.03,120.55" fill="none" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/></g><g class="link" data-entity-1="ent0007" data-entity-2="ent0002" id="lnk12" data-source-line="51" data-link-type="aggregation"><path d="M396.63,88.04 C440.73,88.04 469.89,88.04 511.27,88.04" style="stroke:#181818;stroke-width:1;" fill="none" id="GestionnairePersonnes-LecteurPersonnes" codeLine="51"/><polygon points="384.63,88.04,390.63,92.04,396.63,88.04,390.63,84.04,384.63,88.04" fill="none" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><polygon points="516.27,88.04,507.27,84.04,511.27,88.04,507.27,92.04,516.27,88.04" fill="#181818" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="402.48" y="81.107" fill="#000" font-size="13" textLength="96.922">utilise (injecté)</text></g><g class="link" data-entity-1="ent0002" data-entity-2="ent0001" id="lnk13" data-source-line="52" data-link-type="dependency"><path d="M553.09,120.67 C426.52,160.83 221.73,227.2 189.7,246.08 C184.03,249.41 182.407,250.23 176.987,254.36" style="stroke:#181818;stroke-width:1;stroke-dasharray:7,7;" fill="none" id="LecteurPersonnes-to-Personne" codeLine="52"/><polygon points="173.01,257.39,182.593,255.117,176.987,254.36,177.744,248.754,173.01,257.39" fill="#181818" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="311.7" y="212.147" fill="#000" font-size="13" textLength="46.75">produit</text></g><?plantuml-src hLJDJeD04Bxp57k461hFn3Gn7eocQWs95sF8TZkKgR1BPXSJhNqWdyCNSvT2AL9h_3cnCD_FPEPRz2FAaXClcCYvrgV64Cug0nT2oHXVW1rxNbrXKo2jf0IsyXWxmdd4K1ftbAg8c3RapYN1xYjVm1OcL4M4a6-AQy_ZCtlWmcoSsGI4WOfQ6xtnMRMeDHCPfmLGKhO8FuXOZjhSjvm79zjJEullQfrGP52WJ58K6G95RCfDLdVr2z7B-ERw_rNZsmaQwEdEvd-Jl8928JMQ7NF0SvjQAhlrJjule-t6Wn_xduCsQBznwzvVQ9XecmDXO_5vtyvaBy__Yb7tvLhufYsBIZ4tv62S4XlAn4xNRvvrGFUI3AdggI6rwVLxCGww8TKpuhceScWir3D8rqsQArxV09wweDWoyR9KPFp0JMoG-vFNCDp9xs60o-9Xn2PNXp5DK3nl_-9KE1vUpuXL1ktGWFaebxRw_XOCNKQZSVVdY5X9QbwX-G00?></g></svg></div></div>
+
+<hr />
+<h3 id="etape-1-le-modele-metier-personne">Étape 1 : Le Modèle Métier (<code>Personne</code>)<a class="headerlink" href="#etape-1-le-modele-metier-personne" title="Permanent link">&para;</a></h3>
+<p>Nous représentons une entité personne sous forme de <code>dataclass</code> Python :</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># personne.py</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nd">@dataclass</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="k">class</span><span class="w"> </span><span class="nc">Personne</span><span class="p">:</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Représentation d&#39;une personne dans le domaine métier.&quot;&quot;&quot;</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="n">nom</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    <span class="n">prenom</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    <span class="n">age</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    <span class="n">courriel</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">] </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">prenom</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">nom</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="si">}</span><span class="s2"> ans (</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">courriel</span><span class="si">}</span><span class="s2">)&quot;</span>
+</span></code></pre></div>
+<hr />
+<h3 id="etape-2-le-contrat-dabstraction-lecteurpersonnes">Étape 2 : Le Contrat d&rsquo;Abstraction (<code>LecteurPersonnes</code>)<a class="headerlink" href="#etape-2-le-contrat-dabstraction-lecteurpersonnes" title="Permanent link">&para;</a></h3>
+<p>Nous définissons la classe abstraite de base (<code>ABC</code>) qui dicte l&rsquo;interface attendue par notre application :</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># lecteurs.py</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sqlite3</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="kn">from</span><span class="w"> </span><span class="nn">personne</span><span class="w"> </span><span class="kn">import</span> <span class="n">Personne</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="k">class</span><span class="w"> </span><span class="nc">LecteurPersonnes</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="sd">    Interface abstraite définissant la source de données.</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="sd">    Le service métier dépendra UNIQUEMENT de ce contrat.</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>    <span class="nd">@abstractmethod</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">charger_personnes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Personne</span><span class="p">]:</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Charge et retourne la liste des personnes depuis la source.&quot;&quot;&quot;</span>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>        <span class="k">pass</span>
+</span></code></pre></div>
+<hr />
+<h3 id="etape-3-les-implementations-concretes-csv-json-sqlite-memoire">Étape 3 : Les Implémentations Concrètes (CSV, JSON, SQLite, Mémoire)<a class="headerlink" href="#etape-3-les-implementations-concretes-csv-json-sqlite-memoire" title="Permanent link">&para;</a></h3>
+<p>Chaque classe implémente la méthode <code>charger_personnes()</code> selon sa spécificité technique :</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># lecteurs.py (suite)</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">class</span><span class="w"> </span><span class="nc">LecteurCSV</span><span class="p">(</span><span class="n">LecteurPersonnes</span><span class="p">):</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Lecture depuis un fichier CSV (champs séparés par des virgules).&quot;&quot;&quot;</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chemin_fichier</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span><span class="p">):</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">chemin_fichier</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">chemin_fichier</span><span class="p">)</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">charger_personnes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Personne</span><span class="p">]:</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">chemin_fichier</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>            <span class="k">return</span> <span class="p">[]</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>        <span class="n">personnes</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Personne</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">chemin_fichier</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>            <span class="n">lecteur</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>            <span class="k">for</span> <span class="n">ligne</span> <span class="ow">in</span> <span class="n">lecteur</span><span class="p">:</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>                <span class="n">personnes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>                    <span class="n">Personne</span><span class="p">(</span>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>                        <span class="nb">id</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">ligne</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]),</span>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>                        <span class="n">nom</span><span class="o">=</span><span class="n">ligne</span><span class="p">[</span><span class="s2">&quot;nom&quot;</span><span class="p">],</span>
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>                        <span class="n">prenom</span><span class="o">=</span><span class="n">ligne</span><span class="p">[</span><span class="s2">&quot;prenom&quot;</span><span class="p">],</span>
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>                        <span class="n">age</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">ligne</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">]),</span>
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>                        <span class="n">courriel</span><span class="o">=</span><span class="n">ligne</span><span class="p">[</span><span class="s2">&quot;courriel&quot;</span><span class="p">],</span>
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>                    <span class="p">)</span>
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>                <span class="p">)</span>
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>        <span class="k">return</span> <span class="n">personnes</span>
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="k">class</span><span class="w"> </span><span class="nc">LecteurJSON</span><span class="p">(</span><span class="n">LecteurPersonnes</span><span class="p">):</span>
+</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Lecture depuis un fichier JSON.&quot;&quot;&quot;</span>
+</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>
+</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chemin_fichier</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span><span class="p">):</span>
+</span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">chemin_fichier</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">chemin_fichier</span><span class="p">)</span>
+</span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>
+</span><span id="__span-3-35"><a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">charger_personnes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Personne</span><span class="p">]:</span>
+</span><span id="__span-3-36"><a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">chemin_fichier</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+</span><span id="__span-3-37"><a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a>            <span class="k">return</span> <span class="p">[]</span>
+</span><span id="__span-3-38"><a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a>
+</span><span id="__span-3-39"><a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a>        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">chemin_fichier</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span><span id="__span-3-40"><a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a>            <span class="n">donnees</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</span><span id="__span-3-41"><a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a>
+</span><span id="__span-3-42"><a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a>        <span class="k">return</span> <span class="p">[</span>
+</span><span id="__span-3-43"><a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a>            <span class="n">Personne</span><span class="p">(</span>
+</span><span id="__span-3-44"><a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a>                <span class="nb">id</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]),</span>
+</span><span id="__span-3-45"><a id="__codelineno-3-45" name="__codelineno-3-45" href="#__codelineno-3-45"></a>                <span class="n">nom</span><span class="o">=</span><span class="n">item</span><span class="p">[</span><span class="s2">&quot;nom&quot;</span><span class="p">],</span>
+</span><span id="__span-3-46"><a id="__codelineno-3-46" name="__codelineno-3-46" href="#__codelineno-3-46"></a>                <span class="n">prenom</span><span class="o">=</span><span class="n">item</span><span class="p">[</span><span class="s2">&quot;prenom&quot;</span><span class="p">],</span>
+</span><span id="__span-3-47"><a id="__codelineno-3-47" name="__codelineno-3-47" href="#__codelineno-3-47"></a>                <span class="n">age</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">]),</span>
+</span><span id="__span-3-48"><a id="__codelineno-3-48" name="__codelineno-3-48" href="#__codelineno-3-48"></a>                <span class="n">courriel</span><span class="o">=</span><span class="n">item</span><span class="p">[</span><span class="s2">&quot;courriel&quot;</span><span class="p">],</span>
+</span><span id="__span-3-49"><a id="__codelineno-3-49" name="__codelineno-3-49" href="#__codelineno-3-49"></a>            <span class="p">)</span>
+</span><span id="__span-3-50"><a id="__codelineno-3-50" name="__codelineno-3-50" href="#__codelineno-3-50"></a>            <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">donnees</span>
+</span><span id="__span-3-51"><a id="__codelineno-3-51" name="__codelineno-3-51" href="#__codelineno-3-51"></a>        <span class="p">]</span>
+</span><span id="__span-3-52"><a id="__codelineno-3-52" name="__codelineno-3-52" href="#__codelineno-3-52"></a>
+</span><span id="__span-3-53"><a id="__codelineno-3-53" name="__codelineno-3-53" href="#__codelineno-3-53"></a>
+</span><span id="__span-3-54"><a id="__codelineno-3-54" name="__codelineno-3-54" href="#__codelineno-3-54"></a><span class="k">class</span><span class="w"> </span><span class="nc">LecteurSQLite</span><span class="p">(</span><span class="n">LecteurPersonnes</span><span class="p">):</span>
+</span><span id="__span-3-55"><a id="__codelineno-3-55" name="__codelineno-3-55" href="#__codelineno-3-55"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Lecture depuis une table dans une base de données SQLite.&quot;&quot;&quot;</span>
+</span><span id="__span-3-56"><a id="__codelineno-3-56" name="__codelineno-3-56" href="#__codelineno-3-56"></a>
+</span><span id="__span-3-57"><a id="__codelineno-3-57" name="__codelineno-3-57" href="#__codelineno-3-57"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chemin_bd</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span><span class="p">):</span>
+</span><span id="__span-3-58"><a id="__codelineno-3-58" name="__codelineno-3-58" href="#__codelineno-3-58"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">chemin_bd</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">chemin_bd</span><span class="p">)</span>
+</span><span id="__span-3-59"><a id="__codelineno-3-59" name="__codelineno-3-59" href="#__codelineno-3-59"></a>
+</span><span id="__span-3-60"><a id="__codelineno-3-60" name="__codelineno-3-60" href="#__codelineno-3-60"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">charger_personnes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Personne</span><span class="p">]:</span>
+</span><span id="__span-3-61"><a id="__codelineno-3-61" name="__codelineno-3-61" href="#__codelineno-3-61"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">chemin_bd</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+</span><span id="__span-3-62"><a id="__codelineno-3-62" name="__codelineno-3-62" href="#__codelineno-3-62"></a>            <span class="k">return</span> <span class="p">[]</span>
+</span><span id="__span-3-63"><a id="__codelineno-3-63" name="__codelineno-3-63" href="#__codelineno-3-63"></a>
+</span><span id="__span-3-64"><a id="__codelineno-3-64" name="__codelineno-3-64" href="#__codelineno-3-64"></a>        <span class="n">personnes</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Personne</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="__span-3-65"><a id="__codelineno-3-65" name="__codelineno-3-65" href="#__codelineno-3-65"></a>        <span class="k">with</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">chemin_bd</span><span class="p">)</span> <span class="k">as</span> <span class="n">conn</span><span class="p">:</span>
+</span><span id="__span-3-66"><a id="__codelineno-3-66" name="__codelineno-3-66" href="#__codelineno-3-66"></a>            <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+</span><span id="__span-3-67"><a id="__codelineno-3-67" name="__codelineno-3-67" href="#__codelineno-3-67"></a>            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+</span><span id="__span-3-68"><a id="__codelineno-3-68" name="__codelineno-3-68" href="#__codelineno-3-68"></a>                <span class="s2">&quot;SELECT id, nom, prenom, age, courriel FROM personnes ORDER BY id&quot;</span>
+</span><span id="__span-3-69"><a id="__codelineno-3-69" name="__codelineno-3-69" href="#__codelineno-3-69"></a>            <span class="p">)</span>
+</span><span id="__span-3-70"><a id="__codelineno-3-70" name="__codelineno-3-70" href="#__codelineno-3-70"></a>            <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">():</span>
+</span><span id="__span-3-71"><a id="__codelineno-3-71" name="__codelineno-3-71" href="#__codelineno-3-71"></a>                <span class="n">personnes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+</span><span id="__span-3-72"><a id="__codelineno-3-72" name="__codelineno-3-72" href="#__codelineno-3-72"></a>                    <span class="n">Personne</span><span class="p">(</span>
+</span><span id="__span-3-73"><a id="__codelineno-3-73" name="__codelineno-3-73" href="#__codelineno-3-73"></a>                        <span class="nb">id</span><span class="o">=</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+</span><span id="__span-3-74"><a id="__codelineno-3-74" name="__codelineno-3-74" href="#__codelineno-3-74"></a>                        <span class="n">nom</span><span class="o">=</span><span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+</span><span id="__span-3-75"><a id="__codelineno-3-75" name="__codelineno-3-75" href="#__codelineno-3-75"></a>                        <span class="n">prenom</span><span class="o">=</span><span class="n">row</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+</span><span id="__span-3-76"><a id="__codelineno-3-76" name="__codelineno-3-76" href="#__codelineno-3-76"></a>                        <span class="n">age</span><span class="o">=</span><span class="n">row</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span>
+</span><span id="__span-3-77"><a id="__codelineno-3-77" name="__codelineno-3-77" href="#__codelineno-3-77"></a>                        <span class="n">courriel</span><span class="o">=</span><span class="n">row</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span>
+</span><span id="__span-3-78"><a id="__codelineno-3-78" name="__codelineno-3-78" href="#__codelineno-3-78"></a>                    <span class="p">)</span>
+</span><span id="__span-3-79"><a id="__codelineno-3-79" name="__codelineno-3-79" href="#__codelineno-3-79"></a>                <span class="p">)</span>
+</span><span id="__span-3-80"><a id="__codelineno-3-80" name="__codelineno-3-80" href="#__codelineno-3-80"></a>        <span class="k">return</span> <span class="n">personnes</span>
+</span><span id="__span-3-81"><a id="__codelineno-3-81" name="__codelineno-3-81" href="#__codelineno-3-81"></a>
+</span><span id="__span-3-82"><a id="__codelineno-3-82" name="__codelineno-3-82" href="#__codelineno-3-82"></a>
+</span><span id="__span-3-83"><a id="__codelineno-3-83" name="__codelineno-3-83" href="#__codelineno-3-83"></a><span class="k">class</span><span class="w"> </span><span class="nc">LecteurMemoire</span><span class="p">(</span><span class="n">LecteurPersonnes</span><span class="p">):</span>
+</span><span id="__span-3-84"><a id="__codelineno-3-84" name="__codelineno-3-84" href="#__codelineno-3-84"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Implémentation en mémoire (idéale pour les tests unitaires / bouchons).&quot;&quot;&quot;</span>
+</span><span id="__span-3-85"><a id="__codelineno-3-85" name="__codelineno-3-85" href="#__codelineno-3-85"></a>
+</span><span id="__span-3-86"><a id="__codelineno-3-86" name="__codelineno-3-86" href="#__codelineno-3-86"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">personnes</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Personne</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+</span><span id="__span-3-87"><a id="__codelineno-3-87" name="__codelineno-3-87" href="#__codelineno-3-87"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_personnes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">personnes</span><span class="p">)</span> <span class="k">if</span> <span class="n">personnes</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="p">[]</span>
+</span><span id="__span-3-88"><a id="__codelineno-3-88" name="__codelineno-3-88" href="#__codelineno-3-88"></a>
+</span><span id="__span-3-89"><a id="__codelineno-3-89" name="__codelineno-3-89" href="#__codelineno-3-89"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">ajouter_personne</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">personne</span><span class="p">:</span> <span class="n">Personne</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-3-90"><a id="__codelineno-3-90" name="__codelineno-3-90" href="#__codelineno-3-90"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_personnes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">personne</span><span class="p">)</span>
+</span><span id="__span-3-91"><a id="__codelineno-3-91" name="__codelineno-3-91" href="#__codelineno-3-91"></a>
+</span><span id="__span-3-92"><a id="__codelineno-3-92" name="__codelineno-3-92" href="#__codelineno-3-92"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">charger_personnes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Personne</span><span class="p">]:</span>
+</span><span id="__span-3-93"><a id="__codelineno-3-93" name="__codelineno-3-93" href="#__codelineno-3-93"></a>        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_personnes</span><span class="p">)</span>
+</span></code></pre></div>
+<hr />
+<h3 id="etape-4-le-service-metier-gestionnairepersonnes">Étape 4 : Le Service Métier (<code>GestionnairePersonnes</code>)<a class="headerlink" href="#etape-4-le-service-metier-gestionnairepersonnes" title="Permanent link">&para;</a></h3>
+<p>Observez attentivement la classe ci-dessous : <strong>elle ne contient aucun import de <code>sqlite3</code>, de <code>json</code> ou de <code>csv</code></strong>.
+Elle ignore d&rsquo;où viennent les données, comment elles ont été stockées ou indexées.</p>
+<p>Elle reçoit sa dépendance via son constructeur <code>__init__(self, source: LecteurPersonnes)</code> :</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># service.py</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">personne</span><span class="w"> </span><span class="kn">import</span> <span class="n">Personne</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">lecteurs</span><span class="w"> </span><span class="kn">import</span> <span class="n">LecteurPersonnes</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="k">class</span><span class="w"> </span><span class="nc">GestionnairePersonnes</span><span class="p">:</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="sd">    Service métier de haut niveau.</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="sd">    Dépend UNIQUEMENT du contrat abstrait LecteurPersonnes.</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="sd">    La dépendance concrète lui est INJECTÉE à la création.</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">:</span> <span class="n">LecteurPersonnes</span><span class="p">):</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_source</span> <span class="o">=</span> <span class="n">source</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">lister_personnes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Personne</span><span class="p">]:</span>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Récupère l&#39;ensemble des personnes via la source injectée.&quot;&quot;&quot;</span>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_source</span><span class="o">.</span><span class="n">charger_personnes</span><span class="p">()</span>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">filtrer_par_age_min</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">age_min</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Personne</span><span class="p">]:</span>
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Logique métier : retourne les personnes ayant au moins l&#39;âge spécifié.&quot;&quot;&quot;</span>
+</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>        <span class="k">return</span> <span class="p">[</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">lister_personnes</span><span class="p">()</span> <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">age</span> <span class="o">&gt;=</span> <span class="n">age_min</span><span class="p">]</span>
+</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>
+</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">trouver_par_courriel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">courriel</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Personne</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-4-25"><a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Logique métier : recherche une personne par son adresse courriel.&quot;&quot;&quot;</span>
+</span><span id="__span-4-26"><a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">lister_personnes</span><span class="p">():</span>
+</span><span id="__span-4-27"><a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>            <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">courriel</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="n">courriel</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+</span><span id="__span-4-28"><a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a>                <span class="k">return</span> <span class="n">p</span>
+</span><span id="__span-4-29"><a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a>        <span class="k">return</span> <span class="kc">None</span>
+</span><span id="__span-4-30"><a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a>
+</span><span id="__span-4-31"><a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">calculer_age_moyen</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+</span><span id="__span-4-32"><a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Logique métier : calcule l&#39;âge moyen du groupe.&quot;&quot;&quot;</span>
+</span><span id="__span-4-33"><a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a>        <span class="n">personnes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lister_personnes</span><span class="p">()</span>
+</span><span id="__span-4-34"><a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="n">personnes</span><span class="p">:</span>
+</span><span id="__span-4-35"><a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a>            <span class="k">return</span> <span class="mf">0.0</span>
+</span><span id="__span-4-36"><a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a>        <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">age</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">personnes</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">personnes</span><span class="p">)</span>
+</span><span id="__span-4-37"><a id="__codelineno-4-37" name="__codelineno-4-37" href="#__codelineno-4-37"></a>
+</span><span id="__span-4-38"><a id="__codelineno-4-38" name="__codelineno-4-38" href="#__codelineno-4-38"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">afficher_rapport</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-4-39"><a id="__codelineno-4-39" name="__codelineno-4-39" href="#__codelineno-4-39"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Affiche un résumé console des personnes et statistiques.&quot;&quot;&quot;</span>
+</span><span id="__span-4-40"><a id="__codelineno-4-40" name="__codelineno-4-40" href="#__codelineno-4-40"></a>        <span class="n">personnes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lister_personnes</span><span class="p">()</span>
+</span><span id="__span-4-41"><a id="__codelineno-4-41" name="__codelineno-4-41" href="#__codelineno-4-41"></a>        <span class="n">nom_source</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_source</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
+</span><span id="__span-4-42"><a id="__codelineno-4-42" name="__codelineno-4-42" href="#__codelineno-4-42"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;=== Rapport des personnes (Source : </span><span class="si">{</span><span class="n">nom_source</span><span class="si">}</span><span class="s2">) ===&quot;</span><span class="p">)</span>
+</span><span id="__span-4-43"><a id="__codelineno-4-43" name="__codelineno-4-43" href="#__codelineno-4-43"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total personnes : </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">personnes</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-4-44"><a id="__codelineno-4-44" name="__codelineno-4-44" href="#__codelineno-4-44"></a>        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">personnes</span><span class="p">:</span>
+</span><span id="__span-4-45"><a id="__codelineno-4-45" name="__codelineno-4-45" href="#__codelineno-4-45"></a>            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  - </span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-4-46"><a id="__codelineno-4-46" name="__codelineno-4-46" href="#__codelineno-4-46"></a>        <span class="k">if</span> <span class="n">personnes</span><span class="p">:</span>
+</span><span id="__span-4-47"><a id="__codelineno-4-47" name="__codelineno-4-47" href="#__codelineno-4-47"></a>            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Âge moyen : </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">calculer_age_moyen</span><span class="p">()</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> ans&quot;</span><span class="p">)</span>
+</span><span id="__span-4-48"><a id="__codelineno-4-48" name="__codelineno-4-48" href="#__codelineno-4-48"></a>        <span class="nb">print</span><span class="p">()</span>
+</span></code></pre></div>
+<hr />
+<h3 id="etape-5-assemblage-et-execution-console">Étape 5 : Assemblage et Exécution Console<a class="headerlink" href="#etape-5-assemblage-et-execution-console" title="Permanent link">&para;</a></h3>
+<p>À la racine de l&rsquo;application (le point d&rsquo;entrée ou <em>Composition Root</em>), nous choisissons quelle source instancier et
+nous l&rsquo;injectons dans le <code>GestionnairePersonnes</code> :</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># main.py</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">personne</span><span class="w"> </span><span class="kn">import</span> <span class="n">Personne</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">lecteurs</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    <span class="n">LecteurCSV</span><span class="p">,</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    <span class="n">LecteurJSON</span><span class="p">,</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    <span class="n">LecteurSQLite</span><span class="p">,</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    <span class="n">LecteurMemoire</span><span class="p">,</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="p">)</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="kn">from</span><span class="w"> </span><span class="nn">service</span><span class="w"> </span><span class="kn">import</span> <span class="n">GestionnairePersonnes</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>    <span class="n">dossier</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>    <span class="c1"># 1. Injection de la source CSV</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>    <span class="n">source_csv</span> <span class="o">=</span> <span class="n">LecteurCSV</span><span class="p">(</span><span class="n">dossier</span> <span class="o">/</span> <span class="s2">&quot;personnes.csv&quot;</span><span class="p">)</span>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>    <span class="n">gestionnaire_csv</span> <span class="o">=</span> <span class="n">GestionnairePersonnes</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">source_csv</span><span class="p">)</span>
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>    <span class="n">gestionnaire_csv</span><span class="o">.</span><span class="n">afficher_rapport</span><span class="p">()</span>
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>    <span class="c1"># 2. Injection de la source JSON</span>
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>    <span class="n">source_json</span> <span class="o">=</span> <span class="n">LecteurJSON</span><span class="p">(</span><span class="n">dossier</span> <span class="o">/</span> <span class="s2">&quot;personnes.json&quot;</span><span class="p">)</span>
+</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>    <span class="n">gestionnaire_json</span> <span class="o">=</span> <span class="n">GestionnairePersonnes</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">source_json</span><span class="p">)</span>
+</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a>    <span class="n">gestionnaire_json</span><span class="o">.</span><span class="n">afficher_rapport</span><span class="p">()</span>
+</span><span id="__span-5-25"><a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>
+</span><span id="__span-5-26"><a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a>    <span class="c1"># 3. Injection de la source SQLite</span>
+</span><span id="__span-5-27"><a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a>    <span class="n">source_sqlite</span> <span class="o">=</span> <span class="n">LecteurSQLite</span><span class="p">(</span><span class="n">dossier</span> <span class="o">/</span> <span class="s2">&quot;personnes.db&quot;</span><span class="p">)</span>
+</span><span id="__span-5-28"><a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a>    <span class="n">gestionnaire_sqlite</span> <span class="o">=</span> <span class="n">GestionnairePersonnes</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">source_sqlite</span><span class="p">)</span>
+</span><span id="__span-5-29"><a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a>    <span class="n">gestionnaire_sqlite</span><span class="o">.</span><span class="n">afficher_rapport</span><span class="p">()</span>
+</span><span id="__span-5-30"><a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a>
+</span><span id="__span-5-31"><a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a>    <span class="c1"># 4. Traitement métier (identique quelle que soit la source)</span>
+</span><span id="__span-5-32"><a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=== Filtrage des personnes de 30 ans et plus (Source SQLite) ===&quot;</span><span class="p">)</span>
+</span><span id="__span-5-33"><a id="__codelineno-5-33" name="__codelineno-5-33" href="#__codelineno-5-33"></a>    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">gestionnaire_sqlite</span><span class="o">.</span><span class="n">filtrer_par_age_min</span><span class="p">(</span><span class="mi">30</span><span class="p">):</span>
+</span><span id="__span-5-34"><a id="__codelineno-5-34" name="__codelineno-5-34" href="#__codelineno-5-34"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  * </span><span class="si">{</span><span class="n">p</span><span class="o">.</span><span class="n">prenom</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">p</span><span class="o">.</span><span class="n">nom</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">p</span><span class="o">.</span><span class="n">age</span><span class="si">}</span><span class="s2"> ans)&quot;</span><span class="p">)</span>
+</span><span id="__span-5-35"><a id="__codelineno-5-35" name="__codelineno-5-35" href="#__codelineno-5-35"></a>
+</span><span id="__span-5-36"><a id="__codelineno-5-36" name="__codelineno-5-36" href="#__codelineno-5-36"></a>
+</span><span id="__span-5-37"><a id="__codelineno-5-37" name="__codelineno-5-37" href="#__codelineno-5-37"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+</span><span id="__span-5-38"><a id="__codelineno-5-38" name="__codelineno-5-38" href="#__codelineno-5-38"></a>    <span class="n">main</span><span class="p">()</span>
+</span></code></pre></div>
+<h4 id="sortie-console-obtenue">Sortie console obtenue :<a class="headerlink" href="#sortie-console-obtenue" title="Permanent link">&para;</a></h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>=== Rapport des personnes (Source : LecteurCSV) ===
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Total personnes : 4
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>  - [1] Alice Tremblay, 28 ans (alice.tremblay@exemple.qc.ca)
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>  - [2] Bob Gagnon, 34 ans (bob.gagnon@exemple.qc.ca)
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>  - [3] Charlie Roy, 22 ans (charlie.roy@exemple.qc.ca)
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>  - [4] Diane Bouchard, 45 ans (diane.bouchard@exemple.qc.ca)
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>Âge moyen : 32.2 ans
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>=== Rapport des personnes (Source : LecteurJSON) ===
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>Total personnes : 4
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>  - [1] Alice Tremblay, 28 ans (alice.tremblay@exemple.qc.ca)
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>  - [2] Bob Gagnon, 34 ans (bob.gagnon@exemple.qc.ca)
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>  - [3] Charlie Roy, 22 ans (charlie.roy@exemple.qc.ca)
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>  - [4] Diane Bouchard, 45 ans (diane.bouchard@exemple.qc.ca)
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>Âge moyen : 32.2 ans
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>=== Rapport des personnes (Source : LecteurSQLite) ===
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>Total personnes : 4
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>  - [1] Alice Tremblay, 28 ans (alice.tremblay@exemple.qc.ca)
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>  - [2] Bob Gagnon, 34 ans (bob.gagnon@exemple.qc.ca)
+</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>  - [3] Charlie Roy, 22 ans (charlie.roy@exemple.qc.ca)
+</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>  - [4] Diane Bouchard, 45 ans (diane.bouchard@exemple.qc.ca)
+</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>Âge moyen : 32.2 ans
+</span><span id="__span-6-24"><a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a>
+</span><span id="__span-6-25"><a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a>=== Filtrage des personnes de 30 ans et plus (Source SQLite) ===
+</span><span id="__span-6-26"><a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a>  * Bob Gagnon (34 ans)
+</span><span id="__span-6-27"><a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a>  * Diane Bouchard (45 ans)
+</span></code></pre></div>
+<hr />
+<h2 id="4-le-grand-benefice-testabilite-maximale-mocks-fakes">4. Le Grand Bénéfice : Testabilité Maximale (Mocks &amp; Fakes)<a class="headerlink" href="#4-le-grand-benefice-testabilite-maximale-mocks-fakes" title="Permanent link">&para;</a></h2>
+<p>L&rsquo;un des avantages les plus décisifs de l&rsquo;injection de dépendances est la simplicité absolue avec laquelle on peut
+rédiger des <strong>tests unitaires fiables, rapides et déterministes</strong>.</p>
+<p>Sans injection, tester <code>GestionnairePersonnes</code> nécessiterait de créer une vraie base de données SQLite sur le disque,
+d&rsquo;insérer des lignes avant chaque test, puis de nettoyer la base après.</p>
+<p>Avec l&rsquo;injection, il suffit de lui injecter une source factice en mémoire (<code>LecteurMemoire</code>) :</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># test_service.py</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pytest</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">personne</span><span class="w"> </span><span class="kn">import</span> <span class="n">Personne</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">lecteurs</span><span class="w"> </span><span class="kn">import</span> <span class="n">LecteurMemoire</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">service</span><span class="w"> </span><span class="kn">import</span> <span class="n">GestionnairePersonnes</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="k">def</span><span class="w"> </span><span class="nf">test_calcul_age_moyen_et_filtrage</span><span class="p">():</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>    <span class="c1"># 1. On prépare des données contrôlées en mémoire (aucun fichier, aucune BD)</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>    <span class="n">mock_source</span> <span class="o">=</span> <span class="n">LecteurMemoire</span><span class="p">([</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>        <span class="n">Personne</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;TestNom1&quot;</span><span class="p">,</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="s2">&quot;alice@test.com&quot;</span><span class="p">),</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>        <span class="n">Personne</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;TestNom2&quot;</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="s2">&quot;bob@test.com&quot;</span><span class="p">),</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>        <span class="n">Personne</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;TestNom3&quot;</span><span class="p">,</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="s2">&quot;charlie@test.com&quot;</span><span class="p">),</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>    <span class="p">])</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>    <span class="c1"># 2. On injecte le bouchon dans notre service métier</span>
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>    <span class="n">service</span> <span class="o">=</span> <span class="n">GestionnairePersonnes</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">mock_source</span><span class="p">)</span>
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>    <span class="c1"># 3. Assertions sur la logique pure</span>
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">service</span><span class="o">.</span><span class="n">lister_personnes</span><span class="p">())</span> <span class="o">==</span> <span class="mi">3</span>
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>    <span class="k">assert</span> <span class="n">service</span><span class="o">.</span><span class="n">calculer_age_moyen</span><span class="p">()</span> <span class="o">==</span> <span class="mf">40.0</span>
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">service</span><span class="o">.</span><span class="n">filtrer_par_age_min</span><span class="p">(</span><span class="mi">35</span><span class="p">))</span> <span class="o">==</span> <span class="mi">2</span>
+</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>    <span class="k">assert</span> <span class="n">service</span><span class="o">.</span><span class="n">trouver_par_courriel</span><span class="p">(</span><span class="s2">&quot;bob@test.com&quot;</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+</span><span id="__span-7-24"><a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a>    <span class="k">assert</span> <span class="n">service</span><span class="o">.</span><span class="n">trouver_par_courriel</span><span class="p">(</span><span class="s2">&quot;inconnu@test.com&quot;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span>
+</span></code></pre></div>
+<p>Les tests s&rsquo;exécutent en quelques millisecondes, sans effet de bord sur le système de fichiers, et peuvent être lancés
+en parallèle sans risque de collision.</p>
+<hr />
+<h2 id="5-connexion-avec-les-patrons-structuraux-les-lecteurs-comme-adaptateurs-adapters">5. Connexion avec les patrons structuraux : Les lecteurs comme Adaptateurs (<em>Adapters</em>)<a class="headerlink" href="#5-connexion-avec-les-patrons-structuraux-les-lecteurs-comme-adaptateurs-adapters" title="Permanent link">&para;</a></h2>
+<p>Il est intéressant de constater comment l&rsquo; <strong>Injection de Dépendances</strong> s&rsquo;articule naturellement avec d&rsquo;autres patrons
+de conception, en particulier le patron structural <strong>Adaptateur (<em>Adapter</em>)</strong> :</p>
+<ul>
+<li><strong>Le problème d&rsquo;incompatibilité :</strong> Le module standard <code>csv.DictReader</code>, la fonction <code>json.load()</code> et le pilote
+  <code>sqlite3.connect()</code> possèdent des APIs, des signatures de méthodes et des modes de fonctionnement totalement
+  hétérogènes.</li>
+<li><strong>Le rôle d&rsquo;adaptateur :</strong> Les classes <code>LecteurCSV</code>, <code>LecteurJSON</code> et <code>LecteurSQLite</code> agissent précisément comme des
+  <strong>Adaptateurs</strong> : elles enveloppent ces bibliothèques techniques disparates et traduisent leurs données vers le
+  contrat cible unique et standardisé <code>LecteurPersonnes</code> attendu par notre application.</li>
+<li><strong>La synergie avec l&rsquo;injection :</strong> Le patron <em>Adaptateur</em> normalise l&rsquo;accès aux différentes sources, tandis que l&rsquo;
+  <em>Injection de Dépendances</em> permet de fournir dynamiquement l&rsquo;adaptateur requis au service métier
+  (<code>GestionnairePersonnes</code>) sans que ce dernier ne soit couplé à une technologie spécifique.</li>
+</ul>
+<div class='puml-container'><div class="puml light" style="display: block"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" data-diagram-type="CLASS" style="width:701px;height:361px;background:#FFFFFF;" width="701px" height="361px" viewBox="0 0 701 361" zoomAndPan="magnify" preserveAspectRatio="xMidYMid meet" contentStyleType="text/css" class="diagram"><?plantuml 1.2026.9beta4?><defs/><g font-family="sans-serif" lengthAdjust="spacing"><g class="entity" data-qualified-name="GestionnairePersonnes" id="ent0001" data-source-line="3"><rect x="7" y="11.13" width="205.184" height="64.297" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><ellipse cx="27.209" cy="27.13" rx="11" ry="11" fill="#ADD1B2" style="stroke:#181818;stroke-width:1;"/><path d="M30.178,32.771 Q29.599,33.067 28.959,33.208 Q28.318,33.364 27.615,33.364 Q25.115,33.364 23.787,31.724 Q22.474,30.067 22.474,26.942 Q22.474,23.817 23.787,22.161 Q25.115,20.505 27.615,20.505 Q28.318,20.505 28.959,20.661 Q29.615,20.817 30.178,21.114 L30.178,23.833 Q29.553,23.255 28.959,22.989 Q28.365,22.708 27.74,22.708 Q26.396,22.708 25.709,23.786 Q25.021,24.849 25.021,26.942 Q25.021,29.036 25.709,30.114 Q26.396,31.177 27.74,31.177 Q28.365,31.177 28.959,30.911 Q29.553,30.63 30.178,30.052 L30.178,32.771 Z " fill="#000"/><text x="42.366" y="31.977" fill="#000" font-size="14" textLength="161.608">GestionnairePersonnes</text><line x1="8" y1="43.13" x2="211.184" y2="43.13" style="stroke:#181818;stroke-width:0.5;"/><text x="13" y="60.125" fill="#000" font-size="14" textLength="193.184">-_source: LecteurPersonnes</text><line x1="8" y1="67.427" x2="211.184" y2="67.427" style="stroke:#181818;stroke-width:0.5;"/></g><g class="entity" data-qualified-name="LecteurPersonnes" id="ent0002" data-source-line="7"><rect x="291.46" y="7" width="274.268" height="72.563" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><ellipse cx="361.761" cy="27.133" rx="11" ry="11" fill="#B4A7E5" style="stroke:#181818;stroke-width:1;"/><path d="M357.683,22.898 L357.683,20.742 L365.073,20.742 L365.073,22.898 L362.605,22.898 L362.605,30.977 L365.073,30.977 L365.073,33.133 L357.683,33.133 L357.683,30.977 L360.151,30.977 L360.151,22.898 L357.683,22.898 Z " fill="#000"/><text x="417.841" y="23.139" fill="#000" font-size="12" textLength="54.006" font-style="italic">«Target»</text><text x="382.261" y="38.964" fill="#000" font-size="14" textLength="125.166" font-style="italic">LecteurPersonnes</text><line x1="292.46" y1="47.266" x2="564.728" y2="47.266" style="stroke:#181818;stroke-width:0.5;"/><line x1="292.46" y1="55.266" x2="564.728" y2="55.266" style="stroke:#181818;stroke-width:0.5;"/><text x="297.46" y="72.261" fill="#000" font-size="14" textLength="262.268" font-style="italic">+charger_personnes(): list[Personne]</text></g><g class="entity" data-qualified-name="LecteurCSV" id="ent0003" data-source-line="11"><rect x="103.46" y="140.56" width="274.268" height="72.563" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><ellipse cx="195.803" cy="160.693" rx="11" ry="11" fill="#ADD1B2" style="stroke:#181818;stroke-width:1;"/><path d="M198.772,166.333 Q198.194,166.63 197.553,166.771 Q196.913,166.927 196.21,166.927 Q193.71,166.927 192.381,165.287 Q191.069,163.63 191.069,160.505 Q191.069,157.38 192.381,155.724 Q193.71,154.068 196.21,154.068 Q196.913,154.068 197.553,154.224 Q198.21,154.38 198.772,154.677 L198.772,157.396 Q198.147,156.818 197.553,156.552 Q196.96,156.271 196.335,156.271 Q194.991,156.271 194.303,157.349 Q193.616,158.412 193.616,160.505 Q193.616,162.599 194.303,163.677 Q194.991,164.74 196.335,164.74 Q196.96,164.74 197.553,164.474 Q198.147,164.193 198.772,163.615 L198.772,166.333 Z " fill="#000"/><text x="225.593" y="156.699" fill="#000" font-size="12" textLength="62.502" font-style="italic">«Adapter»</text><text x="216.303" y="172.524" fill="#000" font-size="14" textLength="81.081">LecteurCSV</text><line x1="104.46" y1="180.826" x2="376.728" y2="180.826" style="stroke:#181818;stroke-width:0.5;"/><line x1="104.46" y1="188.826" x2="376.728" y2="188.826" style="stroke:#181818;stroke-width:0.5;"/><text x="109.46" y="205.821" fill="#000" font-size="14" textLength="262.268">+charger_personnes(): list[Personne]</text></g><g class="entity" data-qualified-name="LecteurSQLite" id="ent0004" data-source-line="15"><rect x="412.46" y="140.56" width="274.268" height="72.563" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><ellipse cx="496.074" cy="160.693" rx="11" ry="11" fill="#ADD1B2" style="stroke:#181818;stroke-width:1;"/><path d="M499.043,166.333 Q498.464,166.63 497.824,166.771 Q497.183,166.927 496.48,166.927 Q493.98,166.927 492.652,165.287 Q491.339,163.63 491.339,160.505 Q491.339,157.38 492.652,155.724 Q493.98,154.068 496.48,154.068 Q497.183,154.068 497.824,154.224 Q498.48,154.38 499.043,154.677 L499.043,157.396 Q498.418,156.818 497.824,156.552 Q497.23,156.271 496.605,156.271 Q495.261,156.271 494.574,157.349 Q493.886,158.412 493.886,160.505 Q493.886,162.599 494.574,163.677 Q495.261,164.74 496.605,164.74 Q497.23,164.74 497.824,164.474 Q498.418,164.193 499.043,163.615 L499.043,166.333 Z " fill="#000"/><text x="534.593" y="156.699" fill="#000" font-size="12" textLength="62.502" font-style="italic">«Adapter»</text><text x="516.574" y="172.524" fill="#000" font-size="14" textLength="98.54">LecteurSQLite</text><line x1="413.46" y1="180.826" x2="685.728" y2="180.826" style="stroke:#181818;stroke-width:0.5;"/><line x1="413.46" y1="188.826" x2="685.728" y2="188.826" style="stroke:#181818;stroke-width:0.5;"/><text x="418.46" y="205.821" fill="#000" font-size="14" textLength="262.268">+charger_personnes(): list[Personne]</text></g><g class="entity" data-qualified-name="CSVLib" id="ent0005" data-source-line="19"><rect x="171.71" y="290.12" width="137.759" height="56.266" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><ellipse cx="186.71" cy="310.253" rx="11" ry="11" fill="#ADD1B2" style="stroke:#181818;stroke-width:1;"/><path d="M189.679,315.893 Q189.101,316.19 188.46,316.331 Q187.819,316.487 187.116,316.487 Q184.616,316.487 183.288,314.847 Q181.976,313.19 181.976,310.065 Q181.976,306.94 183.288,305.284 Q184.616,303.628 187.116,303.628 Q187.819,303.628 188.46,303.784 Q189.116,303.94 189.679,304.237 L189.679,306.956 Q189.054,306.378 188.46,306.112 Q187.866,305.831 187.241,305.831 Q185.898,305.831 185.21,306.909 Q184.523,307.972 184.523,310.065 Q184.523,312.159 185.21,313.237 Q185.898,314.3 187.241,314.3 Q187.866,314.3 188.46,314.034 Q189.054,313.753 189.679,313.175 L189.679,315.893 Z " fill="#000"/><text x="221.114" y="306.259" fill="#000" font-size="12" textLength="64.951" font-style="italic">«Adaptee»</text><text x="200.71" y="322.084" fill="#000" font-size="14" textLength="105.759">csv.DictReader</text><line x1="172.71" y1="330.386" x2="308.469" y2="330.386" style="stroke:#181818;stroke-width:0.5;"/><line x1="172.71" y1="338.386" x2="308.469" y2="338.386" style="stroke:#181818;stroke-width:0.5;"/></g><g class="entity" data-qualified-name="SQLiteLib" id="ent0006" data-source-line="22"><rect x="468.27" y="290.12" width="162.635" height="56.266" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;" rx="2.5" ry="2.5"/><ellipse cx="483.27" cy="310.253" rx="11" ry="11" fill="#ADD1B2" style="stroke:#181818;stroke-width:1;"/><path d="M486.239,315.893 Q485.661,316.19 485.02,316.331 Q484.379,316.487 483.676,316.487 Q481.176,316.487 479.848,314.847 Q478.536,313.19 478.536,310.065 Q478.536,306.94 479.848,305.284 Q481.176,303.628 483.676,303.628 Q484.379,303.628 485.02,303.784 Q485.676,303.94 486.239,304.237 L486.239,306.956 Q485.614,306.378 485.02,306.112 Q484.426,305.831 483.801,305.831 Q482.458,305.831 481.77,306.909 Q481.083,307.972 481.083,310.065 Q481.083,312.159 481.77,313.237 Q482.458,314.3 483.801,314.3 Q484.426,314.3 485.02,314.034 Q485.614,313.753 486.239,313.175 L486.239,315.893 Z " fill="#000"/><text x="530.112" y="306.259" fill="#000" font-size="12" textLength="64.951" font-style="italic">«Adaptee»</text><text x="497.27" y="322.084" fill="#000" font-size="14" textLength="130.635">sqlite3.Connection</text><line x1="469.27" y1="330.386" x2="629.905" y2="330.386" style="stroke:#181818;stroke-width:0.5;"/><line x1="469.27" y1="338.386" x2="629.905" y2="338.386" style="stroke:#181818;stroke-width:0.5;"/></g><g class="link" data-entity-1="ent0001" data-entity-2="ent0002" id="lnk7" data-source-line="25" data-link-type="aggregation"><path d="M224.28,43.28 C249.42,43.28 259.72,43.28 286.19,43.28" style="stroke:#181818;stroke-width:1;" fill="none" id="GestionnairePersonnes-LecteurPersonnes" codeLine="25"/><polygon points="212.28,43.28,218.28,47.28,224.28,43.28,218.28,39.28,212.28,43.28" fill="none" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><polygon points="291.19,43.28,282.19,39.28,286.19,43.28,282.19,47.28,291.19,43.28" fill="#181818" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="230.32" y="36.347" fill="#000" font-size="13" textLength="43.704">injecté</text></g><g class="link" data-entity-1="ent0002" data-entity-2="ent0003" id="lnk8" data-source-line="26" data-link-type="extension"><path d="M362.973,90.2 C336.223,108.92 318.27,121.49 291.51,140.21" style="stroke:#181818;stroke-width:1;stroke-dasharray:7,7;" fill="none" id="LecteurPersonnes-backto-LecteurCSV" codeLine="26"/><polygon points="377.72,79.88,359.532,85.285,366.413,95.116,377.72,79.88" fill="none" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/></g><g class="link" data-entity-1="ent0002" data-entity-2="ent0004" id="lnk9" data-source-line="27" data-link-type="extension"><path d="M473.522,93.131 C490.732,111.851 499.6,121.49 516.82,140.21" style="stroke:#181818;stroke-width:1;stroke-dasharray:7,7;" fill="none" id="LecteurPersonnes-backto-LecteurSQLite" codeLine="27"/><polygon points="461.34,79.88,469.105,97.192,477.939,89.07,461.34,79.88" fill="none" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/></g><g class="link" data-entity-1="ent0003" data-entity-2="ent0005" id="lnk10" data-source-line="29" data-link-type="dependency"><path d="M240.59,213.38 C240.59,237.1 240.59,262.83 240.59,284.7" style="stroke:#181818;stroke-width:1;stroke-dasharray:7,7;" fill="none" id="LecteurCSV-to-CSVLib" codeLine="29"/><polygon points="240.59,289.7,244.59,280.7,240.59,284.7,236.59,280.7,240.59,289.7" fill="#181818" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="241.59" y="256.187" fill="#000" font-size="13" textLength="45.532">adapte</text></g><g class="link" data-entity-1="ent0004" data-entity-2="ent0006" id="lnk11" data-source-line="30" data-link-type="dependency"><path d="M549.59,213.38 C549.59,237.1 549.59,262.83 549.59,284.7" style="stroke:#181818;stroke-width:1;stroke-dasharray:7,7;" fill="none" id="LecteurSQLite-to-SQLiteLib" codeLine="30"/><polygon points="549.59,289.7,553.59,280.7,549.59,284.7,545.59,280.7,549.59,289.7" fill="#181818" style="stroke:#181818;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:10;"/><text x="550.59" y="256.187" fill="#000" font-size="13" textLength="45.532">adapte</text></g><?plantuml-src fP7FIiD04CRl-nH3Jufq4Ro54YWLHCX1ZNWHAPFjgAjn4tSc7gnz89_35tEpCVr3YWUzBJlV_EQRR_ZPkXezle0faNaguctH29sRokNsdU1OgLY1CsAnbNDeFLsGv_0aXgK26C-vQhoX138oGerVbzLAAUk4_3qQ6bHXChb6_q2Iff5pjCI2nQEH5PZ7jkBdTIy-E4oWj2otVVjT2--i_O1d-Kr0JXTOXuazyo-W_3ApGlzaZGo_wLDhv8fmGNu4o10SPhPOWoc2DntyMeQv9thMeaoRTkpgxEnjt7-KQfmEmqx0kgVm-VMfXeVuq7ehnTy5dHsbjbBNEkrtIm2ZHRMRPQlOxD6BlW40?></g></svg></div></div>
+
+<hr />
+<h2 id="6-synthese-des-benefices-de-linjection-de-dependances">6. Synthèse des Bénéfices de l&rsquo;Injection de Dépendances<a class="headerlink" href="#6-synthese-des-benefices-de-linjection-de-dependances" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Bénéfice</th>
+<th style="text-align: left;">Explication concrète</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Couplage faible (<em>Loose Coupling</em>)</strong></td>
+<td style="text-align: left;">La couche métier ne connaît aucune des technologies de stockage sous-jacentes.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Testabilité (<em>Testability</em>)</strong></td>
+<td style="text-align: left;">Remplacement immédiat des dépendances lourdes (BD, réseau, API) par des fakes ou mocks légers.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Extensibilité (Principe OCP)</strong></td>
+<td style="text-align: left;">Pour supporter une source XML ou API GraphQL, on ajoute un <code>LecteurGraphQL(LecteurPersonnes)</code> sans toucher à <code>GestionnairePersonnes</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Séparation des préoccupations (SRP)</strong></td>
+<td style="text-align: left;">Le service gère la logique métier ; la couche d&rsquo;accès aux données gère la technique ; le point d&rsquo;entrée configure l&rsquo;assemblage.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Synergie des patrons</strong></td>
+<td style="text-align: left;">Les adaptateurs techniques (fichiers, bases de données, services tiers) s&rsquo;injectent de manière transparente et interchangeable.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<div class="admonition info">
+<p class="admonition-title">Exemple complet de code</p>
+</div>
+<p>Le code source complet prêt à être exécuté (avec les fichiers de test et générateurs de données) est disponible dans le
+fichier <a href="../../src/section6/injection/main.py"><code>docs/src/section6/injection/main.py</code></a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pied de page" >
+        
+          
+          <a href="../04_creation2/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Patrons de conception : Création (Deuxième Partie)">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Précédent
+              </span>
+              <div class="md-ellipsis">
+                Patrons de conception : Création (Deuxième Partie)
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../06_structuraux/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Patrons de Conception : Structuraux">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Suivant
+              </span>
+              <div class="md-ellipsis">
+                Patrons de Conception : Structuraux
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.code.select", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.top", "navigation.footer", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/config.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../assets/mkdocs_puml/puml.js"></script>
+      
+        <script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
+      
+        <script src="../../assets/mkdocs_puml/interaction.js"></script>
+      
+    
+  </body>
+</html>
