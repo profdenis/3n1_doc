@@ -135,30 +135,32 @@ requete = (
 ### Pertinence moderne et approche multiparadigme
 
 Dans les langages modernes comme **Python**, le patron Monteur classique est souvent rendu **obsolète ou redondant**
-pour la simple configuration d'objets grâce à :
+pour la simple configuration d'objets grâce aux arguments nommés (*keyword arguments*) et aux valeurs par défaut :
 
-1. **Les arguments nommés (*keyword arguments*) et valeurs par défaut** :
-   ```python
-   from dataclasses import dataclass, field
+```python
+from dataclasses import dataclass, field
 
-   @dataclass
-   class RequeteHttp:
-       url: str
-       methode: str = "GET"
-       en_tetes: dict = field(default_factory=dict)
-       corps: str | None = None
-       timeout: int = 30
 
-   # Inutile de créer un Builder :
-   req = RequeteHttp(
-       url="https://api.exemple.com",
-       methode="POST",
-       timeout=10
-   )
-   ```
-2. **Quand reste-t-il utile ?** Le patron conserve son utilité lorsque la construction implique un processus
-   algorithmique strict en plusieurs étapes indépendantes (ex. conversion d'un document Markdown en arbre HTML,
-   construction de requêtes SQL complexes avec conditions imbriquées).
+@dataclass
+class RequeteHttp:
+    url: str
+    methode: str = "GET"
+    en_tetes: dict = field(default_factory=dict)
+    corps: str | None = None
+    timeout: int = 30
+
+
+# Inutile de créer un Builder :
+req = RequeteHttp(
+    url="https://api.exemple.com",
+    methode="POST",
+    timeout=10
+)
+```
+
+**Quand reste-t-il utile ?** Le patron conserve son utilité lorsque la construction implique un processus
+algorithmique strict en plusieurs étapes indépendantes (ex. conversion d'un document Markdown en arbre HTML,
+construction de requêtes SQL complexes avec conditions imbriquées).
 
 ---
 
@@ -375,14 +377,23 @@ remplacé par des solutions plus propres et modulaires :
 
 #### 1. L'Injection de Dépendances (*Dependency Injection* - DI) et les Conteneurs IoC
 
-Au lieu qu'une classe ou une fonction aille chercher elle-même son instance globale (couplage fort), on lui **passe explicitement ses dépendances** en paramètre (au constructeur ou à la méthode).
+Au lieu qu'une classe ou une fonction aille chercher elle-même son instance globale (couplage fort), on lui **passe
+explicitement ses dépendances** en paramètre (au constructeur ou à la méthode).
 
 ##### Qu'est-ce que l'Inversion de Contrôle (IoC) et un conteneur IoC ?
 
-* **Inversion de Contrôle (*Inversion of Control* - IoC)** : C'est le principe général selon lequel une classe ne contrôle plus elle-même l'instanciation de ses collaborateurs ou le flux d'exécution. Au lieu que l'objet dise *"je crée ou je vais chercher mon gestionnaire de configuration"*, il déclare seulement *"j'ai besoin d'une configuration"* et attend qu'on la lui fournisse (souvent résumé par le principe d'Hollywood : *"Ne nous appelez pas, nous vous appellerons"*). L'Injection de Dépendances (DI) est la forme d'IoC la plus répandue.
-* **Conteneur IoC (*IoC Container* ou conteneur d'injection de dépendances)** : C'est un outil ou cadriciel (ex. *Dependency Injector* en Python, le conteneur DI de FastAPI, ou ceux de .NET et Spring) qui automatise la création des objets, la résolution de leurs dépendances et la gestion de leur **cycle de vie** :
-    * Le conteneur peut être configuré pour instancier un objet en mode **Singleton** (une seule instance partagée créée au démarrage et injectée partout où elle est requise).
-    * La classe métier reste ainsi simple, pure et totalement découplée : elle n'a plus besoin d'implémenter de logique de verrouillage, de méthode statique `obtenir_instance()` ou de constructeur privé.
+* **Inversion de Contrôle (*Inversion of Control* - IoC)** : C'est le principe général selon lequel une classe ne
+  contrôle plus elle-même l'instanciation de ses collaborateurs ou le flux d'exécution. Au lieu que l'objet dise *"je
+  crée ou je vais chercher mon gestionnaire de configuration"*, il déclare seulement *"j'ai besoin d'une configuration"*
+  et attend qu'on la lui fournisse (souvent résumé par le principe d'Hollywood : *"Ne nous appelez pas, nous vous
+  appellerons"*). L'Injection de Dépendances (DI) est la forme d'IoC la plus répandue.
+* **Conteneur IoC (*IoC Container* ou conteneur d'injection de dépendances)** : C'est un outil ou cadriciel (ex.
+  *Dependency Injector* en Python, le conteneur DI de FastAPI, ou ceux de .NET et Spring) qui automatise la création des
+  objets, la résolution de leurs dépendances et la gestion de leur **cycle de vie** :
+    * Le conteneur peut être configuré pour instancier un objet en mode **Singleton** (une seule instance partagée créée
+      au démarrage et injectée partout où elle est requise).
+    * La classe métier reste ainsi simple, pure et totalement découplée : elle n'a plus besoin d'implémenter de logique
+      de verrouillage, de méthode statique `obtenir_instance()` ou de constructeur privé.
 
 ```python
 # 1. Classe métier pure : aucune logique de Singleton à l'intérieur

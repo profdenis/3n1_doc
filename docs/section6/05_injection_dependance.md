@@ -114,7 +114,6 @@ class LecteurSQLite {
 
 class LecteurMemoire {
   -_personnes: list[Personne]
-  +ajouter_personne(p: Personne)
   +charger_personnes(): list[Personne]
 }
 
@@ -541,5 +540,5 @@ LecteurSQLite ..> SQLiteLib : adapte
 ---
 
 !!! info "Exemple complet de code"
-Le code source complet prêt à être exécuté (avec les fichiers de test et générateurs de données) est disponible dans le
-fichier [`docs/src/section6/injection/main.py`](../src/section6/injection/main.py).
+    Le code source complet prêt à être exécuté (avec les fichiers de test et générateurs de données) est disponible dans le
+    fichier [`docs/src/section6/injection/main.py`](../src/section6/injection/main.py).

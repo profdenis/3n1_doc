@@ -506,6 +506,76 @@ if __name__ == "__main__":
     notif_complete.envoyer("Alerte panne de serveur")
 ```
 
+### Variante avec la syntaxe `@` de Python
+
+Le patron GoF ci-dessus repose sur des classes qui s'emboîtent. En Python, on obtient le même résultat avec des **décorateurs de fonctions** (la syntaxe `@`), qui sont des fonctions d'ordre supérieur. Voici le même scénario (courriel, SMS, journal d'audit) :
+
+```python
+import functools
+from collections.abc import Callable
+
+
+# Décorateur simple, sans paramètre
+def journaliser(fonction: Callable[[str], None]) -> Callable[[str], None]:
+    @functools.wraps(fonction)
+    def enveloppe(message: str) -> None:
+        fonction(message)
+        # Responsabilité additionnelle : log d'audit
+        print(f"📝 [LOG AUDIT] Notification transmise avec succès : '{message}'")
+
+    return enveloppe
+
+
+# Décorateur paramétré : une fabrique qui retourne le vrai décorateur
+def sms(numero_tel: str) -> Callable[[Callable[[str], None]], Callable[[str], None]]:
+    def decorateur(fonction: Callable[[str], None]) -> Callable[[str], None]:
+        @functools.wraps(fonction)
+        def enveloppe(message: str) -> None:
+            fonction(message)
+            # Responsabilité additionnelle
+            print(f"📱 Envoi SMS au {numero_tel} : {message}")
+
+        return enveloppe
+
+    return decorateur
+
+
+# Fonction de base
+@journaliser
+@sms("514-555-4321")
+def envoyer_courriel(message: str) -> None:
+    print(f"📧 Envoi courriel à admin@entreprise.com : {message}")
+
+
+# --- Utilisation ---
+if __name__ == "__main__":
+    print("--- Envoi via les décorateurs ---")
+    envoyer_courriel("Alerte panne de serveur")
+```
+
+Sortie attendue :
+
+```text
+--- Envoi via les décorateurs ---
+📧 Envoi courriel à admin@entreprise.com : Alerte panne de serveur
+📱 Envoi SMS au 514-555-4321 : Alerte panne de serveur
+📝 [LOG AUDIT] Notification transmise avec succès : 'Alerte panne de serveur'
+```
+
+Les deux lignes `@` sont équivalentes à :
+
+```python
+envoyer_courriel = journaliser(sms("514-555-4321")(envoyer_courriel))
+```
+
+Les décorateurs s'appliquent de bas en haut : `sms` enveloppe d'abord la fonction de base, puis `journaliser` enveloppe le résultat. C'est pour cela que le log s'affiche en dernier, comme dans la version GoF.
+
+Points à retenir :
+
+- `envoyer_courriel` reste une fonction. Il n'y a pas d'interface `Notificateur` ni d'objet enveloppant : le patron GoF et le décorateur Python résolvent le même besoin avec deux mécanismes différents.
+- `functools.wraps` conserve le nom et la docstring de la fonction d'origine, ce qui évite de perdre les métadonnées après décoration.
+- Un décorateur paramétré (comme `sms`) demande un niveau d'imbrication supplémentaire, car `sms("...")` doit être évalué avant d'être appliqué à la fonction.
+
 ---
 
 ## 5. Façade (*Facade*)
