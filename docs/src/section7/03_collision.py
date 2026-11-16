@@ -51,7 +51,7 @@ while en_cours:
     for evenement in pygame.event.get():
         if evenement.type == pygame.QUIT:
             en_cours = False
-        elif evenement.type == pygame.KEYDOWN:
+        elif evenement.type == pygame.KEYDOWN and partie_terminee:
             # Quitter avec la touche Échap (ESC)
             if evenement.key == pygame.K_ESCAPE:
                 en_cours = False
