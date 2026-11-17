@@ -4742,30 +4742,29 @@ construction puisse produire différentes représentations ou configurations de 
 </ul>
 <h3 id="pertinence-moderne-et-approche-multiparadigme">Pertinence moderne et approche multiparadigme<a class="headerlink" href="#pertinence-moderne-et-approche-multiparadigme" title="Permanent link">&para;</a></h3>
 <p>Dans les langages modernes comme <strong>Python</strong>, le patron Monteur classique est souvent rendu <strong>obsolète ou redondant</strong>
-pour la simple configuration d&rsquo;objets grâce à :</p>
-<ol type="1">
-<li><strong>Les arguments nommés (<em>keyword arguments</em>) et valeurs par défaut</strong> :
-   <div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
+pour la simple configuration d&rsquo;objets grâce aux arguments nommés (<em>keyword arguments</em>) et aux valeurs par défaut :</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nd">@dataclass</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">class</span><span class="w"> </span><span class="nc">RequeteHttp</span><span class="p">:</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="n">url</span><span class="p">:</span> <span class="nb">str</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="n">methode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;GET&quot;</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="n">en_tetes</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="n">corps</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="n">timeout</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">30</span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="c1"># Inutile de créer un Builder :</span>
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="n">req</span> <span class="o">=</span> <span class="n">RequeteHttp</span><span class="p">(</span>
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>    <span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://api.exemple.com&quot;</span><span class="p">,</span>
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>    <span class="n">methode</span><span class="o">=</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span>
-</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>    <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span>
-</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="p">)</span>
-</span></code></pre></div></li>
-<li><strong>Quand reste-t-il utile ?</strong> Le patron conserve son utilité lorsque la construction implique un processus
-   algorithmique strict en plusieurs étapes indépendantes (ex. conversion d&rsquo;un document Markdown en arbre HTML,
-   construction de requêtes SQL complexes avec conditions imbriquées).</li>
-</ol>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nd">@dataclass</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="k">class</span><span class="w"> </span><span class="nc">RequeteHttp</span><span class="p">:</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="n">url</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="n">methode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;GET&quot;</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="n">en_tetes</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="n">corps</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    <span class="n">timeout</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">30</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="c1"># Inutile de créer un Builder :</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="n">req</span> <span class="o">=</span> <span class="n">RequeteHttp</span><span class="p">(</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>    <span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://api.exemple.com&quot;</span><span class="p">,</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>    <span class="n">methode</span><span class="o">=</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>    <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Quand reste-t-il utile ?</strong> Le patron conserve son utilité lorsque la construction implique un processus
+algorithmique strict en plusieurs étapes indépendantes (ex. conversion d&rsquo;un document Markdown en arbre HTML,
+construction de requêtes SQL complexes avec conditions imbriquées).</p>
 <hr />
 <h2 id="prototype">Prototype<a class="headerlink" href="#prototype" title="Permanent link">&para;</a></h2>
 <h3 id="intention_2">Intention<a class="headerlink" href="#intention_2" title="Permanent link">&para;</a></h3>
@@ -4920,13 +4919,22 @@ invisibles :</p>
 <p>Dans le développement moderne et les approches multiparadigmes, le Singleton classique est presque systématiquement
 remplacé par des solutions plus propres et modulaires :</p>
 <h4 id="1-linjection-de-dependances-dependency-injection-di-et-les-conteneurs-ioc">1. L&rsquo;Injection de Dépendances (<em>Dependency Injection</em> - DI) et les Conteneurs IoC<a class="headerlink" href="#1-linjection-de-dependances-dependency-injection-di-et-les-conteneurs-ioc" title="Permanent link">&para;</a></h4>
-<p>Au lieu qu&rsquo;une classe ou une fonction aille chercher elle-même son instance globale (couplage fort), on lui <strong>passe explicitement ses dépendances</strong> en paramètre (au constructeur ou à la méthode).</p>
+<p>Au lieu qu&rsquo;une classe ou une fonction aille chercher elle-même son instance globale (couplage fort), on lui <strong>passe
+explicitement ses dépendances</strong> en paramètre (au constructeur ou à la méthode).</p>
 <h5 id="quest-ce-que-linversion-de-controle-ioc-et-un-conteneur-ioc">Qu&rsquo;est-ce que l&rsquo;Inversion de Contrôle (IoC) et un conteneur IoC ?<a class="headerlink" href="#quest-ce-que-linversion-de-controle-ioc-et-un-conteneur-ioc" title="Permanent link">&para;</a></h5>
 <ul>
-<li><strong>Inversion de Contrôle (<em>Inversion of Control</em> - IoC)</strong> : C&rsquo;est le principe général selon lequel une classe ne contrôle plus elle-même l&rsquo;instanciation de ses collaborateurs ou le flux d&rsquo;exécution. Au lieu que l&rsquo;objet dise <em>&ldquo;je crée ou je vais chercher mon gestionnaire de configuration&rdquo;</em>, il déclare seulement <em>&ldquo;j&rsquo;ai besoin d&rsquo;une configuration&rdquo;</em> et attend qu&rsquo;on la lui fournisse (souvent résumé par le principe d&rsquo;Hollywood : <em>&ldquo;Ne nous appelez pas, nous vous appellerons&rdquo;</em>). L&rsquo;Injection de Dépendances (DI) est la forme d&rsquo;IoC la plus répandue.</li>
-<li><strong>Conteneur IoC (<em>IoC Container</em> ou conteneur d&rsquo;injection de dépendances)</strong> : C&rsquo;est un outil ou cadriciel (ex. <em>Dependency Injector</em> en Python, le conteneur DI de FastAPI, ou ceux de .NET et Spring) qui automatise la création des objets, la résolution de leurs dépendances et la gestion de leur <strong>cycle de vie</strong> :<ul>
-<li>Le conteneur peut être configuré pour instancier un objet en mode <strong>Singleton</strong> (une seule instance partagée créée au démarrage et injectée partout où elle est requise).</li>
-<li>La classe métier reste ainsi simple, pure et totalement découplée : elle n&rsquo;a plus besoin d&rsquo;implémenter de logique de verrouillage, de méthode statique <code>obtenir_instance()</code> ou de constructeur privé.</li>
+<li><strong>Inversion de Contrôle (<em>Inversion of Control</em> - IoC)</strong> : C&rsquo;est le principe général selon lequel une classe ne
+  contrôle plus elle-même l&rsquo;instanciation de ses collaborateurs ou le flux d&rsquo;exécution. Au lieu que l&rsquo;objet dise <em>&ldquo;je
+  crée ou je vais chercher mon gestionnaire de configuration&rdquo;</em>, il déclare seulement <em>&ldquo;j&rsquo;ai besoin d&rsquo;une configuration&rdquo;</em>
+  et attend qu&rsquo;on la lui fournisse (souvent résumé par le principe d&rsquo;Hollywood : <em>&ldquo;Ne nous appelez pas, nous vous
+  appellerons&rdquo;</em>). L&rsquo;Injection de Dépendances (DI) est la forme d&rsquo;IoC la plus répandue.</li>
+<li><strong>Conteneur IoC (<em>IoC Container</em> ou conteneur d&rsquo;injection de dépendances)</strong> : C&rsquo;est un outil ou cadriciel (ex.
+  <em>Dependency Injector</em> en Python, le conteneur DI de FastAPI, ou ceux de .NET et Spring) qui automatise la création des
+  objets, la résolution de leurs dépendances et la gestion de leur <strong>cycle de vie</strong> :<ul>
+<li>Le conteneur peut être configuré pour instancier un objet en mode <strong>Singleton</strong> (une seule instance partagée créée
+  au démarrage et injectée partout où elle est requise).</li>
+<li>La classe métier reste ainsi simple, pure et totalement découplée : elle n&rsquo;a plus besoin d&rsquo;implémenter de logique
+  de verrouillage, de méthode statique <code>obtenir_instance()</code> ou de constructeur privé.</li>
 </ul>
 </li>
 </ul>
